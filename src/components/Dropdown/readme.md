@@ -4,11 +4,11 @@ A lightweight, customizable dropdown component built with React and CSS Modules.
 
 ## Features
 
-`Customizable Label and Options`: Display custom labels and dropdown items.
-`Dynamic Value Updates`: Easily capture the selected value with an onChange handler.
-`Responsive Design`: Adapts seamlessly to different screen sizes.
-`Smooth Transitions`: Includes animations for menu toggling.
-`Hover Effects`: Enhances user interaction with hover styles.
+Customizable Label and Options: Display custom labels and dropdown items.
+Dynamic Value Updates: Easily capture the selected value with an onChange handler.
+Responsive Design: Adapts seamlessly to different screen sizes.
+Smooth Transitions: Includes animations for menu toggling.
+Hover Effects: Enhances user interaction with hover styles.
 
 ## Usage
 
