@@ -1,0 +1,31 @@
+/* Base button styles */
+.button {
+    @apply flex items-center justify-center gap-4 font-semibold px-2 py-0.5 rounded text-xs lg:text-base shadow-sm;
+}
+
+/* Disabled state */
+.button:disabled {
+    @apply cursor-not-allowed;
+}
+
+/* Variants */
+.variant {
+    @apply bg-green border border-green text-white;
+}
+
+.text {
+    @apply p-0 shadow-none text-black;
+}
+
+.outlined {
+    @apply text-black bg-white border border-black;
+}
+
+.disabled {
+    @apply bg-gray-200 text-gray-500 border-gray-300;
+}
+
+/* Icon-only style */
+.icon {
+    @apply p-0.5;
+}
