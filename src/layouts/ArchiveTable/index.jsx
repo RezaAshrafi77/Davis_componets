@@ -2,14 +2,13 @@
 import { useEffect, useState, useCallback } from "react"
 import { Archvie_Table_Columns } from "./data"
 import { Table } from "@/components/elements"
-import { requestFunction } from "@/services"
 import { VscLoading } from "react-icons/vsc"
 import { toast } from "react-toastify"
 import moment from "jalali-moment"
 import styles from "./styles.module.css"
 
 export default function ArchiveTable({ options }) {
-    const { jobID, BC, userID, questionKey } = options
+    const { jobID, BC, userID, questionKey, request } = options
     const [currentPage, setPage] = useState(1)
     const [tableSize, setTableSize] = useState(null)
     const [tableData, setTableData] = useState([])
@@ -19,27 +18,25 @@ export default function ArchiveTable({ options }) {
         const formData = {
             jobId: jobID,
             dataInfo: {
-                limit: tableSize,
-                offset: tableSize * (currentPage - 1),
                 qbc: BC,
                 oi: questionKey,
                 6483: userID || localStorage.getItem("userData")?.["6483"],
             },
-            page: currentPage,
-            pageSize: tableSize,
+            limit: tableSize,
+            offset: tableSize * (currentPage - 1),
         }
 
         setLoading(true)
 
         try {
-            const res = await requestFunction(formData)
+            const res = await request(formData)
             setTableData(res.data)
         } catch (err) {
             toast.error(err.message)
         } finally {
             setLoading(false)
         }
-    }, [jobID, BC, userID, questionKey, tableSize, currentPage])
+    }, [jobID, BC, userID, questionKey, request, tableSize, currentPage])
 
     useEffect(() => {
         if (tableSize && currentPage) {

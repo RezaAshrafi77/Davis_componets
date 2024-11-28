@@ -16,20 +16,22 @@ The `ArchiveTable` component is used for displaying archived data in a table for
 import ArchiveTable from "@/components/ArchiveTable"
 ;<ArchiveTable
     options={{
-        jobID: "12345",
-        BC: "category1",
-        userID: "67890", // Optional, will fallback to localStorage if not provided
-        questionKey: "q1234",
+        jobID: "140",
+        BC: "unique base code",
+        userID: "3233233322", // Optional, will fallback to localStorage if not provided
+        questionKey: "12342",
+        request: () => {},
     }}
 />
 ```
 
 ## Props
 
-| Prop          | Type     | Description                                                             |
-| ------------- | -------- | ----------------------------------------------------------------------- |
-| `options`     | `object` | Configuration object containing `jobID`, `BC`, `userID`, `questionKey`. |
-| `jobID`       | `string` | Job ID for fetching archived data.                                      |
-| `BC`          | `string` | Unique Base Code for Form.                                              |
-| `userID`      | `string` | User Identifier                                                         |
-| `questionKey` | `string` | A key representing the related question for archived data.              |
+| Prop          | Type       | Description                                                             |
+| ------------- | ---------- | ----------------------------------------------------------------------- |
+| `options`     | `object`   | Configuration object containing `jobID`, `BC`, `userID`, `questionKey`. |
+| `jobID`       | `string`   | Job ID for fetching archived data.                                      |
+| `BC`          | `string`   | Unique Base Code for Form.                                              |
+| `userID`      | `string`   | User Identifier                                                         |
+| `questionKey` | `string`   | A key representing the related question for archived data.              |
+| `request`     | `Function` | A Function that call API for get archives                               |
