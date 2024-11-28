@@ -15,11 +15,11 @@ A versatile and reusable React Button component built with Tailwind CSS and CSS 
 ### Basic Button
 
 ```jsx
-<Button title="Click Me" variant="variant" onClick={() => alert("Clicked!")} />
+<Button title="ارسال" variant="variant" onClick={() => alert("Clicked!")} />
 
-<Button title="Save" icon={<SaveIcon />} variant="outlined" />
+<Button title="دخیره اطلاعات" icon={<SaveIcon />} variant="outlined" />
 
-<Button title="Loading..." loading={true} variant="variant" loadingColor="red" />
+<Button loading={true} variant="variant" loadingColor="red" />
 
 <Button icon={<SomeIcon />} variant="text" onClick={() => console.log("Icon Clicked!")} />
 
