@@ -1,0 +1,36 @@
+.dropdown {
+    @apply flex items-center gap-2 select-none relative bg-white rounded px-1 lg:px-2 py-1 cursor-pointer;
+}
+
+.labelContainer {
+    @apply flex items-center lg:gap-1;
+}
+
+.label,
+.value {
+    @apply text-2xs lg:text-xs;
+}
+
+.icon {
+    @apply transition-all text-2xs lg:text-sm;
+}
+
+.iconOpen {
+    @apply rotate-180;
+}
+
+.menu {
+    @apply w-full left-0 absolute -bottom-1 translate-y-full transition-all mt-2 divide-y divide-gray-200 bg-white shadow-box rounded overflow-hidden z-50;
+}
+
+.menuOpen {
+    @apply py-2;
+}
+
+.menuClosed {
+    @apply h-0;
+}
+
+.menuItem {
+    @apply py-2 text-2xs hover:bg-white-light lg:px-3;
+}
