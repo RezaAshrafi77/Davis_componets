@@ -24,10 +24,9 @@ A customizable React component for displaying form labels with optional icons an
 
 ```jsx
 <Label
-    label="Username"
+    label="نام"
     required={true}
-    userGuide={<div>Enter your username here.</div>}
-    archive="username-archive-key"
+    userGuide={<div>راهنمای سوال</div>}
     educationalContent={{
         show: true,
         action: () => alert("Educational Content"),
