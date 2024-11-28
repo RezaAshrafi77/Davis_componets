@@ -30,8 +30,6 @@ A versatile and reusable React Button component built with Tailwind CSS and CSS 
 ### Props
 
 ```markdown
-## Props
-
 | Prop Name      | Type        | Default          | Description                                                 |
 | -------------- | ----------- | ---------------- | ----------------------------------------------------------- |
 | `title`        | `string`    | `undefined`      | Text displayed inside the button.                           |
