@@ -29,18 +29,15 @@ A versatile and reusable React Button component built with Tailwind CSS and CSS 
 
 ### Props
 
-```markdown
-| Prop Name      | Type        | Default          | Description                                                 |
-| -------------- | ----------- | ---------------- | ----------------------------------------------------------- |
-| `title`        | `string`    | `undefined`      | Text displayed inside the button.                           |
-| `variant`      | `string`    | `"variant"`      | Button style variant (`variant`, `text`, `outlined`, etc.). |
-| `type`         | `string`    | `"button"`       | HTML `type` of the button (`button`, `submit`, or `reset`). |
-| `loading`      | `bool`      | `false`          | Shows a loading spinner when true.                          |
-| `disabled`     | `bool`      | `false`          | Disables the button when true.                              |
-| `className`    | `string`    | `undefined`      | Additional classes for customization.                       |
-| `icon`         | `ReactNode` | `null`           | Icon to display inside the button.                          |
-| `loadingColor` | `string`    | `"currentColor"` | Color of the spinner in the loading state.                  |
-```
+Prop Name Type Default Description
+title string undefined Text displayed inside the button.
+variant string "variant" Determines the button style (variant, text, outlined, etc.).
+type string "button" HTML type attribute (button, submit, reset).
+loading bool false Shows a spinner when true.
+disabled bool false Disables the button when true.
+className string undefined Additional CSS classes for customization.
+icon ReactNode null Icon to display inside the button.
+loadingColor string "currentColor" Color of the spinner when loading is true.
 
 ## Styling
 
