@@ -1,0 +1,42 @@
+/* styles.module.css */
+
+/* Label and Icon Styles */
+.label {
+    @apply flex items-center text-black text-2xs leading-4 md:leading-5 lg:leading-6 lg:text-sm font-bold;
+}
+
+.required {
+    @apply text-red lg:text-lg mr-1;
+}
+
+.guideIcon {
+    @apply w-[9px] h-[9px] lg:h-[16px] lg:w-[16px] lg:p-[1px];
+}
+
+/* Icon Size & Styling */
+.icon-size {
+    @apply min-w-[12px] min-h-[12px] md:min-w-[14px] md:min-h-[14px] lg:min-w-[18px] lg:min-h-[18px];
+}
+
+/* Hover Effects */
+.hover-green {
+    @apply hover:text-green transition-all;
+}
+
+.hover-red {
+    @apply hover:text-red-600 transition-all;
+}
+
+/* Modal Styling */
+.modal-container {
+    @apply bg-white-lighter rounded-3xl px-3 pt-3 pb-6 lg:px-6 lg:pt-4 lg:pb-8;
+}
+
+/* Text Styling */
+.text-black {
+    @apply text-black;
+}
+
+.text-gray {
+    @apply text-gray-600;
+}
