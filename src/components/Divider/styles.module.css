@@ -1,0 +1,8 @@
+.divider {
+    @apply w-full my-2 rounded-md h-[1px];
+    background: radial-gradient(
+        50% 50% at 50% 50%,
+        #696969 0%,
+        rgba(217, 217, 217, 0) 100%
+    );
+}
