@@ -7,14 +7,14 @@ import Modal from "../Modal"
 import ArchiveTable from "@/components/layouts/ArchiveTable"
 import styles from "./styles.module.css" // Import your CSS module
 
-export default function Label({
+const Label = ({
     label,
     required,
     className,
     userGuide,
     archive,
     educationalContent,
-}) {
+}) => {
     const [openModal, setOpenModal] = useState({
         userGuide: false,
         archive: false,
@@ -60,10 +60,10 @@ export default function Label({
                 containerClassName={styles.modalContainer}
             >
                 {openModal.userGuide ? userGuide : null}
-                {openModal.archive ? (
-                    <ArchiveTable questionKey={archive} />
-                ) : null}
+                {openModal.archive ? <ArchiveTable options={archive} /> : null}
             </Modal>
         </label>
     )
 }
+
+export default Label
