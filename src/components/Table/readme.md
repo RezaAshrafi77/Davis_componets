@@ -51,16 +51,16 @@ export default App
 
 ## Props
 
-| Prop         | Type              | Default                                              | Description                                                          |
-| ------------ | ----------------- | ---------------------------------------------------- | -------------------------------------------------------------------- |
-| columns      | Array<string>     | []                                                   | Array of column titles.                                              |
-| rows         | Array<Array<any>> | []                                                   | Array of rows, where each row is an array of cell data.              |
-| pagination   | boolean           | false                                                | Enables pagination if true.                                          |
-| currentPage  | number            | 1                                                    | Current page index for pagination.                                   |
-| setPage      | function          | undefined Function to update the current page index. |
-| tableSize    | number 10         | Number of rows displayed per page.                   |
-| setTableSize | function          | undefined Function to update the table size.         |
-| tableSizes   | Array<number>     | [5, 10, 15, 20]                                      | List of table size options for the dropdown.                         |
-| selectable   | boolean           | false                                                | Highlights rows on hover when true.                                  |
-| stripe       | boolean           | false                                                | Adds striped background for alternate rows when true.                |
-| children     | ReactNode         | null                                                 | Custom elements or components to be rendered in the pagination area. |
+| Prop         | Type              | Default         | Description                                                          |
+| ------------ | ----------------- | --------------- | -------------------------------------------------------------------- |
+| columns      | Array<string>     | []              | Array of column titles.                                              |
+| rows         | Array<Array<any>> | []              | Array of rows, where each row is an array of cell data.              |
+| pagination   | boolean           | false           | Enables pagination if true.                                          |
+| currentPage  | number            | 1               | Current page index for pagination.                                   |
+| setPage      | function          | undefined       | Function to update the current page index.                           |
+| tableSize    | number            | 10              | Number of rows displayed per page.                                   |
+| setTableSize | function          | undefined       | Function to update the table size.                                   |
+| tableSizes   | Array<number>     | [5, 10, 15, 20] | List of table size options for the dropdown.                         |
+| selectable   | boolean           | false           | Highlights rows on hover when true.                                  |
+| stripe       | boolean           | false           | Adds striped background for alternate rows when true.                |
+| children     | ReactNode         | null            | Custom elements or components to be rendered in the pagination area. |
