@@ -25,50 +25,15 @@ A versatile and reusable React Button component built with Tailwind CSS and CSS 
 
 ```
 
----
+## Props
 
-### Props
-
-Prop Name Type Default Description
-title string undefined Text displayed inside the button.
-variant string "variant" Determines the button style (variant, text, outlined, etc.).
-type string "button" HTML type attribute (button, submit, reset).
-loading bool false Shows a spinner when true.
-disabled bool false Disables the button when true.
-className string undefined Additional CSS classes for customization.
-icon ReactNode null Icon to display inside the button.
-loadingColor string "currentColor" Color of the spinner when loading is true.
-
-## Styling
-
-The component uses Tailwind CSS classes managed through a CSS module file (`index.module.css`). You can customize these styles as needed.
-
-### Base Styles
-
-```css
-.button {
-    @apply flex items-center justify-center gap-4 font-semibold px-2 py-0.5 rounded text-xs lg:text-base shadow-sm;
-}
-
-.variant {
-    @apply bg-green border border-green text-white;
-}
-
-.text {
-    @apply p-0 shadow-none text-black;
-}
-
-.outlined {
-    @apply text-black bg-white border border-black;
-}
-
-.disabled {
-    @apply bg-gray-200 text-gray-500 border-gray-300;
-}
-
-.icon {
-    @apply p-0.5;
-}
-```
-
----
+| Prop Name      | Type        | Default          | Description                                                 |
+| -------------- | ----------- | ---------------- | ----------------------------------------------------------- |
+| `title`        | `string`    | `undefined`      | Text displayed inside the button.                           |
+| `variant`      | `string`    | `"variant"`      | Button style variant (`variant`, `text`, `outlined`, etc.). |
+| `type`         | `string`    | `"button"`       | HTML `type` of the button (`button`, `submit`, or `reset`). |
+| `loading`      | `bool`      | `false`          | Shows a loading spinner when true.                          |
+| `disabled`     | `bool`      | `false`          | Disables the button when true.                              |
+| `className`    | `string`    | `undefined`      | Additional classes for customization.                       |
+| `icon`         | `ReactNode` | `null`           | Icon to display inside the button.                          |
+| `loadingColor` | `string`    | `"currentColor"` | Color of the spinner in the loading state.                  |
