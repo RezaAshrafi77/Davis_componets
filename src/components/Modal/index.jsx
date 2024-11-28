@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 import { createPortal } from "react-dom"
 import Button from "../Button"
@@ -26,7 +27,7 @@ const Modal = ({ onClose, isOpen, children, containerClassName }) => {
                 {children}
             </div>
         </div>,
-        document.body
+        modal
     )
 }
 

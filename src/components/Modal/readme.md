@@ -36,3 +36,19 @@ export default function App() {
     )
 }
 ```
+
+```html
+<!DOCTYPE html>
+<html lang="fa">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>title</title>
+    </head>
+    <body dir="rtl">
+        <div id="root"></div>
+        <div id="modal"></div>
+        <script type="module" src="/src/main.jsx"></script>
+    </body>
+</html>
+```
