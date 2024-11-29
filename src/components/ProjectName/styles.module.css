@@ -1,0 +1,40 @@
+/* styles.module.css */
+
+/* Container for the ProjectName component */
+.container {
+    @apply w-full sticky top-0 bg-white z-10; /* Make sure it's above other content */
+    @apply flex items-center justify-center; /* Center content */
+    padding: 1rem; /* Add padding for spacing */
+}
+
+/* Styling for the right separator line */
+.rightLine {
+    @apply h-0.5 bg-gray-300 flex-grow; /* Make the right line flexible */
+}
+
+/* Styling for the project name text */
+.name {
+    @apply text-black font-semibold text-xs md:text-sm lg:text-lg bg-white z-20 px-2; /* Add padding to avoid text touching the lines */
+    font-weight: 700; /* Set bold font weight */
+}
+
+/* Styling for the left separator line */
+.leftLine {
+    @apply h-0.5 bg-gray-300 flex-grow; /* Use flex-grow to expand the line */
+}
+
+/* Cover line beneath the text */
+.coverLine {
+    @apply w-full h-0.5 bg-gray-300 absolute shadow-none top-1/2 transform -translate-y-1/2;
+}
+
+/* Ensure spacing and layout remain intact on smaller screens */
+@media (max-width: 640px) {
+    .container {
+        @apply p-4; /* Add padding for mobile screens */
+    }
+
+    .name {
+        @apply text-sm; /* Adjust font size on smaller screens */
+    }
+}
