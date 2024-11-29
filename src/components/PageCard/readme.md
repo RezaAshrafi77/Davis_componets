@@ -32,6 +32,8 @@ function App() {
 }
 ```
 
+---
+
 ## With Additional Props
 
 ```jsx
@@ -53,3 +55,23 @@ function App() {
     )
 }
 ```
+
+---
+
+## Props
+
+| Prop      | Type   | Default   | Description                                               |
+| --------- | ------ | --------- | --------------------------------------------------------- |
+| page      | object | required  | An object containing link, title, and image for the page. |
+| className | string | ""        | Optional additional class names for custom styling.       |
+| ...props  | any    | undefined | Any additional props are passed to the Link component.    |
+
+---
+
+## page Object Schema
+
+| Key   | Type   | Default | Description                               |
+| ----- | ------ | ------- | ----------------------------------------- |
+| link  | string |         | The URL or route for the page.            |
+| title | string |         | Page" The title displayed on the card.    |
+| image | string |         | The image URL displayed as the card icon. |
