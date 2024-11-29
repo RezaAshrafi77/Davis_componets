@@ -16,7 +16,7 @@ The `Page` component serves as a flexible wrapper for pages in your React applic
 ### Basic Example
 
 ```jsx
-import Page from "./path/to/Page"
+import { Page } from "react-elements-davis"
 
 function App() {
     return (
@@ -55,10 +55,10 @@ function App() {
 
 ## Props
 
-| Prop     | Type    | Default | Description                                                                           |
-| -------- | ------- | ------- | ------------------------------------------------------------------------------------- |
-| children | node    | null    | Content to render when routing is not enabled.                                        |
-| name     | string  | ""      | The name of the project to display.                                                   |
-| back     | boolean | false   | If true, renders back arrows for go to previus page.                                  |
-| router   | boolean | false   | If true, renders routes instead of children.                                          |
-| routes   | array   | []      | List of route objects to display. Each object should include link and title and image |
+| Prop     | Type    | Default | Description                                                                            |
+| -------- | ------- | ------- | -------------------------------------------------------------------------------------- |
+| children | node    | null    | Content to render when routing is not enabled.                                         |
+| name     | string  | ""      | The name of the project to display.                                                    |
+| back     | boolean | false   | If true, renders back arrows for go to previus page.                                   |
+| router   | boolean | false   | If true, renders routes instead of children.                                           |
+| routes   | array   | []      | List of route objects to display. Each object should include link and title and image. |
