@@ -1,0 +1,42 @@
+.container {
+    @apply inline-flex items-center gap-3 lg:gap-6 px-2 py-1 rounded bg-white-light border border-black opacity-60 
+         cursor-pointer hover:bg-transparent hover:opacity-100 transition-all duration-200;
+}
+
+.checkedContainer {
+    @apply border-green bg-white opacity-100;
+}
+
+.disabledContainer {
+    @apply cursor-not-allowed opacity-50;
+}
+
+.input {
+    @apply w-4 h-4 cursor-pointer rounded-full appearance-none;
+    @apply ring-2 ring-gray-300 focus:ring-4 focus:ring-green outline-none;
+}
+
+.input:checked {
+    @apply bg-green;
+}
+
+.label {
+    @apply text-black font-medium text-sm select-none;
+}
+
+.firstLayer {
+    @apply w-3 h-3 lg:w-4 lg:h-4 flex items-center justify-center rounded-full bg-gray-300 border border-gray-400;
+}
+
+.firstLayerChecked {
+    @apply bg-green bg-opacity-50;
+    box-shadow: 0 0 6px rgba(2, 137, 76, 0.5);
+}
+
+.secondLayer {
+    @apply flex items-center justify-center w-4 h-4 lg:w-5 lg:h-5 rounded-full bg-white border border-gray-300;
+}
+
+.secondLayerChecked {
+    @apply border-green;
+}
