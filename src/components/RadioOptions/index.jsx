@@ -27,6 +27,7 @@ export default function RadioOptions({
     errorIcon = null,
     errorMessage = "این سوال اجباری است.",
     archive = null,
+    dividerClassName,
 }) {
     const [device] = useDevice()
     const isError = errors?.[questionKey]
@@ -62,7 +63,14 @@ export default function RadioOptions({
                 educationalContent={educationalContent}
                 archive={archive && { ...archive, questionKey }}
             />
-            {divider && <Divider className="mx-auto my-2 block w-full" />}
+            {divider && (
+                <Divider
+                    className={classNames(
+                        dividerClassName,
+                        "mx-auto my-2 block w-full"
+                    )}
+                />
+            )}
             <div
                 className={classNames(
                     optionsContainer,
