@@ -4,6 +4,7 @@ import classNames from "classnames"
 import Label from "../Label"
 import { BsPencilSquare } from "react-icons/bs"
 import { BiError } from "react-icons/bi"
+import styles from "./styles.module.css"
 
 const TextField = ({
     containerClassName,
@@ -55,8 +56,8 @@ const TextField = ({
     return (
         <div
             className={classNames(
-                "flex flex-col gap-2",
-                isError ? "text-red-500" : "text-gray-900",
+                isError ? "field-error" : "",
+                styles.container,
                 containerClassName
             )}
         >
@@ -75,14 +76,13 @@ const TextField = ({
 
             <div
                 className={classNames(
-                    "flex items-center border rounded-md p-2 transition",
-                    isError
-                        ? "border-red-500"
-                        : isFocused
-                        ? "border-green-500 bg-white"
-                        : "border-gray-300 hover:border-green-500",
-                    disabled && "bg-gray-100 cursor-not-allowed",
-                    className
+                    isFocused
+                        ? "border-green !bg-white"
+                        : "hover:border-green border-black",
+                    className,
+                    "group",
+                    styles.field,
+                    disabled ? styles.disabled : null
                 )}
             >
                 {props.rows > 1 ? (
@@ -91,10 +91,11 @@ const TextField = ({
                         {...(register
                             ? register(questionKey, { required, pattern })
                             : {})}
-                        className="resize-none"
+                        className={styles.input}
                     />
                 ) : (
                     <input
+                        className={styles.input}
                         {...inputProps}
                         {...(register
                             ? register(questionKey, { required, pattern })
@@ -107,7 +108,7 @@ const TextField = ({
                 ) : (
                     <BsPencilSquare
                         className={classNames(
-                            "ml-2 transition-colors",
+                            styles.icon,
                             isFocused
                                 ? "text-green-500"
                                 : "text-gray-400 group-hover:text-green-500"

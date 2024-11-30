@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import styles from "./styles.module.scss"
+import styles from "./styles.module.css"
 import { Link } from "react-router-dom"
 
 const PageCard = ({ page, className, ...props }) => {

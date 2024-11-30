@@ -1,9 +1,9 @@
 import PropTypes from "prop-types"
-import PageCard from "../PageCard"
+import PageCard from "../PageCard/index"
 import styles from "./styles.module.css"
-import { ProjectName } from ".."
+import ProjectName from "../ProjectName"
 
-export default function Page({ children, name, back, router, routes }) {
+const Page = ({ children, name, back, router, routes }) => {
     return (
         <div className={styles.page}>
             {/* Render the project name if provided */}
@@ -48,3 +48,5 @@ Page.defaultProps = {
     router: false,
     routes: [],
 }
+
+export default Page

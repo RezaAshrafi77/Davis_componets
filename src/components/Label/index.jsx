@@ -4,7 +4,7 @@ import { FaRegQuestionCircle } from "react-icons/fa"
 import { LiaArchiveSolid } from "react-icons/lia"
 import { IoIosInformationCircle } from "react-icons/io"
 import Modal from "../Modal"
-import ArchiveTable from "@/components/layouts/ArchiveTable"
+import ArchiveTable from "../../layouts/ArchiveTable"
 import styles from "./styles.module.css" // Import your CSS module
 
 const Label = ({

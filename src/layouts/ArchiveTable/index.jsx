@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState, useCallback } from "react"
 import { Archvie_Table_Columns } from "./data"
-import { Table } from "@/components/elements"
+import Table from "../../components/Table/index"
 import { VscLoading } from "react-icons/vsc"
 import { toast } from "react-toastify"
 import moment from "jalali-moment"

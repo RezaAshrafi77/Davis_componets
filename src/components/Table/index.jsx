@@ -2,7 +2,7 @@
 import classNames from "classnames"
 import { IoPrintOutline } from "react-icons/io5"
 import Button from "../Button"
-import styles from "./styles.module.scss"
+import styles from "./styles.module.css"
 import Dropdown from "../Dropdown"
 import { tableSizeList } from "./data"
 
