@@ -1,0 +1,40 @@
+.container {
+    @apply flex flex-wrap justify-between items-center gap-2 lg:gap-4 xl:gap-6 rounded bg-white-light border border-black cursor-pointer opacity-60 transition-all duration-200 ease-in-out hover:bg-white hover:opacity-100;
+}
+
+.checkedContainer {
+    @apply bg-white opacity-100 border-green-600;
+}
+
+.disabledContainer {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+}
+
+.input {
+    @apply hidden;
+}
+
+.input:checked {
+    @apply !bg-green-600 !text-green-600;
+}
+
+.label {
+    @apply text-gray-900 font-medium text-xs lg:text-sm select-none;
+}
+
+.firstLayer {
+    @apply flex items-center justify-center w-[10px] h-[10px] lg:w-[14px] lg:h-[14px] rounded-full bg-gray-300 border border-gray-500 transition-all duration-200 ease-in-out;
+}
+
+.firstLayerChecked {
+    @apply bg-green-600 bg-opacity-50 shadow-lg;
+    box-shadow: 0 0 6px rgba(2, 137, 76, 0.8);
+}
+
+.secondLayer {
+    @apply flex items-center justify-center w-[14px] h-[14px] lg:w-[20px] lg:h-[20px] rounded-full bg-white border border-gray-400 transition-all duration-200 ease-in-out;
+}
+
+.secondLayerChecked {
+    @apply border-green-600;
+}

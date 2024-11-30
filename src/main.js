@@ -12,5 +12,6 @@ export { default as Table } from "./components/Table"
 export { default as TextField } from "./components/TextField"
 export { default as Radio } from "./components/Radio"
 export { default as RadioOptions } from "./components/RadioOptions"
+export { default as DateInput } from "./components/DateInput"
 // layouts
 export { default as ArchiveTable } from "./layouts/ArchiveTable"

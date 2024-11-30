@@ -1,0 +1,19 @@
+.container {
+    @apply flex flex-wrap items-center justify-between gap-y-2 relative;
+}
+
+.label {
+    @apply ml-6 md:w-[20%];
+}
+
+.options {
+    @apply flex flex-1 gap-2;
+}
+
+.options label {
+    @apply min-w-fit flex-1;
+}
+
+.checkBox {
+    @apply mr-2 min-w-fit flex-1;
+}

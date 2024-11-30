@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import classNames from "classnames"
-import { Divider } from "../Divider"
-import { Label } from "../Label"
-import { Radio } from "../Radio"
+import Divider from "../Divider"
+import Label from "../Label"
+import Radio from "../Radio/index"
 import styles from "./styles.module.css"
 import useDevice from "../../hooks/useDevice"
 import { BiError } from "react-icons/bi"
