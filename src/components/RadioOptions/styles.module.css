@@ -1,0 +1,25 @@
+.container {
+    @apply flex flex-wrap items-center justify-between gap-y-2 relative;
+}
+
+.containerError {
+    border: 1px !important;
+    border-style: solid !important;
+    border-color: #960018 !important;
+}
+
+.options label {
+    @apply min-w-fit flex-1;
+}
+
+.label {
+    @apply ml-6 md:w-[20%];
+}
+
+.options {
+    @apply flex flex-1 gap-2;
+}
+
+.radio {
+    @apply min-w-fit flex-1;
+}
