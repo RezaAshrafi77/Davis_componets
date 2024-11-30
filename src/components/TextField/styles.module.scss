@@ -1,0 +1,26 @@
+.container {
+    @apply flex flex-col justify-between gap-0.5 relative;
+
+    .field {
+        @apply relative overflow-hidden border border-solid border-[0.5px] rounded bg-white-light;
+
+        &:hover {
+            @apply bg-white text-black;
+        }
+
+        .input {
+            @apply w-full p-0 pl-8 pr-2 lg:py-1 text-3xs lg:text-sm text-black 
+                placeholder:text-2xs lg:placeholder:text-xs bg-white-light border-none;
+
+            &:focus,
+            &:hover {
+                @apply outline-none bg-white border-black text-black ring-0;
+            }
+        }
+
+        .icon {
+            @apply absolute top-1/2 left-0 translate-x-1/2 -translate-y-1/2 
+                h-[13px] w-[13px] lg:h-[19px] lg:w-[19px];
+        }
+    }
+}
