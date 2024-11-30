@@ -1,0 +1,20 @@
+.fieldset {
+    @apply w-full overflow-hidden px-4 py-4 rounded-lg lg:px-8 lg:pt-6;
+    border: 0.5px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+        linear-gradient(180deg, #727272, white) border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fieldset:hover {
+    border-color: #3d0c02;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.legend {
+    @apply text-xs px-0.5 py-0 relative font-700 leading-5 bg-white;
+    @apply lg:text-base lg:mr-8 -top-0.5 text-[#3D0C02];
+    border-radius: 0.25rem;
+    padding: 0 0.5rem;
+    background: white;
+}

@@ -11,5 +11,6 @@ export { default as ProjectName } from "./components/ProjectName"
 export { default as Table } from "./components/Table"
 export { default as TextField } from "./components/TextField"
 export { default as Radio } from "./components/Radio"
+export { default as RadioOptions } from "./components/RadioOptions"
 // layouts
 export { default as ArchiveTable } from "./layouts/ArchiveTable"
