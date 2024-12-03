@@ -70,8 +70,8 @@ const Table = ({
                     <div className={styles["dynamic-options"]}>{children}</div>
                     <div className={styles["default-options"]}>
                         <Button
+                            variant="icon"
                             className={styles.next}
-                            style={""}
                             onClick={() => window.print()}
                             icon={
                                 <IoPrintOutline className="cursor-pointer bg-white !text-xl" />
@@ -87,7 +87,7 @@ const Table = ({
                         ) : null}
                         <Button
                             className={styles.next}
-                            style={currentPage == 1 ? "disabled" : ""}
+                            variant={currentPage == 1 ? "disabled" : ""}
                             title={"قبلی"}
                             onClick={() =>
                                 setPage(Math.max(currentPage - 1, 1))
@@ -99,7 +99,7 @@ const Table = ({
                         <Button
                             className={styles.next}
                             title={"بعدی"}
-                            style={
+                            variant={
                                 Math.floor(rows?.length / tableSize) == 0
                                     ? "disabled"
                                     : ""

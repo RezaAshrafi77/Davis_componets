@@ -1,6 +1,6 @@
 /* Base button styles */
 .button {
-    @apply flex items-center justify-center gap-4 font-semibold px-2 py-0.5 rounded text-xs lg:text-base shadow-sm;
+    @apply flex items-center justify-center gap-4 font-400 px-2 py-1 rounded text-2xs lg:text-xs shadow-sm;
 }
 
 /* Disabled state */

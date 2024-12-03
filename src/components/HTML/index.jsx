@@ -28,8 +28,3 @@ export default function HTML({ data }) {
 HTML.propTypes = {
     data: PropTypes.string.isRequired, // Ensures `data` is always a string
 }
-
-// Default Props
-HTML.defaultProps = {
-    data: "",
-}

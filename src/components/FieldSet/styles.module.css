@@ -13,7 +13,7 @@
 
 .legend {
     @apply text-xs px-0.5 py-0 relative font-700 leading-5 bg-white;
-    @apply lg:text-base lg:mr-8 -top-0.5 text-[#3D0C02];
+    @apply lg:text-sm lg:mr-8 -top-0.5 text-[#3D0C02];
     border-radius: 0.25rem;
     padding: 0 0.5rem;
     background: white;

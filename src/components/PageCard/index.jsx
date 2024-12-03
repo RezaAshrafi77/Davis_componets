@@ -33,8 +33,4 @@ PageCard.propTypes = {
     className: PropTypes.string,
 }
 
-PageCard.defaultProps = {
-    className: "",
-}
-
 export default PageCard

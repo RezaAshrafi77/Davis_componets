@@ -35,7 +35,7 @@
 }
 
 .current-page {
-    @apply text-2xs lg:text-sm min-w-6 min-h-6 lg:min-w-8 lg:min-h-8 flex justify-center items-center rounded bg-white;
+    @apply text-2xs lg:text-sm min-w-6 min-h-6 lg:min-w-8 lg:min-h-8 flex justify-center items-center rounded bg-white text-black;
 }
 
 .stripe .tbody .tr:nth-child(even) .td {

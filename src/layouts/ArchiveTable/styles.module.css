@@ -15,5 +15,5 @@
 }
 
 .emptyStateText {
-    @apply text-title;
+    /* @apply text-title; */
 }

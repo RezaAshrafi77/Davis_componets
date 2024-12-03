@@ -17,6 +17,14 @@ const Radio = forwardRef(
                 aria-checked={checked}
                 aria-disabled={disabled}
             >
+                <input
+                    className={styles.input}
+                    ref={ref}
+                    type="radio"
+                    checked={checked}
+                    disabled={disabled}
+                    {...props}
+                />
                 <span className={styles.label}>{label}</span>
                 <div
                     className={classNames(
@@ -31,14 +39,12 @@ const Radio = forwardRef(
                             checked && styles.firstLayerChecked
                         )}
                     >
-                        <input
-                            className={styles.input}
-                            ref={ref}
-                            type="radio"
-                            checked={checked}
-                            disabled={disabled}
-                            {...props}
-                        />
+                        <div
+                            className={classNames(
+                                styles.dot,
+                                checked && styles.dotChecked
+                            )}
+                        ></div>
                     </div>
                 </div>
             </label>

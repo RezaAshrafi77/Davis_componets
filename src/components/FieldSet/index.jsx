@@ -36,11 +36,4 @@ FieldSet.propTypes = {
     childrenClassName: PropTypes.string,
 }
 
-FieldSet.defaultProps = {
-    title: null,
-    className: "",
-    titleClassName: "",
-    childrenClassName: "",
-}
-
 export default FieldSet

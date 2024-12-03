@@ -42,8 +42,9 @@ const TextField = ({
 
     const inputProps = {
         className: classNames(
-            "w-full outline-none bg-transparent text-gray-900",
-            disabled && "cursor-not-allowed text-gray-400"
+            styles.input,
+            "w-full outline-none bg-transparent",
+            disabled && "cursor-not-allowed"
         ),
         onFocus: () => setIsFocused(true),
         onBlur: () => setIsFocused(false),
@@ -91,11 +92,9 @@ const TextField = ({
                         {...(register
                             ? register(questionKey, { required, pattern })
                             : {})}
-                        className={styles.input}
                     />
                 ) : (
                     <input
-                        className={styles.input}
                         {...inputProps}
                         {...(register
                             ? register(questionKey, { required, pattern })

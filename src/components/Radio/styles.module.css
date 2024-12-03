@@ -1,42 +1,52 @@
 .container {
-    @apply inline-flex items-center gap-3 lg:gap-6 px-2 py-1 rounded bg-white-light border border-black opacity-60 
-         cursor-pointer hover:bg-transparent hover:opacity-100 transition-all duration-200;
+    @apply relative inline-flex justify-between items-center gap-3 lg:gap-6 rounded bg-white-lighter lg:rounded px-[6px] py-0.5 lg:py-1 border-[0.5px] border-solid border-black cursor-pointer opacity-60 hover:bg-transparent hover:opacity-100;
 }
 
 .checkedContainer {
-    @apply border-green bg-white opacity-100;
+    @apply border-green bg-white opacity-100  border-[0.5px];
 }
 
 .disabledContainer {
-    @apply cursor-not-allowed opacity-50;
+    @apply cursor-not-allowed;
 }
 
 .input {
-    @apply w-4 h-4 cursor-pointer rounded-full appearance-none;
-    @apply ring-2 ring-gray-300 focus:ring-4 focus:ring-green outline-none;
+    @apply absolute left-0 top-0 w-full h-full cursor-pointer rounded-full;
+    background-image: none !important;
+    outline: none !important;
+    visibility: hidden;
 }
 
 .input:checked {
-    @apply bg-green;
+    @apply !ring-green !bg-green !text-green;
+    background-image: none !important;
 }
 
 .label {
-    @apply text-black font-medium text-sm select-none;
+    @apply ml-2 select-none font-600 text-3xs md:text-2xs text-black lg:text-[11px];
 }
 
 .firstLayer {
-    @apply w-3 h-3 lg:w-4 lg:h-4 flex items-center justify-center rounded-full bg-gray-300 border border-gray-400;
+    @apply w-[10px] h-[10px] lg:w-[12px] lg:h-[12px] flex items-center justify-center rounded-full;
+    background-color: #ddd;
+    border: 0.25px solid rgb(134, 134, 134);
 }
 
 .firstLayerChecked {
     @apply bg-green bg-opacity-50;
-    box-shadow: 0 0 6px rgba(2, 137, 76, 0.5);
+    box-shadow: 0px 0px 6px #02894c !important;
 }
 
 .secondLayer {
-    @apply flex items-center justify-center w-4 h-4 lg:w-5 lg:h-5 rounded-full bg-white border border-gray-300;
+    @apply flex items-center justify-center w-[12px] h-[12px] lg:w-[16px] lg:h-[16px] rounded-full bg-white;
+    border: 0.25px solid rgb(171, 171, 171);
 }
 
-.secondLayerChecked {
-    @apply border-green;
+.dot {
+    @apply h-1 w-1 lg:w-1.5 lg:h-1.5 rounded-full;
+    background-color: #cbfef2;
+}
+
+.dotChecked {
+    @apply bg-green;
 }

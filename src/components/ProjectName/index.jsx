@@ -19,7 +19,7 @@ const ProjectName = ({ name, back }) => {
                         <Button
                             title="بازگشت"
                             className="bg-white z-10 px-1 gap-1"
-                            style="text"
+                            variant="text"
                             icon={<FaAngleLeft />}
                             onClick={() => navigate(-1)}
                         />

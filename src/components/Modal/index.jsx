@@ -19,7 +19,6 @@ const Modal = ({ onClose, isOpen, children, containerClassName }) => {
                 onClick={(e) => e.stopPropagation()}
             >
                 <Button
-                    style="outlined"
                     className={styles.closeButton}
                     title="&times;"
                     onClick={handleClose}

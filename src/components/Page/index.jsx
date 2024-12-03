@@ -40,13 +40,4 @@ Page.propTypes = {
     ),
 }
 
-// Default props
-Page.defaultProps = {
-    children: null,
-    name: "",
-    back: null,
-    router: false,
-    routes: [],
-}
-
 export default Page

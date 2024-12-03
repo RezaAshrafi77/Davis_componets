@@ -2,7 +2,7 @@
 
 /* Label and Icon Styles */
 .label {
-    @apply flex items-center text-black text-2xs leading-4 md:leading-5 lg:leading-6 lg:text-sm font-bold;
+    @apply flex items-center text-black text-3xs md:text-2xs lg:text-xs font-600;
 }
 
 .required {
@@ -30,11 +30,6 @@
 /* Modal Styling */
 .modal-container {
     @apply bg-white-lighter rounded-3xl px-3 pt-3 pb-6 lg:px-6 lg:pt-4 lg:pb-8;
-}
-
-/* Text Styling */
-.text-black {
-    @apply text-black;
 }
 
 .text-gray {
