@@ -3,11 +3,11 @@
 }
 
 .field {
-    @apply h-6 lg:h-[26px] text-2xs lg:text-xs rounded border-[0.5px] border-solid border-black hover:border-green  bg-gray-ee font-400  py-0  !ring-0 hover:bg-white cursor-pointer;
+    @apply h-6 lg:h-[26px] text-2xs lg:text-xs rounded border-[0.5px] border-solid border-black hover:border-green  bg-gray-f7 font-400  py-0  !ring-0 hover:bg-white cursor-pointer;
 }
 
 .options {
-    @apply text-2xs lg:text-base p-2 bg-white-light rounded border-[0.5px] border-solid border-black;
+    @apply text-2xs lg:text-xs p-2 bg-white-light rounded border-[0.5px] border-solid border-black;
 }
 
 .fieldError {

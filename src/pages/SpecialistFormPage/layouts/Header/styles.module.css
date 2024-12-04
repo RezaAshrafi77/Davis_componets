@@ -1,7 +1,24 @@
 /* Container Styles */
 .container {
     @apply bg-white shadow-md rounded-md px-3 md:px-4 pt-1 pb-4;
+}
+
+.normalContainer {
     background: linear-gradient(0deg, #eefeff 0%, #b2e5f8 100%);
+}
+
+.vipContainer {
+    background: linear-gradient(
+        346deg,
+        #ffa800 3.07%,
+        #ffcd1a 6.85%,
+        #ffb800 12.51%,
+        #eb9b00 20.64%,
+        #f3a200 29.5%,
+        #fff78e 50.27%,
+        #ffe2a9 74.82%,
+        #ffa800 97.47%
+    );
 }
 
 /* Fieldset Styling with Gradient Border */
@@ -21,7 +38,7 @@
 }
 
 .searchButton {
-    @apply border-green w-[25%] md:w-[115px] md:ml-0 mt-2 md:mt-0 mr-auto md:mr-0 bg-gray-f7 lg:mr-4;
+    @apply border-green w-[115px] ml-auto md:ml-0 mt-2 md:mt-0 mr-auto md:mr-0 bg-gray-f7 lg:mr-4;
 }
 
 .textField {

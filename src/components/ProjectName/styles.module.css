@@ -4,18 +4,17 @@
 .container {
     @apply w-full sticky top-0 bg-white z-10; /* Make sure it's above other content */
     @apply flex items-center justify-center; /* Center content */
-    padding: 1rem; /* Add padding for spacing */
+    padding: 0rem 0 0.5rem; /* Add padding for spacing */
 }
 
 /* Styling for the right separator line */
 .rightLine {
-    @apply h-0.5 bg-gray-300 flex-grow; /* Make the right line flexible */
+    @apply h-0.5 w-4 bg-gray-300; /* Make the right line flexible */
 }
 
 /* Styling for the project name text */
 .name {
-    @apply text-black font-semibold text-xs md:text-sm lg:text-lg bg-white z-20 px-2; /* Add padding to avoid text touching the lines */
-    font-weight: 700; /* Set bold font weight */
+    @apply text-black font-700 text-xs md:text-sm lg:text-lg bg-white z-20 px-2; /* Add padding to avoid text touching the lines */
 }
 
 /* Styling for the left separator line */

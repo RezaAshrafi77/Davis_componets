@@ -19,7 +19,6 @@ The `DateInput component` is a reusable, customizable date picker field built us
 
 | Prop Name          | Type      | Default              | Description                                                               |
 | ------------------ | --------- | -------------------- | ------------------------------------------------------------------------- |
-| Contoller          | node      | null                 | react-hook-form Controller                                                |
 | label              | string    | ""                   | The label text displayed above the input field.                           |
 | id                 | string    | ""                   | A unique identifier for the input field.                                  |
 | control            | object    | null                 | The react-hook-form control object for managing form state.               |

@@ -7,9 +7,9 @@ import { BsCalendar2Event } from "react-icons/bs"
 import { BiError } from "react-icons/bi"
 import Label from "../Label"
 import styles from "./styles.module.css"
+import { Controller } from "react-hook-form"
 
 const DateInput = ({
-    Controller,
     label,
     id,
     control,
@@ -23,7 +23,7 @@ const DateInput = ({
     format = "YYYY/MM/DD",
     calendar = persian,
     locale = persian_fa,
-    icon = <BsCalendar2Event />,
+    icon = <BsCalendar2Event color="green" size={14} />,
     archive,
 }) => {
     const isError = !!errors[id]

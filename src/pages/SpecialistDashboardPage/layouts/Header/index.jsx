@@ -1,186 +1,79 @@
 /* eslint-disable react/prop-types */
-import { Fragment, useEffect, useState, useCallback, useMemo } from "react"
-import Table from "../../../../components/Table"
-import Modal from "../../../../components/Modal"
+import { Fragment } from "react"
 import Button from "../../../../components/Button"
-import Radio from "../../../../components/Radio"
 import TextField from "../../../../components/TextField"
+import DateInput from "../../../../components/DateInput"
 import FieldSet from "../../../../components/FieldSet"
-import useDevice from "../../../../hooks/useDevice"
 import styles from "./styles.module.css"
-import { Form_Inputs, Service_Status, Table_Columns } from "./data"
-import { tableSizeList } from "../../../../components/Table/data"
-import Label from "../../../../components/Label"
+import { HiMiniIdentification } from "react-icons/hi2"
 
 const Header = ({
+    loading = false,
     title = "مشخصات فردی",
-    rows = [],
-    tableColumns = Table_Columns,
-    user = {},
-    getUsers = () => {},
-    searchLoading = false,
+    register,
+    watch,
+    control,
+    handleSubmit,
+    onSubmit,
 }) => {
-    const [formData, setFormData] = useState({
-        6365: "", // RF Id
-        4942: "", // Full name
-        6620: "", // National Code
-        1585472454126: "",
-    })
-    const [device] = useDevice()
-    const [showModal, setShowModal] = useState(false)
-    const [currentPage, setCurrentPage] = useState(1)
-    const [tableSize, setTableSize] = useState(tableSizeList[0].value)
-    const [initialRequestControl, setIRC] = useState(0)
-
-    const offset = useMemo(() => {
-        return tableSize * (currentPage - 1)
-    }, [tableSize, currentPage])
-
-    // const _services = [...new Set(users.map((user) => user[1585472454126]))]
-
-    useEffect(() => {
-        if (initialRequestControl) {
-            getUsers({ formData, offset, limit: tableSize })
-        }
-    }, [
-        currentPage,
-        tableSize,
-        initialRequestControl,
-        getUsers,
-        offset,
-        formData,
-    ])
-
-    useEffect(() => {
-        setShowModal(false)
-    }, [user])
-
-    useEffect(() => {
-        if (rows.length) setShowModal(true)
-        else setShowModal(false)
-    }, [rows])
-
-    const onSubmit = (e) => {
-        e.preventDefault()
-        setIRC(initialRequestControl + 1)
-        getUsers({ formData, offset, limit: tableSize })
-    }
-
-    const handleOnChange = useCallback(
-        (value, qKey) => {
-            if (qKey == "6365") {
-                setFormData({ ...formData, 6365: value })
-                return
-            } else if (qKey == "6620") {
-                setFormData({ ...formData, 6620: value })
-                return
-            } else if (qKey == "4942") {
-                setFormData({ ...formData, 4942: value })
-            } else {
-                setFormData({ ...formData, 1585472454126: value })
-            }
-        },
-        [formData, setFormData]
-    )
-
     return (
         <Fragment>
-            <Modal
-                isOpen={showModal}
-                onClose={() => {
-                    setIRC(0)
-                    setShowModal(false)
-                    setCurrentPage(1)
-                }}
-            >
-                <Table
-                    columns={tableColumns}
-                    rows={[[]]}
-                    page={currentPage}
-                    setPage={setCurrentPage}
-                    setTableSize={setTableSize}
-                    pagination
-                    selectable
-                />
-            </Modal>
             <section className={styles.container}>
                 <FieldSet
                     title={title}
                     className={styles.fieldset}
                     type="header"
                 >
-                    <form className={styles.form} onSubmit={onSubmit}>
-                        <div className="flex lg:flex items-end w-full flex-wrap gap-x-2 gap-y-4">
-                            {Form_Inputs.map((item) => (
-                                <TextField
-                                    containerClassName={
-                                        "flex flex-1 min-w-[48%] md:min-w-[150px] "
-                                    }
-                                    className={styles.textField}
-                                    key={item.label}
-                                    name={item.qKey}
-                                    placeholder={item.placeholder}
-                                    label={item.label}
-                                    icon={
-                                        <div className="absolute left-1 md:left-1.5 top-1/2 -translate-y-1/2">
-                                            <item.icon
-                                                size={14}
-                                                color="green"
-                                            />
-                                        </div>
-                                    }
-                                    value={formData[item.qKey]}
-                                    onChange={(e) =>
-                                        handleOnChange(
-                                            e.target.value,
-                                            item.qKey
-                                        )
-                                    }
-                                    disabled={
-                                        (device != "desktop" &&
-                                            item.label === "RF Id") ||
-                                        item.disabled
-                                    }
-                                />
-                            ))}
-                            <div
-                                className={
-                                    "flex flex-col gap-0.5 flex-1 md:min-w-[180px] max-w-[200px]"
+                    <form
+                        className={styles.form}
+                        onSubmit={handleSubmit(onSubmit)}
+                    >
+                        <div className="flex lg:flex items-end w-full flex-wrap gap-x-2 gap-y-2 md:gap-y-4">
+                            <DateInput
+                                containerClassName={
+                                    "flex flex-1 min-w-[48%] max-w-[48%] md:max-w-auto md:min-w-[150px] "
                                 }
-                            >
-                                <Label label={"وضعیت خدمت"} />
-                                <div
-                                    className={
-                                        "flex justify-between gap-2 px-1 py-1 border-[0.5px] border-solid bg-gray-f7 rounded border-black"
-                                    }
-                                >
-                                    {Service_Status.map((o) => (
-                                        <Radio
-                                            key={o.value}
-                                            label={o.label}
-                                            className={styles.radio}
-                                            name={1585472454126}
-                                            value={o.value}
-                                            checked={
-                                                o.value ==
-                                                formData[1585472454126]
-                                            }
-                                            onChange={() =>
-                                                handleOnChange(
-                                                    o.value,
-                                                    1585472454126
-                                                )
-                                            }
+                                className={styles.textField}
+                                label={"از تاریخ"}
+                                id="from_date"
+                                control={control}
+                                watch={watch}
+                            />
+                            <DateInput
+                                containerClassName={
+                                    "flex flex-1 min-w-[48%] max-w-[48%] md:max-w-auto md:min-w-[150px] "
+                                }
+                                className={styles.textField}
+                                label={"تا تاریخ"}
+                                id="end_date"
+                                control={control}
+                                watch={watch}
+                            />
+                            <TextField
+                                containerClassName={
+                                    "flex flex-1 min-w-[48%] max-w-[48%] md:max-w-auto md:min-w-[150px] "
+                                }
+                                className={styles.textField}
+                                questionKey={"6620"}
+                                watch={watch}
+                                register={register}
+                                placeholder={"در این قسمت وارد کنید"}
+                                label={"کد ملی"}
+                                icon={
+                                    <div className="absolute left-1 md:left-1.5 top-1/2 -translate-y-1/2">
+                                        <HiMiniIdentification
+                                            size={14}
+                                            color="green"
                                         />
-                                    ))}
-                                </div>
-                            </div>
+                                    </div>
+                                }
+                            />
                             <div className="hidden md:block lg:hidden"></div>
                             <Button
                                 variant="outlined"
                                 title={"جستجو"}
                                 type="submit"
-                                loading={searchLoading}
+                                loading={loading}
                                 className={styles.searchButton}
                             />
                         </div>

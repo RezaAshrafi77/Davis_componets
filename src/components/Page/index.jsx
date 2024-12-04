@@ -7,7 +7,7 @@ const Page = ({ children, name, back, router, routes }) => {
     return (
         <div className={styles.page}>
             {/* Render the project name if provided */}
-            {name && <ProjectName name={name} back={back} />}
+            {(name || back) && <ProjectName name={name} back={back} />}
 
             <main className={styles.main}>
                 {/* Render routes if router is true; otherwise, render children */}
@@ -29,7 +29,7 @@ const Page = ({ children, name, back, router, routes }) => {
 Page.propTypes = {
     children: PropTypes.node,
     name: PropTypes.string,
-    back: PropTypes.func,
+    back: PropTypes.bool,
     router: PropTypes.bool,
     routes: PropTypes.arrayOf(
         PropTypes.shape({
