@@ -21,18 +21,20 @@ export { default as Tooth } from "./components/Tooth/index.jsx"
 export { default as Select } from "./components/Select/index.jsx"
 // layouts
 export { default as ArchiveTable } from "./layouts/ArchiveTable/index.jsx"
-export { default as SpecialistFormPageHeader } from "./pages/SpecialistFormPage/layouts/Header"
+export { default as SpecialistFormPageHeader } from "./pages/SpecialistFormPage/layouts/Header/index.jsx"
+// page
+export { default as SpecialistDashboardPage } from "./pages/SpecialistDashboardPage/index.jsx"
 
-import { StrictMode } from "react"
-import ReactDOM from "react-dom/client"
-import "./index.css"
-import { BrowserRouter } from "react-router-dom"
-import SpecialistDashboardPage from "./pages/SpecialistDashboardPage"
+// import { StrictMode } from "react"
+// import ReactDOM from "react-dom/client"
+// import "./index.css"
+// import { BrowserRouter } from "react-router-dom"
+// import SpecialistDashboardPage from "./pages/SpecialistDashboardPage"
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-    <StrictMode>
-        <BrowserRouter basename={""}>
-            <SpecialistDashboardPage />
-        </BrowserRouter>
-    </StrictMode>
-)
+// ReactDOM.createRoot(document.getElementById("root")).render(
+//     <StrictMode>
+//         <BrowserRouter basename={""}>
+//             <SpecialistDashboardPage />
+//         </BrowserRouter>
+//     </StrictMode>
+// )

@@ -84,7 +84,10 @@ const Header = ({
             >
                 <Table
                     columns={tableColumns}
-                    rows={[[]]}
+                    rows={rows.map((row, i) => [
+                        (currentPage - 1) * tableSize + i + 1,
+                        ...row,
+                    ])}
                     page={currentPage}
                     setPage={setCurrentPage}
                     setTableSize={setTableSize}
