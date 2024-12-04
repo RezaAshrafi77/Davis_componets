@@ -20,6 +20,7 @@ const Table = ({
     selectable,
     stripe,
     children,
+    onSelect = () => {},
 }) => {
     return rows?.length ? (
         <div className={classNames(styles.container, containerClassName)}>
@@ -50,6 +51,7 @@ const Table = ({
                             <tr
                                 className={classNames(styles.tr, "group")}
                                 key={"table-row" + i}
+                                onClick={() => onSelect(i)}
                             >
                                 {row?.map((_, j) => (
                                     <td

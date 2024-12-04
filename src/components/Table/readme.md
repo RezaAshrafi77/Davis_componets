@@ -64,3 +64,4 @@ export default App
 | selectable   | boolean           | false           | Highlights rows on hover when true.                                  |
 | stripe       | boolean           | false           | Adds striped background for alternate rows when true.                |
 | children     | ReactNode         | null            | Custom elements or components to be rendered in the pagination area. |
+| onSelect     | function          | () => {}        | select a row                                                         |
