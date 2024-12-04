@@ -19,6 +19,7 @@ const Header = ({
     tableColumns = Table_Columns,
     user = {},
     getUsers = () => {},
+    getUser = () => {},
     searchLoading = false,
     vip = true,
 }) => {
@@ -92,6 +93,7 @@ const Header = ({
                     setPage={setCurrentPage}
                     setTableSize={setTableSize}
                     tableSize={tableSize}
+                    onSelect={(i) => getUser(i)}
                     pagination
                     selectable
                 />
