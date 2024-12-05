@@ -19,6 +19,7 @@ export { default as DownTooth } from "./components/Tooth/DownTooth.jsx"
 export { default as UpTooth } from "./components/Tooth/UpTooth.jsx"
 export { default as Tooth } from "./components/Tooth/index.jsx"
 export { default as Select } from "./components/Select/index.jsx"
+export { default as FieldSet } from "./components/FieldSet/index.jsx"
 // layouts
 export { default as ArchiveTable } from "./layouts/ArchiveTable/index.jsx"
 export { default as SpecialistFormPageHeader } from "./pages/SpecialistFormPage/layouts/Header/index.jsx"
