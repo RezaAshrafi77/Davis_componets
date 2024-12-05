@@ -85,10 +85,10 @@ const Header = ({
             offset: offset,
             limit: tableSize,
         }
-        if (options.dataInfo("6365")) {
+        if (options.dataInfo["6365"]) {
             options.dataInfo["1558737412305"] = options.dataInfo("6365")
             options.jobId = JID.RFID
-        } else if (options.dataInfo("6620")) {
+        } else if (options.dataInfo["6620"]) {
             options.dataInfo["6620"] = options.dataInfo("6620")
             options.jobId = JID.NID
         } else {
