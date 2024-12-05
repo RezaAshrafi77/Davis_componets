@@ -1,12 +1,16 @@
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
+import path from "path"
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js"
 
-// https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react()],
+    plugins: [
+        react(),
+        cssInjectedByJsPlugin(), // Ensures CSS is injected into the JS
+    ],
     build: {
         lib: {
-            entry: "./src/main.js",
+            entry: path.resolve(__dirname, "./src/main.js"),
             name: "ReactElementsDavis",
             formats: ["es", "cjs"],
             fileName: (format) => `main.${format}.js`,

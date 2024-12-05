@@ -1,3 +1,4 @@
+import "./index.css"
 // components
 export { default as Button } from "./components/Button/index.jsx"
 export { default as Divider } from "./components/Divider/index.jsx"

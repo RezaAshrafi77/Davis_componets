@@ -1,11 +1,10 @@
 import PropTypes from "prop-types"
 import styles from "./styles.module.css"
-import { Link } from "react-router-dom"
 
 const PageCard = ({ page, className, ...props }) => {
     return (
-        <Link
-            to={page.link}
+        <a
+            href={window.location.href + page.link}
             className={`${styles.container} ${className || ""}`}
             {...props}
         >
@@ -20,7 +19,7 @@ const PageCard = ({ page, className, ...props }) => {
             <strong className={styles.title}>
                 {page.title || "Untitled Page"}
             </strong>
-        </Link>
+        </a>
     )
 }
 

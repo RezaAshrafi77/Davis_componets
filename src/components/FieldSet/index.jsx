@@ -26,8 +26,6 @@ const FieldSet = ({
     </fieldset>
 )
 
-FieldSet.displayName = "FieldSet"
-
 FieldSet.propTypes = {
     title: PropTypes.string,
     children: PropTypes.node.isRequired,
