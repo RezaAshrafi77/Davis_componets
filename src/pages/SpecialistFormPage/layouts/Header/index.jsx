@@ -12,16 +12,20 @@ import { Form_Inputs, Service_Status, Table_Columns } from "./data"
 import { tableSizeList } from "../../../../components/Table/data"
 import Label from "../../../../components/Label"
 import classNames from "classnames"
+import { toast } from "react-toastify"
 
 const Header = ({
     title = "مشخصات فردی",
     rows = [],
     tableColumns = Table_Columns,
-    user = {},
-    getUsers = () => {},
-    getUser = () => {},
-    searchLoading = false,
+    request = () => {},
     vip = true,
+    user,
+    setUser,
+    users,
+    setUsers,
+    setUserID,
+    JID,
 }) => {
     const [formData, setFormData] = useState({
         6365: "", // RF Id
@@ -34,6 +38,8 @@ const Header = ({
     const [currentPage, setCurrentPage] = useState(1)
     const [tableSize, setTableSize] = useState(tableSizeList[0].value)
     const [initialRequestControl, setIRC] = useState(0)
+    const [searchLoading, setSearchLoading] = useState(false)
+    const [userInfoLoading, setUserInfoLoading] = useState(false)
 
     const offset = useMemo(() => {
         return tableSize * (currentPage - 1)
@@ -53,7 +59,7 @@ const Header = ({
     const onSubmit = (e) => {
         e.preventDefault()
         setIRC(initialRequestControl + 1)
-        getUsers({ formData, offset, limit: tableSize })
+        _getUsers()
     }
 
     const handleOnChange = useCallback(
@@ -73,6 +79,54 @@ const Header = ({
         [formData, setFormData]
     )
 
+    const _getUsers = async () => {
+        const options = {
+            dataInfo: formData,
+            offset: offset,
+            limit: tableSize,
+        }
+        if (options.dataInfo("6365")) {
+            options.dataInfo["1558737412305"] = options.dataInfo("6365")
+            options.jobId = JID.RFID
+        } else if (options.dataInfo("6620")) {
+            options.dataInfo["6620"] = options.dataInfo("6620")
+            options.jobId = JID.NID
+        } else {
+            options.jobId = JID.NID
+        }
+        try {
+            setSearchLoading(true)
+            const res = await request(options)
+            if (res.data.length == 0) {
+                toast.error("هیچ کاربری یافت نشد.")
+            }
+            setUsers(res.data)
+        } catch (err) {
+            toast.error(err.message)
+        } finally {
+            setSearchLoading(false)
+        }
+    }
+
+    const _getUser = async (i) => {
+        setUserID(users[i]["6483"])
+        const formData = {
+            6483: users[i]["6483"],
+        }
+        try {
+            setUserInfoLoading(true)
+            const res = await request({
+                jobId: JID.ID,
+                dataInfo: formData,
+            })
+            setUser(res.data)
+        } catch (err) {
+            toast.error(err.message)
+        } finally {
+            setUserInfoLoading(false)
+        }
+    }
+
     return (
         <Fragment>
             <Modal
@@ -82,6 +136,7 @@ const Header = ({
                     setShowModal(false)
                     setCurrentPage(1)
                 }}
+                containerClassName={userInfoLoading ? "backdrop-blur-sm" : ""}
             >
                 <Table
                     columns={tableColumns}
@@ -93,7 +148,7 @@ const Header = ({
                     setPage={setCurrentPage}
                     setTableSize={setTableSize}
                     tableSize={tableSize}
-                    onSelect={(i) => getUser(i)}
+                    onSelect={(i) => _getUser(i)}
                     pagination
                     selectable
                 />
