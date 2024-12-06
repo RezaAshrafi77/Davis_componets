@@ -56,6 +56,7 @@ export default function SpecialistDashboardPage({
                         tableSize={tableSize}
                         pagination
                         selectable
+                        containerClassName={loading ? "blur-sm" : ""}
                     />
                 ) : null}
             </div>

@@ -52,7 +52,9 @@ const Header = ({
     }, [user])
 
     useEffect(() => {
-        _getUsers()
+        if (initialRequestControl) {
+            _getUsers()
+        }
     }, [tableSize, currentPage])
 
     useEffect(() => {
@@ -88,11 +90,8 @@ const Header = ({
             dataInfo: formData,
         }
         if (options.dataInfo["6365"]) {
-            options.dataInfo["1558737412305"] = options.dataInfo("6365")
+            options.dataInfo["1558737412305"] = options.dataInfo["6365"]
             options.jobId = JID.RFID
-        } else if (options.dataInfo["6620"]) {
-            options.dataInfo["6620"] = options.dataInfo("6620")
-            options.jobId = JID.NID
         } else {
             options.jobId = JID.NID
         }
@@ -149,6 +148,7 @@ const Header = ({
                     onSelect={(i) => _getUser(i)}
                     pagination
                     selectable
+                    containerClassName={searchLoading ? "blur-sm" : ""}
                 />
             </Modal>
             <section

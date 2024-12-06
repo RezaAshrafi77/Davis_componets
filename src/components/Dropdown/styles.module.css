@@ -20,7 +20,7 @@
 }
 
 .menu {
-    @apply w-full left-0 absolute -bottom-1 translate-y-full transition-all mt-2 divide-y divide-gray-200 bg-white shadow-box rounded overflow-hidden z-50;
+    @apply -left-1 absolute bottom-0 -translate-x-full transition-all mr-2 divide-y divide-gray-200 bg-white shadow-box rounded overflow-hidden z-50;
 }
 
 .menuOpen {

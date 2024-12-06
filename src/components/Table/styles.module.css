@@ -11,7 +11,7 @@
 }
 
 .th {
-    @apply bg-white-lighter shadow-md font-600 text-3xs md:text-2xs lg:text-xs text-center rounded-md px-4;
+    @apply bg-white-lighter shadow-md font-600 text-3xs md:text-2xs lg:text-xs text-center rounded-md px-4 py-1;
 }
 
 .tbody .tr .td {
