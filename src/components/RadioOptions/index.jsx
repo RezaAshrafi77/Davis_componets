@@ -59,7 +59,7 @@ export default function RadioOptions({
                 label={label}
                 required={required}
                 educationalContent={educationalContent}
-                archive={archive && { ...archive, questionKey }}
+                archive={archive ? { ...archive, questionKey } : false}
             />
             {divider && (
                 <Divider

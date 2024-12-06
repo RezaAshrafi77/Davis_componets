@@ -35,3 +35,4 @@ import ArchiveTable from "@/components/ArchiveTable"
 | `userID`      | `string`   | User Identifier                                                         |
 | `questionKey` | `string`   | A key representing the related question for archived data.              |
 | `request`     | `Function` | A Function that call API for get archives                               |
+| `renderCell`  | `Function` | A Function that render Table value cell                                 |

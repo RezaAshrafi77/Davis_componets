@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState, useCallback } from "react"
+import { useEffect, useState } from "react"
 import { Archvie_Table_Columns } from "./data"
 import Table from "../../components/Table/index"
 import { VscLoading } from "react-icons/vsc"
@@ -8,41 +8,41 @@ import moment from "jalali-moment"
 import styles from "./styles.module.css"
 
 export default function ArchiveTable({ options }) {
-    const { jobID, BC, userID, questionKey, request } = options
+    const {
+        jobID,
+        BC,
+        userID,
+        questionKey,
+        request,
+        renderCell = (val) => Number(val)?.toFixed(2),
+    } = options
     const [currentPage, setPage] = useState(1)
-    const [tableSize, setTableSize] = useState(null)
+    const [tableSize, setTableSize] = useState(10)
     const [tableData, setTableData] = useState([])
     const [loading, setLoading] = useState(false)
 
-    const getArchive = useCallback(async () => {
+    const getArchive = async () => {
         const formData = {
             jobId: jobID,
             dataInfo: {
                 qbc: BC,
                 oi: questionKey,
                 6483: userID || localStorage.getItem("userData")?.["6483"],
+                limit: tableSize,
+                offset: 0,
             },
-            limit: tableSize,
-            offset: tableSize * (currentPage - 1),
         }
-
         setLoading(true)
 
-        try {
-            const res = await request(formData)
-            setTableData(res.data)
-        } catch (err) {
-            toast.error(err.message)
-        } finally {
-            setLoading(false)
-        }
-    }, [jobID, BC, userID, questionKey, request, tableSize, currentPage])
+        await request(formData)
+            .then((res) => setTableData(res.data))
+            .catch((err) => toast.error(err.message))
+            .finally(() => setLoading(false))
+    }
 
     useEffect(() => {
-        if (tableSize && currentPage) {
-            getArchive()
-        }
-    }, [getArchive, tableSize, currentPage])
+        getArchive()
+    }, [])
 
     const renderTable = () => (
         <Table
@@ -50,11 +50,11 @@ export default function ArchiveTable({ options }) {
             rows={tableData.map((item, i) => [
                 currentPage * (i + 1),
                 moment(item.time).locale("fa").format("YYYY/MM/DD"),
-                Number(item.score)?.toFixed(2),
+                renderCell(item.score),
             ])}
             stripe
             columns={Archvie_Table_Columns}
-            pagination
+            pagination={false}
             page={currentPage}
             setPage={setPage}
             tableSize={tableSize}
