@@ -39,7 +39,6 @@
 
 | Prop Name          | Type              | Default                | Description                                                                               |
 | ------------------ | ----------------- | ---------------------- | ----------------------------------------------------------------------------------------- |
-| Controller         | React Component   | undefined              | The Controller component from react-hook-form for integrating form control logic.         |
 | control            | object            | undefined              | The control object from react-hook-form to manage form state.                             |
 | label              | string            | ""                     | The label text displayed above the Select dropdown.                                       |
 | inputClassName     | string            | ""                     | Additional classes for customizing the <select> element's styling.                        |

@@ -19,7 +19,7 @@ const Header = ({
     rows = [],
     tableColumns = Table_Columns,
     request = () => {},
-    vip = true,
+    vip = false,
     user,
     setUser,
     users,
@@ -52,9 +52,13 @@ const Header = ({
     }, [user])
 
     useEffect(() => {
-        if (rows.length) setShowModal(true)
+        _getUsers()
+    }, [tableSize, currentPage])
+
+    useEffect(() => {
+        if (users.length) setShowModal(true)
         else setShowModal(false)
-    }, [rows])
+    }, [users])
 
     const onSubmit = (e) => {
         e.preventDefault()

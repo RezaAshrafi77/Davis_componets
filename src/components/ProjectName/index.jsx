@@ -28,7 +28,7 @@ const ProjectName = ({ name, back }) => {
                     {back && (
                         <Button
                             title="بازگشت"
-                            className="gap-1"
+                            className="!gap-0.5"
                             variant="text"
                             icon={<FaAngleLeft />}
                             onClick={() => {

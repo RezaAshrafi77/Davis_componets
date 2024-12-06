@@ -54,9 +54,7 @@ export default function RadioOptions({
             )}
         >
             <Label
-                className={classNames(styles.label, labelClassName, {
-                    "!inline": divider,
-                })}
+                className={classNames(styles.label, labelClassName)}
                 userGuide={userGuide}
                 label={label}
                 required={required}

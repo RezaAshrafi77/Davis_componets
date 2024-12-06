@@ -2,13 +2,7 @@ import PropTypes from "prop-types"
 import classNames from "classnames"
 import styles from "./styles.module.css"
 
-const FieldSet = ({
-    title,
-    children,
-    className,
-    titleClassName,
-    childrenClassName,
-}) => (
+const FieldSet = ({ title, children, className, titleClassName }) => (
     <fieldset
         className={classNames(styles.fieldset, className)}
         role="group"
@@ -22,7 +16,7 @@ const FieldSet = ({
                 {title}
             </legend>
         )}
-        <div className={classNames(childrenClassName)}>{children}</div>
+        {children}
     </fieldset>
 )
 
@@ -31,7 +25,6 @@ FieldSet.propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     titleClassName: PropTypes.string,
-    childrenClassName: PropTypes.string,
 }
 
 export default FieldSet

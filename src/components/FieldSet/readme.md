@@ -15,13 +15,12 @@ The `FieldSet` component is a styled, reusable fieldset element with support for
 
 ## Props
 
-| Prop                | Type        | Default | Description                                                          |
-| ------------------- | ----------- | ------- | -------------------------------------------------------------------- |
-| `title`             | `string`    | `null`  | The title or legend of the fieldset.                                 |
-| `children`          | `ReactNode` | `null`  | The content to be wrapped inside the fieldset.                       |
-| `className`         | `string`    | `""`    | Additional CSS classes for the fieldset container.                   |
-| `titleClassName`    | `string`    | `""`    | Additional CSS classes for the legend (title).                       |
-| `childrenClassName` | `string`    | `""`    | Additional CSS classes for the children wrapper inside the fieldset. |
+| Prop             | Type        | Default | Description                                        |
+| ---------------- | ----------- | ------- | -------------------------------------------------- |
+| `title`          | `string`    | `null`  | The title or legend of the fieldset.               |
+| `children`       | `ReactNode` | `null`  | The content to be wrapped inside the fieldset.     |
+| `className`      | `string`    | `""`    | Additional CSS classes for the fieldset container. |
+| `titleClassName` | `string`    | `""`    | Additional CSS classes for the legend (title).     |
 
 ---
 

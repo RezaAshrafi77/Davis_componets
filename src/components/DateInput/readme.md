@@ -17,23 +17,24 @@ The `DateInput component` is a reusable, customizable date picker field built us
 
 ## Props
 
-| Prop Name          | Type      | Default              | Description                                                               |
-| ------------------ | --------- | -------------------- | ------------------------------------------------------------------------- |
-| label              | string    | ""                   | The label text displayed above the input field.                           |
-| id                 | string    | ""                   | A unique identifier for the input field.                                  |
-| control            | object    | null                 | The react-hook-form control object for managing form state.               |
-| containerClassName | string    | ""                   | Additional CSS classes for the outermost container.                       |
-| className          | string    | ""                   | Additional CSS classes for the input field container.                     |
-| required           | boolean   | false                | Marks the field as required.                                              |
-| errors             | object    | {}                   | The error object from react-hook-form for displaying validation messages. |
-| watch              | function  | null                 | The react-hook-form watch function to track the field's value.            |
-| labelClassName     | string    | ""                   | Additional CSS classes for the label.                                     |
-| placeholder        | string    | "روز/ ماه/ سال"      | Placeholder text displayed in the input field.                            |
-| format             | string    | "YYYY/MM/DD"         | Format of the displayed date (e.g., YYYY-MM-DD).                          |
-| calendar           | object    | persian              | The calendar type for the date picker.                                    |
-| locale             | object    | persian_fa           | The localization settings for the calendar.                               |
-| icon               | ReactNode | <BsCalendar2Event /> | Customizable calendar icon.                                               |
-| archive            | object    | null                 | Additional metadata to include in the label (e.g., question key).         |
+| Prop Name          | Type        | Default              | Description                                                               |
+| ------------------ | ----------- | -------------------- | ------------------------------------------------------------------------- |
+| label              | string      | ""                   | The label text displayed above the input field.                           |
+| id                 | string      | ""                   | A unique identifier for the input field.                                  |
+| control            | object      | null                 | The react-hook-form control object for managing form state.               |
+| containerClassName | string      | ""                   | Additional CSS classes for the outermost container.                       |
+| className          | string      | ""                   | Additional CSS classes for the input field container.                     |
+| required           | boolean     | false                | Marks the field as required.                                              |
+| errors             | object      | {}                   | The error object from react-hook-form for displaying validation messages. |
+| watch              | function    | null                 | The react-hook-form watch function to track the field's value.            |
+| labelClassName     | string      | ""                   | Additional CSS classes for the label.                                     |
+| placeholder        | string      | "روز/ ماه/ سال"      | Placeholder text displayed in the input field.                            |
+| format             | string      | "YYYY/MM/DD"         | Format of the displayed date (e.g., YYYY-MM-DD).                          |
+| calendar           | object      | persian              | The calendar type for the date picker.                                    |
+| locale             | object      | persian_fa           | The localization settings for the calendar.                               |
+| icon               | ReactNode   | <BsCalendar2Event /> | Customizable calendar icon.                                               |
+| archive            | object      | null                 | Additional metadata to include in the label (e.g., question key).         |
+| errorIcon          | JSX.Element | <BiError />          | Icon to display alongside error messages.                                 |
 
 ---
 

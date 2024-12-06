@@ -4,9 +4,9 @@ import { BiError } from "react-icons/bi"
 import Label from "../Label"
 import Divider from "../Divider"
 import styles from "./styles.module.css"
+import { Controller } from "react-hook-form"
 
 const Select = ({
-    Controller,
     control,
     label,
     inputClassName,

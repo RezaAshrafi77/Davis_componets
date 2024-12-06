@@ -25,6 +25,7 @@ const DateInput = ({
     locale = persian_fa,
     icon = <BsCalendar2Event color="green" size={14} />,
     archive,
+    errorIcon,
 }) => {
     const isError = !!errors[id]
     const errorMessage = "این سوال اجباری است."
@@ -87,7 +88,7 @@ const DateInput = ({
             {/* Error Message */}
             {isError && (
                 <span className="text-error">
-                    <BiError className="text-xs lg:text-base" />
+                    {errorIcon || <BiError className="text-xs lg:text-base" />}
                     {errorMessage}
                 </span>
             )}

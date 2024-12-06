@@ -19,6 +19,15 @@ const CheckBox = ({
             })}
         >
             <span className={styles.label}>{label}</span>
+            <input
+                type="checkbox"
+                className={styles.input}
+                name={name}
+                value={value}
+                onChange={onChange}
+                checked={checked}
+                disabled={disabled}
+            />
             <div
                 className={classNames(styles.secondLayer, {
                     [styles.secondLayerChecked]: checked,
@@ -29,15 +38,12 @@ const CheckBox = ({
                         [styles.firstLayerChecked]: checked,
                     })}
                 >
-                    <input
-                        type="checkbox"
-                        className={styles.input}
-                        name={name}
-                        value={value}
-                        onChange={onChange}
-                        checked={checked}
-                        disabled={disabled}
-                    />
+                    <div
+                        className={classNames(
+                            styles.dot,
+                            checked && styles.dotChecked
+                        )}
+                    ></div>
                 </div>
             </div>
         </label>

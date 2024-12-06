@@ -11,15 +11,15 @@
 }
 
 .th {
-    @apply bg-white-lighter shadow-md font-600 text-2xs leading-6 lg:text-sm lg:leading-8 text-center rounded-md px-4;
+    @apply bg-white-lighter shadow-md font-600 text-3xs md:text-2xs lg:text-xs text-center rounded-md px-4;
 }
 
 .tbody .tr .td {
-    @apply transition-all rounded-md shadow-md text-2xs leading-7 lg:text-sm font-400 lg:leading-7 bg-white group-hover:bg-white-light text-center p-2 lg:whitespace-pre-wrap;
+    @apply transition-all rounded-md shadow-md text-3xs md:text-2xs lg:text-xs font-400 bg-white group-hover:bg-white-light text-center p-2 lg:whitespace-pre-wrap;
 }
 
 .selectable .tbody .tr:hover .td {
-    @apply bg-white-light;
+    @apply bg-white-light cursor-pointer;
 }
 
 .pagination {

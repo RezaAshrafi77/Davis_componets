@@ -29,7 +29,7 @@ const CheckBoxGroup = ({
 }) => {
     const [device] = useDevice()
     const isError = !!errors?.[questionKey]
-    const selectedValues = watch?.(questionKey) || []
+    const selectedValues = (watch?.(questionKey) || []).map((o) => String(o))
 
     const handleCheckboxChange = (value) => {
         const updatedValues = selectedValues.includes(String(value))

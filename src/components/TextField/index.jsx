@@ -46,8 +46,7 @@ const TextField = ({
             "w-full outline-none bg-transparent",
             disabled && "cursor-not-allowed"
         ),
-        onFocus: () => setIsFocused(true),
-        onBlur: () => setIsFocused(false),
+
         disabled,
         value: inputValue,
         onChange: inputOnChange,
@@ -88,6 +87,8 @@ const TextField = ({
             >
                 {props.rows > 1 ? (
                     <textarea
+                        onFocus={() => setIsFocused(true)}
+                        onBlur={() => setIsFocused(false)}
                         {...inputProps}
                         {...(register
                             ? register(questionKey, { required, pattern })
@@ -95,6 +96,8 @@ const TextField = ({
                     />
                 ) : (
                     <input
+                        onFocus={() => setIsFocused(true)}
+                        onBlur={() => setIsFocused(false)}
                         {...inputProps}
                         {...(register
                             ? register(questionKey, { required, pattern })
@@ -118,8 +121,10 @@ const TextField = ({
             {isError && (
                 <span className="text-error">
                     {errorIcon ? (
+                        errorIcon
+                    ) : (
                         <BiError className="text-xs lg:text-base" />
-                    ) : null}
+                    )}
                     {errorMessage}
                 </span>
             )}
