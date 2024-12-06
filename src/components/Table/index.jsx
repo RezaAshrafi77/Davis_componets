@@ -12,7 +12,7 @@ const Table = ({
     columns,
     rows,
     pagination,
-    currentPage,
+    page,
     setPage,
     tableSize = tableSizeList[0].value,
     setTableSize,
@@ -89,15 +89,11 @@ const Table = ({
                         ) : null}
                         <Button
                             className={styles.next}
-                            variant={currentPage == 1 ? "disabled" : ""}
+                            variant={page == 1 ? "disabled" : ""}
                             title={"قبلی"}
-                            onClick={() =>
-                                setPage(Math.max(currentPage - 1, 1))
-                            }
+                            onClick={() => setPage(Math.max(page - 1, 1))}
                         />
-                        <div className={styles["current-page"]}>
-                            {currentPage}
-                        </div>
+                        <div className={styles["current-page"]}>{page}</div>
                         <Button
                             className={styles.next}
                             title={"بعدی"}
@@ -106,7 +102,7 @@ const Table = ({
                                     ? "disabled"
                                     : ""
                             }
-                            onClick={() => setPage(currentPage + 1)}
+                            onClick={() => setPage(page + 1)}
                         />
                     </div>
                 </div>

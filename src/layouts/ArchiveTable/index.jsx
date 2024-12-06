@@ -55,7 +55,7 @@ export default function ArchiveTable({ options }) {
             stripe
             columns={Archvie_Table_Columns}
             pagination
-            currentPage={currentPage}
+            page={currentPage}
             setPage={setPage}
             tableSize={tableSize}
             setTableSize={setTableSize}

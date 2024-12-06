@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useState } from "react"
 import Page from "../../components/Page"
 import Table from "../../components/Table"
 import Header from "./layouts/Header"
@@ -20,45 +20,45 @@ export default function SpecialistDashboardPage({
     const [currentPage, setCurrentPage] = useState(1)
     const [tableSize, setTableSize] = useState(tableSizeList[0].value)
 
-    const offset = useMemo(() => {
-        return tableSize * (currentPage - 1)
-    }, [tableSize, currentPage])
-
     useEffect(() => {
         onSubmit()
     }, [tableSize, currentPage])
 
-    const onSubmit = (data) => {
+    const onSubmit = () => {
         const formData = {
-            6620: watch("6620"),
-            from_date: watch("from_date"),
-            end_date: watch("end_date"),
+            6620: watch("6620") || null,
+            from_date: watch("from_date") || null,
+            end_date: watch("end_date") || null,
+            limit: tableSize,
+            offset: Number(tableSize * (Number(currentPage) - 1)),
         }
-        getUsers({ formData, offset, limit: tableSize })
+        getUsers({ formData })
     }
     return (
         <Page back={true}>
-            <Header
-                loading={loading}
-                watch={watch}
-                register={register}
-                control={control}
-                handleSubmit={handleSubmit}
-                onSubmit={onSubmit}
-                title={title}
-            />
-            {rows?.length ? (
-                <Table
-                    columns={tableColumns}
-                    rows={rows}
-                    page={currentPage}
-                    setPage={setCurrentPage}
-                    setTableSize={setTableSize}
-                    tableSize={tableSize}
-                    pagination
-                    selectable
+            <div className="flex flex-col flex-1 gap-4">
+                <Header
+                    loading={loading}
+                    watch={watch}
+                    register={register}
+                    control={control}
+                    handleSubmit={handleSubmit}
+                    onSubmit={onSubmit}
+                    title={title}
                 />
-            ) : null}
+                {rows?.length ? (
+                    <Table
+                        columns={tableColumns}
+                        rows={rows}
+                        page={currentPage}
+                        setPage={setCurrentPage}
+                        setTableSize={setTableSize}
+                        tableSize={tableSize}
+                        pagination
+                        selectable
+                    />
+                ) : null}
+            </div>
         </Page>
     )
 }

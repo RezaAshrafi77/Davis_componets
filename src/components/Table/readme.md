@@ -36,7 +36,7 @@ const App = () => {
             columns={columns}
             rows={rows}
             pagination={true}
-            currentPage={currentPage}
+            page={currentPage}
             setPage={setCurrentPage}
             tableSize={tableSize}
             setTableSize={setTableSize}

@@ -28,10 +28,10 @@ const Header = ({
     JID,
 }) => {
     const [formData, setFormData] = useState({
-        6365: "", // RF Id
-        4942: "", // Full name
-        6620: "", // National Code
-        1585472454126: "",
+        6365: null, // RF Id
+        4942: null, // Full name
+        6620: null, // National Code
+        1585472454126: null,
     })
     const [device] = useDevice()
     const [showModal, setShowModal] = useState(false)
@@ -65,13 +65,13 @@ const Header = ({
     const handleOnChange = useCallback(
         (value, qKey) => {
             if (qKey == "6365") {
-                setFormData({ ...formData, 6365: value })
+                setFormData({ ...formData, 6365: value ? value : null })
                 return
             } else if (qKey == "6620") {
-                setFormData({ ...formData, 6620: value })
+                setFormData({ ...formData, 6620: value ? value : null })
                 return
             } else if (qKey == "4942") {
-                setFormData({ ...formData, 4942: value })
+                setFormData({ ...formData, 4942: value ? value : null })
             } else {
                 setFormData({ ...formData, 1585472454126: value })
             }
@@ -82,8 +82,6 @@ const Header = ({
     const _getUsers = async () => {
         const options = {
             dataInfo: formData,
-            offset: offset,
-            limit: tableSize,
         }
         if (options.dataInfo["6365"]) {
             options.dataInfo["1558737412305"] = options.dataInfo("6365")
@@ -94,18 +92,18 @@ const Header = ({
         } else {
             options.jobId = JID.NID
         }
-        try {
-            setSearchLoading(true)
-            const res = await request(options)
-            if (res.data.length == 0) {
-                toast.error("هیچ کاربری یافت نشد.")
-            }
-            setUsers(res.data)
-        } catch (err) {
-            toast.error(err.message)
-        } finally {
-            setSearchLoading(false)
-        }
+        options.dataInfo.offset = offset
+        options.dataInfo.limit = tableSize
+        setSearchLoading(true)
+        await request(options)
+            .then((res) => {
+                if (res.data.length == 0) {
+                    toast.error("هیچ کاربری یافت نشد.")
+                }
+                setUsers(res.data)
+            })
+            .catch((err) => toast.error(err.message))
+            .finally(() => setSearchLoading(false))
     }
 
     const _getUser = async (i) => {
@@ -113,18 +111,14 @@ const Header = ({
         const formData = {
             6483: users[i]["6483"],
         }
-        try {
-            setUserInfoLoading(true)
-            const res = await request({
-                jobId: JID.ID,
-                dataInfo: formData,
-            })
-            setUser(res.data)
-        } catch (err) {
-            toast.error(err.message)
-        } finally {
-            setUserInfoLoading(false)
-        }
+        setUserInfoLoading(true)
+        await request({
+            jobId: JID.ID,
+            dataInfo: formData,
+        })
+            .then((res) => setUser(res.data))
+            .catch((err) => toast.error(err.message))
+            .finally(() => setUserInfoLoading(false))
     }
 
     return (
