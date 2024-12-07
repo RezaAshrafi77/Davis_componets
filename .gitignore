@@ -11,10 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
-tailwind.config.js
-postcss.config.js
-assets
-src/index.css
+
 
 # Editor directories and files
 .vscode/*

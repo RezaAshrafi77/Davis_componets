@@ -1,0 +1,62 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@font-face {
+    font-family: IranSans300;
+    font-weight: 300;
+    src: url("./assets/fonts/IRANSansX-UltraLight.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: IranSans400;
+    font-weight: 400;
+    src: url("./assets/fonts/IRANSansX-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: IranSans500;
+    font-weight: 500;
+    src: url("./assets/fonts/IRANSansX-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: IranSans600;
+    font-weight: 600;
+    src: url("./assets/fonts/IRANSansX-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: IranSans700;
+    font-weight: 700;
+    src: url("./assets/fonts/IRANSansX-DemiBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: IranSans800;
+    font-weight: 800;
+    src: url("./assets/fonts/IRANSansX-Bold.ttf") format("truetype");
+}
+
+.text-error {
+    @apply font-400 text-2xs lg:text-xs text-red-error flex items-center gap-1 animate-bounce absolute right-0 -bottom-6 transform;
+}
+
+.field-error {
+    @apply mb-2.5 lg:!mb-1;
+    border: 1px !important;
+    border-style: solid !important;
+    border-color: #960018 !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
