@@ -136,6 +136,7 @@ const Header = ({
   const refreshActive =
     (formData[6365] || formData[6620] || formData[1585472454126]) && user;
 
+  console.log(formData);
   return (
     <Fragment>
       <Modal
@@ -237,7 +238,7 @@ const Header = ({
                     variant="icon"
                     icon={<GrRefresh color="black" size={16} />}
                     className={
-                      "!rounded-[2px] lg:!rounded h-[22px] lg:h-[26px] w-[28px] !rounded-bl-none !rounded-tl-none !bg-transparent border border-green"
+                      "!rounded-bl-none !rounded-tl-none !rounded-[2px] lg:!rounded h-[22px] lg:h-[26px] w-[28px]  !bg-transparent border border-green"
                     }
                     onClick={() =>
                       setFormData({
@@ -256,9 +257,9 @@ const Header = ({
                   loading={searchLoading}
                   className={classNames(
                     refreshActive
-                      ? "!bg-green !rounded-br-none !rounded-tr-none !text-white"
-                      : "!bg-transparent",
-                    "h-[22px] lg:h-[26px] w-full  !border-green !rounded-[2px] lg:!rounded !text-[9px] lg:!text-xs"
+                      ? "!bg-green !rounded-br-none !rounded-tr-none !rounded-[2px] lg:!rounded !text-white"
+                      : "!bg-transparent !rounded-[2px] lg:!rounded",
+                    "h-[22px] lg:h-[26px] w-full  !border-green  !text-[9px] lg:!text-xs"
                   )}
                 />
               </div>
