@@ -2,36 +2,36 @@
 
 /* Label and Icon Styles */
 .label {
-    @apply flex items-center text-black text-3xs md:text-2xs lg:text-xs font-600;
+  @apply flex items-center font-700 text-3xs text-black md:text-2xs lg:text-xs;
 }
 
 .required {
-    @apply text-red lg:text-lg mr-1;
+  @apply mr-1 text-red lg:text-lg;
 }
 
 .guideIcon {
-    @apply w-[9px] h-[9px] lg:h-[16px] lg:w-[16px] lg:p-[1px];
+  @apply w-[9px] h-[9px] lg:h-[16px] lg:w-[16px] lg:p-[1px];
 }
 
 /* Icon Size & Styling */
 .icon-size {
-    @apply min-w-[12px] min-h-[12px] md:min-w-[14px] md:min-h-[14px] lg:min-w-[18px] lg:min-h-[18px];
+  @apply min-w-[12px] min-h-[12px] md:min-w-[14px] md:min-h-[14px] lg:min-w-[18px] lg:min-h-[18px];
 }
 
 /* Hover Effects */
 .hover-green {
-    @apply hover:text-green transition-all;
+  @apply transition-all hover:text-green;
 }
 
 .hover-red {
-    @apply hover:text-red-600 transition-all;
+  @apply transition-all hover:text-red-600;
 }
 
 /* Modal Styling */
 .modal-container {
-    @apply bg-white-lighter rounded-3xl px-3 pt-3 pb-6 lg:px-6 lg:pt-4 lg:pb-8;
+  @apply rounded-3xl bg-white-lighter px-3 pb-6 pt-3 lg:px-6 lg:pb-8 lg:pt-4;
 }
 
 .text-gray {
-    @apply text-gray-600;
+  @apply text-gray-600;
 }
