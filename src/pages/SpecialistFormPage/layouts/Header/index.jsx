@@ -151,7 +151,7 @@ const Header = ({
   return (
     <Fragment>
       <Modal
-        isOpen={true}
+        isOpen={showModal}
         onClose={() => {
           setIRC(0);
           setShowModal(false);
@@ -170,7 +170,7 @@ const Header = ({
           ])}
           colors={[
             {
-              color: "#f1f1f1",
+              color: "#f7f7f7",
               value: "انجام نشده",
             },
             {
@@ -289,7 +289,7 @@ const Header = ({
                     variant="icon"
                     icon={<GrRefresh color="black" size={16} />}
                     className={
-                      "!rounded-bl-none !rounded-tl-none !rounded-[2px] lg:!rounded h-[22px] lg:h-[26px] w-[28px]  !bg-transparent border border-green"
+                      "!rounded-l-none !rounded-r-[2px] lg:!rounded-r h-[22px] lg:h-[26px] w-[28px]  !bg-transparent border border-green"
                     }
                     onClick={() =>
                       setFormData({
@@ -308,7 +308,7 @@ const Header = ({
                   loading={searchLoading}
                   className={classNames(
                     refreshActive
-                      ? "!bg-green !rounded-br-none !rounded-tr-none !rounded-[2px] lg:!rounded !text-white"
+                      ? "!bg-green !rounded-r-none !rounded-l-[2px] lg:!rounded-l !text-white"
                       : "!bg-transparent !rounded-[2px] lg:!rounded",
                     "h-[22px] lg:h-[26px] w-full  !border-green  !text-[9px] lg:!text-xs"
                   )}

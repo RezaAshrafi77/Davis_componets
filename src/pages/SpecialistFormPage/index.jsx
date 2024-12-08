@@ -2,6 +2,7 @@ import React from "react";
 import Page from "../../components/Page";
 import Header from "./layouts/Header";
 import { useForm } from "react-hook-form";
+import TextField from "../../components/TextField";
 
 export default function SFP() {
   const {
@@ -17,16 +18,7 @@ export default function SFP() {
   });
   return (
     <Page>
-      <Header
-        control={control}
-        handleSubmit={handleSubmit}
-        watch={watch}
-        rows={[
-          [1, 2, 3, 4, 5, "انجام شده", 7, 8],
-          [1, 2, 3, 4, 5, "انجام نشده", 7, 8],
-        ]}
-        colFilter={6}
-      />
+      <TextField label="reza" divider={true} />
     </Page>
   );
 }
