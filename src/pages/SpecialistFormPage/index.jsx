@@ -1,6 +1,6 @@
 import React from "react";
 import Page from "../../components/Page";
-import Header from "../SpecialistDashboardPage/layouts/Header/index";
+import Header from "./layouts/Header";
 import { useForm } from "react-hook-form";
 
 export default function SFP() {
@@ -17,7 +17,16 @@ export default function SFP() {
   });
   return (
     <Page>
-      <Header control={control} handleSubmit={handleSubmit} watch={watch} />
+      <Header
+        control={control}
+        handleSubmit={handleSubmit}
+        watch={watch}
+        rows={[
+          [1, 2, 3, 4, 5, "reza", 7, 8],
+          [1, 2, 3, 4, 5, "akbar", 7, 8],
+        ]}
+        colFilter={6}
+      />
     </Page>
   );
 }

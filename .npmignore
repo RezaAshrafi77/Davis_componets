@@ -2,3 +2,6 @@ node_modules
 dist/*.map
 src/
 .vite/
+
+.index.html
+.tailwind.config.js

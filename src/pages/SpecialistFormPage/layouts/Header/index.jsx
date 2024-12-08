@@ -4,6 +4,7 @@ import Table from "../../../../components/Table";
 import Modal from "../../../../components/Modal";
 import Button from "../../../../components/Button";
 import Radio from "../../../../components/Radio";
+import CheckBox from "../../../../components/CheckBox";
 import TextField from "../../../../components/TextField";
 import FieldSet from "../../../../components/FieldSet";
 import useDevice from "../../../../hooks/useDevice";
@@ -12,7 +13,6 @@ import { Form_Inputs, Service_Status, Table_Columns } from "./data";
 import { tableSizeList } from "../../../../components/Table/data";
 import Label from "../../../../components/Label";
 import classNames from "classnames";
-import { toast } from "react-toastify";
 import { GrRefresh } from "react-icons/gr";
 import VIPIcon from "../../../../assets/images/vip.svg";
 
@@ -28,6 +28,8 @@ const Header = ({
   setUsers,
   setUserID,
   JID,
+  toast = () => {},
+  colFilter = 6,
 }) => {
   const [formData, setFormData] = useState({
     6365: null, // RF Id
@@ -42,6 +44,7 @@ const Header = ({
   const [initialRequestControl, setIRC] = useState(0);
   const [searchLoading, setSearchLoading] = useState(false);
   const [userInfoLoading, setUserInfoLoading] = useState(false);
+  const [activeFilterOption, setAFO] = useState(null);
 
   const offset = useMemo(() => {
     return tableSize * (currentPage - 1);
@@ -52,11 +55,7 @@ const Header = ({
   useEffect(() => {
     if (user) {
       setShowModal(false);
-      setFormData({
-        4942: user[4942] || null, // Full name
-        6620: user[6620] || null, // National Code
-        ...formData,
-      });
+      handleOnChange(user[4941] + " " + user[4942], "4942");
     }
   }, [user]);
 
@@ -98,6 +97,7 @@ const Header = ({
     const options = {
       dataInfo: formData,
     };
+    options.dataInfo[4942] = null;
     if (options.dataInfo["6365"]) {
       options.dataInfo["1558737412305"] = options.dataInfo["6365"];
       options.jobId = JID.RFID;
@@ -120,6 +120,7 @@ const Header = ({
 
   const _getUser = async (i) => {
     setUserID(users[i]["6483"]);
+    handleOnChange(users[i]["6620"], "6620");
     const formData = {
       6483: users[i]["6483"],
     };
@@ -136,23 +137,52 @@ const Header = ({
   const refreshActive =
     (formData[6365] || formData[6620] || formData[1585472454126]) && user;
 
-  console.log(formData);
+  const filterOptions = useMemo(
+    () => [...new Set(rows.map((row) => row[colFilter - 1]))],
+    [colFilter, rows]
+  );
+
+  const _rows = useMemo(() => {
+    if (activeFilterOption) {
+      return rows.filter((row) => row[colFilter - 1] == activeFilterOption);
+    } else return rows;
+  }, [activeFilterOption, rows]);
+
   return (
     <Fragment>
       <Modal
-        isOpen={showModal}
+        isOpen={true}
         onClose={() => {
           setIRC(0);
           setShowModal(false);
           setCurrentPage(1);
         }}
-        containerClassName={userInfoLoading ? "backdrop-blur-sm" : ""}
+        containerClassName={classNames(
+          styles.modal,
+          userInfoLoading ? "backdrop-blur-sm" : ""
+        )}
       >
         <Table
           columns={tableColumns}
-          rows={rows.map((row, i) => [
-            (currentPage - 1) * tableSize + i + 1,
-            ...row,
+          rows={_rows.map((row, i) => [
+            <div
+              className={classNames(
+                "p-2 rounded border border-white group-hover:border-green",
+                row[colFilter - 1] == filterOptions[0] ? "bg-gray-f7" : ""
+              )}
+            >
+              {(currentPage - 1) * tableSize + i + 1}
+            </div>,
+            ...row.map((item) => (
+              <div
+                className={classNames(
+                  "p-2 rounded border border-white group-hover:border-green",
+                  row[colFilter - 1] == filterOptions[0] ? "bg-gray-f7" : ""
+                )}
+              >
+                {item}
+              </div>
+            )),
           ])}
           page={currentPage}
           setPage={setCurrentPage}
@@ -162,7 +192,33 @@ const Header = ({
           pagination
           selectable
           containerClassName={searchLoading ? "blur-sm" : ""}
-        />
+          className={styles.table}
+        >
+          <div className="flex items-center h-full pr-2 gap-4">
+            <span className="text-2xs lg:text-xs font-700">
+              نمایش بر اساس :
+            </span>
+            <div className="flex items-center gap-4">
+              {filterOptions.map((o) => (
+                <Radio
+                  key={o}
+                  label={o}
+                  className={styles.radio}
+                  name={"filter"}
+                  value={o}
+                  checked={o == activeFilterOption}
+                  onClick={() => {
+                    if (activeFilterOption == o) {
+                      setAFO(null);
+                    } else {
+                      setAFO(o);
+                    }
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </Table>
       </Modal>
       <section
         className={classNames(
