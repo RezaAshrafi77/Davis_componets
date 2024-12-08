@@ -165,25 +165,20 @@ const Header = ({
         <Table
           columns={tableColumns}
           rows={_rows.map((row, i) => [
-            <div
-              className={classNames(
-                "p-2 rounded border border-white group-hover:border-green",
-                row[colFilter - 1] == filterOptions[0] ? "bg-gray-f7" : ""
-              )}
-            >
-              {(currentPage - 1) * tableSize + i + 1}
-            </div>,
-            ...row.map((item) => (
-              <div
-                className={classNames(
-                  "p-2 rounded border border-white group-hover:border-green",
-                  row[colFilter - 1] == filterOptions[0] ? "bg-gray-f7" : ""
-                )}
-              >
-                {item}
-              </div>
-            )),
+            (currentPage - 1) * tableSize + i + 1,
+            ...row,
           ])}
+          colors={[
+            {
+              color: "#f1f1f1",
+              value: "انجام نشده",
+            },
+            {
+              color: "#fff",
+              value: "انجام شده",
+            },
+          ]}
+          colFilter={colFilter}
           page={currentPage}
           setPage={setCurrentPage}
           setTableSize={setTableSize}
@@ -203,7 +198,7 @@ const Header = ({
                 <Radio
                   key={o}
                   label={o}
-                  className={styles.radio}
+                  className={styles.filterRadio}
                   name={"filter"}
                   value={o}
                   checked={o == activeFilterOption}

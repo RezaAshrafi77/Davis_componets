@@ -15,11 +15,11 @@
 }
 
 .tbody .tr .td {
-  @apply transition-all rounded-md shadow-md text-3xs md:text-2xs lg:text-xs font-400 bg-white group-hover:bg-white-light text-center p-2 lg:whitespace-pre-wrap;
+  @apply transition-all rounded-md border-[0.5px] shadow-md text-3xs md:text-2xs lg:text-xs font-400 bg-white text-center p-2 lg:whitespace-pre-wrap;
 }
 
 .selectable .tbody .tr:hover .td {
-  @apply cursor-pointer;
+  @apply cursor-pointer border-green;
 }
 
 .pagination {

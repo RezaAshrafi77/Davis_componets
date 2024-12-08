@@ -21,6 +21,8 @@ const Table = ({
   stripe,
   children,
   onSelect = () => {},
+  colFilter,
+  colors,
 }) => {
   return rows?.length ? (
     <div className={classNames(styles.container, containerClassName)}>
@@ -50,7 +52,16 @@ const Table = ({
                 onClick={() => onSelect(i)}
               >
                 {row?.map((_, j) => (
-                  <td key={"table-td" + j} className={styles.td}>
+                  <td
+                    key={"table-td" + j}
+                    className={styles.td}
+                    style={{
+                      backgroundColor: colors?.length
+                        ? colors.find((color) => color.value == row[colFilter])
+                            ?.color
+                        : "",
+                    }}
+                  >
                     {_}
                   </td>
                 ))}
@@ -82,6 +93,7 @@ const Table = ({
             ) : null}
             <Button
               className={styles.next}
+              disabled={page == 1}
               variant={page == 1 ? "disabled" : ""}
               title={"قبلی"}
               onClick={() => setPage(Math.max(page - 1, 1))}
@@ -90,6 +102,7 @@ const Table = ({
             <Button
               className={styles.next}
               title={"بعدی"}
+              disabled={Math.floor(rows?.length / tableSize) == 0}
               variant={
                 Math.floor(rows?.length / tableSize) == 0 ? "disabled" : ""
               }

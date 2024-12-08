@@ -3,7 +3,7 @@
 }
 
 .labelContainer {
-  @apply flex items-center lg:gap-1 py-1;
+  @apply flex items-center lg:gap-1 lg:py-1;
 }
 
 .label,

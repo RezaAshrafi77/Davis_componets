@@ -22,8 +22,8 @@ export default function SFP() {
         handleSubmit={handleSubmit}
         watch={watch}
         rows={[
-          [1, 2, 3, 4, 5, "reza", 7, 8],
-          [1, 2, 3, 4, 5, "akbar", 7, 8],
+          [1, 2, 3, 4, 5, "انجام شده", 7, 8],
+          [1, 2, 3, 4, 5, "انجام نشده", 7, 8],
         ]}
         colFilter={6}
       />
