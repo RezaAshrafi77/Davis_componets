@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import PropTypes from "prop-types"
 import classNames from "classnames"
 import { VscLoading } from "react-icons/vsc"
@@ -20,7 +21,7 @@ const Button = ({
         <button
             type={type}
             title={title}
-            disabled={disabled || loading}
+            disabled={disabled || loading || variant == "disabled"}
             className={classNames(
                 styles.button,
                 styles[variant],
@@ -36,6 +37,7 @@ const Button = ({
                 <VscLoading
                     className="text-lg animate-spin"
                     color={loadingColor}
+                    onClick={props?.onClick() ? props?.onClick() : {}}
                 />
             ) : (
                 <>
