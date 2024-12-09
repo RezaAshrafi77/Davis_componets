@@ -60,42 +60,33 @@ export default function SpecialistPrintPage({
             .finally(() => setPazireshLoading(false))
     }
 
-    const entekhabPaziresh = useCallback(
-        (row) => {
-            setServiceLoading(true)
-            request({
-                jobId: 173,
-                dataInfo: { 1545718677214: row[1545718677214] },
+    const entekhabPaziresh = (row) => {
+        setServiceLoading(true)
+        request({
+            jobId: 173,
+            dataInfo: { 1545718677214: row[1545718677214] },
+        })
+            .then((res) => {
+                const realResponse = parse(res)
+                setOgrid(realResponse.data[0].ogrid)
             })
-                .then((res) => {
-                    const realResponse = parse(res)
-                    setOgrid(realResponse.data[0].ogrid)
-                })
-                .finally(() => setServiceLoading(false))
-        },
-        [setServiceLoading, request, setOgrid]
-    )
+            .finally(() => setServiceLoading(false))
+    }
 
-    const rows = useMemo(
-        () =>
-            pazireshList?.map((row, index) => [
-                (currentPage - 1) * tableSize + index + 1,
-                row["fn"],
-                moment(row["tarikh_paziresh"])
-                    .locale("fa")
-                    .format("YYYY/MM/DD"),
-                row["list_khadamat"],
-                <Button
-                    onClick={entekhabPaziresh(row)}
-                    variant="text"
-                    title={"انتخاب"}
-                    key={"entekhab" + index}
-                    className="!max-w-fit !m-auto group-hover:!text-green"
-                    loading={serviceLoading}
-                />,
-            ]),
-        [pazireshList, tableSize, currentPage, serviceLoading, entekhabPaziresh]
-    )
+    const rows = pazireshList?.map((row, index) => [
+        (currentPage - 1) * tableSize + index + 1,
+        row["fn"],
+        moment(row["tarikh_paziresh"]).locale("fa").format("YYYY/MM/DD"),
+        row["list_khadamat"],
+        <Button
+            onClick={entekhabPaziresh(row)}
+            variant="text"
+            title={"انتخاب"}
+            key={"entekhab" + index}
+            className="!max-w-fit !m-auto group-hover:!text-green"
+            loading={serviceLoading}
+        />,
+    ])
 
     return (
         <div className="mt-4 flex h-full max-h-full flex-col justify-between">
