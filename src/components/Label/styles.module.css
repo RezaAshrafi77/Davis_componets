@@ -2,7 +2,7 @@
 
 /* Label and Icon Styles */
 .label {
-  @apply flex items-center font-700 text-3xs text-black md:text-2xs lg:text-xs;
+  @apply relative flex items-center font-700 text-3xs text-black md:text-2xs lg:text-xs;
 }
 
 .required {
@@ -10,12 +10,15 @@
 }
 
 .guideIcon {
-  @apply w-[9px] h-[9px] lg:h-[16px] lg:w-[16px] lg:p-[1px];
+  @apply mr-1 w-[20px] md:w-[30px] cursor-pointer;
 }
 
-/* Icon Size & Styling */
-.icon-size {
-  @apply min-w-[12px] min-h-[12px] md:min-w-[14px] md:min-h-[14px] lg:min-w-[18px] lg:min-h-[18px];
+.archiveIcon {
+  @apply mr-1 w-[15px] md:w-[17px] cursor-pointer;
+}
+
+.eduIcon {
+  @apply absolute left-1 top-1/2 -translate-y-1/2 mr-1 w-[15px] md:w-[17px] cursor-pointer;
 }
 
 /* Hover Effects */
