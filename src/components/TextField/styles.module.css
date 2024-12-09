@@ -20,6 +20,10 @@
   @apply outline-none bg-white border-black text-black ring-0;
 }
 
+textarea {
+  @apply p-2;
+}
+
 .icon {
   @apply absolute top-1/2 left-1 lg:left-1.5 -translate-y-1/2;
 }

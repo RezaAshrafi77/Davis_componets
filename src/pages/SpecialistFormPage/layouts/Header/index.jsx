@@ -21,7 +21,7 @@ const Header = ({
   rows = [],
   tableColumns = Table_Columns,
   request = () => {},
-  vip = true,
+  vip,
   user,
   setUser,
   users = [],
@@ -137,10 +137,9 @@ const Header = ({
   const refreshActive =
     (formData[6365] || formData[6620] || formData[1585472454126]) && user;
 
-  const filterOptions = useMemo(
-    () => [...new Set(rows.map((row) => row[colFilter - 1]))],
-    [colFilter, rows]
-  );
+  const filterOptions = rows?.length
+    ? [...new Set(rows?.map((row) => row[colFilter - 1]))]
+    : [];
 
   const _rows = useMemo(() => {
     if (activeFilterOption) {
@@ -243,11 +242,7 @@ const Header = ({
                   name={item.qKey}
                   placeholder={item.placeholder}
                   label={item.label}
-                  icon={
-                    <div className="absolute left-1 top-1/2 -translate-y-1/2 md:left-1.5">
-                      <item.icon size={14} color="green" />
-                    </div>
-                  }
+                  icon={<item.icon size={14} color="green" />}
                   value={formData[item.qKey]}
                   onChange={(e) => handleOnChange(e.target.value, item.qKey)}
                   disabled={

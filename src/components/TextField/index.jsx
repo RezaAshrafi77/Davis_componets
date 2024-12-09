@@ -110,13 +110,15 @@ const TextField = ({
           />
         )}
 
-        {icon && !props.rows ? (
-          <div className={styles.icon}>{icon}</div>
-        ) : (
-          <div className={styles.icon}>
-            <img src={NoteIcon} alt="" />
-          </div>
-        )}
+        {!props.rows ? (
+          icon ? (
+            <div className={styles.icon}>{icon}</div>
+          ) : (
+            <div className={styles.icon}>
+              <img src={NoteIcon} alt="" />
+            </div>
+          )
+        ) : null}
         {props.rows && icon ? icon : null}
       </div>
       {isError && (
