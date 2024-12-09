@@ -189,30 +189,32 @@ const Header = ({
           containerClassName={searchLoading ? "blur-sm" : ""}
           className={styles.table}
         >
-          <div className="flex items-center h-full pr-2 gap-4">
-            <span className="text-2xs lg:text-xs font-700">
-              نمایش بر اساس :
-            </span>
-            <div className="flex items-center gap-4">
-              {filterOptions.map((o) => (
-                <Radio
-                  key={o}
-                  label={o}
-                  className={styles.filterRadio}
-                  name={"filter"}
-                  value={o}
-                  checked={o == activeFilterOption}
-                  onClick={() => {
-                    if (activeFilterOption == o) {
-                      setAFO(null);
-                    } else {
-                      setAFO(o);
-                    }
-                  }}
-                />
-              ))}
+          {filterOptions?.length > 1 ? (
+            <div className="flex items-center h-full pr-2 gap-4">
+              <span className="text-2xs lg:text-xs font-700">
+                نمایش بر اساس :
+              </span>
+              <div className="flex items-center gap-4">
+                {filterOptions.map((o) => (
+                  <Radio
+                    key={o}
+                    label={o}
+                    className={styles.filterRadio}
+                    name={"filter"}
+                    value={o}
+                    checked={o == activeFilterOption}
+                    onClick={() => {
+                      if (activeFilterOption == o) {
+                        setAFO(null);
+                      } else {
+                        setAFO(o);
+                      }
+                    }}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
+          ) : null}
         </Table>
       </Modal>
       <section

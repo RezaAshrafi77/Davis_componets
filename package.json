@@ -2,7 +2,7 @@
   "name": "react-elements-davis",
   "main": "dist/main.cjs.js",
   "module": "dist/main.es.js",
-  "version": "0.0.55",
+  "version": "0.0.58",
   "type": "module",
   "private": false,
   "scripts": {

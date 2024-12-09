@@ -54,11 +54,7 @@ const Header = ({
                 register={register}
                 placeholder={"در این قسمت وارد کنید"}
                 label={"کد ملی"}
-                icon={
-                  <div className="absolute left-1 md:left-1.5 top-1/2 -translate-y-1/2">
-                    <HiMiniIdentification size={14} color="green" />
-                  </div>
-                }
+                icon={<HiMiniIdentification size={14} color="green" />}
                 labelClassName={"!text-[9px] lg:!text-xs"}
               />
               <div className="hidden md:block lg:hidden"></div>
