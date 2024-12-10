@@ -67,9 +67,9 @@
   margin-left: 1px !important;
 }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 953px) {
   .modal {
-    width: clamp(1024px, 96vw, 1280px);
+    width: clamp(950px, 96vw, 1280px);
   }
 }
 

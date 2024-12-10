@@ -2,7 +2,7 @@
 
 /* Label and Icon Styles */
 .label {
-  @apply relative flex items-center font-700 text-3xs text-black md:text-2xs lg:text-xs;
+  @apply relative flex items-center font-700 text-3xs text-black md:text-2xs lg:text-[13px];
 }
 
 .required {
