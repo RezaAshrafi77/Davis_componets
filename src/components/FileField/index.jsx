@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import classNames from "classnames";
 import { FaFileCircleXmark } from "react-icons/fa6";
 import { MdOutlineFileUpload } from "react-icons/md";
@@ -31,8 +31,16 @@ const FileField = ({
   userGuide,
   educationalContent,
   disabled,
+  accept,
 }) => {
   const [openModal, setOpenModal] = useState(false);
+  const _value = useMemo(() => {
+    if (watch) {
+      return watch(questionKey);
+    } else {
+      return value;
+    }
+  }, [watch, questionKey, value]);
 
   useEffect(() => {
     if (required && register) {
@@ -55,7 +63,7 @@ const FileField = ({
   };
 
   const handleDisplayFile = () => {
-    const fileLink = watch ? watch(questionKey) : value;
+    const fileLink = _value;
     if (typeof fileLink === "string") {
       winOpen(fileLink);
     } else if (fileLink) {
@@ -97,7 +105,7 @@ const FileField = ({
   );
 
   const renderFileInfo = () => {
-    const fileToDisplay = value || watch(questionKey);
+    const fileToDisplay = _value;
     return fileToDisplay ? filename(fileToDisplay) : "انتخاب فایل";
   };
 
@@ -140,16 +148,16 @@ const FileField = ({
 
       <div className={styles.uploadPart}>
         <Button
-          variant={value || watch(questionKey) ? "outlined" : "disabled"}
+          variant={_value ? "outlined" : "disabled"}
           className={classNames(buttonClassName, styles.button)}
-          title={value || watch(questionKey) ? "نمایش فایل" : "انتخاب فایل"}
+          title={_value ? "نمایش فایل" : "انتخاب فایل"}
           onClick={handleDisplayFile}
         />
 
         <div
           className={classNames(styles.uploadShow, {
-            "!bg-white": value || watch(questionKey),
-            "!bg-white-f5": !value && !watch(questionKey),
+            "!bg-white": _value,
+            "!bg-white-f5": !_value,
           })}
         >
           <label className={classNames(styles.inputField, className)}>
@@ -164,12 +172,13 @@ const FileField = ({
               )}
               onChange={handleFileChange}
               disabled={false}
+              accept={accept}
             />
             <Button
               variant="text"
-              onClick={value || watch(questionKey) ? deleteFile : null}
+              onClick={_value ? deleteFile : null}
               icon={
-                value || watch(questionKey) ? (
+                _value ? (
                   <FaFileCircleXmark
                     color={openModal ? "#960018" : "#04900a"}
                     className="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]"
@@ -181,7 +190,7 @@ const FileField = ({
                   />
                 )
               }
-              className={value || watch(questionKey) ? "z-20" : ""}
+              className={_value ? "z-20" : ""}
             />
           </label>
         </div>

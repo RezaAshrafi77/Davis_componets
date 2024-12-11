@@ -68,6 +68,7 @@ export default function SpecialistPrintPage({
         const realResponse = parse(res);
         setOgrid(realResponse.data[0].ogrid);
       })
+      .catch((err) => toast.error(err.message))
       .finally(() => setServiceLoading(false));
   };
 
@@ -150,7 +151,10 @@ export default function SpecialistPrintPage({
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 w-full z-20">
               {services?.map((service) =>
-                check_print_condition(ogrid[1576563125067], [service.id]) ? (
+                check_print_condition(
+                  ogrid[1576563125067],
+                  service.id.split(",")
+                ) ? (
                   <div
                     key={service.id}
                     className="flex h-10 w-full items-center gap-3 self-start lg:h-14 cursor-pointer"
