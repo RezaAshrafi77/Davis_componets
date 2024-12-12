@@ -142,7 +142,10 @@ const FileField = ({
       />
       {divider && (
         <Divider
-          className={classNames(dividerClassName, "mx-auto my-2 block w-full")}
+          className={classNames(
+            dividerClassName,
+            "mx-auto mt-1 mb-2 block w-full"
+          )}
         />
       )}
 
