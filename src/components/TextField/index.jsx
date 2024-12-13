@@ -124,12 +124,11 @@ const TextField = ({
                             : {})}
                     />
                 )}
-
                 {!props.rows ? (
                     <div
                         className={classNames(
                             styles.icon,
-                            en ? "left-auto right-1" : "left-1"
+                            en ? "!left-auto !right-1" : "!left-1"
                         )}
                     >
                         {icon ? icon : <img src={NoteIcon} alt="" />}

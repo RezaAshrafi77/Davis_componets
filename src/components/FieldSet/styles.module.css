@@ -15,5 +15,5 @@
 }
 
 .enLegend {
-    @apply lg:ml-8 lg:mr-0;
+    @apply lg:!ml-8 lg:!mr-auto;
 }

@@ -6,7 +6,7 @@ const FieldSet = ({ title, children, className, titleClassName, en }) => (
     <fieldset
         className={classNames(styles.fieldset, className)}
         role="group"
-        dir={en ? "ltr" : ""}
+        // dir={en ? "ltr" : ""}
         aria-labelledby={title ? "fieldset-legend" : undefined}
     >
         {title && (
