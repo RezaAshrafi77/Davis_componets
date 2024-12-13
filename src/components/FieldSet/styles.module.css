@@ -1,15 +1,19 @@
 .fieldset {
-  @apply w-full px-4 py-4 rounded-lg lg:px-8 lg:pt-6;
-  border: 0.5px solid transparent;
-  background: linear-gradient(white, white) padding-box,
-    linear-gradient(180deg, #727272, white) border-box;
-  /* transition: border-color 0.3s ease, box-shadow 0.3s ease; */
+    @apply w-full px-4 py-4 rounded-lg lg:px-8 lg:pt-6;
+    border: 0.5px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+        linear-gradient(180deg, #727272, white) border-box;
+    /* transition: border-color 0.3s ease, box-shadow 0.3s ease; */
 }
 
 .legend {
-  @apply text-xs px-0.5 py-0 relative font-700 leading-5 bg-white;
-  @apply lg:text-sm lg:mr-8 -top-0.5 text-[#3D0C02];
-  border-radius: 0.25rem;
-  padding: 0 0.5rem;
-  background: white;
+    @apply text-xs px-0.5 py-0 relative font-700 leading-5 bg-white;
+    @apply lg:text-sm lg:mr-8 -top-0.5 text-[#3D0C02];
+    border-radius: 0.25rem;
+    padding: 0 0.5rem;
+    background: white;
+}
+
+.enLegend {
+    @apply lg:ml-8 lg:mr-0;
 }

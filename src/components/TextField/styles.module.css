@@ -1,5 +1,5 @@
 .container {
-    @apply flex flex-col justify-between gap-0.5 relative;
+    @apply bg-formItem w-full flex flex-col relative p-2 rounded shadow-formItem;
 }
 
 .field {

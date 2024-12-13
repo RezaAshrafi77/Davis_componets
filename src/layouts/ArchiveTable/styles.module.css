@@ -7,7 +7,7 @@
 }
 
 .loadingSpinner {
-    @apply text-2xl text-green animate-spin;
+    @apply text-2xl text-success animate-spin;
 }
 
 .emptyStateContainer {

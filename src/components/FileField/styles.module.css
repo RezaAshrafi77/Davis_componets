@@ -1,5 +1,5 @@
 .uploadContainer {
-    @apply flex flex-col border-[0.5px] px-2 py-2 bg-formItem border-[#efe7e9] rounded shadow-formItem relative;
+    @apply w-full flex flex-col p-2 bg-formItem rounded shadow-formItem relative;
 }
 
 .uploadTitle {

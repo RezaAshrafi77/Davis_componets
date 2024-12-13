@@ -10,13 +10,20 @@ const CheckBox = ({
     onChange,
     disabled = false,
     className,
+    en,
 }) => {
     return (
         <label
-            className={classNames(styles.container, className, {
-                [styles.checkedContainer]: checked,
-                [styles.disabledContainer]: disabled,
-            })}
+            className={classNames(
+                styles.container,
+                className,
+                en ? styles.enContainer : "",
+                {
+                    [styles.checkedContainer]: checked,
+                    [styles.disabledContainer]: disabled,
+                }
+            )}
+            dir={en ? "ltr" : ""}
         >
             <span className={styles.label}>{label}</span>
             <input

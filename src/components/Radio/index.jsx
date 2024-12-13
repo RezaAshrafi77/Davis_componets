@@ -4,11 +4,13 @@ import classNames from "classnames"
 import styles from "./styles.module.css"
 
 const Radio = forwardRef(
-    ({ className, label, checked, disabled, ...props }, ref) => {
+    ({ className, label, checked, disabled, en, ...props }, ref) => {
         return (
             <label
+                dir={en ? "ltr" : ""}
                 className={classNames(
                     className,
+                    en ? styles.enContainer : "",
                     styles.container,
                     checked && styles.checkedContainer,
                     disabled && styles.disabledContainer,

@@ -1,9 +1,9 @@
 .container {
-    @apply w-full flex justify-between bg-white relative;
+    @apply bg-formItem w-full flex flex-col relative p-2 rounded shadow-formItem;
 }
 
 .field {
-    @apply h-6 lg:h-[26px] text-2xs lg:text-xs rounded border-[0.5px] border-solid border-black hover:border-success  bg-[#f7f7f7] font-400  py-0  !ring-0 hover:bg-white cursor-pointer outline-none;
+    @apply h-6 lg:h-[26px] text-2xs lg:text-xs rounded border-[0.5px] border-solid border-black hover:border-success  bg-formItemInput font-400  py-0  !ring-0 hover:bg-white cursor-pointer outline-none;
 }
 
 .options {

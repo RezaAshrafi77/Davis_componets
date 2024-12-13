@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useCallback, useMemo, useState } from "react"
+import { useState } from "react"
 import Button from "../../components/Button"
 import Divider from "../../components/Divider"
 import FieldSet from "../../components/FieldSet"
@@ -99,7 +99,7 @@ export default function SpecialistPrintPage({
                             className="items-center rounded border md:max-w-[248px] w-full"
                             icon={
                                 <BiSolidUserDetail
-                                    className="lg:w-[20px] lg:h-[20px] group-hover:text-green"
+                                    className="lg:w-[20px] lg:h-[20px] group-hover:text-success"
                                     color="#858585"
                                 />
                             }
@@ -110,7 +110,7 @@ export default function SpecialistPrintPage({
                         />
                         <Button
                             title={"جستجو"}
-                            className="!bg-gray-f7 hover:!bg-green hover:!border-green hover:!text-white !border-green !w-[91px]"
+                            className="!bg-gray-[#f7f7f7] hover:!bg-success hover:!border-success hover:!text-white !border-success !w-[91px]"
                             type="submit"
                             variant="outlined"
                             icon={<MdOutlinePersonSearch size={20} />}
@@ -134,7 +134,7 @@ export default function SpecialistPrintPage({
                                     variant="text"
                                     title={"انتخاب"}
                                     key={"entekhab" + index}
-                                    className="!max-w-fit !bg-white !m-auto group-hover:!text-green"
+                                    className="!max-w-fit !bg-white !m-auto group-hover:!text-success"
                                     loading={serviceLoading}
                                 />,
                             ])}

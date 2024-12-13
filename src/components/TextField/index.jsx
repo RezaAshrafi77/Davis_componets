@@ -6,6 +6,7 @@ import { BiError } from "react-icons/bi"
 import styles from "./styles.module.css"
 import Divider from "../Divider"
 import NoteIcon from "../../assets/icons/note.svg"
+import { BsPencilSquare } from "react-icons/bs"
 
 const TextField = ({
     containerClassName,
@@ -13,6 +14,7 @@ const TextField = ({
     label,
     icon,
     userGuide,
+    educationalContent,
     archive,
     labelClassName,
     questionKey,
@@ -47,10 +49,11 @@ const TextField = ({
     const inputProps = {
         className: classNames(
             styles.input,
+            props.rows ? "!py-2 !px-2" : "",
             "w-full outline-none bg-transparent",
             disabled && "cursor-not-allowed"
         ),
-
+        dir: en ? "ltr" : "rtl",
         disabled,
         value: inputValue,
         onChange: inputOnChange,
@@ -78,6 +81,7 @@ const TextField = ({
                         labelDirectionStyle[divider]
                     )}
                     userGuide={userGuide}
+                    educationalContent={educationalContent}
                     archive={archive ? { ...archive, questionKey } : false}
                     label={label}
                     required={required}
@@ -93,8 +97,8 @@ const TextField = ({
             <div
                 className={classNames(
                     isFocused
-                        ? "border-green !bg-white"
-                        : "hover:border-green border-black",
+                        ? "border-success !bg-white"
+                        : "hover:border-success border-black",
                     className,
                     "group",
                     styles.field,
@@ -122,18 +126,28 @@ const TextField = ({
                 )}
 
                 {!props.rows ? (
-                    icon ? (
-                        <div className={styles.icon}>{icon}</div>
-                    ) : (
-                        <div className={styles.icon}>
-                            <img src={NoteIcon} alt="" />
-                        </div>
-                    )
-                ) : null}
-                {props.rows && icon ? icon : null}
+                    <div
+                        className={classNames(
+                            styles.icon,
+                            en ? "left-auto right-1" : "left-1"
+                        )}
+                    >
+                        {icon ? icon : <img src={NoteIcon} alt="" />}
+                    </div>
+                ) : (
+                    <div
+                        className={classNames(
+                            styles.icon,
+                            en ? "left-auto right-2" : "left-2",
+                            "h-[60px] w-[60px]"
+                        )}
+                    >
+                        <BsPencilSquare className="opacity-5 w-full h-full" />
+                    </div>
+                )}
             </div>
             {isError && (
-                <span className="text-error">
+                <span className="error">
                     {errorIcon ? (
                         errorIcon
                     ) : (

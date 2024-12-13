@@ -10,7 +10,7 @@
 
 /* Variants */
 .variant {
-    @apply bg-green border border-green text-white;
+    @apply bg-success border border-success text-white;
 }
 
 .text {

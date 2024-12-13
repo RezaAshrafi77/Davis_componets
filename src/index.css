@@ -38,8 +38,8 @@
     src: url("./assets/fonts/IRANSansX-Bold.ttf") format("truetype");
 }
 
-.text-error {
-    @apply font-400 text-2xs lg:text-xs text-red-error flex items-center gap-1 animate-bounce absolute right-0 -bottom-6 transform;
+.error {
+    @apply font-400 text-2xs lg:text-xs text-error flex items-center gap-1 animate-bounce absolute right-0 -bottom-6 transform;
 }
 
 .field-error {

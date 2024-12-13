@@ -37,35 +37,3 @@ A versatile and reusable React Button component built with Tailwind CSS and CSS 
 | `className`    | `string`    | `undefined`      | Additional classes for customization.                       |
 | `icon`         | `ReactNode` | `null`           | Icon to display inside the button.                          |
 | `loadingColor` | `string`    | `"currentColor"` | Color of the spinner in the loading state.                  |
-
-## Styling
-
-The component uses Tailwind CSS classes managed through a CSS module file (`index.module.css`). You can customize these styles as needed.
-
-### Base Styles
-
-```css
-.button {
-    @apply flex items-center justify-center gap-4 font-semibold px-2 py-0.5 rounded text-xs lg:text-base shadow-sm;
-}
-
-.variant {
-    @apply bg-green border border-green text-white;
-}
-
-.text {
-    @apply p-0 shadow-none text-black;
-}
-
-.outlined {
-    @apply text-black bg-white border border-black;
-}
-
-.disabled {
-    @apply bg-gray-200 text-gray-500 border-gray-300;
-}
-
-.icon {
-    @apply p-0.5;
-}
-```

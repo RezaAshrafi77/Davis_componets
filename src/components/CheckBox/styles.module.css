@@ -2,8 +2,15 @@
     @apply relative inline-flex justify-between items-center gap-3 lg:gap-6 rounded-[2px] bg-formItem lg:rounded px-[6px] py-0.5 lg:py-1 border-[0.5px] border-solid border-black cursor-pointer opacity-60 hover:bg-transparent hover:opacity-100 overflow-hidden;
 }
 
+.enContainer .label {
+    @apply ml-0 mr-2;
+    line-height: 0px !important;
+    font-family: sans-serif !important;
+    font-weight: 600;
+}
+
 .checkedContainer {
-    @apply border-green bg-white opacity-100  border-[0.5px];
+    @apply border-success bg-white opacity-100  border-[0.5px];
 }
 
 .disabledContainer {
@@ -32,7 +39,7 @@
 }
 
 .firstLayerChecked {
-    @apply bg-green bg-opacity-50;
+    @apply bg-success bg-opacity-50;
     box-shadow: 0px 0px 6px #02894c !important;
 }
 

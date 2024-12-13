@@ -60,8 +60,8 @@ function StyledExample() {
     return (
         <FieldSet
             title="Account Information"
-            className="border-green-500"
-            titleClassName="text-green-700"
+            className="border-success-500"
+            titleClassName="text-success"
             childrenClassName="space-y-4"
         >
             <div>
