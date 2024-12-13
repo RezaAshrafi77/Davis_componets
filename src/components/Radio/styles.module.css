@@ -1,9 +1,9 @@
 .container {
-    @apply relative inline-flex justify-between items-center gap-3 lg:gap-6 bg-white-lighter lg:rounded px-[6px] py-0.5 lg:py-1 border-[0.5px] border-solid border-black cursor-pointer opacity-60 hover:bg-transparent hover:opacity-100;
+    @apply relative inline-flex justify-between items-center gap-3 lg:gap-6 bg-formItem lg:rounded px-[6px] py-0.5 lg:py-1 border-[0.5px] border-solid border-black cursor-pointer opacity-60 hover:bg-transparent hover:opacity-100;
 }
 
 .checkedContainer {
-    @apply border-green bg-white opacity-100  border-[0.5px];
+    @apply border-success bg-white opacity-100  border-[0.5px];
 }
 
 .disabledContainer {
@@ -18,7 +18,7 @@
 }
 
 .input:checked {
-    @apply !ring-green !bg-green !text-green;
+    @apply !ring-success !bg-success !text-success;
     background-image: none !important;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .firstLayerChecked {
-    @apply bg-green bg-opacity-50;
+    @apply bg-success bg-opacity-50;
     box-shadow: 0px 0px 6px #02894c !important;
 }
 
@@ -48,5 +48,5 @@
 }
 
 .dotChecked {
-    @apply bg-green;
+    @apply bg-success;
 }

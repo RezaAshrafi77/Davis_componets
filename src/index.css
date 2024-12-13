@@ -60,3 +60,18 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
+
+/* Label */
+.label-center {
+    min-width: 100% !important;
+    justify-content: center !important;
+}
+
+.label-right {
+    min-width: 100% !important;
+    justify-content: flex-start !important;
+}
+
+.label-left {
+    min-width: 100% !important;
+}

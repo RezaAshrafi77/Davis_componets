@@ -1,5 +1,5 @@
 .container {
-    @apply relative inline-flex justify-between items-center gap-3 lg:gap-6 rounded-[2px] bg-white-lighter lg:rounded px-[6px] py-0.5 lg:py-1 border-[0.5px] border-solid border-black cursor-pointer opacity-60 hover:bg-transparent hover:opacity-100 overflow-hidden;
+    @apply relative inline-flex justify-between items-center gap-3 lg:gap-6 rounded-[2px] bg-formItem lg:rounded px-[6px] py-0.5 lg:py-1 border-[0.5px] border-solid border-black cursor-pointer opacity-60 hover:bg-transparent hover:opacity-100 overflow-hidden;
 }
 
 .checkedContainer {
@@ -18,7 +18,7 @@
 }
 
 .input:checked {
-    @apply !bg-green-600 !text-green-600;
+    @apply !bg-success !text-success;
 }
 
 .label {
@@ -47,5 +47,5 @@
 }
 
 .dotChecked {
-    @apply bg-green;
+    @apply bg-success;
 }

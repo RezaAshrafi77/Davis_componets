@@ -1,6 +1,6 @@
 /* Main container styling */
 .container {
-    @apply bg-white-lighter shadow-box aspect-square flex cursor-pointer flex-col items-center justify-center gap-2 px-4 py-3 transition-transform hover:scale-105 md:gap-3 max-h-fit;
+    @apply bg-formItem shadow-formItem aspect-square flex cursor-pointer flex-col items-center justify-center gap-2 px-4 py-3 transition-transform hover:scale-105 md:gap-3 max-h-fit;
 
     /* Adjust transition duration for hover effect */
     transition-duration: 200ms;
@@ -8,7 +8,7 @@
 
 /* Strong tag styling (title) */
 .container strong {
-    @apply text-3xs text-center font-medium text-gray-800 lg:text-sm;
+    @apply text-3xs text-center font-medium text-gray-800 md:text-xs lg:text-sm;
 }
 
 /* Card Icon styling (image) */

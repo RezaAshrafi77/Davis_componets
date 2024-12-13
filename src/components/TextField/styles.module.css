@@ -1,33 +1,33 @@
 .container {
-  @apply flex flex-col justify-between gap-0.5 relative;
+    @apply flex flex-col justify-between gap-0.5 relative;
 }
 
 .field {
-  @apply flex justify-center items-center relative overflow-hidden border-solid border-[0.5px] rounded bg-white-light py-1 pr-1;
+    @apply flex justify-center items-center relative overflow-hidden border-solid border-[0.5px] rounded bg-formItemInput;
 }
 
 .field:hover {
-  @apply bg-white text-black;
+    @apply bg-white text-black;
 }
 
 .input {
-  @apply w-full font-400 text-3xs md:text-2xs lg:text-xs text-black 
-        placeholder:text-3xs md:placeholder:text-2xs lg:placeholder:text-xs bg-transparent border-none;
+    @apply w-full font-400 text-3xs md:text-2xs lg:text-xs text-black 
+        placeholder:text-3xs md:placeholder:text-2xs lg:placeholder:text-xs bg-transparent border-none py-1 px-1.5;
 }
 
 .input:focus,
 .input:hover {
-  @apply outline-none bg-white border-black text-black ring-0;
+    @apply outline-none bg-white border-black text-black ring-0;
 }
 
 textarea {
-  @apply p-2;
+    @apply p-2;
 }
 
 .icon {
-  @apply absolute top-1/2 left-1 lg:left-1.5 -translate-y-1/2;
+    @apply absolute top-1/2 left-1 lg:left-1.5 -translate-y-1/2;
 }
 
 .icon img {
-  @apply h-[13px] w-[13px] lg:h-[19px] lg:w-[19px];
+    @apply h-[13px] w-[13px] lg:h-[19px] lg:w-[19px];
 }

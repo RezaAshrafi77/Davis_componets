@@ -1,24 +1,15 @@
-// import React, { useState } from "react";
-// import Page from "../../components/Page";
-// import { useForm } from "react-hook-form";
-// import { links } from "./data";
+import TextField from "../../components/TextField"
 
-// export default function SFP() {
-//   const {
-//     register,
-//     watch,
-//     handleSubmit,
-//     setValue,
-//     control,
-//     formState: { errors },
-//   } = useForm({
-//     mode: "all",
-//     defaultValues: {},
-//   });
-
-//   const [file, setFile] = useState(
-//     "/resource/files/ecxhccvpbiublkhpseqaiskuphgdfjqe1733721474328.png"
-//   );
-
-//   return <Page router routes={links} />;
-// }
+export default function SFP() {
+    return (
+        <div className="flex w-full h-screen justify-center items-center">
+            <TextField
+                label={"Reza"}
+                containerClassName={"w-[320px]"}
+                divider="left"
+                required
+                en
+            />
+        </div>
+    )
+}

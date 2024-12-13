@@ -1,36 +1,36 @@
 .dropdown {
-  @apply flex items-center gap-2 select-none relative bg-white rounded px-1 lg:px-2 py-1 cursor-pointer;
+    @apply flex items-center gap-2 select-none relative bg-white rounded px-1 lg:px-2 py-1 cursor-pointer;
 }
 
 .labelContainer {
-  @apply flex items-center lg:gap-1 lg:py-1;
+    @apply flex items-center lg:gap-1 lg:py-1;
 }
 
 .label,
 .value {
-  @apply text-2xs lg:text-xs;
+    @apply text-2xs lg:text-xs;
 }
 
 .icon {
-  @apply transition-all text-2xs lg:text-sm;
+    @apply transition-all text-2xs lg:text-sm;
 }
 
 .iconOpen {
-  @apply rotate-180;
+    @apply rotate-180;
 }
 
 .menu {
-  @apply -left-1 absolute bottom-0 -translate-x-full transition-all mr-2 divide-y divide-gray-200 bg-white shadow-box rounded overflow-hidden z-50;
+    @apply -left-1 absolute bottom-0 -translate-x-full transition-all mr-2 divide-y divide-gray-200 bg-white shadow-formItem rounded overflow-hidden z-50;
 }
 
 .menuOpen {
-  @apply py-2;
+    @apply py-2;
 }
 
 .menuClosed {
-  @apply h-0;
+    @apply h-0;
 }
 
 .menuItem {
-  @apply py-2 text-2xs hover:bg-white-light lg:px-3;
+    @apply py-2 text-2xs hover:bg-formItemInput lg:px-3;
 }

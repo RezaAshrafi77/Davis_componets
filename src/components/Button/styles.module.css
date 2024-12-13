@@ -1,31 +1,31 @@
 /* Base button styles */
 .button {
-  @apply flex items-center justify-center gap-4 font-500 px-2 py-1 rounded text-3xs md:text-2xs lg:text-xs shadow-sm;
+    @apply flex items-center justify-center gap-4 font-500 px-2 py-1 rounded text-3xs md:text-2xs lg:text-xs shadow-sm;
 }
 
 /* Disabled state */
 .button:disabled {
-  @apply cursor-not-allowed;
+    @apply cursor-not-allowed;
 }
 
 /* Variants */
 .variant {
-  @apply bg-green border border-green text-white;
+    @apply bg-green border border-green text-white;
 }
 
 .text {
-  @apply p-0 shadow-none text-black;
+    @apply p-0 shadow-none text-black;
 }
 
 .outlined {
-  @apply text-black bg-white border border-black;
+    @apply text-black bg-white border border-black;
 }
 
 .disabled {
-  @apply bg-gray-200 text-gray-500 border-gray-300;
+    @apply bg-gray-200 text-gray-500 border-gray-300;
 }
 
 /* Icon-only style */
 .icon {
-  @apply p-0.5;
+    @apply p-0.5;
 }

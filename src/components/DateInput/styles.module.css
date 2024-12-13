@@ -3,15 +3,15 @@
 }
 
 .field {
-    @apply bg-white-light border-[0.5px] border-black rounded relative transition-all duration-200;
+    @apply bg-formItemInput border-[0.5px] border-black rounded relative transition-all duration-200;
 }
 
 .field:hover {
-    @apply border-green shadow-sm bg-white;
+    @apply border-success shadow-sm bg-white;
 }
 
 .field:focus-within {
-    @apply border-green ring-1 ring-green;
+    @apply border-success ring-1 ring-success;
 }
 
 .dateInputContainer {
@@ -32,17 +32,17 @@
 }
 
 .field:hover & {
-    @apply text-green;
+    @apply text-success;
 }
 
 .field-error .field {
-    @apply border-red-500;
+    @apply border-error;
 }
 
 .field-error .dateInput {
-    @apply text-red-700 placeholder-red-500;
+    @apply text-error placeholder-error;
 }
 
 .field-error .icon {
-    @apply text-red-500;
+    @apply text-error;
 }
