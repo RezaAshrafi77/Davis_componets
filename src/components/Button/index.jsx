@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import PropTypes from "prop-types";
 import classNames from "classnames";
 import { VscLoading } from "react-icons/vsc";
 import styles from "./styles.module.css";
@@ -43,17 +42,6 @@ const Button = ({
       )}
     </button>
   );
-};
-
-Button.propTypes = {
-  title: PropTypes.string,
-  variant: PropTypes.oneOf(["variant", "text", "outlined", "disabled"]),
-  type: PropTypes.string,
-  loading: PropTypes.bool,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  icon: PropTypes.node,
-  loadingColor: PropTypes.string,
 };
 
 export default Button;

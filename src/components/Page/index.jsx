@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import PageCard from "../PageCard/index";
 import styles from "./styles.module.css";
 import ProjectName from "../ProjectName";
@@ -25,22 +24,6 @@ const Page = ({ children, name, back, router, routes, navigate }) => {
       </main>
     </div>
   );
-};
-
-// PropTypes for type checking
-Page.propTypes = {
-  children: PropTypes.node,
-  name: PropTypes.string,
-  back: PropTypes.bool,
-  router: PropTypes.bool,
-  navigate: PropTypes.func,
-  routes: PropTypes.arrayOf(
-    PropTypes.shape({
-      link: PropTypes.string.isRequired,
-      title: PropTypes.string, // Add other fields as needed
-      image: PropTypes.string,
-    })
-  ),
 };
 
 export default Page;
