@@ -31,7 +31,7 @@ const Header = ({
                         <div className="flex lg:flex items-end w-full flex-wrap gap-x-2 gap-y-2 md:gap-y-4">
                             <DateInput
                                 containerClassName={
-                                    "flex flex-1 min-w-[48%] md:min-w-[112px] md:max-w-[160px] lg:max-w-[260px] xl:max-w-[280px] md:ml-auto !gap-0.5 !p-0 !bg-transparent"
+                                    "flex flex-1 min-w-[48%] md:min-w-[112px] md:max-w-[160px] lg:max-w-[260px] xl:max-w-[280px] md:ml-auto !gap-0.5 !p-0 !bg-transparent !shadow-none"
                                 }
                                 className={styles.textField}
                                 label={"از تاریخ"}
@@ -42,7 +42,7 @@ const Header = ({
                             />
                             <DateInput
                                 containerClassName={
-                                    "flex flex-1 min-w-[48%] md:min-w-[112px] md:max-w-[160px] lg:max-w-[260px] xl:max-w-[280px] md:ml-auto !gap-0.5 !p-0 !bg-transparent"
+                                    "flex flex-1 min-w-[48%] md:min-w-[112px] md:max-w-[160px] lg:max-w-[260px] xl:max-w-[280px] md:ml-auto !gap-0.5 !p-0 !bg-transparent !shadow-none"
                                 }
                                 className={styles.textField}
                                 label={"تا تاریخ"}
@@ -53,7 +53,7 @@ const Header = ({
                             />
                             <TextField
                                 containerClassName={
-                                    "flex flex-1 min-w-[48%] max-w-[48%] md:min-w-[112px] md:max-w-[160px] lg:max-w-[260px] xl:max-w-[280px] md:ml-auto !gap-0.5 !p-0 !bg-transparent"
+                                    "flex flex-1 min-w-[48%] max-w-[48%] md:min-w-[112px] md:max-w-[160px] lg:max-w-[260px] xl:max-w-[280px] md:ml-auto !gap-0.5 !p-0 !bg-transparent !shadow-none"
                                 }
                                 className={styles.textField}
                                 questionKey={"6620"}

@@ -2,68 +2,68 @@
 
 /* Label and Icon Styles */
 .label {
-  @apply relative flex items-center font-700 text-3xs text-black md:text-2xs lg:text-[13px];
+    @apply relative flex items-center font-700 text-3xs text-black md:text-2xs lg:text-[13px];
 }
 
 .required {
-  @apply text-error;
+    @apply text-error;
 }
 
 .label .required {
-  @apply mr-1 md:text-sm lg:text-lg;
+    @apply mr-1 md:text-sm lg:text-lg;
 }
 
 .enLabel {
-  @apply relative flex flex-row-reverse items-center text-[9px] text-black md:text-2xs lg:text-xs;
-  font-family: sans-serif;
-  font-weight: 700;
+    @apply relative flex items-center text-[9px] text-black md:text-2xs lg:text-xs;
+    font-family: sans-serif;
+    font-weight: 700;
 }
 
 .enLabel .required {
-  @apply ml-1 text-xs md:text-base lg:text-lg;
+    @apply ml-1 md:text-sm lg:text-lg;
 }
 
 .enLabel img {
-  @apply ml-1;
+    @apply ml-1;
 }
 
 .label img {
-  @apply mr-1;
+    @apply mr-1;
 }
 
 .label .eduIcon {
-  @apply left-1;
+    @apply left-1;
 }
 .enLabel .eduIcon {
-  @apply right-1;
+    @apply right-1;
 }
 
 .guideIcon {
-  @apply w-[20px] md:w-[30px] cursor-pointer;
+    @apply w-[20px] md:w-[30px] cursor-pointer;
 }
 
 .archiveIcon {
-  @apply w-[15px] md:w-[17px] cursor-pointer;
+    @apply w-[15px] md:w-[17px] cursor-pointer;
 }
 
 .eduIcon {
-  @apply absolute top-1/2 -translate-y-1/2 w-[15px] md:w-[17px] cursor-pointer;
+    @apply absolute top-1/2 -translate-y-1/2 w-[15px] md:w-[17px] cursor-pointer;
 }
 
 /* Hover Effects */
 .hover-green {
-  @apply transition-all hover:text-success;
+    @apply transition-all hover:text-success;
 }
 
 .hover-red {
-  @apply transition-all hover:text-error;
+    @apply transition-all hover:text-error;
 }
 
 /* Modal Styling */
 .modal-container {
-  @apply rounded-3xl bg-formItem px-3 pb-6 pt-3 lg:px-6 lg:pb-8 lg:pt-4;
+    @apply rounded-3xl bg-formItem px-3 pb-6 pt-3 lg:px-6 lg:pb-8 lg:pt-4;
 }
 
 .text-gray {
-  @apply text-gray-600;
+    @apply text-gray-600;
 }

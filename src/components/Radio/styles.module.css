@@ -1,5 +1,5 @@
 .container {
-    @apply relative inline-flex justify-between items-center gap-3 lg:gap-6 bg-formItem lg:rounded px-[6px] py-0.5 lg:py-1 border-[0.5px] border-solid border-black cursor-pointer opacity-60 hover:bg-transparent hover:opacity-100;
+    @apply relative inline-flex justify-between items-center gap-3 lg:gap-6 bg-background lg:rounded px-[6px] py-0.5 lg:py-1 border-[0.5px] border-solid border-black cursor-pointer opacity-90 hover:bg-transparent hover:opacity-100;
 }
 
 .enContainer .label {
@@ -35,7 +35,7 @@
 
 .firstLayer {
     @apply w-[10px] h-[10px] lg:w-[12px] lg:h-[12px] flex items-center justify-center rounded-full;
-    background-color: #ddd;
+    background-color: #dddddd88;
     border: 0.25px solid rgb(134, 134, 134);
 }
 
@@ -51,7 +51,7 @@
 
 .dot {
     @apply h-1 w-1 lg:w-1.5 lg:h-1.5 rounded-full;
-    background-color: #cbfef2;
+    background-color: #cbfef288;
 }
 
 .dotChecked {

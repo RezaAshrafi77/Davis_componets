@@ -31,6 +31,7 @@ const Label = ({
             className={`${styles.label} ${
                 en ? styles.enLabel : styles.label
             } ${className}`}
+            dir={en ? "ltr" : ""}
         >
             {label}
             {required && <span className={styles.required}>*</span>}
