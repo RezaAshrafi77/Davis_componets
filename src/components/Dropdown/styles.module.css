@@ -20,7 +20,8 @@
 }
 
 .menu {
-    @apply -left-1 absolute bottom-0 -translate-x-full transition-all mr-2 divide-y divide-gray-200 bg-white shadow-formItem rounded overflow-hidden z-50;
+    @apply -left-1 absolute bottom-0 -translate-x-full transition-all mr-2 divide-y divide-gray-200 bg-white rounded overflow-hidden z-50;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .menuOpen {

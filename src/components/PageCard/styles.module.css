@@ -1,7 +1,7 @@
 /* Main container styling */
 .container {
-    @apply bg-formItem shadow-formItem aspect-square flex cursor-pointer flex-col items-center justify-center gap-2 px-4 py-3 transition-transform hover:scale-105 md:gap-3 max-h-fit;
-
+    @apply bg-formItem aspect-square flex cursor-pointer flex-col items-center justify-center gap-2 px-4 py-3 transition-transform hover:scale-105 md:gap-3 max-h-fit;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
     /* Adjust transition duration for hover effect */
     transition-duration: 200ms;
 }

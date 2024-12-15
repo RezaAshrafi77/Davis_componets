@@ -1,5 +1,6 @@
 .container {
-    @apply bg-formItem w-full flex flex-col relative p-2 rounded shadow-formItem;
+    @apply bg-formItem w-full flex flex-col relative p-2 rounded;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .containerError {
