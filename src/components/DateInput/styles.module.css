@@ -16,12 +16,12 @@
 }
 
 .dateInputContainer {
-    @apply w-full relative !flex justify-center items-center py-1 pr-1;
+    @apply w-full relative !flex justify-center items-center;
 }
 
 .dateInput {
     @apply w-full font-400 text-3xs md:text-2xs lg:text-xs text-black 
-        placeholder:text-3xs md:placeholder:text-2xs lg:placeholder:text-xs bg-transparent border-none outline-none;
+        placeholder:text-3xs md:placeholder:text-2xs lg:placeholder:text-xs bg-transparent border-none outline-none py-0.5 lg:py-1 pr-1 lg:pr-1.5;
 }
 
 .dateInput:hover {

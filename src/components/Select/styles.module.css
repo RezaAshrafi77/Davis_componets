@@ -4,7 +4,7 @@
 }
 
 .field {
-    @apply h-6 lg:h-[26px] text-2xs lg:text-xs rounded border-[0.5px] border-solid border-black hover:border-success  bg-formItemInput font-400  py-0  !ring-0 hover:bg-white cursor-pointer outline-none;
+    @apply text-3xs md:text-2xs lg:text-xs rounded border-[0.5px] border-solid border-black hover:border-success  bg-formItemInput font-400  py-0.5 lg:py-1 px-1 lg:px-1.5  !ring-0 hover:bg-white cursor-pointer outline-none;
 }
 
 .options {

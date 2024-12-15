@@ -13,7 +13,7 @@
 
 .input {
     @apply w-full font-400 text-3xs md:text-2xs lg:text-xs text-black 
-        placeholder:text-3xs md:placeholder:text-2xs lg:placeholder:text-xs bg-transparent border-none py-1 px-1.5;
+        placeholder:text-3xs md:placeholder:text-2xs lg:placeholder:text-xs bg-transparent border-none py-0.5 lg:py-1 px-1.5;
 }
 
 .input:focus,
