@@ -25,6 +25,7 @@ export default {
                 error: "#960018",
                 success: "#02894C",
                 formItem: "#EEFEFF",
+                formItem2: "#C7F0FF",
                 formItemInput: "#F5FEFF",
                 white: {
                     DEFAULT: "#ffffff",
@@ -38,6 +39,15 @@ export default {
                 primary: "0px 3px 8px 0px rgb(0 0 0 / 8%)",
                 formItem: "0px 2px 4px rgba(0, 0, 0, 0.15)",
             },
+            // keyframes: {
+            //     flipBottom: {
+            //         "0%": { transform: "translateY(-100%)" },
+            //         "100%": { transform: " translateY(0%)" },
+            //     },
+            // },
+            // animation: {
+            //     flipBottom: "flipBottom",
+            // },
         },
     },
     plugins: [],

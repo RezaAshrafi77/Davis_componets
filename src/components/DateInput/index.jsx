@@ -94,7 +94,6 @@ const DateInput = ({
                     </span>
                 )}
             </div>
-
             {/* Error Message */}
             {isError && (
                 <span className="error">

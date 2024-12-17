@@ -1,6 +1,6 @@
 /* Container Styles */
 .container {
-    @apply bg-white shadow-md rounded-md px-3 md:px-4 pt-1 pb-4;
+    @apply bg-white shadow-md rounded-md px-3 md:px-4 pt-1 pb-4 !overflow-auto;
     background: linear-gradient(0deg, #eefeff 0%, #b2e5f8 100%);
 }
 

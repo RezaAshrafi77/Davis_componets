@@ -259,7 +259,7 @@ const FileField = ({
             {isError && (
                 <span className="error">
                     <BiError className="text-2xs lg:text-xs" />
-                    {"این بخش اجباری است."}
+                    {"فایل اجباری است."}
                 </span>
             )}
         </div>

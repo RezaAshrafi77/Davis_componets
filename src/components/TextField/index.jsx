@@ -111,7 +111,13 @@ const TextField = ({
                         onBlur={() => setIsFocused(false)}
                         {...inputProps}
                         {...(register
-                            ? register(questionKey, { required, pattern })
+                            ? register(questionKey, {
+                                  required: required
+                                      ? "این سوال اجباری است."
+                                      : false,
+                                  pattern,
+                                  valueAsNumber: props.type == "number",
+                              })
                             : {})}
                     />
                 ) : (
@@ -120,7 +126,12 @@ const TextField = ({
                         onBlur={() => setIsFocused(false)}
                         {...inputProps}
                         {...(register
-                            ? register(questionKey, { required, pattern })
+                            ? register(questionKey, {
+                                  required: required
+                                      ? "این سوال اجباری است."
+                                      : false,
+                                  pattern,
+                              })
                             : {})}
                     />
                 )}
