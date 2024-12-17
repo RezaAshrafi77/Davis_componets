@@ -6,6 +6,7 @@ import Radio from "../Radio/index"
 import styles from "./styles.module.css"
 // import useDevice from "../../hooks/useDevice"
 import { BiError } from "react-icons/bi"
+import { useEffect } from "react"
 
 export default function RadioOptions({
     containerClassName = "",
@@ -30,7 +31,7 @@ export default function RadioOptions({
     dividerClassName,
     en,
 }) {
-    const isError = errors?.[questionKey]
+    const isError = !!errors?.[questionKey]
     const renderOptions = () =>
         options.map((option) => (
             <Radio
@@ -50,6 +51,7 @@ export default function RadioOptions({
         right: "label-right",
         left: "label-left",
     }
+
     return (
         <div
             className={classNames(styles.container, containerClassName, {

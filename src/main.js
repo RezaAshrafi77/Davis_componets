@@ -29,7 +29,7 @@ export { default as SpecialistFormPageHeader } from "./pages/SpecialistFormPage/
 export { default as SpecialistDashboardPage } from "./pages/SpecialistDashboardPage/index.jsx"
 export { default as SpecialistPrintPage } from "./pages/SpecialistPrintPage/index.jsx"
 // sections
-export { default as SpecialistPrescription } from "./sections/Prescription"
+export { default as SpecialistPrescription } from "./sections/Prescription/index.jsx"
 
 // import { StrictMode } from "react"
 // import ReactDOM from "react-dom/client"

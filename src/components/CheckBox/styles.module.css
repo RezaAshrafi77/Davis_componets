@@ -44,7 +44,7 @@
 }
 
 .secondLayer {
-    @apply flex items-center justify-center w-[12px] h-[14px] lg:w-[14px] lg:h-[18px] bg-white rounded-[2px];
+    @apply flex items-center justify-center w-[14px] h-[14px] lg:w-[18px] lg:h-[18px] bg-white rounded-[2px];
     border: 0.25px solid rgb(171, 171, 171);
 }
 

@@ -11,6 +11,19 @@ node_modules
 dist
 dist-ssr
 *.local
+src/assets
+src/config
+src/hooks
+src/layouts
+src/pages
+src/sections
+src/main.jsx
+src/index.css
+src/utils
+src/index.html
+src/tailwind.config.js
+
+
 
 
 # Editor directories and files

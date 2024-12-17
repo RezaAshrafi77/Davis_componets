@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { useForm } from "react-hook-form"
 import FieldSet from "../../components/FieldSet"
 import Select from "../../components/Select"
 import Table from "../../components/Table"
@@ -11,17 +10,18 @@ import { tableSizeList } from "../../components/Table/data"
 import { LuFileX2 } from "react-icons/lu"
 
 export default function Prescription({ onChange = () => {}, drugsList }) {
-    const {
-        watch,
-        formState: { errors },
-        register,
-        handleSubmit,
-        setValue,
-        reset,
-    } = useForm({
-        mode: "all",
-        defaultValues: {},
+    const [formData, setFormData] = useState({
+        10520: null,
+        1730098894463: null,
+        1730098956926: null,
     })
+    const [errors, setErrors] = useState({
+        10520: null,
+        1730098894463: null,
+        1730098956926: null,
+    })
+    const [submitted, setSubmitted] = useState(false)
+
     const [tableSize, setTableSize] = useState(tableSizeList[0].value)
     const [page, setPage] = useState(1)
 
@@ -29,13 +29,93 @@ export default function Prescription({ onChange = () => {}, drugsList }) {
         return tableSize * (page - 1)
     }, [tableSize, page])
 
-    const submit = (data) => {
-        if (drugsList?.length) {
-            onChange([...drugsList, data])
+    const submit = () => {
+        setSubmitted(true)
+        if (Object.values(formData).every((val) => val)) {
+            if (drugsList?.length) {
+                onChange([...drugsList, formData])
+            } else {
+                onChange([formData])
+            }
+            setFormData({
+                10520: null,
+                1730098894463: null,
+                1730098956926: null,
+            })
+            return
         } else {
-            onChange([data])
+            setErrors({
+                10520: !formData[10520]
+                    ? {
+                          message: "نام دارو اجباری است.",
+                      }
+                    : null,
+                1730098894463: !formData[1730098894463]
+                    ? {
+                          message: "تعداد دارو اجباری است.",
+                      }
+                    : null,
+                1730098956926: !formData[1730098956926]
+                    ? {
+                          message: "دستور مصرف اجباری است.",
+                      }
+                    : null,
+            })
         }
-        reset()
+    }
+
+    const handleFormData = (key, value) => {
+        if (key == 10520) {
+            setFormData({
+                ...formData,
+                10520: value,
+            })
+            if (submitted) {
+                setErrors({
+                    ...errors,
+                    10520: !value
+                        ? {
+                              message: "نام دارو اجباری است.",
+                          }
+                        : null,
+                })
+            }
+            return
+        }
+        if (key == 1730098894463) {
+            setFormData({
+                ...formData,
+                1730098894463: value,
+            })
+            if (submitted) {
+                setErrors({
+                    ...errors,
+                    1730098894463: !value
+                        ? {
+                              message: "تعداد دارو اجباری است.",
+                          }
+                        : null,
+                })
+            }
+            return
+        }
+        if (key == 1730098956926) {
+            setFormData({
+                ...formData,
+                1730098956926: value,
+            })
+            if (submitted) {
+                setErrors({
+                    ...errors,
+                    1730098956926: !value
+                        ? {
+                              message: "دستور مصرف اجباری است.",
+                          }
+                        : null,
+                })
+            }
+            return
+        }
     }
 
     const deleteRow = (rowIndex) => {
@@ -46,10 +126,7 @@ export default function Prescription({ onChange = () => {}, drugsList }) {
 
     return (
         <FieldSet title="نسخه دارویی">
-            <form
-                onSubmit={handleSubmit(submit)}
-                className={"flex flex-col gap-6"}
-            >
+            <div className={"flex flex-col gap-6"}>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-[5vw] gap-y-4 lg:gap-y-6">
                     <Select
                         search
@@ -58,34 +135,33 @@ export default function Prescription({ onChange = () => {}, drugsList }) {
                         label="نام داروی مصرفی"
                         divider={"center"}
                         options={Drugs_List}
-                        onChange={(val) => setValue("10520", val)}
+                        onChange={(val) => handleFormData("10520", val)}
                         required
-                        register={register}
-                        value={watch("10520")}
+                        value={formData[10520]}
                     />
                     <TextField
                         questionKey={"1730098894463"}
-                        watch={watch}
-                        register={register}
                         errors={errors}
                         label="تعداد"
                         divider={"center"}
                         required
-                        pattern={{
-                            value: /^[0-9\u06F0-\u06F9]+$/,
-                            message: "پاسخ میبایست عدد باشد.",
-                        }}
-                        // type="number"
+                        type="number"
                         inputMode="numeric"
+                        value={formData["1730098894463"]}
+                        onChange={(e) =>
+                            handleFormData("1730098894463", e.target.value)
+                        }
                     />
                     <TextField
                         questionKey={"1730098956926"}
-                        watch={watch}
-                        register={register}
                         errors={errors}
                         label="دستور مصرف"
                         divider={"center"}
                         required
+                        value={formData["1730098956926"]}
+                        onChange={(e) =>
+                            handleFormData("1730098956926", e.target.value)
+                        }
                     />
                 </div>
                 <Table
@@ -102,7 +178,9 @@ export default function Prescription({ onChange = () => {}, drugsList }) {
                                   ?.slice(offset, offset + tableSize)
                                   ?.map((row, index) => [
                                       offset + index + 1,
-                                      row[10520],
+                                      Drugs_List.find(
+                                          (o) => o.value == row[10520]
+                                      )?.label,
                                       row[1730098894463],
                                       row[1730098956926],
                                       <LuFileX2
@@ -126,11 +204,11 @@ export default function Prescription({ onChange = () => {}, drugsList }) {
                             className={
                                 "w-20 !border-opacity-30 !py-1.5 !bg-white hover:!bg-success hover:!text-white !text-black"
                             }
-                            type="submit"
+                            onClick={() => submit()}
                         />
                     </div>
                 </Table>
-            </form>
+            </div>
         </FieldSet>
     )
 }
