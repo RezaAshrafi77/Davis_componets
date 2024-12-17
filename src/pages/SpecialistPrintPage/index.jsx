@@ -26,19 +26,17 @@ export default function SpecialistPrintPage({
         register,
         watch,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isSubmitting },
     } = useForm({
         mode: "all",
     })
     const [device] = useDevice()
     const [currentPage, setPage] = useState(1)
-    const [pazireshLoading, setPazireshLoading] = useState(false)
     const [serviceLoading, setServiceLoading] = useState(false)
     const [tableSize, setTableSize] = useState(tableSizeList[0].value)
     const { ogrid, setOgrid, setPazireshList, pazireshList } = contextData
 
     const submit = () => {
-        setPazireshLoading(true)
         request({
             jobId: 172,
             dataInfo: {
@@ -57,7 +55,6 @@ export default function SpecialistPrintPage({
                 setPazireshList(res.data)
             })
             .catch((err) => toast.error(err.message))
-            .finally(() => setPazireshLoading(false))
     }
 
     const entekhabPaziresh = (row) => {
@@ -114,7 +111,7 @@ export default function SpecialistPrintPage({
                             type="submit"
                             variant="outlined"
                             icon={<MdOutlinePersonSearch size={20} />}
-                            loading={pazireshLoading}
+                            loading={isSubmitting}
                         />
                     </form>
                     <Divider className="!my-5" />
