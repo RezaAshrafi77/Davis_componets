@@ -1,49 +1,49 @@
 .container {
-    @apply w-full flex flex-col p-2 bg-formItem rounded relative;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  @apply w-full flex flex-col p-2 bg-formItem rounded relative;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .field {
-    @apply bg-formItemInput border-[0.5px] border-black rounded relative transition-all duration-200;
+  @apply bg-formItemInput border-[0.5px] border-black rounded relative transition-all duration-200;
 }
 
 .field:hover {
-    @apply border-success shadow-sm bg-white;
+  @apply border-success shadow-sm bg-white;
 }
 
 .field:focus-within {
-    @apply border-success ring-1 ring-success;
+  @apply border-success ring-1 ring-success;
 }
 
 .dateInputContainer {
-    @apply w-full relative !flex justify-center items-center;
+  @apply w-full relative !flex justify-center items-center;
 }
 
 .dateInput {
-    @apply w-full font-400 text-3xs md:text-2xs lg:text-xs text-black 
-        placeholder:text-3xs md:placeholder:text-2xs lg:placeholder:text-xs bg-transparent border-none outline-none py-0.5 lg:py-1 pr-1 lg:pr-1.5;
+  @apply w-full font-400 text-3xs md:text-2xs lg:text-xs text-black 
+        placeholder:text-3xs md:placeholder:text-2xs lg:placeholder:text-xs bg-transparent border-none outline-none py-1 pr-1 lg:pr-1.5;
 }
 
 .dateInput:hover {
-    @apply bg-white border-black;
+  @apply bg-white border-black;
 }
 
 .icon {
-    @apply absolute left-1 lg:left-1.5 top-1/2 -translate-y-1/2 transition-all duration-200 cursor-pointer;
+  @apply absolute left-1 lg:left-1.5 top-1/2 -translate-y-1/2 transition-all duration-200 cursor-pointer;
 }
 
 .field:hover & {
-    @apply text-success;
+  @apply text-success;
 }
 
 .field-error .field {
-    @apply border-error;
+  @apply border-error;
 }
 
 .field-error .dateInput {
-    @apply text-error placeholder-error;
+  @apply text-error placeholder-error;
 }
 
 .field-error .icon {
-    @apply text-error;
+  @apply text-error;
 }

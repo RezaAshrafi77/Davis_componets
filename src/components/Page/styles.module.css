@@ -2,19 +2,26 @@
 
 /* Page container */
 .page {
-    @apply relative flex h-screen overflow-hidden w-full flex-col bg-formItemInput pb-4 lg:px-4;
-    background: url(../../assets/images/net.svg) no-repeat bottom;
-    background-size: contain;
+  @apply relative flex h-screen overflow-hidden w-full flex-col pb-4 lg:px-4;
+  background: url(../../assets/images/net.svg) no-repeat bottom;
+  background-size: contain;
 }
 
 /* Main content area */
 .main {
-    @apply flex flex-1 flex-col justify-start overflow-y-auto md:max-w-full backdrop-blur-sm;
+  @apply flex flex-1 flex-col justify-start overflow-y-auto md:max-w-full;
+  box-shadow: 0px 0px 4px 0px rgba(0, 64, 26, 0.2);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(250, 254, 251, 0.8) 100%
+  );
+  backdrop-filter: blur(3px);
 }
 
 /* Router grid */
 .router {
-    @apply grid grid-cols-2 gap-3 md:gap-y-8 md:gap-x-6 md:grid-cols-4 
+  @apply grid grid-cols-2 gap-3 md:gap-y-8 md:gap-x-6 md:grid-cols-4 
         lg:gap-x-12 lg:grid-cols-6 xl:grid-cols-6 w-full px-4 pt-4 pb-4 
         lg:pt-8 max-h-full overflow-y-auto mx-auto;
 }
