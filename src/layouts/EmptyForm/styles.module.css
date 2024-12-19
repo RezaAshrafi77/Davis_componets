@@ -1,0 +1,7 @@
+.container {
+  @apply mx-auto my-12 border-[0.5px] px-3 shadow-md w-[70vw] min-w-[300px] rounded-lg md:min-w-[500px] lg:w-[45%];
+}
+
+.fieldset {
+  @apply mb-3 mt-1 flex w-full flex-col items-center gap-4 shadow-primary;
+}

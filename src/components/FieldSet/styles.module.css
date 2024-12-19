@@ -1,17 +1,42 @@
 .fieldset {
-  @apply w-full px-4 py-4 rounded-lg lg:px-8 lg:pt-6 relative;
+  @apply w-full relative rounded-md;
+  border-style: solid;
+  border-top-width: 0.5px;
+  border-color: #00000066;
+}
+
+.container {
+  @apply absolute left-0 w-full px-4 py-4 lg:px-8 lg:pt-6;
+}
+
+.borderImage {
+  @apply rounded-t-md -top-[5.5px];
+  border-left-width: 0.5px;
+  border-right-width: 0.5px;
+  border-style: solid;
+  -moz-border-image: -moz-linear-gradient(top, #00000066 0%, transparent 100%);
+  -webkit-border-image: -webkit-linear-gradient(
+    top,
+    #00000066 0%,
+    transparent 100%
+  );
+  border-image: linear-gradient(to bottom, #00000066 0%, transparent 100%);
+  -webkit-border-image-slice: 0.5;
+  border-image-slice: 0.5;
 }
 
 .border {
-  @apply border-[0.5px] border-solid border-black;
+  @apply rounded-md;
+  border: 0.5px solid black;
+  @apply border-solid border-[#00000066];
 }
 
 .legend {
-  @apply text-xs px-0.5 py-0 relative font-700 leading-5 bg-white z-[1];
-  @apply lg:text-sm lg:mr-8 -top-0.5 text-[#3D0C02];
+  @apply text-xs px-0.5 py-0 relative font-700 leading-5 z-[1];
+  @apply lg:text-sm mr-6 lg:mr-8 text-[#3D0C02] h-4;
   border-radius: 0.25rem;
   padding: 0 0.5rem;
-  background: white;
+  /* background: white; */
 }
 
 .enLegend {

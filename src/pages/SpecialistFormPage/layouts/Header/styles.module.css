@@ -23,7 +23,7 @@
 
 /* Fieldset Styling with Gradient Border */
 .fieldset {
-  @apply px-2 md:px-4 !pt-3 !pb-2 md:!pb-5 relative;
+  @apply px-2 md:px-4 !pt-4 !pb-2 md:!pb-5 relative;
   background: linear-gradient(white, white) padding-box,
     linear-gradient(180deg, #222222, #222222) border-box;
 }
