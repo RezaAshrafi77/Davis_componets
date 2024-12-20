@@ -78,7 +78,6 @@ const DateInput = ({
                             onChange={(date) =>
                                 onChange(date ? date.toString() : "")
                             }
-                            id={id}
                         />
                     )}
                 />

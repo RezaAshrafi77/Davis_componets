@@ -16,6 +16,7 @@ const Label = ({
     archive,
     educationalContent,
     en,
+    questionKey,
 }) => {
     const [openModal, setOpenModal] = useState({
         userGuide: false,
