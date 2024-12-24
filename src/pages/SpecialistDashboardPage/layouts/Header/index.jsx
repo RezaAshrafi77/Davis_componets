@@ -13,8 +13,8 @@ const Header = ({
   register,
   watch,
   control,
-  handleSubmit,
   onSubmit,
+  setPage,
 }) => {
   return (
     <Fragment>
@@ -26,7 +26,11 @@ const Header = ({
         >
           <form
             className={styles.form}
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={(e) => {
+              e.preventDefault();
+              setPage(1);
+              onSubmit();
+            }}
             id="header-form"
           >
             <div className="flex lg:flex items-end w-full flex-wrap gap-x-2 gap-y-2 md:gap-y-4">

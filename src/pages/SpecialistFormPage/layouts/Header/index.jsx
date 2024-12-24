@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Fragment, useEffect, useState, useCallback, useMemo } from "react";
+import { Fragment, useEffect, useState, useMemo } from "react";
 import Table from "../../../../components/Table";
 import Modal from "../../../../components/Modal";
 import Button from "../../../../components/Button";
@@ -95,7 +95,7 @@ const Header = ({
   useEffect(() => {
     if (user) {
       setShowModal(false);
-      handleOnChange(user[4941] + " " + user[4942], "4942");
+      handleOnChange((user["4941"] || "") + " " + (user["4942"] || ""), "4942");
     }
   }, [user]);
 
@@ -116,22 +116,27 @@ const Header = ({
     _getUsers();
   };
 
-  const handleOnChange = useCallback(
-    (value, qKey) => {
-      if (qKey == "6365") {
-        setFormData({ ...formData, 6365: value ? value : null });
-        return;
-      } else if (qKey == "6620") {
-        setFormData({ ...formData, 6620: value ? value : null });
-        return;
-      } else if (qKey == "4942") {
-        setFormData({ ...formData, 4942: value ? value : null });
-      } else {
-        setFormData({ ...formData, 1585472454126: value });
-      }
-    },
-    [formData, setFormData]
-  );
+  const handleOnChange = (value, qKey) => {
+    if (qKey == "6365") {
+      setFormData((prevData) => {
+        return { ...prevData, 6365: value ? value : null };
+      });
+      return;
+    } else if (qKey == "6620") {
+      setFormData((prevData) => {
+        return { ...prevData, 6620: value ? value : null };
+      });
+      return;
+    } else if (qKey == "4942") {
+      setFormData((prevData) => {
+        return { ...prevData, 4942: value ? value : null };
+      });
+    } else {
+      setFormData((prevData) => {
+        return { ...prevData, 1585472454126: value };
+      });
+    }
+  };
 
   const _getUsers = async () => {
     const options = {

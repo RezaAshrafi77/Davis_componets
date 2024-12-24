@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Table from "../../components/Table";
 import Header from "./layouts/Header";
 import { tableSizeList } from "../../components/Table/data";
@@ -17,62 +17,46 @@ export default function SpecialistDashboardPage({
   users,
   colFilter,
   colors,
+  loading,
 }) {
-  const {
-    register,
-    watch,
-    control,
-    handleSubmit,
-    setValue,
-    formState: { isSubmitting, submitCount },
-  } = useForm({
+  const { register, watch, control, handleSubmit, setValue } = useForm({
     mode: "all",
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [tableSize, setTableSize] = useState(tableSizeList[0].value);
   const [activeFilterOption, setAFO] = useState(null);
 
-  const rows = useMemo(
-    () =>
-      activeFilterOption
-        ? users
-            ?.map((row, index) => [
-              (currentPage - 1) * tableSize + index + 1,
-              row["fn"],
-              row["6620"],
-              row["4946"],
-              moment(row["date_paziresh"])
-                .locale("fa")
-                .format("HH:MM - YYYY/MM/DD"),
-              row["vazeiat"],
-              row["doctor_fn"],
-            ])
-            .filter((row) => row[colFilter - 1] == activeFilterOption)
-        : users?.map((row, index) => [
-            (currentPage - 1) * tableSize + index + 1,
-            row["fn"],
-            row["6620"],
-            row["4946"],
-            moment(row["date_paziresh"])
-              .locale("fa")
-              .format("HH:MM - YYYY/MM/DD"),
-            row["vazeiat"],
-            row["doctor_fn"],
-          ]),
-    [users, currentPage.tableSize, colFilter, activeFilterOption]
-  );
+  const rows = activeFilterOption
+    ? users
+        ?.map((row, index) => [
+          (currentPage - 1) * tableSize + index + 1,
+          row["fn"],
+          row["6620"],
+          row["4946"],
+          moment(row["date_paziresh"])
+            .locale("fa")
+            .format("HH:MM - YYYY/MM/DD"),
+          row["vazeiat"],
+          row["doctor_fn"],
+        ])
+        .filter((row) => row[colFilter - 1] == activeFilterOption)
+    : users?.map((row, index) => [
+        (currentPage - 1) * tableSize + index + 1,
+        row["fn"],
+        row["6620"],
+        row["4946"],
+        moment(row["date_paziresh"]).locale("fa").format("HH:MM - YYYY/MM/DD"),
+        row["vazeiat"],
+        row["doctor_fn"],
+      ]);
 
   useEffect(() => {
     setValue("from_date", moment().locale("fa").format("YYYY/MM/DD"));
     setValue("end_date", moment().locale("fa").format("YYYY/MM/DD"));
   }, []);
 
-  useEffect(() => {
-    handleSubmit(onSubmit)();
-  }, [tableSize, currentPage]);
-
   const onSubmit = () => {
-    if (isSubmitting) {
+    if (loading) {
       return;
     }
     const formData = {
@@ -83,23 +67,25 @@ export default function SpecialistDashboardPage({
       offset: Number(tableSize * (Number(currentPage) - 1)),
     };
     getUsers({ formData });
-    setCurrentPage(1);
   };
+
+  useEffect(() => {
+    onSubmit();
+  }, [tableSize, currentPage]);
 
   const filterOptions =
     colFilter && users?.length
       ? [...new Set(rows?.map((row) => row[colFilter - 1]))]
       : [];
 
-  console.log(submitCount);
   return (
     <div className="flex flex-col flex-1 gap-4">
       <Header
-        loading={isSubmitting}
+        loading={loading}
         watch={watch}
         register={register}
+        setPage={setCurrentPage}
         control={control}
-        handleSubmit={handleSubmit}
         onSubmit={onSubmit}
         title={title}
       />
@@ -115,7 +101,7 @@ export default function SpecialistDashboardPage({
           colors={colors}
           tableSize={tableSize}
           pagination
-          containerClassName={isSubmitting ? "blur-sm" : ""}
+          containerClassName={loading ? "blur-sm" : ""}
         >
           {colFilter && filterOptions?.length > 1 ? (
             <div className="flex items-center h-full pr-2 gap-4">
@@ -145,10 +131,8 @@ export default function SpecialistDashboardPage({
             </div>
           ) : null}
         </Table>
-      ) : submitCount > 1 ? (
-        <img src={emptySVG} alt="" className="h-2/3 m-auto" />
       ) : (
-        ""
+        <img src={emptySVG} alt="" className="h-2/3 m-auto" />
       )}
     </div>
   );
