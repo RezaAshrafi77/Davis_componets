@@ -187,8 +187,8 @@ const Header = ({
         isOpen={showModal}
         onClose={() => {
           setIRC(0);
-          setShowModal(false);
           setCurrentPage(1);
+          setShowModal(false);
         }}
         containerClassName={classNames(
           styles.modal,
@@ -343,7 +343,7 @@ const Header = ({
                     refreshActive
                       ? "!bg-success !rounded-r-none !rounded-l-[2px] lg:!rounded-l !text-white"
                       : "!bg-transparent !rounded-[2px] lg:!rounded",
-                    "h-[22px] lg:h-[24px] w-full  !border-success  !text-[9px] lg:!text-xs hover:!bg-success hover:text-white"
+                    "h-[20px] lg:h-[24px] w-full  !border-success  !text-[9px] lg:!text-xs hover:!bg-success hover:text-white"
                   )}
                 />
               </div>

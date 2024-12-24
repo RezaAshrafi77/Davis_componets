@@ -9,18 +9,34 @@
   @apply relative w-full px-4 py-4 lg:px-8 lg:pt-6;
 }
 
-.borderImage {
-  @apply rounded-t-md -top-[5.5px];
+.borderImageByTitle {
+  @apply rounded-t-md -top-[5px];
   border-left-width: 0.5px;
   border-right-width: 0.5px;
   border-style: solid;
-  -moz-border-image: -moz-linear-gradient(top, #00000066 0%, transparent 100%);
+  -moz-border-image: -moz-linear-gradient(top, #00000055 0%, transparent 100%);
   -webkit-border-image: -webkit-linear-gradient(
     top,
-    #00000066 0%,
+    #00000055 0%,
     transparent 100%
   );
-  border-image: linear-gradient(to bottom, #00000066 0%, transparent 100%);
+  border-image: linear-gradient(to bottom, #00000055 0%, transparent 100%);
+  -webkit-border-image-slice: 0.5;
+  border-image-slice: 0.5;
+}
+
+.borderImage {
+  @apply rounded-t-md top-[1.8px];
+  border-left-width: 0.5px;
+  border-right-width: 0.5px;
+  border-style: solid;
+  -moz-border-image: -moz-linear-gradient(top, #00000055 0%, transparent 100%);
+  -webkit-border-image: -webkit-linear-gradient(
+    top,
+    #00000055 0%,
+    transparent 100%
+  );
+  border-image: linear-gradient(to bottom, #00000055 0%, transparent 100%);
   -webkit-border-image-slice: 0.5;
   border-image-slice: 0.5;
 }

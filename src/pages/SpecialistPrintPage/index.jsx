@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import Button from "../../components/Button";
-import Divider from "../../components/Divider";
 import FieldSet from "../../components/FieldSet";
 import TextField from "../../components/TextField";
 import Table from "../../components/Table";
@@ -48,10 +47,14 @@ export default function SpecialistPrintPage({
       },
     })
       .then((res) => {
-        if (res.data.length == 0) {
-          toast.error("هیچ پذیرشی برای این کاربر ثبت نشده است.");
+        if (!res.error) {
+          setPazireshList(res.data);
+          if (res.data.length == 0) {
+            toast.error("هیچ پذیرشی برای این کاربر ثبت نشده است.");
+          }
+        } else {
+          toast.error(res.message);
         }
-        setPazireshList(res.data);
       })
       .catch((err) => toast.error(err.message));
   };
@@ -72,13 +75,13 @@ export default function SpecialistPrintPage({
   };
 
   return (
-    <div className="mt-4 flex h-full max-h-full flex-col justify-between">
-      <div className={styles["form-container"]}>
-        <div className="flex flex-col p-4">
-          <strong className="font-700 text-xs lg:text-base">
+    <div className="mt-4 flex h-full flex-col justify-between">
+      <FieldSet>
+        <div className="flex flex-col">
+          <strong className="font-700 text-xs lg:text-sm">
             {"کاربر گرامی"}
           </strong>
-          <p className="font-600 mt-2 text-3xs md:text-xs lg:text-sm">
+          <p className="font-600 mt-2 text-3xs md:text-xs lg:text-xs">
             {
               "با کلیک بر روی هر انتخاب پایش می توانید گزارش های مربوط به آن پذیرش را دریافت نمایید."
             }
@@ -87,17 +90,14 @@ export default function SpecialistPrintPage({
             <TextField
               label={"کد ملی" + " :"}
               questionKey="6620"
-              containerClassName={
-                "!flex-row items-center !justify-between rounded !px-2 !py-2 !shadow-primary !bg-formItem md:!w-[328px] !w-full !gap-5 "
-              }
-              className="items-center rounded border md:max-w-[248px] w-full"
+              containerClassName={"!flex-row rounded md:!w-[328px] !gap-5"}
+              className="flex-1"
               icon={
                 <BiSolidUserDetail
                   className="lg:w-[20px] lg:h-[20px] group-hover:text-success"
                   color="#858585"
                 />
               }
-              labelClassName={"text-nowrap"}
               watch={watch}
               errors={errors}
               register={register}
@@ -111,7 +111,6 @@ export default function SpecialistPrintPage({
               loading={isSubmitting}
             />
           </form>
-          <Divider className="!my-5" />
           {pazireshList?.length ? (
             <Table
               selectable
@@ -141,10 +140,10 @@ export default function SpecialistPrintPage({
             />
           ) : null}
         </div>
-      </div>
-      <FieldSet title={"خدمات دریافتی"} imgBack>
+      </FieldSet>
+      <FieldSet title={"خدمات دریافتی"} className={" h-[30vh]"}>
         {ogrid ? (
-          <div className="flex h-[30vh] flex-col gap-7 md:gap-2 lg:gap-4">
+          <div className="flex flex-col gap-7 md:gap-2 lg:gap-4">
             <p className="font-400 text-xs lg:text-sm">
               برای چاپ گزارش مورد نظر ، لطفا روی گزارش مربوطه کلیک کنید .
             </p>
@@ -179,11 +178,11 @@ export default function SpecialistPrintPage({
             </div>
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center py-[101px]">
-            <strong className="font-800 text-xs lg:text-base">
+          <div className="flex flex-col items-center h-full justify-center self-end overflow-auto">
+            <strong className="font-800 text-xs lg:text-sm xl:text-base">
               {"هیچ موردی برای نمایش وجود ندارد."}
             </strong>
-            <p className="font-700 mt-4 text-3xs md:text-xs lg:text-sm">
+            <p className="font-500 mt-4 text-3xs md:text-xs lg:text-xs xl:text-sm">
               {
                 "یکی از رکوردها را برای نمایش پس از وارد کردن کد ملی انتخاب کنید"
               }

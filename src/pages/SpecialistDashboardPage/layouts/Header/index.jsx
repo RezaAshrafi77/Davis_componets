@@ -9,7 +9,7 @@ import { HiMiniIdentification } from "react-icons/hi2";
 
 const Header = ({
   loading = false,
-  title = "مشخصات فردی",
+  title = "مشخصات کاربر",
   register,
   watch,
   control,
@@ -24,7 +24,11 @@ const Header = ({
           className={styles.fieldset}
           gradientBorder={false}
         >
-          <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+          <form
+            className={styles.form}
+            onSubmit={handleSubmit(onSubmit)}
+            id="header-form"
+          >
             <div className="flex lg:flex items-end w-full flex-wrap gap-x-2 gap-y-2 md:gap-y-4">
               <DateInput
                 containerClassName={

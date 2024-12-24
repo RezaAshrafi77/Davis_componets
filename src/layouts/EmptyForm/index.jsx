@@ -6,13 +6,14 @@ const EmptyForm = ({
   title,
   containerClassName,
   message = "فایل پرونده خالی است.",
-  description = "برای نمایش اطلاعات کافیست دکمه نمایش اطلاعات را انتخاب کنید",
+  description = "برای نمایش اطلاعات کافیست دکمه جستجو را انتخاب کنید",
 }) => {
   return (
     <section className={classNames(styles.container, containerClassName)}>
       <FieldSet
         title={title}
         className={styles.fieldset}
+        titleClassName={"!top-2"}
         gradientBorder={false}
       >
         <strong className="text-xs md:text-sm lg:text-base font-700">

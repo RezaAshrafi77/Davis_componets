@@ -33,7 +33,7 @@ const FieldSet = ({
           styles.legend,
           en ? styles.enLegend : "",
           titleClassName,
-          !gradientBorder ? "top-[5px] z-1" : ""
+          !gradientBorder ? "top-[5px]" : "-top-0.5"
         )}
       >
         {title}
@@ -42,7 +42,11 @@ const FieldSet = ({
     <div
       className={classNames(
         className,
-        gradientBorder ? styles.borderImage : styles.border,
+        gradientBorder
+          ? title
+            ? styles.borderImageByTitle
+            : styles.borderImage
+          : styles.border,
         styles.container
       )}
     >
