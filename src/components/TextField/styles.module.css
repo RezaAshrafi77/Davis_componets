@@ -12,7 +12,7 @@
 }
 
 .input {
-  @apply w-full font-400 text-3xs md:text-2xs lg:text-xs text-black 
+  @apply w-full font-400 text-3xs md:text-2xs lg:text-xs xl:text-sm text-black 
         placeholder:text-3xs md:placeholder:text-2xs lg:placeholder:text-xs bg-transparent border-none py-1 px-1.5;
 }
 

@@ -1,52 +1,52 @@
 .container {
-    @apply flex flex-col w-full;
+  @apply flex flex-col w-full;
 }
 
 .table {
-    @apply border-separate whitespace-nowrap overflow-x-auto border-spacing-[2px] w-full;
+  @apply border-separate whitespace-nowrap overflow-x-auto border-spacing-[2px] w-full;
 }
 
 .thead .tr {
-    @apply shadow-sm;
+  @apply shadow-sm;
 }
 
 .th {
-    @apply bg-formItem shadow-md font-600 text-3xs md:text-2xs lg:text-xs text-center rounded-md px-4 py-2.5;
+  @apply bg-formItem shadow-md font-600 text-3xs md:text-2xs lg:text-xs xl:text-sm text-center rounded-md px-4 py-2.5;
 }
 
 .tbody .tr .td {
-    @apply transition-all rounded-md border-[0.5px] shadow-md text-3xs md:text-2xs lg:text-xs font-400 bg-white text-center p-2 lg:whitespace-pre-wrap;
+  @apply transition-all rounded-md border-[0.5px] shadow-md text-3xs md:text-2xs lg:text-xs xl:text-[13px] font-400 bg-white text-center p-2 lg:whitespace-pre-wrap;
 }
 
 .selectable .tbody .tr:hover .td {
-    @apply cursor-pointer border-success;
+  @apply cursor-pointer border-success;
 }
 
 .pagination {
-    @apply w-full flex justify-between rounded-b-md shadow-md mt-0.5 py-1 bg-[#f1f1f1];
+  @apply w-full flex justify-between rounded-b-md shadow-md mt-0.5 py-1 bg-[#f1f1f1];
 }
 
 .default-options {
-    @apply flex !gap-1 px-1.5 items-center;
+  @apply flex !gap-1 px-1.5 items-center;
 }
 
 .next {
-    @apply text-2xs lg:text-xs border-none min-w-6 min-h-6 lg:min-w-8 lg:min-h-8 text-center rounded shadow-sm hover:scale-110 transition-all bg-white;
+  @apply text-2xs lg:text-xs border-none min-w-6 min-h-6 lg:min-w-8 lg:min-h-8 text-center rounded shadow-sm hover:scale-110 transition-all bg-white;
 }
 
 .current-page {
-    @apply text-2xs lg:text-xs min-w-6 min-h-6 lg:min-w-8 lg:min-h-8 flex justify-center items-center rounded bg-white text-black;
+  @apply text-2xs lg:text-xs min-w-6 min-h-6 lg:min-w-8 lg:min-h-8 flex justify-center items-center rounded bg-white text-black;
 }
 
 .stripe .tbody .tr:nth-child(even) .td {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 .selectContainer {
-    @apply place-content-center rounded !border-0 bg-white px-2 shadow flex flex-row w-fit  text-xs items-center;
+  @apply place-content-center rounded !border-0 bg-white px-2 shadow flex flex-row w-fit  text-xs items-center;
 }
 
 .selectOptionInput {
-    @apply pr-0 !w-[25px] mx-1 !border-0 !py-0 !font-400 !text-xs bg-transparent;
-    background-position: left -1px center;
+  @apply pr-0 !w-[25px] mx-1 !border-0 !py-0 !font-400 !text-xs bg-transparent;
+  background-position: left -1px center;
 }

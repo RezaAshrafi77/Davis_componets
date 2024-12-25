@@ -90,12 +90,14 @@ export default function SpecialistPrintPage({
             <TextField
               label={"کد ملی" + " :"}
               questionKey="6620"
-              containerClassName={"!flex-row rounded md:!w-[328px] !gap-5"}
+              containerClassName={
+                "!flex-row rounded md:!w-[328px] !gap-5 group"
+              }
               className="flex-1"
               icon={
                 <BiSolidUserDetail
-                  className="lg:w-[20px] lg:h-[20px] group-hover:text-success"
                   color="#858585"
+                  className="lg:w-[20px] lg:h-[20px] group-hover:!text-success"
                 />
               }
               watch={watch}
@@ -104,16 +106,16 @@ export default function SpecialistPrintPage({
             />
             <Button
               title={"جستجو"}
-              className="!bg-gray-[#f7f7f7] hover:!bg-success hover:!border-success hover:!text-white !border-success !w-[91px]"
+              className="hover:!text-black  hover:!bg-white lg: !gap-2 !shadow-formItem !bg-[#f7f7f7] !text-black !border-success active:!bg-success active:!text-white transition-all !w-[94px] md:h-[28px] xl:h-[34px]"
               type="submit"
-              variant="outlined"
-              icon={<MdOutlinePersonSearch size={20} />}
+              icon={<MdOutlinePersonSearch className="text-sm lg:text-xl" />}
               loading={isSubmitting}
             />
           </form>
           {pazireshList?.length ? (
             <Table
               selectable
+              className={styles.table}
               columns={Columns}
               rows={pazireshList?.map((row, index) => [
                 (currentPage - 1) * tableSize + index + 1,
@@ -127,10 +129,11 @@ export default function SpecialistPrintPage({
                   variant="text"
                   title={"انتخاب"}
                   key={"entekhab" + index}
-                  className="!max-w-fit !bg-white !m-auto group-hover:!text-success"
+                  className="!w-full !bg-white !m-auto !py-1.5 group-hover:!bg-success group-hover:!text-white"
                   loading={serviceLoading && index == activePaziresh}
                 />,
               ])}
+              onSelect={(i) => entekhabPaziresh(pazireshList[i], i)}
               pagination
               setPage={setPage}
               tableSize={tableSize}

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { FaFileCircleXmark } from "react-icons/fa6";
 import { MdOutlineFileUpload } from "react-icons/md";
@@ -35,6 +35,7 @@ const FileField = ({
   en,
 }) => {
   const [openModal, setOpenModal] = useState(false);
+  const inputRef = useRef(null);
   const _value = watch ? watch(questionKey) : value;
 
   useEffect(() => {
@@ -115,7 +116,7 @@ const FileField = ({
   };
   return (
     <div
-      className={classNames(styles.uploadContainer, containerClassName, {
+      className={classNames(styles.container, containerClassName, {
         "field-error": isError,
       })}
       dir={en ? "ltr" : ""}
@@ -153,7 +154,7 @@ const FileField = ({
       )}
       <div className={styles.uploadPart}>
         <Button
-          variant={_value ? "outlined" : "disabled"}
+          variant={_value ? "outlined" : "text"}
           className={classNames(buttonClassName, styles.button)}
           title={
             _value
@@ -164,7 +165,9 @@ const FileField = ({
               ? "Choose a file"
               : "انتخاب فایل"
           }
-          onClick={handleDisplayFile}
+          onClick={() =>
+            _value ? handleDisplayFile() : inputRef.current.click()
+          }
         />
 
         <div
@@ -174,11 +177,12 @@ const FileField = ({
           })}
         >
           <label className={classNames(styles.inputField, className)}>
-            <span className="z-[1] font-600 text-2xs lg:text-xs">
+            <span className="z-[1] font-600 text-2xs lg:text-[11px] xl:text-xs">
               {renderFileInfo()}
             </span>
             <input
               type="file"
+              ref={inputRef}
               className={classNames(
                 disabled ? "cursor-not-allowed" : "cursor-pointer",
                 styles.input
