@@ -156,6 +156,8 @@ const Header = ({
       .then((res) => {
         if (res.data.length == 0 && !res.error) {
           toast.error("هیچ کاربری یافت نشد.");
+          setUser(null);
+          setUserID(null);
         }
         setUsers(res.data);
       })
@@ -263,6 +265,9 @@ const Header = ({
           title={title}
           className={styles.fieldset}
           gradientBorder={false}
+          titleClassName={
+            "!bg-transparent !translate-y-[35%] lg:!translate-y-[30%]"
+          }
         >
           <form className={styles.form} onSubmit={onSubmit}>
             <div className="flex w-full flex-wrap items-end gap-x-4 gap-y-3 md:gap-y-4 lg:flex">

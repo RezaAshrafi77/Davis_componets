@@ -26,7 +26,7 @@
 }
 
 .borderImage {
-  @apply rounded-t-md top-[1.8px];
+  @apply rounded-t-md top-[2px];
   border-left-width: 0.5px;
   border-right-width: 0.5px;
   border-style: solid;
@@ -49,7 +49,7 @@
 
 .legend {
   @apply text-xs px-0.5 py-0 relative font-700 leading-5 z-[1];
-  @apply xl:text-xs mr-6 lg:mr-8 text-[#3D0C02] h-4;
+  @apply lg:text-sm mr-6 lg:mr-8 text-[#3D0C02];
   border-radius: 0.25rem;
   padding: 0 0.5rem;
   /* background: white; */

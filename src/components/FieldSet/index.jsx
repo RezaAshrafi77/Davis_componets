@@ -33,7 +33,7 @@ const FieldSet = ({
           styles.legend,
           en ? styles.enLegend : "",
           titleClassName,
-          !gradientBorder ? "top-[5px]" : "-top-0.5"
+          !gradientBorder ? "translate-y-1/2 bg-white" : ""
         )}
       >
         {title}

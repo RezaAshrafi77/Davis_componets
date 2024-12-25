@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Table from "../../components/Table";
 import Header from "./layouts/Header";
 import { tableSizeList } from "../../components/Table/data";
@@ -19,14 +19,14 @@ export default function SpecialistDashboardPage({
   colors,
   loading,
 }) {
-  const { register, watch, control, handleSubmit, setValue } = useForm({
+  const { register, watch, control, setValue } = useForm({
     mode: "all",
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [tableSize, setTableSize] = useState(tableSizeList[0].value);
   const [activeFilterOption, setAFO] = useState(null);
 
-  const rows = activeFilterOption
+  const filteredRows = activeFilterOption
     ? users
         ?.map((row, index) => [
           (currentPage - 1) * tableSize + index + 1,
@@ -40,15 +40,17 @@ export default function SpecialistDashboardPage({
           row["doctor_fn"],
         ])
         .filter((row) => row[colFilter - 1] == activeFilterOption)
-    : users?.map((row, index) => [
-        (currentPage - 1) * tableSize + index + 1,
-        row["fn"],
-        row["6620"],
-        row["4946"],
-        moment(row["date_paziresh"]).locale("fa").format("HH:MM - YYYY/MM/DD"),
-        row["vazeiat"],
-        row["doctor_fn"],
-      ]);
+    : [[]];
+
+  const rows = users?.map((row, index) => [
+    (currentPage - 1) * tableSize + index + 1,
+    row["fn"],
+    row["6620"],
+    row["4946"],
+    moment(row["date_paziresh"]).locale("fa").format("HH:MM - YYYY/MM/DD"),
+    row["vazeiat"],
+    row["doctor_fn"],
+  ]);
 
   useEffect(() => {
     setValue("from_date", moment().locale("fa").format("YYYY/MM/DD"));
@@ -92,7 +94,7 @@ export default function SpecialistDashboardPage({
       {rows?.length ? (
         <Table
           columns={tableColumns}
-          rows={rows}
+          rows={activeFilterOption ? filteredRows : rows}
           page={currentPage}
           className={styles.table}
           setPage={setCurrentPage}

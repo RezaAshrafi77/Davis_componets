@@ -23,6 +23,9 @@ const Header = ({
           title={title}
           className={styles.fieldset}
           gradientBorder={false}
+          titleClassName={
+            "!bg-transparent !translate-y-[35%] lg:!translate-y-[30%]"
+          }
         >
           <form
             className={styles.form}

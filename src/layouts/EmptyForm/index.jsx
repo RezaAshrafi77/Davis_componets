@@ -13,7 +13,6 @@ const EmptyForm = ({
       <FieldSet
         title={title}
         className={styles.fieldset}
-        titleClassName={"!top-2"}
         gradientBorder={false}
       >
         <strong className="text-xs md:text-sm lg:text-base font-700">
