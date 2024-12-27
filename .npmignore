@@ -1,7 +1,10 @@
 node_modules
 dist/*.map
 src/
-.vite/
-
-.index.html
-.tailwind.config.js
+vite.config.js
+index.html
+tailwind.config.js
+eslint.config.js
+package-lock.json
+postcss.config.js
+README.md
