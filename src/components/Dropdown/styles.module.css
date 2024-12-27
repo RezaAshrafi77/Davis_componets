@@ -1,37 +1,37 @@
 .dropdown {
-  @apply flex items-center gap-2 select-none relative bg-white rounded px-1 lg:px-2 py-1 cursor-pointer z-[1000];
+    @apply flex items-center gap-2 select-none relative bg-white rounded px-1 lg:px-2 py-1 cursor-pointer z-[1000];
 }
 
 .labelContainer {
-  @apply flex items-center lg:gap-1 lg:py-1;
+    @apply flex items-center lg:gap-1 lg:py-1;
 }
 
 .label,
 .value {
-  @apply text-2xs lg:text-xs;
+    @apply text-3xs md:text-2xs lg:text-xs;
 }
 
 .icon {
-  @apply transition-all text-2xs lg:text-sm;
+    @apply transition-all text-2xs lg:text-sm;
 }
 
 .iconOpen {
-  @apply rotate-180;
+    @apply rotate-180;
 }
 
 .menu {
-  @apply -left-1 absolute bottom-0 -translate-x-full transition-all mr-2 divide-y divide-gray-200 bg-white rounded overflow-hidden z-50;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+    @apply -left-1 absolute bottom-0 -translate-x-full transition-all mr-2 divide-y divide-gray-200 bg-white rounded overflow-hidden z-50;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .menuOpen {
-  @apply py-2;
+    @apply py-2;
 }
 
 .menuClosed {
-  @apply h-0;
+    @apply h-0;
 }
 
 .menuItem {
-  @apply py-2 text-2xs hover:bg-formItemInput lg:px-3;
+    @apply py-1.5 md:py-2 px-2 text-3xs md:text-2xs lg:text-xs hover:bg-formItemInput lg:px-3;
 }

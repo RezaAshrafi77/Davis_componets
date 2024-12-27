@@ -1,33 +1,33 @@
 /* Container Styles */
 .container {
-  @apply bg-white shadow-md rounded-md px-3 md:px-4 pt-1 pb-4;
-  background: linear-gradient(0deg, #eefeff 0%, #b2e5f8 100%);
+    @apply bg-white shadow-md rounded-md px-3 md:px-4 pt-1 pb-4;
+    background: linear-gradient(0deg, #eefeff 0%, #b2e5f8 100%);
 }
 
 /* Fieldset Styling with Gradient Border */
 .fieldset {
-  @apply px-2 md:px-4 !pt-3 !pb-5 !overflow-visible relative;
-  background: linear-gradient(white, white) padding-box,
-    linear-gradient(180deg, #222222, #222222) border-box;
+    @apply px-2 md:px-4 !pt-3 !pb-5 !overflow-visible relative;
+    background: linear-gradient(white, white) padding-box,
+        linear-gradient(180deg, #222222, #222222) border-box;
 }
 
 .fieldset legend {
-  background-color: transparent;
-  margin-right: 0px;
+    background-color: transparent;
+    margin-right: 0px;
 }
 
 .form {
-  @apply flex w-full items-end bg-background;
+    @apply flex w-full items-end bg-background;
 }
 
 .searchButton {
-  @apply border-success w-[25%] md:w-[115px] md:ml-0 !py-0 !h-[22px] lg:!h-[26px] md:mt-0 mr-auto md:mr-0 bg-[#f7f7f7] lg:mr-4 !rounded-[2px] lg:!rounded !text-[9px] lg:!text-xs;
+    @apply border-success w-[25%] md:w-[90px] lg:w-[115px] md:ml-0 !py-0 !h-[22px] lg:!h-[26px] md:mt-0 mr-auto md:mr-0 bg-[#f7f7f7] lg:mr-4 !rounded-[2px] lg:!rounded !text-[9px] lg:!text-xs;
 }
 
 .textField {
-  @apply !border-[0.25px] w-full !rounded-[2px] lg:!rounded bg-[#f7f7f7];
+    @apply !border-[0.25px] w-full !rounded-[2px] lg:!rounded bg-[#f7f7f7];
 }
 
 .textField input {
-  @apply md:text-3xs md:placeholder:text-3xs lg:placeholder:text-xs lg:text-xs;
+    @apply md:text-3xs md:placeholder:text-3xs lg:placeholder:text-xs lg:text-xs;
 }

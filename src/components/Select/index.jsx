@@ -123,12 +123,12 @@ const Select = ({
                 {search ? (
                     <div className="relative w-full">
                         <div
-                            className="flex items-center px-1 justify-between w-full rounded border-[0.5px] border-black py-0.5 lg:py-1 bg-formItemInput cursor-pointer select-none"
+                            className="flex items-center px-1 justify-between w-full rounded border-[0.5px] border-black py-0.5 md:py-[3px] lg:py-[5px] bg-formItemInput cursor-pointer select-none"
                             onClick={() => setIsOpen(!isOpen)}
                         >
                             <span
                                 className={
-                                    "text-3xs md:text-2xs lg:text-xs font-500"
+                                    "text-3xs md:text-2xs lg:text-xs xl:text-[13px] font-400"
                                 }
                             >
                                 {value

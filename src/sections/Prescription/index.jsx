@@ -8,6 +8,7 @@ import Button from "../../components/Button"
 import { useMemo, useState } from "react"
 import { tableSizeList } from "../../components/Table/data"
 import { LuFileX2 } from "react-icons/lu"
+import { IoAddCircleOutline } from "react-icons/io5"
 
 export default function Prescription({ onChange = () => {}, drugsList }) {
     const [formData, setFormData] = useState({
@@ -197,14 +198,17 @@ export default function Prescription({ onChange = () => {}, drugsList }) {
                     tableSize={tableSize}
                     setPage={setPage}
                 >
-                    <div className="flex-1 flex justify-end py-1 pr-2">
+                    <div className="flex">
                         <Button
                             title="افزودن"
                             variant="variant"
                             className={
-                                "w-20 !border-opacity-30 !py-1.5 !bg-white hover:!bg-success hover:!text-white !text-black"
+                                "md:w-24 !border-opacity-30 !py-1.5 !bg-white hover:!bg-success hover:!text-white !text-black lg:!text-xs !gap-1"
                             }
                             onClick={() => submit()}
+                            icon={
+                                <IoAddCircleOutline className="text-2xs md:text-xs lg:text-sm font-800" />
+                            }
                         />
                     </div>
                 </Table>
