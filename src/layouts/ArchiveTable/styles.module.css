@@ -11,7 +11,7 @@
 }
 
 .emptyStateContainer {
-    @apply w-[350px] h-[100px] flex justify-center items-center;
+    @apply w-[80vw] md:w-[350px] h-[100px] flex justify-center items-center;
 }
 
 .emptyStateText {

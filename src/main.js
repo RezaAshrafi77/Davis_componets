@@ -32,11 +32,11 @@ export { default as SpecialistPrescription } from "./sections/Prescription/index
 // import ReactDOM from "react-dom/client"
 // import "./index.css"
 // import Page from "./components/Page"
-// import SpecialistPrescription from "./sections/Prescription"
+// import EmptyForm from "./layouts/EmptyForm"
 
 // ReactDOM.createRoot(document.getElementById("root")).render(
 //     //   <StrictMode>
 //     <Page>
-//         <SpecialistPrescription />
+//         <EmptyForm title={"تخصصی دندان"} />
 //     </Page>
 // )

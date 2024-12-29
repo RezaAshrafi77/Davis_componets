@@ -89,7 +89,11 @@ const Table = ({
                             " flex-1 md:max-w-fit flex-wrap md:flex-nowrap"
                         )}
                     >
-                        <div className={classNames("flex md:hidden flex-1")}>
+                        <div
+                            className={classNames(
+                                "flex md:hidden flex-1 min-w-fit"
+                            )}
+                        >
                             {children}
                         </div>
                         <Button

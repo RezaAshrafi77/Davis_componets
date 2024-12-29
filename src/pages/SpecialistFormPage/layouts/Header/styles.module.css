@@ -1,6 +1,6 @@
 /* Container Styles */
 .container {
-    @apply rounded-md bg-white px-3 pb-4 pt-1 shadow-md md:px-4;
+    @apply rounded-md bg-white px-1.5 pb-3 md:pb-4 md:pt-1 shadow-md md:px-4;
 }
 
 .normalContainer {

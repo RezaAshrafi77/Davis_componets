@@ -9,8 +9,13 @@ import { useMemo, useState } from "react"
 import { tableSizeList } from "../../components/Table/data"
 import { LuFileX2 } from "react-icons/lu"
 import { IoAddCircleOutline } from "react-icons/io5"
+import classNames from "classnames"
 
-export default function Prescription({ onChange = () => {}, drugsList }) {
+export default function Prescription({
+    onChange = () => {},
+    drugsList,
+    containerClassName,
+}) {
     const [formData, setFormData] = useState({
         10520: null,
         1730098894463: null,
@@ -127,45 +132,49 @@ export default function Prescription({ onChange = () => {}, drugsList }) {
 
     return (
         <FieldSet title="نسخه دارویی">
-            <div className={"flex flex-col gap-6"}>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-[5vw] gap-y-4 lg:gap-y-6">
-                    <Select
-                        search
-                        errors={errors}
-                        questionKey={"10520"}
-                        label="نام داروی مصرفی"
-                        divider={"center"}
-                        options={Drugs_List}
-                        onChange={(val) => handleFormData("10520", val)}
-                        required
-                        value={formData[10520]}
-                    />
-                    <TextField
-                        questionKey={"1730098894463"}
-                        errors={errors}
-                        label="تعداد"
-                        divider={"center"}
-                        required
-                        type="number"
-                        inputMode="numeric"
-                        value={formData["1730098894463"]}
-                        onChange={(e) =>
-                            handleFormData("1730098894463", e.target.value)
-                        }
-                    />
-                    <TextField
-                        questionKey={"1730098956926"}
-                        errors={errors}
-                        label="دستور مصرف"
-                        divider={"center"}
-                        required
-                        value={formData["1730098956926"]}
-                        onChange={(e) =>
-                            handleFormData("1730098956926", e.target.value)
-                        }
-                    />
-                </div>
+            <div
+                className={classNames(
+                    containerClassName,
+                    "grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-[5vw] gap-y-4 lg:gap-y-6"
+                )}
+            >
+                <Select
+                    search
+                    errors={errors}
+                    questionKey={"10520"}
+                    label="نام داروی مصرفی"
+                    divider={"center"}
+                    options={Drugs_List}
+                    onChange={(val) => handleFormData("10520", val)}
+                    required
+                    value={formData[10520]}
+                />
+                <TextField
+                    questionKey={"1730098894463"}
+                    errors={errors}
+                    label="تعداد"
+                    divider={"center"}
+                    required
+                    type="number"
+                    inputMode="numeric"
+                    value={formData["1730098894463"]}
+                    onChange={(e) =>
+                        handleFormData("1730098894463", e.target.value)
+                    }
+                />
+                <TextField
+                    questionKey={"1730098956926"}
+                    errors={errors}
+                    label="دستور مصرف"
+                    divider={"center"}
+                    required
+                    value={formData["1730098956926"]}
+                    onChange={(e) =>
+                        handleFormData("1730098956926", e.target.value)
+                    }
+                />
                 <Table
+                    containerClassName={"col-span-full"}
                     columns={[
                         "ردیف",
                         "نام دارو",
@@ -203,7 +212,7 @@ export default function Prescription({ onChange = () => {}, drugsList }) {
                             title="افزودن"
                             variant="variant"
                             className={
-                                "md:w-24 !border-opacity-30 !py-1.5 !bg-white hover:!bg-success hover:!text-white !text-black lg:!text-xs !gap-1"
+                                "w-20 md:w-24 !border-opacity-30 py-1 lg:!py-1.5 !bg-white hover:!bg-success hover:!text-white !text-black lg:!text-xs !gap-1"
                             }
                             onClick={() => submit()}
                             icon={
