@@ -155,8 +155,12 @@ export default function SpecialistPrintPage({
             <FieldSet title={"خدمات دریافتی"} className={" h-[35vh] relative"}>
                 {background ? (
                     <img
-                        src={background}
-                        className="absolute right-0 h-full top-0 z-10"
+                        src={background.src}
+                        className={
+                            "absolute right-0 h-full top-0 z-10" +
+                            " " +
+                            background.className
+                        }
                         alt=""
                     />
                 ) : null}
