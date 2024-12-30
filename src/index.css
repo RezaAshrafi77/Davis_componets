@@ -56,12 +56,12 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-@media only screen and (min-width: 953px) {
+@media only screen and (min-width: 952px) {
     *::-webkit-scrollbar {
         width: 10px !important;
     }
 }
-@media only screen and (min-width: 672px) and (max-width: 952px) {
+@media only screen and (min-width: 672px) and (max-width: 951px) {
     *::-webkit-scrollbar {
         width: 8px !important;
     }
