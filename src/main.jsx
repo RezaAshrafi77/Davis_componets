@@ -32,18 +32,11 @@
 import ReactDOM from "react-dom/client"
 import "./index.css"
 import Page from "./components/Page"
-import Radio from "./components/Radio/index"
+import SpecialistFormPageHeader from "./pages/SpecialistFormPage/layouts/Header"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     //   <StrictMode>
     <Page>
-        <Radio
-            label="Questions"
-            name={"Questions"}
-            value="reza"
-            onChange={() => {}}
-            en
-        />
-        <Radio value="reza" name="رضا" label="رضا" />
+        <SpecialistFormPageHeader />
     </Page>
 )

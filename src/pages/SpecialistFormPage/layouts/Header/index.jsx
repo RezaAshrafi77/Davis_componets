@@ -277,7 +277,7 @@ const Header = ({
                     }
                 >
                     <form className={styles.form} onSubmit={onSubmit}>
-                        <div className="flex w-full flex-wrap items-end gap-x-2 md:gap-x-[1.5vw] lg:gap-x-[1.3vw] gap-y-3 md:gap-y-4 lg:flex">
+                        <div className="flex w-full flex-wrap items-end gap-x-2 md:gap-x-[1.5vw] lg:gap-x-2 xs:gap-x-[1.3vw] gap-y-3 md:gap-y-4 lg:flex">
                             {vip ? (
                                 <img
                                     src={VIPIcon}

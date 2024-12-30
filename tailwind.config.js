@@ -9,7 +9,7 @@ export default {
             screens: {
                 xs: "303px", // Extra Small devices
                 md: "672px", // Medium devices
-                lg: "952px", // Large devices
+                lg: "942px", // Large devices
                 xl: "1368px", // XLarge
             },
             fontFamily: {
