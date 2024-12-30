@@ -23,7 +23,7 @@ const Select = ({
     educationalContent,
     questionKey,
     errors = {},
-    errorMessage = "این سوال اجباری است.",
+    errorMessage = "پر کردن این قسمت الزامیست.",
     dividerClassName,
     archive,
     errorIcon,

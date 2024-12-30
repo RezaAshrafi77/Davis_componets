@@ -113,7 +113,7 @@ const TextField = ({
                         {...(register
                             ? register(questionKey, {
                                   required: required
-                                      ? "این سوال اجباری است."
+                                      ? "پر کردن این قسمت الزامیست."
                                       : false,
                                   pattern,
                                   valueAsNumber: props.type == "number",
@@ -128,7 +128,7 @@ const TextField = ({
                         {...(register
                             ? register(questionKey, {
                                   required: required
-                                      ? "این سوال اجباری است."
+                                      ? "پر کردن این قسمت الزامیست."
                                       : false,
                                   pattern,
                               })

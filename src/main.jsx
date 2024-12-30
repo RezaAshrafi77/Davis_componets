@@ -32,11 +32,11 @@
 import ReactDOM from "react-dom/client"
 import "./index.css"
 import Page from "./components/Page"
-import SpecialistFormPageHeader from "./pages/SpecialistFormPage/layouts/Header"
+import SpecialistPrintPage from "./pages/SpecialistPrintPage/index"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     //   <StrictMode>
     <Page>
-        <SpecialistFormPageHeader />
+        <SpecialistPrintPage />
     </Page>
 )

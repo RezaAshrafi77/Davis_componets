@@ -26,7 +26,7 @@ export default function RadioOptions({
     educationalContent = null,
     errors = {},
     errorIcon = null,
-    errorMessage = "این سوال اجباری است.",
+    errorMessage = "پر کردن این قسمت الزامیست.",
     archive = null,
     dividerClassName,
     en,

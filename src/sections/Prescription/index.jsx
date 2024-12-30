@@ -53,17 +53,17 @@ export default function Prescription({
             setErrors({
                 10520: !formData[10520]
                     ? {
-                          message: "نام دارو اجباری است.",
+                          message: "پر کردن این قسمت الزامیست.",
                       }
                     : null,
                 1730098894463: !formData[1730098894463]
                     ? {
-                          message: "تعداد دارو اجباری است.",
+                          message: "پر کردن این قسمت الزامیست.",
                       }
                     : null,
                 1730098956926: !formData[1730098956926]
                     ? {
-                          message: "دستور مصرف اجباری است.",
+                          message: "پر کردن این قسمت الزامیست.",
                       }
                     : null,
             })
@@ -81,7 +81,7 @@ export default function Prescription({
                     ...errors,
                     10520: !value
                         ? {
-                              message: "نام دارو اجباری است.",
+                              message: "پر کردن این قسمت الزامیست.",
                           }
                         : null,
                 })
@@ -98,7 +98,7 @@ export default function Prescription({
                     ...errors,
                     1730098894463: !value
                         ? {
-                              message: "تعداد دارو اجباری است.",
+                              message: "پر کردن این قسمت الزامیست.",
                           }
                         : null,
                 })
@@ -115,7 +115,7 @@ export default function Prescription({
                     ...errors,
                     1730098956926: !value
                         ? {
-                              message: "دستور مصرف اجباری است.",
+                              message: "پر کردن این قسمت الزامیست.",
                           }
                         : null,
                 })

@@ -22,7 +22,7 @@ const CheckBoxGroup = ({
     questionKey,
     required = false,
     setValue,
-    errorMessage = "این سوال اجباری است.",
+    errorMessage = "پر کردن این قسمت الزامیست.",
     watch,
     errorIcon,
     archive,

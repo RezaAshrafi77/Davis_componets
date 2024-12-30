@@ -31,7 +31,7 @@ const DateInput = ({
     dividerClassName,
 }) => {
     const isError = !!errors[id]
-    const errorMessage = "این سوال اجباری است."
+    const errorMessage = "پر کردن این قسمت الزامیست."
 
     return (
         <div

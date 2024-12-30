@@ -16,28 +16,28 @@ The `RadioOptions` component is a flexible and accessible group of radio buttons
 
 ## Props
 
-| Prop                 | Type        | Default                       | Description                                                       |
-| -------------------- | ----------- | ----------------------------- | ----------------------------------------------------------------- |
-| `containerClassName` | `string`    | `""`                          | Additional classes for the main container.                        |
-| `register`           | `function`  | `() => {}`                    | Function to register fields (e.g., React Hook Form).              |
-| `options`            | `Array`     | `[]`                          | Array of options, each with `label` and `value` properties.       |
-| `active`             | `string`    | `""`                          | The currently selected value.                                     |
-| `divider`            | `boolean`   | `false`                       | Displays a divider between the label and options.                 |
-| `label`              | `string`    | `""`                          | The main label for the radio group.                               |
-| `onClick`            | `function`  | `null`                        | Callback function triggered when an option is clicked.            |
-| `userGuide`          | `string`    | `null`                        | Additional user guidance displayed with the label.                |
-| `questionKey`        | `string`    | `""`                          | Unique key for the question (used for form handling and errors).  |
-| `wrap`               | `boolean`   | `false`                       | Controls whether options wrap or are laid out in a single row.    |
-| `labelClassName`     | `string`    | `""`                          | Additional classes for the label.                                 |
-| `optionsContainer`   | `string`    | `""`                          | Additional classes for the options container.                     |
-| `radioClassName`     | `string`    | `""`                          | Additional classes for each radio button.                         |
-| `required`           | `boolean`   | `false`                       | Specifies if the field is required.                               |
-| `educationalContent` | `ReactNode` | `null`                        | Additional educational content to display near the label.         |
-| `errors`             | `object`    | `{}`                          | Error object for form validation.                                 |
-| `errorIcon`          | `ReactNode` | `<BiError />`                 | Icon displayed alongside the error message.                       |
-| `errorMessage`       | `string`    | `"این سوال اجباری است."`      | Message displayed when there is an error.                         |
-| `archive`            | `object`    | `null`                        | Additional metadata to include in the label (e.g., question key). |
-| dividerClassName     | string      | Custom class for the divider. | ""                                                                |
+| Prop                 | Type        | Default                        | Description                                                       |
+| -------------------- | ----------- | ------------------------------ | ----------------------------------------------------------------- |
+| `containerClassName` | `string`    | `""`                           | Additional classes for the main container.                        |
+| `register`           | `function`  | `() => {}`                     | Function to register fields (e.g., React Hook Form).              |
+| `options`            | `Array`     | `[]`                           | Array of options, each with `label` and `value` properties.       |
+| `active`             | `string`    | `""`                           | The currently selected value.                                     |
+| `divider`            | `boolean`   | `false`                        | Displays a divider between the label and options.                 |
+| `label`              | `string`    | `""`                           | The main label for the radio group.                               |
+| `onClick`            | `function`  | `null`                         | Callback function triggered when an option is clicked.            |
+| `userGuide`          | `string`    | `null`                         | Additional user guidance displayed with the label.                |
+| `questionKey`        | `string`    | `""`                           | Unique key for the question (used for form handling and errors).  |
+| `wrap`               | `boolean`   | `false`                        | Controls whether options wrap or are laid out in a single row.    |
+| `labelClassName`     | `string`    | `""`                           | Additional classes for the label.                                 |
+| `optionsContainer`   | `string`    | `""`                           | Additional classes for the options container.                     |
+| `radioClassName`     | `string`    | `""`                           | Additional classes for each radio button.                         |
+| `required`           | `boolean`   | `false`                        | Specifies if the field is required.                               |
+| `educationalContent` | `ReactNode` | `null`                         | Additional educational content to display near the label.         |
+| `errors`             | `object`    | `{}`                           | Error object for form validation.                                 |
+| `errorIcon`          | `ReactNode` | `<BiError />`                  | Icon displayed alongside the error message.                       |
+| `errorMessage`       | `string`    | `"پر کردن این قسمت الزامیست."` | Message displayed when there is an error.                         |
+| `archive`            | `object`    | `null`                         | Additional metadata to include in the label (e.g., question key). |
+| dividerClassName     | string      | Custom class for the divider.  | ""                                                                |
 
 ---
 
