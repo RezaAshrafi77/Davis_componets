@@ -78,7 +78,7 @@ export default function SpecialistPrintPage({
     }
 
     return (
-        <div className="mt-4 flex h-full flex-col justify-between">
+        <div className="flex h-full flex-col justify-between">
             <FieldSet>
                 <div className="flex flex-col">
                     <strong className="font-700 text-xs lg:text-sm">

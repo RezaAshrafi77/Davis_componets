@@ -358,7 +358,7 @@ const Header = ({
                                             />
                                         }
                                         className={
-                                            "!rounded-l-none !rounded-r-[2px] lg:!rounded-r h-[20px] lg:h-[24px] w-[28px]  !bg-transparent border border-success"
+                                            "!rounded-l-none !rounded-r-[2px] lg:!rounded-r h-[20px] lg:h-[24px] w-[28px]  !bg-transparent !border-[0.5px] border-success"
                                         }
                                         onClick={() =>
                                             setFormData({

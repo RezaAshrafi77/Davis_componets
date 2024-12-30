@@ -164,7 +164,7 @@ const FileField = ({
             )}
             <div className={styles.uploadPart}>
                 <Button
-                    variant={_value ? "outlined" : "text"}
+                    variant={"outlined"}
                     className={classNames(buttonClassName, styles.button)}
                     title={
                         _value
@@ -181,10 +181,14 @@ const FileField = ({
                 />
 
                 <div
-                    className={classNames(styles.uploadShow, {
-                        "!bg-white": _value,
-                        "!bg-white-f5": !_value,
-                    })}
+                    className={classNames(
+                        styles.uploadShow,
+                        {
+                            "!bg-white": _value,
+                            "!bg-white-f5": !_value,
+                        },
+                        "group"
+                    )}
                 >
                     <label className={classNames(styles.inputField, className)}>
                         <span className="z-[1] font-600 text-2xs lg:text-[11px] xl:text-xs">
@@ -217,7 +221,7 @@ const FileField = ({
                                 ) : (
                                     <MdOutlineFileUpload
                                         color="#7B7B7B"
-                                        className="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px]"
+                                        className="w-[16px] h-[16px] lg:w-[20px] lg:h-[20px] group-hover:!text-success"
                                     />
                                 )
                             }
