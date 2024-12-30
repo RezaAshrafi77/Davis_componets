@@ -4,7 +4,10 @@ import { IoPrintOutline } from "react-icons/io5"
 import Button from "../Button"
 import styles from "./styles.module.css"
 import Dropdown from "../Dropdown"
-import { tableSizeList } from "./data"
+import { excelOptions, tableSizeList } from "./data"
+import { exportTableToExcel } from "../../utils/helpers"
+import { FiDownload } from "react-icons/fi"
+import { useState } from "react"
 
 const Table = ({
     className,
@@ -24,6 +27,18 @@ const Table = ({
     colFilter,
     colors,
 }) => {
+    const [downloadMode, setDownloadMode] = useState("excel")
+    const tableId = Math.floor(Math.random() * 10) + 1
+
+    const handleDownload = () => {
+        console.log("hi")
+        if (downloadMode == "csv") {
+            return
+        } else {
+            exportTableToExcel("table" + tableId)
+        }
+    }
+
     return rows?.length ? (
         <div className={classNames(styles.container, containerClassName)}>
             <div className="w-full overflow-x-auto">
@@ -34,6 +49,7 @@ const Table = ({
                         selectable ? styles.selectable : "",
                         stripe ? styles.stripe : ""
                     )}
+                    id={"table" + tableId}
                 >
                     <thead className={styles.thead}>
                         <tr className={styles.tr}>
@@ -80,7 +96,7 @@ const Table = ({
 
             {pagination ? (
                 <div className={styles.pagination}>
-                    <div className={classNames("hidden md:flex flex-1")}>
+                    <div className={classNames("hidden md:flex")}>
                         {children}
                     </div>
                     <div
@@ -91,7 +107,7 @@ const Table = ({
                     >
                         <div
                             className={classNames(
-                                "flex md:hidden flex-1 min-w-fit"
+                                "flex md:hidden min-w-fit md:mr-auto"
                             )}
                         >
                             {children}
@@ -101,13 +117,38 @@ const Table = ({
                             className={styles.next}
                             onClick={() => window.print()}
                             icon={
-                                <IoPrintOutline className="text-xs  md:text-base cursor-pointer bg-white lg:!text-xl" />
+                                <IoPrintOutline className="text-xs md:text-base cursor-pointer lg:!text-xl" />
                             }
                         />
+                        <div className="flex items-center">
+                            <Dropdown
+                                label={
+                                    excelOptions.find(
+                                        (o) => o.value == downloadMode
+                                    )?.label
+                                }
+                                options={excelOptions}
+                                onChange={(val) => setDownloadMode(val)}
+                                containerClassName={"!rounded-l-none"}
+                            />
+                            <Button
+                                variant="icon"
+                                className={
+                                    styles.next + " " + "!rounded-r-none"
+                                }
+                                onClick={() => handleDownload()}
+                                icon={
+                                    <FiDownload className="text-xs md:text-base cursor-pointer lg:!text-xl" />
+                                }
+                            />
+                        </div>
                         {tableSizes?.length ? (
                             <Dropdown
-                                label={"نمایش به صورت :"}
-                                value={tableSize}
+                                label={
+                                    tableSizeList.find(
+                                        (o) => o.value == tableSize
+                                    )?.label
+                                }
                                 options={tableSizes}
                                 onChange={(val) => setTableSize(val)}
                             />

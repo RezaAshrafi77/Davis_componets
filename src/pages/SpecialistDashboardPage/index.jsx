@@ -9,6 +9,7 @@ import styles from "./styles.module.css"
 import Radio from "../../components/Radio"
 import moment from "jalali-moment"
 import emptySVG from "../../assets/images/empty.svg"
+import Divider from "../../components/Divider"
 
 export default function SpecialistDashboardPage({
     tableColumns = Table_Columns,
@@ -91,6 +92,7 @@ export default function SpecialistDashboardPage({
                 onSubmit={onSubmit}
                 title={title}
             />
+            <Divider position="center" className={"!mt-0"} />
             {rows?.length ? (
                 <Table
                     columns={tableColumns}
@@ -103,6 +105,7 @@ export default function SpecialistDashboardPage({
                     colors={colors}
                     tableSize={tableSize}
                     pagination
+                    selectable
                     containerClassName={loading ? "blur-sm" : ""}
                 >
                     {colFilter && filterOptions?.length > 1 ? (

@@ -1,91 +1,93 @@
 /* eslint-disable react/prop-types */
-import { Fragment } from "react";
-import Button from "../../../../components/Button";
-import TextField from "../../../../components/TextField";
-import DateInput from "../../../../components/DateInput";
-import FieldSet from "../../../../components/FieldSet";
-import styles from "./styles.module.css";
-import { HiMiniIdentification } from "react-icons/hi2";
+import Button from "../../../../components/Button"
+import TextField from "../../../../components/TextField"
+import DateInput from "../../../../components/DateInput"
+import FieldSet from "../../../../components/FieldSet"
+import styles from "./styles.module.css"
+import { MdOutlinePersonSearch } from "react-icons/md"
+import NationalCodeSVG from "../../../../assets/icons/nationalCode.svg"
 
 const Header = ({
-  loading = false,
-  title = "مشخصات کاربر",
-  register,
-  watch,
-  control,
-  onSubmit,
-  setPage,
+    loading = false,
+    title = "مشخصات کاربر",
+    register,
+    watch,
+    control,
+    onSubmit,
+    setPage,
 }) => {
-  return (
-    <Fragment>
-      <section className={styles.container}>
-        <FieldSet
-          title={title}
-          className={styles.fieldset}
-          gradientBorder={false}
-          titleClassName={
-            "!bg-transparent !translate-y-[35%] lg:!translate-y-[30%]"
-          }
-        >
-          <form
-            className={styles.form}
-            onSubmit={(e) => {
-              e.preventDefault();
-              setPage(1);
-              onSubmit();
-            }}
-            id="header-form"
-          >
-            <div className="flex lg:flex items-end w-full flex-wrap gap-x-2 gap-y-2 md:gap-y-4">
-              <DateInput
-                containerClassName={
-                  "flex flex-1 min-w-[48%] md:min-w-[112px] md:max-w-[160px] lg:max-w-[260px] xl:max-w-[280px] md:ml-auto !gap-0.5 !p-0 !bg-transparent !shadow-none"
-                }
-                className={styles.textField}
-                label={"از تاریخ"}
-                id="from_date"
-                control={control}
-                watch={watch}
-                labelClassName={"!text-[9px] lg:!text-xs"}
-              />
-              <DateInput
-                containerClassName={
-                  "flex flex-1 min-w-[48%] md:min-w-[112px] md:max-w-[160px] lg:max-w-[260px] xl:max-w-[280px] md:ml-auto !gap-0.5 !p-0 !bg-transparent !shadow-none"
-                }
-                className={styles.textField}
-                label={"تا تاریخ"}
-                id="end_date"
-                control={control}
-                watch={watch}
-                labelClassName={"!text-[9px] lg:!text-xs"}
-              />
-              <TextField
-                containerClassName={
-                  "flex flex-1 min-w-[48%] max-w-[48%] md:min-w-[112px] md:max-w-[160px] lg:max-w-[260px] xl:max-w-[280px] md:ml-auto !gap-0.5 !p-0 !bg-transparent !shadow-none"
-                }
-                className={styles.textField}
-                questionKey={"6620"}
-                watch={watch}
-                register={register}
-                placeholder={"در این قسمت وارد کنید"}
-                label={"کد ملی"}
-                icon={<HiMiniIdentification size={14} color="green" />}
-                labelClassName={"!text-[9px] lg:!text-xs"}
-              />
-              <div className="hidden md:block lg:hidden"></div>
-              <Button
-                variant="outlined"
-                title={"جستجو"}
-                type="submit"
-                loading={loading}
-                className={styles.searchButton}
-              />
-            </div>
-          </form>
+    return (
+        <FieldSet title={title} className={"lg:!px-3 !pb-0"}>
+            <form
+                className={"flex itesm-center"}
+                onSubmit={(e) => {
+                    e.preventDefault()
+                    setPage(1)
+                    onSubmit()
+                }}
+            >
+                <div className="grid md:grid-cols-2 lg:flex items-center w-full flex-wrap gap-x-4 lg:gap-x-3 xl:gap-x-5 gap-y-4">
+                    <DateInput
+                        containerClassName={
+                            "!flex-row !flex-1 lg:!w-auto !gap-3"
+                        }
+                        className={"flex-1"}
+                        label={"از تاریخ :"}
+                        id="from_date"
+                        control={control}
+                        watch={watch}
+                    />
+                    <DateInput
+                        containerClassName={
+                            "!flex-row !flex-1 lg:!w-auto !gap-3"
+                        }
+                        className={"flex-1"}
+                        label={"تا تاریخ :"}
+                        id="end_date"
+                        control={control}
+                        watch={watch}
+                    />
+                    <TextField
+                        containerClassName={
+                            "!flex-row !flex-1 lg:!w-auto !gap-3"
+                        }
+                        className={"flex-1"}
+                        questionKey={"6620"}
+                        watch={watch}
+                        register={register}
+                        placeholder={"در این قسمت وارد کنید"}
+                        label={"کد ملی :"}
+                        icon={<img src={NationalCodeSVG} />}
+                    />
+                    <div className="lg:hidden"></div>
+                    <div className="md:block col-span-full lg:hidden md:mt-2">
+                        <Button
+                            variant="outlined"
+                            title={"جستجو"}
+                            type="submit"
+                            loading={loading}
+                            className={styles.searchButton + " " + "!mx-auto"}
+                            icon={
+                                <MdOutlinePersonSearch className="text-xs md:text-base lg:text-xl" />
+                            }
+                        />
+                    </div>
+                    <Button
+                        variant="outlined"
+                        title={"جستجو"}
+                        type="submit"
+                        loading={loading}
+                        className={
+                            styles.searchButton + " " + "!hidden lg:!flex"
+                        }
+                        icon={
+                            <MdOutlinePersonSearch className="text-sm lg:text-xl" />
+                        }
+                    />
+                </div>
+            </form>
         </FieldSet>
-      </section>
-    </Fragment>
-  );
-};
+    )
+}
 
-export default Header;
+export default Header

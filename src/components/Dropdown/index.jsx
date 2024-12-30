@@ -4,7 +4,12 @@ import { IoChevronDownOutline } from "react-icons/io5"
 import styles from "./styles.module.css"
 import classNames from "classnames"
 
-export default function Dropdown({ label, value, options, onChange }) {
+export default function Dropdown({
+    label,
+    options,
+    onChange,
+    containerClassName,
+}) {
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleDropdown = () => setIsOpen((prev) => !prev)
@@ -19,6 +24,7 @@ export default function Dropdown({ label, value, options, onChange }) {
             ) : null}
             <div
                 className={classNames(
+                    containerClassName,
                     styles.dropdown,
                     isOpen ? "z-[1000]" : ""
                 )}
@@ -26,7 +32,6 @@ export default function Dropdown({ label, value, options, onChange }) {
             >
                 <div className={styles.labelContainer}>
                     <span className={styles.label}>{label}</span>
-                    <span className={styles.value}>{value}</span>
                 </div>
                 <IoChevronDownOutline
                     className={`${styles.icon} ${
