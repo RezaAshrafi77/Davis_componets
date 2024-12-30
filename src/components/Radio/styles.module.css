@@ -1,59 +1,58 @@
 .container {
-  @apply relative inline-flex justify-between items-center gap-3 lg:gap-6 bg-background rounded-[2px] lg:rounded px-[6px] py-1 border-[0.5px] border-solid border-black cursor-pointer opacity-90 hover:opacity-100;
+    @apply relative inline-flex justify-between items-center gap-3 lg:gap-6 bg-background rounded-[2px] lg:rounded px-[6px] py-1 border-[0.5px] border-solid border-black cursor-pointer opacity-90 hover:opacity-100;
 }
 
 .enContainer .label {
-  @apply ml-0 mr-2;
-  line-height: 0px !important;
-  font-family: sans-serif !important;
-  font-weight: 600;
+    @apply ml-0 mr-2;
+    font-family: sans-serif !important;
+    font-weight: 600;
 }
 
 .checkedContainer {
-  @apply border-success bg-white opacity-100  border-[0.5px];
+    @apply border-success bg-white opacity-100  border-[0.5px];
 }
 
 .disabledContainer {
-  @apply cursor-not-allowed;
+    @apply cursor-not-allowed;
 }
 
 .input {
-  @apply absolute left-0 top-0 w-full h-full cursor-pointer rounded-full;
-  background-image: none !important;
-  outline: none !important;
-  visibility: hidden;
+    @apply absolute left-0 top-0 w-full h-full cursor-pointer rounded-full;
+    background-image: none !important;
+    outline: none !important;
+    visibility: hidden;
 }
 
 .input:checked {
-  @apply !ring-success !bg-success !text-success;
-  background-image: none !important;
+    @apply !ring-success !bg-success !text-success;
+    background-image: none !important;
 }
 
 .label {
-  @apply ml-2 select-none font-600 text-3xs md:text-2xs text-black lg:text-[11px] xl:text-xs;
+    @apply ml-2 select-none font-600 text-3xs md:text-2xs text-black lg:text-[11px] xl:text-xs;
 }
 
 .firstLayer {
-  @apply w-[10px] h-[10px] lg:w-[12px] lg:h-[12px] flex items-center justify-center rounded-full;
-  background-color: #f1f1f1ff;
-  border: 0.25px solid rgb(134, 134, 134);
+    @apply w-[10px] h-[10px] lg:w-[12px] lg:h-[12px] flex items-center justify-center rounded-full;
+    background-color: #f1f1f1ff;
+    border: 0.25px solid rgb(134, 134, 134);
 }
 
 .firstLayerChecked {
-  @apply bg-success bg-opacity-50;
-  box-shadow: 0px 0px 6px #02894c !important;
+    @apply bg-success bg-opacity-50;
+    box-shadow: 0px 0px 6px #02894c !important;
 }
 
 .secondLayer {
-  @apply flex items-center justify-center w-[14px] h-[14px] lg:w-[18px] lg:h-[18px] rounded-full bg-white;
-  border: 0.25px solid rgb(171, 171, 171);
+    @apply flex items-center justify-center w-[14px] h-[14px] lg:w-[18px] lg:h-[18px] rounded-full bg-white;
+    border: 0.25px solid rgb(171, 171, 171);
 }
 
 .dot {
-  @apply h-1 w-1 lg:w-1.5 lg:h-1.5 rounded-full;
-  background-color: #cbfef2;
+    @apply h-1 w-1 lg:w-1.5 lg:h-1.5 rounded-full;
+    background-color: #cbfef2;
 }
 
 .dotChecked {
-  @apply bg-success;
+    @apply bg-success;
 }
