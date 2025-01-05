@@ -9,6 +9,16 @@
     @apply w-full z-[1000];
 }
 
+.truncatedText {
+    @apply font-700 text-black text-3xs md:text-2xs lg:text-xs xl:text-sm;
+}
+
+.truncatedTextEn {
+    @apply text-3xs text-black md:text-2xs lg:text-xs xl:text-sm;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+
 .required {
     @apply text-error;
     line-height: 0px !important;

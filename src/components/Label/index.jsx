@@ -102,6 +102,11 @@ const Label = ({
                     <Fragment>
                         <span
                             ref={spanRef}
+                            className={
+                                en
+                                    ? styles.truncatedTextEn
+                                    : styles.truncatedText
+                            }
                             style={{ whiteSpace: "nowrap", overflow: "hidden" }}
                         >
                             {truncatedText}
