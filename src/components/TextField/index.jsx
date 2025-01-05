@@ -30,6 +30,7 @@ const TextField = ({
     divider,
     dividerClassName,
     en,
+    labelMore,
     ...props
 }) => {
     const [isFocused, setIsFocused] = useState(false)
@@ -86,6 +87,7 @@ const TextField = ({
                     label={label}
                     required={required}
                     en={en}
+                    more={labelMore}
                 />
             )}
             {divider && (

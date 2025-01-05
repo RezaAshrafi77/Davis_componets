@@ -33,6 +33,7 @@ const Select = ({
     en,
     register,
     search,
+    labelMore,
     ...props
 }) => {
     const [isOpen, setIsOpen] = useState(false)
@@ -113,6 +114,7 @@ const Select = ({
                     label={label}
                     required={required}
                     en={en}
+                    more={labelMore}
                 />
                 {divider && (
                     <Divider

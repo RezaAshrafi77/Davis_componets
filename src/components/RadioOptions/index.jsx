@@ -30,6 +30,7 @@ export default function RadioOptions({
     archive = null,
     dividerClassName,
     en,
+    labelMore,
 }) {
     const isError = !!errors?.[questionKey]
     const renderOptions = () =>
@@ -70,6 +71,7 @@ export default function RadioOptions({
                     label={label}
                     required={required}
                     en={en}
+                    more={labelMore}
                 />
             )}
             {divider && (

@@ -28,6 +28,7 @@ const CheckBoxGroup = ({
     archive,
     dividerClassName,
     register,
+    labelMore,
     en,
 }) => {
     // const [device] = useDevice()
@@ -87,6 +88,7 @@ const CheckBoxGroup = ({
                     label={label}
                     required={required}
                     en={en}
+                    more={labelMore}
                 />
             )}
             {divider && (

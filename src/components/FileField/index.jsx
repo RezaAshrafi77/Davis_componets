@@ -32,7 +32,7 @@ const FileField = ({
     educationalContent,
     disabled,
     accept,
-    more,
+    labelMore,
     en,
 }) => {
     const [openModal, setOpenModal] = useState(false)
@@ -130,6 +130,7 @@ const FileField = ({
                         labelClassName,
                         labelDirectionStyle[divider]
                     )}
+                    more={labelMore}
                     userGuide={userGuide}
                     educationalContent={educationalContent}
                     archive={
