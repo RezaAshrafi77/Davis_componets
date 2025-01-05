@@ -150,9 +150,12 @@ const TextField = ({
                     <div
                         className={classNames(
                             styles.icon,
-                            en ? "left-auto right-2" : "left-2",
-                            "h-[60px] w-[60px]"
+                            en ? "left-auto right-2" : "left-2"
                         )}
+                        style={{
+                            height: props.rows * 20,
+                            width: props.rows * 20,
+                        }}
                     >
                         <BsPencilSquare className="opacity-5 w-full h-full" />
                     </div>

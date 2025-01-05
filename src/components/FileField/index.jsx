@@ -156,7 +156,6 @@ const FileField = ({
                     label={label}
                     required={required}
                     en={en}
-                    more={more}
                 />
             )}
             {divider && (

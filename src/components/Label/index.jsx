@@ -170,14 +170,21 @@ const Label = ({
                     ) : null}
                 </Modal>
                 {openMoreBox ? (
-                    <div className={styles.moreBox}>
+                    <div
+                        className={classNames(
+                            styles.moreBox,
+                            en ? styles.truncatedTextEn : styles.truncatedText
+                        )}
+                    >
                         {label}
                         <div
-                            className="mr-auto flex items-center md:text-3xs lg:text-2xs xl:text-xs cursor-pointer"
+                            className={
+                                "mr-auto flex items-center md:text-3xs lg:text-2xs xl:text-xs cursor-pointer mt-auto"
+                            }
                             onClick={() => setOpenMoreBox(false)}
                         >
                             بازگشت{" "}
-                            <MdChevronLeft className="text-xs md:text-sm lg:text-base xl:text-xl" />
+                            <MdChevronLeft className="text-2xs lg:text-sm xl:text-lg" />
                         </div>
                     </div>
                 ) : null}
