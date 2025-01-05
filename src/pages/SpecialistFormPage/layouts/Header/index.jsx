@@ -26,7 +26,6 @@ const Header = ({
     setUser,
     users = [],
     setUsers,
-    setUserID,
     JID,
     toast = () => {},
     colFilter = 6,
@@ -164,7 +163,6 @@ const Header = ({
                 if (res.data.length == 0 && !res.error) {
                     toast.error("هیچ کاربری یافت نشد.")
                     setUser(null)
-                    setUserID(null)
                 }
                 setUsers(res.data)
             })
@@ -173,7 +171,6 @@ const Header = ({
     }
 
     const _getUser = async (i) => {
-        setUserID(users[i]["6483"])
         handleOnChange(users[i]["6620"], "6620")
         const formData = {
             6483: users[i]["6483"],
@@ -183,7 +180,15 @@ const Header = ({
             jobId: JID.ID,
             dataInfo: formData,
         })
-            .then((res) => setUser(res.data))
+            .then((res) => {
+                if (!res.error) {
+                    setUser({
+                        ...res.data,
+                        6483: users[i]["6483"],
+                        tarikh_paziresh: users[i].date,
+                    })
+                }
+            })
             .catch((err) => toast.error(err.message))
             .finally(() => setUserInfoLoading(false))
     }

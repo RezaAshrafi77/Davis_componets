@@ -39,15 +39,34 @@ export default {
                 primary: "0px 3px 8px 0px rgb(0 0 0 / 8%)",
                 formItem: "0px 2px 4px rgba(0, 0, 0, 0.15)",
             },
-            // keyframes: {
-            //     flipBottom: {
-            //         "0%": { transform: "translateY(-100%)" },
-            //         "100%": { transform: " translateY(0%)" },
-            //     },
-            // },
-            // animation: {
-            //     flipBottom: "flipBottom",
-            // },
+            keyframes: {
+                wiggle: {
+                    "0%, 100%": { transform: "rotate(-3deg)" },
+                    "50%": { transform: "rotate(3deg)" },
+                },
+                flipLeft: {
+                    "0%": { transform: "translateX(-100%)" },
+                    "100%": { transform: "translateX(0%)" },
+                },
+                flipBottom: {
+                    "0%": { transform: "translateY(-100%)" },
+                    "100%": { transform: " translateY(0%)" },
+                },
+                flipTop: {
+                    "0%": { transform: "translateY(100%)" },
+                    "100%": { transform: " translateY(0%)" },
+                },
+                flipRight: {
+                    "0%": { transform: "translateX(100%)" },
+                    "100%": { transform: "translateX(0%)" },
+                },
+            },
+            animation: {
+                flipLeft: "flipLeft 0.3s ",
+                flipBottom: "flipBottom 0.3s",
+                flipTop: "flipTop 0.3s",
+                flipRight: "flipRight 0.3s",
+            },
         },
     },
     plugins: [],

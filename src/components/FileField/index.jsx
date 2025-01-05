@@ -32,6 +32,7 @@ const FileField = ({
     educationalContent,
     disabled,
     accept,
+    more,
     en,
 }) => {
     const [openModal, setOpenModal] = useState(false)
@@ -154,6 +155,7 @@ const FileField = ({
                     label={label}
                     required={required}
                     en={en}
+                    more={more}
                 />
             )}
             {divider && (

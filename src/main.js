@@ -37,6 +37,13 @@ export { default as SpecialistPrescription } from "./sections/Prescription/index
 // ReactDOM.createRoot(document.getElementById("root")).render(
 //     //   <StrictMode>
 //     <Page>
-//         <FileField />
+//         <FileField
+//             label={
+//                 "5.د  مورد اعضای خانواده و دوستان خود کمی توضیح دهید؟(با سوالات پیگیری، تعامل فرد با خانواده و دوستان بررسی د کمی توضیح دهید؟(بد)"
+//             }
+//             divider="right"
+//             containerClassName={"!w-[400px]"}
+//             more
+//         />
 //     </Page>
 // )

@@ -2,7 +2,11 @@
 
 /* Label and Icon Styles */
 .label {
-    @apply relative flex items-center font-700 text-3xs text-black md:text-2xs lg:text-xs xl:text-sm;
+    @apply flex items-center font-700 text-black text-3xs md:text-2xs lg:text-xs xl:text-sm;
+}
+
+.labelMore {
+    @apply w-full z-[1000];
 }
 
 .required {
@@ -68,4 +72,12 @@
 
 .text-gray {
     @apply text-gray-600;
+}
+
+.moreBox {
+    @apply animate-flipBottom border-x-[12px] border-y-4 border-opacity-40 backdrop-blur-md border-formItem2 rounded-md bg-white flex flex-col gap-0.5 absolute left-0 top-0 w-full min-h-full max-h-full overflow-y-auto xs:!leading-4 lg:!leading-5 lg:!text-[11px] xl:!text-sm text-justify p-1;
+}
+
+.closeButton {
+    @apply max-w-fit max-h-fit shadow-none !p-0 bg-transparent border-none font-bold text-lg text-black;
 }
