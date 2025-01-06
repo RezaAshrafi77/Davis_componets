@@ -4,21 +4,17 @@
 }
 
 .field {
-  @apply flex justify-center items-center relative overflow-hidden border-solid border-[0.5px] rounded bg-formItemInput;
-}
-
-.field:hover {
-  @apply bg-white text-black;
+  @apply flex justify-center items-center relative overflow-hidden;
 }
 
 .input {
-  @apply w-full font-400 text-3xs md:text-2xs lg:text-xs xl:text-sm text-black 
-        placeholder:text-3xs md:placeholder:text-2xs lg:placeholder:text-xs bg-transparent border-none py-1 px-1.5;
+  @apply w-full font-400 xs:text-3xs md:text-2xs lg:text-xs xl:text-sm text-black border-[0.5px]  rounded border-black
+        placeholder:text-3xs md:placeholder:text-2xs lg:placeholder:text-xs bg-transparent py-1 px-1.5;
 }
 
 .input:focus,
 .input:hover {
-  @apply outline-none bg-white border-black text-black ring-0;
+  @apply outline-none bg-white ring-0 border-success;
 }
 
 textarea {

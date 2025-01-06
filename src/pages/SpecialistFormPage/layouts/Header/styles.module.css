@@ -1,94 +1,94 @@
 /* Container Styles */
 .container {
-    @apply rounded-md bg-white px-1.5 pb-3 md:pb-4 md:pt-1 shadow-md md:px-4;
+  @apply rounded-md bg-white px-1.5 pb-3 md:pb-4 md:pt-1 shadow-md md:px-4;
 }
 
 .normalContainer {
-    background: linear-gradient(0deg, #eefeff 0%, #b2e5f8 100%);
+  background: linear-gradient(0deg, #eefeff 0%, #b2e5f8 100%);
 }
 
 .vipContainer {
-    background: linear-gradient(
-        346deg,
-        #ffa800 3.07%,
-        #ffcd1a 6.85%,
-        #ffb800 12.51%,
-        #eb9b00 20.64%,
-        #f3a200 29.5%,
-        #fff78e 50.27%,
-        #ffe2a9 74.82%,
-        #ffa800 97.47%
-    );
+  background: linear-gradient(
+    346deg,
+    #ffa800 3.07%,
+    #ffcd1a 6.85%,
+    #ffb800 12.51%,
+    #eb9b00 20.64%,
+    #f3a200 29.5%,
+    #fff78e 50.27%,
+    #ffe2a9 74.82%,
+    #ffa800 97.47%
+  );
 }
 
 /* Fieldset Styling with Gradient Border */
 .fieldset {
-    @apply px-2 md:px-4 !pt-4 !pb-2 md:!pb-5 relative !border-none;
-    background: linear-gradient(white, white) padding-box,
-        linear-gradient(180deg, #222222, #222222) border-box;
+  @apply px-2 md:px-4 !pt-4 !pb-2 md:!pb-5 relative !border-none;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(180deg, #222222, #222222) border-box;
 }
 
 .fieldset legend {
-    background-color: transparent;
-    margin-right: 0px;
+  background-color: transparent;
+  margin-right: 0px;
 }
 
 .form {
-    @apply flex w-full items-end bg-background;
+  @apply flex w-full items-end bg-background;
 }
 
 .searchButton {
-    @apply flex border-success w-[96px] lg:w-[115px] ml-auto md:ml-0 mt-2 md:mt-0 mr-auto md:mr-0 bg-[#f7f7f7] !rounded-[2px];
+  @apply flex border-success w-[96px] lg:w-[115px] ml-auto md:ml-0 mt-2 md:mt-0 mr-auto md:mr-0 bg-[#f7f7f7] !rounded-[2px];
 }
 
 .textField {
-    @apply !border-[0.25px] !rounded-[3px] lg:!rounded lg:!rounded w-full bg-[#f7f7f7];
+  @apply !border-[0.25px] !rounded-[3px] lg:!rounded w-full bg-[#f7f7f7];
 }
 
 .textField input {
-    @apply md:text-3xs md:placeholder:text-3xs lg:placeholder:text-xs lg:text-xs;
+  @apply md:text-3xs md:placeholder:text-3xs lg:placeholder:text-xs lg:text-xs;
 }
 
 .radio {
-    @apply !bg-transparent !border-none !gap-0 md:!gap-[1px] lg:!gap-1 !py-0 !px-0;
+  @apply !bg-transparent !border-none !gap-0 md:!gap-[1px] lg:!gap-1 !py-0 !px-0;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 671px) {
-    .radio {
-        gap: 1.4vw !important;
-    }
+@media only screen and (min-width: 293px) and (max-width: 671px) {
+  .radio {
+    gap: 1.4vw !important;
+  }
 }
 
-@media only screen and (min-width: 672px) and (max-width: 952px) {
-    .radio {
-        gap: 3px !important;
-    }
+@media only screen and (min-width: 662px) and (max-width: 941px) {
+  .radio {
+    gap: 3px !important;
+  }
 }
 
 .radio span {
-    @apply text-3xs !font-600 lg:text-[10px];
-    margin-left: 1px !important;
+  @apply text-3xs !font-600 lg:text-[10px];
+  margin-left: 1px !important;
 }
 
 .filterRadio {
-    @apply !bg-transparent !border-none !gap-[1px] lg:!gap-1 !py-0 !px-0;
+  @apply !bg-transparent !border-none !gap-[1px] lg:!gap-1 !py-0 !px-0;
 }
 
 .filterRadio span {
-    @apply text-2xs !font-600 lg:text-xs;
-    margin-left: 1px !important;
+  @apply text-2xs !font-600 lg:text-xs;
+  margin-left: 1px !important;
 }
 
-@media only screen and (min-width: 952px) {
-    .modal {
-        width: clamp(950px, 96vw, 1280px);
-    }
+@media only screen and (min-width: 942px) {
+  .modal {
+    width: clamp(950px, 96vw, 1280px);
+  }
 }
 
 .table tr:hover td {
-    @apply border-success;
+  @apply border-success;
 }
 
 .table th {
-    @apply !bg-[#f1f1f1];
+  @apply !bg-[#f1f1f1];
 }
