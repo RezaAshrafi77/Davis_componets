@@ -53,15 +53,15 @@
   @apply !bg-transparent !border-none !gap-0 md:!gap-[1px] lg:!gap-1 !py-0 !px-0;
 }
 
-@media only screen and (min-width: 293px) and (max-width: 671px) {
+@media only screen and (min-width: 303px) and (max-width: 671px) {
   .radio {
-    gap: 1.4vw !important;
+    gap: 1px !important;
   }
 }
 
-@media only screen and (min-width: 662px) and (max-width: 941px) {
+@media only screen and (min-width: 672px) and (max-width: 951px) {
   .radio {
-    gap: 3px !important;
+    gap: 1px !important;
   }
 }
 
@@ -79,7 +79,7 @@
   margin-left: 1px !important;
 }
 
-@media only screen and (min-width: 942px) {
+@media only screen and (min-width: 952px) {
   .modal {
     width: clamp(950px, 96vw, 1280px);
   }

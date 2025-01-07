@@ -7,10 +7,10 @@ export default {
     },
     extend: {
       screens: {
-        xs: "293px", // Extra Small devices
-        md: "662px", // Medium devices
-        lg: "942px", // Large devices
-        xl: "1358px", // XLarge
+        xs: "303px", // Extra Small devices
+        md: "672px", // Medium devices
+        lg: "952px", // Large devices
+        xl: "1368px", // XLarge
       },
       fontFamily: {
         300: ["IranSans300", "sans-serif"],

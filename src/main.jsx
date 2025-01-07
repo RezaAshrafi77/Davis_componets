@@ -32,8 +32,7 @@ export { default as SpecialistPrescription } from "./sections/Prescription/index
 // import ReactDOM from "react-dom/client";
 // import "./index.css";
 // import Page from "./components/Page";
-// import FileField from "./components/FileField";
-// import Prescription from "./sections/Prescription/index.jsx";
+// import Header from "./pages/SpecialistFormPage/layouts/Header";
 // import { useForm } from "react-hook-form";
 
 // const MyFunction = () => {
@@ -42,14 +41,13 @@ export { default as SpecialistPrescription } from "./sections/Prescription/index
 //   });
 //   return (
 //     <Page>
-//       <Prescription />
+//       <Header />
+//       <div className="min-h-[2000px]"></div>
 //     </Page>
 //   );
 // };
 
 // ReactDOM.createRoot(document.getElementById("root")).render(
 //   //   <StrictMode>
-//   <Page>
-//     <MyFunction />
-//   </Page>
+//   <MyFunction />
 // );

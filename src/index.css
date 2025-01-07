@@ -56,17 +56,17 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-@media only screen and (min-width: 942px) {
+@media only screen and (min-width: 952px) {
   *::-webkit-scrollbar {
     width: 10px !important;
   }
 }
-@media only screen and (min-width: 662px) and (max-width: 941px) {
+@media only screen and (min-width: 672px) and (max-width: 951px) {
   *::-webkit-scrollbar {
     width: 8px !important;
   }
 }
-@media only screen and (max-width: 661px) {
+@media only screen and (max-width: 671px) {
   *::-webkit-scrollbar {
     width: 6px !important;
   }
