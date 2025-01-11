@@ -3,14 +3,14 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { FaFileCircleXmark } from "react-icons/fa6";
 import { MdOutlineFileUpload } from "react-icons/md";
-import Button from "../Button";
-import Radio from "../Radio";
-import Label from "../Label";
-import Divider from "../Divider";
+import { Button } from "../Button";
+import { Radio } from "../Radio";
+import { Label } from "../Label";
+import { Divider } from "../Divider";
 import { BiError } from "react-icons/bi";
 import styles from "./styles.module.css";
 
-const FileField = ({
+export const FileField = ({
   value,
   setValue,
   onChange,
@@ -257,5 +257,3 @@ const FileField = ({
     </div>
   );
 };
-
-export default FileField;

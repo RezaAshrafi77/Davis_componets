@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { VscLoading } from "react-icons/vsc";
 import styles from "./styles.module.css";
 
-const Button = ({
+export const Button = ({
   title,
   variant = "variant",
   type = "button",
@@ -43,5 +43,3 @@ const Button = ({
     </button>
   );
 };
-
-export default Button;

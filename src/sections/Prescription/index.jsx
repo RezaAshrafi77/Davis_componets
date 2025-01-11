@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
-import FieldSet from "../../components/FieldSet";
-import Select from "../../components/Select";
-import Table from "../../components/Table";
-import TextField from "../../components/TextField";
+import { FieldSet } from "../../components/FieldSet";
+import { Select } from "../../components/Select";
+import { Table } from "../../components/Table";
+import { TextField } from "../../components/TextField";
 import { Drugs_List } from "./data";
-import Button from "../../components/Button";
+import { Button } from "../../components/Button";
 import { useMemo, useState } from "react";
 import { tableSizeList } from "../../components/Table/data";
 import { LuFileX2 } from "react-icons/lu";
 import { IoAddCircleOutline } from "react-icons/io5";
 import classNames from "classnames";
 
-export default function Prescription({
+export function Prescription({
   onChange = () => {},
   drugsList,
   containerClassName,

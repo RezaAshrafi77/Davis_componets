@@ -1,8 +1,8 @@
-import PageCard from "../PageCard/index";
+import { PageCard } from "../PageCard";
 import styles from "./styles.module.css";
-import ProjectName from "../ProjectName";
+import { ProjectName } from "../ProjectName";
 
-const Page = ({ children, name, back, router, routes, navigate }) => {
+export const Page = ({ children, name, back, router, routes, navigate }) => {
   return (
     <div className={styles.page}>
       {/* Render the project name if provided */}
@@ -25,5 +25,3 @@ const Page = ({ children, name, back, router, routes, navigate }) => {
     </div>
   );
 };
-
-export default Page;

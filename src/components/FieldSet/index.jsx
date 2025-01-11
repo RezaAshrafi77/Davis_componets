@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import styles from "./styles.module.css";
 
-const FieldSet = ({
+export const FieldSet = ({
   title,
   children,
   containerClassName,
@@ -54,5 +54,3 @@ const FieldSet = ({
     </div>
   </fieldset>
 );
-
-export default FieldSet;

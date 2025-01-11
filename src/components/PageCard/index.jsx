@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-const PageCard = ({ page, className, navigate, ...props }) => {
+export const PageCard = ({ page, className, navigate, ...props }) => {
   return (
     <div
       className={`${styles.container} ${className}`}
@@ -19,5 +19,3 @@ const PageCard = ({ page, className, navigate, ...props }) => {
     </div>
   );
 };
-
-export default PageCard;

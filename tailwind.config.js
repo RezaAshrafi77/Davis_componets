@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"], // Scan all component files for used classes
   theme: {
     fontFamily: {
       IranSans: ["IranSans"],

@@ -1,8 +1,8 @@
-import Label from "../Label";
+import { Label } from "../Label";
 // Optionally import a library like DOMPurify for sanitization
 // import DOMPurify from "dompurify";
 
-export default function HTML({ data }) {
+export function HTML({ data }) {
   // Helper function to check if the input is valid HTML
   const isValidHTML = (content) =>
     typeof content === "string" &&

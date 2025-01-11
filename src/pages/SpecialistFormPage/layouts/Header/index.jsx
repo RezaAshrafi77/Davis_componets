@@ -1,23 +1,23 @@
 /* eslint-disable react/prop-types */
 import { Fragment, useEffect, useState, useMemo } from "react";
-import Table from "../../../../components/Table";
-import Modal from "../../../../components/Modal";
-import Button from "../../../../components/Button";
-import Radio from "../../../../components/Radio";
-import TextField from "../../../../components/TextField";
-import FieldSet from "../../../../components/FieldSet";
-import HTML from "../../../../components/HTML";
+import { Button } from "../../../../components/Button";
+import { Radio } from "../../../../components/Radio";
+import { TextField } from "../../../../components/TextField";
+import { Table } from "../../../../components/Table";
+import { Modal } from "../../../../components/Modal";
+import { HTML } from "../../../../components/HTML";
+import { FieldSet } from "../../../../components/FieldSet";
 import useDevice from "../../../../hooks/useDevice";
 import styles from "./styles.module.css";
 import { Form_Inputs, Service_Status, Table_Columns } from "./data";
 import { tableSizeList } from "../../../../components/Table/data";
-import Label from "../../../../components/Label";
+import { Label } from "../../../../components/Label";
 import classNames from "classnames";
 import { GrRefresh } from "react-icons/gr";
 import VIPIcon from "../../../../assets/images/vip.svg";
 import moment from "jalali-moment";
 
-const Header = ({
+export const Header = ({
   title = "مشخصات فردی",
   tableColumns = Table_Columns,
   request = () => {},
@@ -379,5 +379,3 @@ const Header = ({
     </Fragment>
   );
 };
-
-export default Header;

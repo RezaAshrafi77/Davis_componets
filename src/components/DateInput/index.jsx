@@ -3,15 +3,14 @@ import classNames from "classnames";
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
-import { BsCalendar2Event } from "react-icons/bs";
 import { BiError } from "react-icons/bi";
-import Label from "../Label";
-import styles from "./styles.module.css";
 import { Controller } from "react-hook-form";
-import Divider from "../Divider";
+import { Divider } from "../Divider";
+import { Label } from "../Label";
 import CalendarSVG from "../../assets/icons/calendar.svg";
+import styles from "./styles.module.css";
 
-const DateInput = ({
+export const DateInput = ({
   label,
   id,
   control,
@@ -107,5 +106,3 @@ const DateInput = ({
     </div>
   );
 };
-
-export default DateInput;

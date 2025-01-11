@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import classNames from "classnames";
-import Label from "../Label";
+import { Label } from "../Label";
 import { BiError } from "react-icons/bi";
 import styles from "./styles.module.css";
-import Divider from "../Divider";
+import { Divider } from "../Divider";
 import NoteIcon from "../../assets/icons/note.svg";
 import { BsPencilSquare } from "react-icons/bs";
 
-const TextField = ({
+export const TextField = ({
   containerClassName,
   className,
   label,
@@ -148,5 +148,3 @@ const TextField = ({
     </div>
   );
 };
-
-export default TextField;

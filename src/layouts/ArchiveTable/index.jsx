@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { Archvie_Table_Columns } from "./data";
-import Table from "../../components/Table/index";
 import { VscLoading } from "react-icons/vsc";
 import moment from "jalali-moment";
 import styles from "./styles.module.css";
+import { Table } from "../../components/Table";
 
-export default function ArchiveTable({ options }) {
+export function ArchiveTable({ options }) {
   const {
     jobID,
     BC,

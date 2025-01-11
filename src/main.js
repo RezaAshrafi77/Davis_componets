@@ -1,33 +1,33 @@
 import "./index.css";
 // components
-export { default as Button } from "./components/Button/index.jsx";
-export { default as Divider } from "./components/Divider/index.jsx";
-export { default as Dropdown } from "./components/Dropdown/index.jsx";
-export { default as HTML } from "./components/HTML/index.jsx";
-export { default as Label } from "./components/Label/index.jsx";
-export { default as Modal } from "./components/Modal/index.jsx";
-export { default as Page } from "./components/Page/index";
-export { default as PageCard } from "./components/PageCard/index.jsx";
-export { default as ProjectName } from "./components/ProjectName/index.jsx";
-export { default as Table } from "./components/Table/index.jsx";
-export { default as TextField } from "./components/TextField/index.jsx";
-export { default as Radio } from "./components/Radio/index.jsx";
-export { default as RadioOptions } from "./components/RadioOptions/index.jsx";
-export { default as DateInput } from "./components/DateInput/index.jsx";
-export { default as CheckBox } from "./components/CheckBox/index.jsx";
-export { default as CheckBoxGroup } from "./components/CheckBoxGroup/index.jsx";
-export { default as Select } from "./components/Select/index.jsx";
-export { default as FieldSet } from "./components/FieldSet/index.jsx";
-export { default as FileField } from "./components/FileField/index.jsx";
+export { Button } from "./components/Button/index.jsx";
+export { Divider } from "./components/Divider/index.jsx";
+export { Dropdown } from "./components/Dropdown/index.jsx";
+export { HTML } from "./components/HTML/index.jsx";
+export { Label } from "./components/Label/index.jsx";
+export { Modal } from "./components/Modal/index.jsx";
+export { Page } from "./components/Page/index";
+export { PageCard } from "./components/PageCard/index.jsx";
+export { ProjectName } from "./components/ProjectName/index.jsx";
+export { Table } from "./components/Table/index.jsx";
+export { TextField } from "./components/TextField/index.jsx";
+export { Radio } from "./components/Radio/index.jsx";
+export { RadioOptions } from "./components/RadioOptions/index.jsx";
+export { DateInput } from "./components/DateInput/index.jsx";
+export { CheckBox } from "./components/CheckBox/index.jsx";
+export { CheckBoxGroup } from "./components/CheckBoxGroup/index.jsx";
+export { Select } from "./components/Select/index.jsx";
+export { FieldSet } from "./components/FieldSet/index.jsx";
+export { FileField } from "./components/FileField/index.jsx";
 // layouts
-export { default as ArchiveTable } from "./layouts/ArchiveTable/index.jsx";
-export { default as EmptyForm } from "./layouts/EmptyForm/index.jsx";
-export { default as SpecialistFormPageHeader } from "./pages/SpecialistFormPage/layouts/Header/index.jsx";
+export { ArchiveTable } from "./layouts/ArchiveTable/index.jsx";
+export { EmptyForm } from "./layouts/EmptyForm/index.jsx";
+export { Header as SpecialistFormPageHeader } from "./pages/SpecialistFormPage/layouts/Header/index.jsx";
 // page
-export { default as SpecialistDashboardPage } from "./pages/SpecialistDashboardPage/index.jsx";
-export { default as SpecialistPrintPage } from "./pages/SpecialistPrintPage/index.jsx";
+export { SpecialistDashboardPage } from "./pages/SpecialistDashboardPage/index.jsx";
+export { SpecialistPrintPage } from "./pages/SpecialistPrintPage/index.jsx";
 // sections
-export { default as SpecialistPrescription } from "./sections/Prescription/index.jsx";
+export { Prescription } from "./sections/Prescription/index.jsx";
 
 // import ReactDOM from "react-dom/client";
 // import "./index.css";

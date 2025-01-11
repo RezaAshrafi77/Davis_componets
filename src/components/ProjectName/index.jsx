@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/rules-of-hooks */
 import styles from "./styles.module.css";
-import Button from "../Button";
+import { Button } from "../Button";
 import { FaAngleLeft } from "react-icons/fa6";
 import classNames from "classnames";
 import { Fragment } from "react";
 
-const ProjectName = ({ name, back, navigate }) => {
+export const ProjectName = ({ name, back, navigate }) => {
   return (
     <div className={styles.container}>
       <div className="relative w-full z-10">
@@ -37,5 +37,3 @@ const ProjectName = ({ name, back, navigate }) => {
     </div>
   );
 };
-
-export default ProjectName;
