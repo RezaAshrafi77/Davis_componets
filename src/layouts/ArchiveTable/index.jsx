@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Archvie_Table_Columns } from "./data";
 import { VscLoading } from "react-icons/vsc";
 import moment from "jalali-moment";
-import styles from "./styles.module.css";
 import { Table } from "../../components/Table";
 
 export function ArchiveTable({ options }) {
@@ -44,7 +43,7 @@ export function ArchiveTable({ options }) {
 
   const renderTable = () => (
     <Table
-      containerClassName={styles.tableContainer}
+      containerClassName={"w-[270px] md:w-[450px] lg:w-[500px]"}
       rows={tableData.map((item, i) => [
         currentPage * (i + 1),
         moment(item.time).locale("fa").format("YYYY/MM/DD"),
@@ -61,14 +60,18 @@ export function ArchiveTable({ options }) {
   );
 
   const renderLoadingState = () => (
-    <div className={styles.loadingContainer}>
-      <VscLoading className={styles.loadingSpinner} />
+    <div className={"w-[350px] h-[100px] flex justify-center items-center"}>
+      <VscLoading className={"text-2xl text-success animate-spin"} />
     </div>
   );
 
   const renderEmptyState = () => (
-    <div className={styles.emptyStateContainer}>
-      <p className={styles.emptyStateText}>آرشیو خالی است.</p>
+    <div
+      className={
+        "w-[80vw] md:w-[350px] h-[100px] flex justify-center items-center"
+      }
+    >
+      <p>آرشیو خالی است.</p>
     </div>
   );
 

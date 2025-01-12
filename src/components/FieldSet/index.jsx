@@ -30,7 +30,7 @@ export const FieldSet = ({
       <legend
         id="fieldset-legend"
         className={classNames(
-          styles.legend,
+          "text-xs relative font-700 z-[1] lg:text-sm mr-6 lg:mr-8 text-[#3D0C02] rounded py-0 px-2",
           en ? styles.enLegend : "",
           titleClassName,
           !gradientBorder ? "translate-y-1/2 bg-white" : ""
@@ -47,7 +47,7 @@ export const FieldSet = ({
             ? styles.borderImageByTitle
             : styles.borderImage
           : styles.border,
-        styles.container
+        "relative w-full px-3 md:px-4 py-4 lg:px-8 lg:pt-6"
       )}
     >
       {children}

@@ -1,93 +1,32 @@
 /* styles.module.css */
 
-/* Label and Icon Styles */
-.label {
-    @apply flex items-center font-700 text-black text-3xs md:text-2xs lg:text-xs xl:text-sm overflow-hidden;
-}
-
-.labelMore {
-    @apply w-full z-[1000];
-}
-
-.truncatedText {
-    @apply font-700 text-black text-3xs md:text-2xs lg:text-xs xl:text-sm;
-}
-
 .truncatedTextEn {
-    @apply text-3xs text-black md:text-2xs lg:text-xs xl:text-sm;
-    font-family: sans-serif;
-    font-weight: 700;
+  font-family: sans-serif;
+  font-weight: 700;
 }
 
 .required {
-    @apply text-error;
-    line-height: 0px !important;
-}
-
-.label .required {
-    @apply mr-1 md:text-sm lg:text-lg;
+  line-height: 0px !important;
+  color: #960018;
 }
 
 .enLabel {
-    @apply relative flex items-center text-3xs text-black md:text-2xs lg:text-xs xl:text-sm;
-    font-family: sans-serif;
-    font-weight: 700;
-}
-
-.enLabel .required {
-    @apply ml-1 md:text-sm lg:text-lg;
-    line-height: 0px !important;
+  font-family: sans-serif;
+  font-weight: 700;
 }
 
 .enLabel img {
-    @apply ml-1;
+  margin-left: 4px;
 }
 
 .label img {
-    @apply mr-1;
+  margin-right: 4px;
 }
 
 .label .eduIcon {
-    @apply left-1;
+  left: 4px;
 }
+
 .enLabel .eduIcon {
-    @apply right-1;
-}
-
-.guideIcon {
-    @apply w-[20px] md:w-[30px] cursor-pointer;
-}
-
-.archiveIcon {
-    @apply w-[15px] md:w-[17px] cursor-pointer;
-}
-
-.eduIcon {
-    @apply absolute top-1/2 -translate-y-1/2 w-[15px] md:w-[17px] cursor-pointer;
-}
-
-/* Hover Effects */
-.hover-green {
-    @apply transition-all hover:text-success;
-}
-
-.hover-red {
-    @apply transition-all hover:text-error;
-}
-
-/* Modal Styling */
-.modal-container {
-    @apply rounded-3xl bg-formItem px-3 pb-6 pt-3 lg:px-6 lg:pb-8 lg:pt-4;
-}
-
-.text-gray {
-    @apply text-gray-600;
-}
-
-.moreBox {
-    @apply animate-flipBottom border-x-[12px] border-y-4 border-opacity-40 backdrop-blur-md border-formItem2 rounded-md bg-white flex flex-col gap-0.5 absolute left-0 top-0 w-full min-h-full max-h-full overflow-y-auto xs:!leading-4 lg:!leading-5 lg:!text-[11px] xl:!text-sm text-justify p-1;
-}
-
-.closeButton {
-    @apply max-w-fit max-h-fit shadow-none !p-0 bg-transparent border-none font-bold text-lg text-black;
+  right: 4px;
 }

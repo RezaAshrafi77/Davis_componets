@@ -3,7 +3,6 @@ import { Button } from "../../../../components/Button";
 import { TextField } from "../../../../components/TextField";
 import { DateInput } from "../../../../components/DateInput";
 import { FieldSet } from "../../../../components/FieldSet";
-import styles from "./styles.module.css";
 import { MdOutlinePersonSearch } from "react-icons/md";
 import NationalCodeSVG from "../../../../assets/icons/nationalCode.svg";
 
@@ -60,7 +59,11 @@ export const Header = ({
               title={"جستجو"}
               type="submit"
               loading={loading}
-              className={styles.searchButton + " " + "!mx-auto"}
+              className={
+                "w-[120px] md:w-[150px] lg:w-[92px] xl:w-[110px] md:ml-0 !py-0 !h-[24px] md:!h-[28px] lg:!h-[34px] !shadow-sm !bg-[#f7f7f7] !text-black !border-success hover:!bg-success hover:!text-white transition-all !text-2xs md:!text-xs lg:!text-sm gap-2 xl:gap-3" +
+                " " +
+                "!mx-auto"
+              }
               icon={
                 <MdOutlinePersonSearch className="text-xs md:text-base lg:text-xl" />
               }
@@ -71,7 +74,11 @@ export const Header = ({
             title={"جستجو"}
             type="submit"
             loading={loading}
-            className={styles.searchButton + " " + "!hidden lg:!flex"}
+            className={
+              "w-[120px] md:w-[150px] lg:w-[92px] xl:w-[110px] md:ml-0 !py-0 !h-[24px] md:!h-[28px] lg:!h-[34px] !shadow-sm !bg-[#f7f7f7] !text-black !border-success hover:!bg-success hover:!text-white transition-all !text-2xs md:!text-xs lg:!text-sm gap-2 xl:gap-3" +
+              " " +
+              "!hidden lg:!flex"
+            }
             icon={<MdOutlinePersonSearch className="text-sm lg:text-xl" />}
           />
         </div>

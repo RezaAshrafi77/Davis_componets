@@ -10,6 +10,7 @@ import { Radio } from "../../components/Radio";
 import moment from "jalali-moment";
 import { Divider } from "../../components/Divider";
 import emptySVG from "../../assets/images/empty.svg";
+import classNames from "classnames";
 
 export function SpecialistDashboardPage({
   tableColumns = Table_Columns,
@@ -98,7 +99,6 @@ export function SpecialistDashboardPage({
           columns={tableColumns}
           rows={activeFilterOption ? filteredRows : rows}
           page={currentPage}
-          className={styles.table}
           setPage={setCurrentPage}
           setTableSize={setTableSize}
           colFilter={colFilter ? colFilter - 1 : null}
@@ -118,7 +118,10 @@ export function SpecialistDashboardPage({
                   <Radio
                     key={o}
                     label={o}
-                    className={styles.filterRadio}
+                    className={classNames(
+                      styles.filterRadio,
+                      "!bg-transparent !border-none !gap-[1px] lg:!gap-1 !py-0 !px-0"
+                    )}
                     name={"filter"}
                     value={o}
                     checked={o == activeFilterOption}

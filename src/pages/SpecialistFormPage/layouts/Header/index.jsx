@@ -245,7 +245,9 @@ export const Header = ({
                   <Radio
                     key={o}
                     label={o}
-                    className={styles.filterRadio}
+                    className={
+                      "!bg-transparent !border-none !gap-[1px] lg:!gap-1 !py-0 !px-0"
+                    }
                     name={"filter"}
                     value={o}
                     checked={o == activeFilterOption}
@@ -266,19 +268,25 @@ export const Header = ({
       </Modal>
       <section
         className={classNames(
-          styles.container,
+          "rounded-md bg-white px-1.5 pb-3 md:pb-4 md:pt-1 shadow-md md:px-4",
           vip ? styles.vipContainer : styles.normalContainer
         )}
       >
         <FieldSet
           title={title}
-          className={styles.fieldset}
+          className={classNames(
+            styles.fieldset,
+            "px-2 md:px-4 !pt-4 !pb-2 md:!pb-5 relative !border-none"
+          )}
           gradientBorder={false}
           titleClassName={
             "!bg-transparent !translate-y-[35%] lg:!translate-y-[30%]"
           }
         >
-          <form className={styles.form} onSubmit={onSubmit}>
+          <form
+            className={"flex w-full items-end bg-background"}
+            onSubmit={onSubmit}
+          >
             <div className="flex w-full flex-wrap items-end gap-x-2 md:gap-x-[1vw] lg:gap-x-2 xs:gap-x-[1.3vw] gap-y-3 md:gap-y-4 lg:flex">
               {vip ? (
                 <img
@@ -292,7 +300,12 @@ export const Header = ({
                   containerClassName={
                     "flex flex-1 min-w-[46%] !rounded-[3px] md:min-w-[102px] md:max-w-[160px] lg:max-w-[232px] xl:max-w-[236px] md:ml-auto !p-0 !bg-transparent !gap-0.5 !shadow-none"
                   }
-                  className={styles.textField}
+                  className={
+                    "!border-[0.25px] !rounded-[3px] lg:!rounded w-full bg-[#f7f7f7]"
+                  }
+                  inputClassName={
+                    "md:text-3xs md:placeholder:text-3xs lg:placeholder:text-xs lg:text-xs"
+                  }
                   key={item.label}
                   name={item.qKey}
                   placeholder={item.placeholder}
@@ -326,7 +339,10 @@ export const Header = ({
                     <Radio
                       key={o.value}
                       label={o.label}
-                      className={styles.radio}
+                      className={classNames(
+                        styles.radio,
+                        "!bg-transparent !border-none !gap-0 md:!gap-[1px] lg:!gap-1 !py-0 !px-0"
+                      )}
                       name={1585472454126}
                       value={o.value}
                       checked={o.value == formData[1585472454126]}
@@ -336,7 +352,11 @@ export const Header = ({
                 </div>
               </div>
               <div className="hidden md:block lg:hidden"></div>
-              <div className={styles.searchButton}>
+              <div
+                className={
+                  "flex border-success w-[96px] lg:w-[115px] ml-auto md:ml-0 mt-2 md:mt-0 mr-auto md:mr-0 bg-[#f7f7f7] !rounded-[2px]"
+                }
+              >
                 {refreshActive ? (
                   <Button
                     variant="icon"

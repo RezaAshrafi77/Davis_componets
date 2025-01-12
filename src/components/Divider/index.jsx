@@ -10,7 +10,11 @@ export function Divider({ className, position }) {
   };
   return (
     <div
-      className={classNames(styles.divider, positionStyle[position], className)}
+      className={classNames(
+        "w-full rounded-md h-[1px] mt-1 mb-2",
+        positionStyle[position],
+        className
+      )}
     ></div>
   );
 }

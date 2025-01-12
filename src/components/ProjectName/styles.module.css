@@ -2,38 +2,29 @@
 
 /* Container for the ProjectName component */
 .container {
-    @apply w-full sticky top-0 bg-white z-10; /* Make sure it's above other content */
-    @apply flex items-center justify-center; /* Center content */
-    padding: 0rem 0 0.5rem; /* Add padding for spacing */
+  padding: 0rem 0 0.5rem; /* Add padding for spacing */
 }
 
 /* Styling for the right separator line */
 .rightLine {
-    @apply h-0.5 w-4 bg-gray-300; /* Make the right line flexible */
+  background-color: #d1d5db;
 }
 
 /* Styling for the project name text */
-.name {
-    @apply text-black font-700 text-xs md:text-sm lg:text-lg bg-white z-20 px-2; /* Add padding to avoid text touching the lines */
-}
 
 /* Styling for the left separator line */
 .leftLine {
-    @apply h-0.5 bg-gray-300 flex-grow; /* Use flex-grow to expand the line */
-}
-
-/* Cover line beneath the text */
-.coverLine {
-    @apply w-full h-0.5 bg-gray-300 absolute shadow-none top-1/2 transform -translate-y-1/2;
+  background-color: #d1d5db;
 }
 
 /* Ensure spacing and layout remain intact on smaller screens */
 @media (max-width: 640px) {
-    .container {
-        @apply p-4; /* Add padding for mobile screens */
-    }
+  .container {
+    padding: 16px; /* Add padding for mobile screens */
+  }
 
-    .name {
-        @apply text-sm; /* Adjust font size on smaller screens */
-    }
+  .name {
+    font-size: 0.875rem /* 14px */;
+    line-height: 1.25rem /* 20px */; /* Adjust font size on smaller screens */
+  }
 }

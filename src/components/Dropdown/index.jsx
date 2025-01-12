@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Fragment, useState } from "react";
 import { IoChevronDownOutline } from "react-icons/io5";
-import styles from "./styles.module.css";
 import classNames from "classnames";
 
 export const Dropdown = ({ label, options, onChange, containerClassName }) => {
@@ -20,26 +19,30 @@ export const Dropdown = ({ label, options, onChange, containerClassName }) => {
       <div
         className={classNames(
           containerClassName,
-          styles.dropdown,
+          " flex items-center gap-2 select-none relative bg-white rounded px-1 lg:px-2 py-1.5 md:py-1 min-w-fit cursor-pointer",
           isOpen ? "z-[1000]" : ""
         )}
         onClick={toggleDropdown}
       >
-        <div className={styles.labelContainer}>
-          <span className={styles.label}>{label}</span>
+        <div className={"flex items-center lg:gap-1 lg:py-1"}>
+          <span className={"text-3xs md:text-2xs lg:text-xs"}>{label}</span>
         </div>
         <IoChevronDownOutline
-          className={`${styles.icon} ${isOpen ? styles.iconOpen : ""}`}
+          className={`transition-all text-2xs lg:text-sm ${
+            isOpen ? "rotate-180" : ""
+          }`}
         />
         <ul
-          className={`${styles.menu} ${
-            isOpen ? styles.menuOpen : styles.menuClosed
+          className={`md:-left-1 absolute -bottom-1 translate-y-full md:translate-y-0 md:bottom-0 md:-translate-x-full transition-all md:mr-2 divide-y divide-gray-200 bg-white rounded overflow-hidden z-50 min-w-full md:min-w-fit ${
+            isOpen ? "py-2" : "h-0"
           }`}
         >
           {options.map((item) => (
             <li
               key={item.label}
-              className={styles.menuItem}
+              className={
+                " py-1.5 md:py-2 px-2 text-3xs md:text-2xs lg:text-xs hover:bg-formItemInput lg:px-3 !min-w-fit"
+              }
               onClick={() => onChange(item.value)}
             >
               {item.label}

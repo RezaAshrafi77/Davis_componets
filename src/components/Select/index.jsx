@@ -4,7 +4,6 @@ import { BiError } from "react-icons/bi";
 import { Label } from "../Label";
 import { Divider } from "../Divider";
 import { TextField } from "../TextField";
-import styles from "./styles.module.css";
 import { Controller } from "react-hook-form";
 import { IoChevronDownOutline } from "react-icons/io5";
 import { Fragment, useEffect, useState } from "react";
@@ -49,7 +48,10 @@ export const Select = ({
   const renderSelect = ({ field }) => (
     <select
       id={questionKey}
-      className={classNames(inputClassName, styles.field)}
+      className={classNames(
+        inputClassName,
+        "text-3xs md:text-2xs lg:text-xs rounded border-[0.5px] border-solid border-black hover:border-success  bg-formItemInput font-400  py-1 lg:py-1.5 px-1 lg:px-1.5  !ring-0 hover:bg-white cursor-pointer outline-none"
+      )}
       onChange={(e) => {
         const selectedValue =
           e.target.value === "لطفا یک گزینه را انتخاب کنید."
@@ -67,7 +69,10 @@ export const Select = ({
         <option
           key={option.value}
           value={option.value}
-          className={classNames(styles.options, optionClassName)}
+          className={classNames(
+            "text-2xs lg:text-xs p-2 bg-formItemInput rounded border-[0.5px] border-solid border-black",
+            optionClassName
+          )}
         >
           {option.label}
         </option>
@@ -98,10 +103,17 @@ export const Select = ({
         ></div>
       ) : null}
       <div
-        className={classNames(styles.container, containerClassName, {
-          "field-error": isError,
-          "z-[1000]": isOpen,
-        })}
+        className={classNames(
+          "bg-formItem w-full flex flex-col relative p-2 rounded",
+          containerClassName,
+          {
+            "field-error": isError,
+            "z-[1000]": isOpen,
+          }
+        )}
+        style={{
+          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.15)",
+        }}
       >
         <Label
           className={classNames(labelClassName, labelDirectionStyle[divider])}
@@ -135,9 +147,7 @@ export const Select = ({
                   : "لطفا یک گزینه را انتخاب کنید."}
               </span>
               <IoChevronDownOutline
-                className={`${styles.icon} ${
-                  isOpen ? "rotate-180 transition-all" : ""
-                }`}
+                className={` ${isOpen ? "rotate-180 transition-all" : ""}`}
               />
             </div>
             {isOpen ? (

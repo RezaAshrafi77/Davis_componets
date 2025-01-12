@@ -13,13 +13,27 @@ export const Modal = ({ onClose, isOpen, children, containerClassName }) => {
   };
 
   return createPortal(
-    <div className={styles.container} onClick={handleClose}>
+    <div
+      className={
+        styles.container +
+        " " +
+        "fixed inset-0 z-50 flex items-center justify-center h-screen w-screen"
+      }
+      onClick={handleClose}
+    >
       <div
-        className={classNames(containerClassName, styles.modal)}
+        className={classNames(
+          containerClassName,
+          styles.modal +
+            " " +
+            "bg-white shadow-lg px-2 lg:px-4 py-2 rounded-md max-w-[100vw] max-h-[100vh] overflow-y-auto"
+        )}
         onClick={(e) => e.stopPropagation()}
       >
         <Button
-          className={styles.closeButton}
+          className={
+            "p-2 bg-transparent border-none font-bold text-2xl text-black shadow-none"
+          }
           title="&times;"
           onClick={handleClose}
         />

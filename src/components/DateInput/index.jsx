@@ -41,10 +41,13 @@ export const DateInput = ({
   return (
     <div
       className={classNames(
-        styles.container,
+        "w-full flex flex-col p-2 bg-formItem rounded relative",
         containerClassName,
         isError && "field-error"
       )}
+      style={{
+        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.15)",
+      }}
     >
       {/* Label */}
       <Label
@@ -62,19 +65,32 @@ export const DateInput = ({
         />
       )}
       {/* Input Field */}
-      <div className={classNames(className, "group", styles.field)}>
+      <div
+        className={classNames(
+          className,
+          styles.field,
+          "group bg-formItemInput border-[0.5px] border-black rounded relative transition-all duration-200 hover:border-success hover:bg-white focus-within:ring-1 focus-within:border-success focus-within:ring-success"
+        )}
+      >
         <Controller
           control={control}
           name={id}
           rules={{ required }}
           render={({ field: { onChange } }) => (
             <DatePicker
-              inputClass={styles.dateInput}
+              inputClass={
+                styles.dateInput +
+                " " +
+                `w-full font-400 text-3xs md:text-2xs lg:text-xs xl:text-sm text-black 
+              placeholder:text-3xs md:placeholder:text-2xs lg:placeholder:text-xs bg-transparent border-none outline-none py-1 pr-1 lg:pr-1.5 hover:bg-white hover:border-black`
+              }
               placeholder={placeholder}
               calendar={calendar}
               locale={locale}
               format={format}
-              containerClassName={styles.dateInputContainer}
+              containerClassName={
+                "w-full relative !flex justify-center items-center"
+              }
               calendarPosition="top"
               fixMainPosition={false}
               fixRelativePosition={false}
@@ -89,6 +105,7 @@ export const DateInput = ({
           <span
             className={classNames(
               styles.icon,
+              "absolute left-1 lg:left-1.5 top-1/2 -translate-y-1/2 transition-all duration-200 cursor-pointer",
               "group-hover:text-success text-gray-500 inline"
             )}
           >

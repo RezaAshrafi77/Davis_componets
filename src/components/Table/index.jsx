@@ -2,7 +2,6 @@
 import classNames from "classnames";
 import { IoPrintOutline } from "react-icons/io5";
 import { Button } from "../Button";
-import styles from "./styles.module.css";
 import { Dropdown } from "../Dropdown";
 import { excelOptions, tableSizeList } from "./data";
 import { exportTableToExcel } from "../../utils/helpers";
@@ -40,11 +39,11 @@ export const Table = ({
   };
 
   return rows?.length ? (
-    <div className={classNames(styles.container, containerClassName)}>
+    <div className={classNames("flex flex-col w-full", containerClassName)}>
       <div className="w-full overflow-x-auto">
         <table
           className={classNames(
-            styles.table,
+            "border-separate whitespace-nowrap overflow-x-auto border-spacing-[2px] w-full",
             className,
             selectable ? styles.selectable : "",
             stripe ? styles.stripe : ""
@@ -52,9 +51,15 @@ export const Table = ({
           id={"table" + tableId}
         >
           <thead className={styles.thead}>
-            <tr className={styles.tr}>
+            <tr className={styles.tr + " " + "shadow-sm"}>
               {columns.map((colTitle, index) => (
-                <th key={index} scope="col" className={styles.th}>
+                <th
+                  key={index}
+                  scope="col"
+                  className={
+                    "bg-formItem shadow-md font-600 text-3xs md:text-2xs lg:text-xs xl:text-sm text-center rounded-md px-4 py-2.5"
+                  }
+                >
                   {colTitle}
                 </th>
               ))}
@@ -70,7 +75,11 @@ export const Table = ({
                 {row?.map((_, j) => (
                   <td
                     key={"table-td" + j}
-                    className={styles.td}
+                    className={
+                      styles.td +
+                      " " +
+                      "transition-all rounded-md border-[0.5px] shadow-md text-3xs md:text-2xs lg:text-xs xl:text-[13px] font-400 bg-white text-center p-2 lg:whitespace-pre-wrap"
+                    }
                     style={{
                       backgroundColor: colors?.length
                         ? colors.find((color) => color.value == row[colFilter])
@@ -88,11 +97,15 @@ export const Table = ({
       </div>
 
       {pagination ? (
-        <div className={styles.pagination}>
+        <div
+          className={
+            "w-full flex justify-between rounded-b-md shadow-md mt-0.5 py-1 bg-[#f1f1f1] px-1.5"
+          }
+        >
           <div className={classNames("hidden md:flex")}>{children}</div>
           <div
             className={classNames(
-              styles["default-options"],
+              "flex !gap-1 items-center",
               " flex-1 md:max-w-fit flex-wrap md:flex-nowrap"
             )}
           >
@@ -101,7 +114,9 @@ export const Table = ({
             </div>
             <Button
               variant="icon"
-              className={styles.next}
+              className={
+                "text-3xs md:text-2xs lg:text-xs border-none min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 text-center rounded shadow-sm hover:scale-110 transition-all bg-white"
+              }
               onClick={() => window.print()}
               icon={
                 <IoPrintOutline className="text-xs md:text-base cursor-pointer lg:!text-xl" />
@@ -116,7 +131,11 @@ export const Table = ({
               />
               <Button
                 variant="icon"
-                className={styles.next + " " + "!rounded-r-none"}
+                className={
+                  "text-3xs md:text-2xs lg:text-xs border-none min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 text-center rounded shadow-sm hover:scale-110 transition-all bg-white" +
+                  " " +
+                  "!rounded-r-none"
+                }
                 onClick={() => handleDownload()}
                 icon={
                   <FiDownload className="text-xs md:text-base cursor-pointer lg:!text-xl" />
@@ -131,22 +150,34 @@ export const Table = ({
               />
             ) : null}
             <Button
-              className={styles.next}
+              className={
+                "text-3xs md:text-2xs lg:text-xs border-none min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 text-center rounded shadow-sm hover:scale-110 transition-all bg-white"
+              }
               title={"ابتدا"}
               variant=""
               onClick={() => setPage(1)}
             />
             <div className="flex gap-1">
               <Button
-                className={styles.next}
+                className={
+                  "text-3xs md:text-2xs lg:text-xs border-none min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 text-center rounded shadow-sm hover:scale-110 transition-all bg-white"
+                }
                 disabled={page == 1}
                 variant={page == 1 ? "disabled" : ""}
                 title={"قبلی"}
                 onClick={() => setPage(Math.max(page - 1, 1))}
               />
-              <div className={styles["current-page"]}>{page}</div>
+              <div
+                className={
+                  "text-3xs md:text-2xs lg:text-xs min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 flex justify-center items-center rounded bg-white text-black"
+                }
+              >
+                {page}
+              </div>
               <Button
-                className={styles.next}
+                className={
+                  "text-3xs md:text-2xs lg:text-xs border-none min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 text-center rounded shadow-sm hover:scale-110 transition-all bg-white"
+                }
                 title={"بعدی"}
                 disabled={Math.floor(rows?.length / tableSize) == 0}
                 variant={

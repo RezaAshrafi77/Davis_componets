@@ -1,12 +1,4 @@
-.container {
-    @apply w-full flex flex-col p-2 bg-formItem rounded relative;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
-}
-
-.options {
-    @apply flex w-full flex-wrap gap-1.5;
-}
-
 .options label {
-    @apply min-w-fit flex-1;
+  min-width: 0;
+  flex: 1;
 }

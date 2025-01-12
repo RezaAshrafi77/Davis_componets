@@ -54,9 +54,16 @@ export function RadioOptions({
 
   return (
     <div
-      className={classNames(styles.container, containerClassName, {
-        "field-error": isError,
-      })}
+      className={classNames(
+        "bg-formItem w-full flex flex-col relative p-2 rounded",
+        containerClassName,
+        {
+          "field-error": isError,
+        }
+      )}
+      style={{
+        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.15)",
+      }}
     >
       {label && (
         <Label
@@ -74,7 +81,10 @@ export function RadioOptions({
         <Divider className={classNames(dividerClassName)} position={divider} />
       )}
       <div
-        className={classNames(optionsContainer, styles.options)}
+        className={classNames(
+          optionsContainer,
+          styles.options + " " + "flex flex-wrap w-full gap-1.5"
+        )}
         dir={en ? "ltr" : "rtl"}
       >
         {renderOptions()}

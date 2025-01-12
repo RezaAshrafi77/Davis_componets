@@ -117,9 +117,16 @@ export const FileField = ({
   };
   return (
     <div
-      className={classNames(styles.container, containerClassName, {
-        "field-error": isError,
-      })}
+      className={classNames(
+        "w-full flex flex-col p-2 bg-formItem rounded relative",
+        containerClassName,
+        {
+          "field-error": isError,
+        }
+      )}
+      style={{
+        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.15)",
+      }}
       dir={en ? "ltr" : ""}
     >
       {label && (
@@ -154,10 +161,13 @@ export const FileField = ({
       {divider && (
         <Divider className={classNames(dividerClassName)} position={divider} />
       )}
-      <div className={styles.uploadPart}>
+      <div className={"flex w-full items-center justify-between gap-4"}>
         <Button
           variant={"outlined"}
-          className={classNames(buttonClassName, styles.button)}
+          className={classNames(
+            buttonClassName,
+            "h-[22px] lg:h-[26px] w-[81px] lg:!text-xs text-nowrap border-black !bg-background hover:!bg-white px-2 !border-[0.5px] opacity-90 hover:opacity-100"
+          )}
           title={
             _value
               ? en
@@ -174,7 +184,7 @@ export const FileField = ({
 
         <div
           className={classNames(
-            styles.uploadShow,
+            "border-[0.5px] w-full cursor-pointer flex items-center justify-between px-2 border-black rounded hover:!bg-white",
             {
               "!bg-white": _value,
               "!bg-white-f5": !_value,
@@ -182,7 +192,12 @@ export const FileField = ({
             "group"
           )}
         >
-          <label className={classNames(styles.inputField, className)}>
+          <label
+            className={classNames(
+              "relative w-full justify-between flex items-center cursor-pointer overflow-hidden text-ellipsis",
+              className
+            )}
+          >
             <span className="z-[1] font-600 text-2xs lg:text-[11px] xl:text-xs">
               {renderFileInfo()}
             </span>
@@ -191,7 +206,7 @@ export const FileField = ({
               ref={inputRef}
               className={classNames(
                 disabled ? "cursor-not-allowed" : "cursor-pointer",
-                styles.input
+                "z-10 w-full h-full absolute left-0 top-0 opacity-0"
               )}
               onChange={handleFileChange}
               disabled={false}
@@ -222,7 +237,13 @@ export const FileField = ({
       </div>
 
       {openModal && (
-        <div className={styles.confirmBox}>
+        <div
+          className={
+            styles.confirmBox +
+            " " +
+            "z-20 bg-white bg-opacity-40 backdrop-blur-md absolute left-0 top-0 w-full flex flex-col justify-between min-h-full px-2 py-2"
+          }
+        >
           <Label
             className="self-center"
             label={"آیا مایل به حذف فایل انتخاب شده هستید؟"}

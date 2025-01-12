@@ -1,29 +1,23 @@
 /* Modal Container */
 .container {
-    @apply fixed inset-0 z-50 flex items-center justify-center h-screen w-screen;
-    background-color: rgba(2, 137, 76, 0.05);
-    backdrop-filter: blur(5px);
+  background-color: rgba(2, 137, 76, 0.05);
+  backdrop-filter: blur(5px);
 }
 
 /* Modal Box */
 .modal {
-    @apply bg-white shadow-lg px-2 lg:px-4 py-2 rounded-md max-w-[100vw] max-h-[100vh] overflow-y-auto;
-    animation: popUp 0.35s ease-out;
-    direction: rtl;
+  animation: popUp 0.35s ease-out;
+  direction: rtl;
 }
 
 /* Close Button Styling */
-.closeButton {
-    @apply p-2 bg-transparent border-none font-bold text-2xl text-black;
-    box-shadow: none;
-}
 
 /* Pop-up Animation */
 @keyframes popUp {
-    0% {
-        transform: scale(0);
-    }
-    100% {
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

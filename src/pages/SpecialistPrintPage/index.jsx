@@ -87,7 +87,12 @@ export function SpecialistPrintPage({
               "با کلیک بر روی هر انتخاب پایش می توانید گزارش های مربوط به آن پذیرش را دریافت نمایید."
             }
           </p>
-          <form className={styles.form} onSubmit={handleSubmit(submit)}>
+          <form
+            className={
+              "flex flex-col md:flex-row gap-4 mt-8 justify-between items-center md:!mx-auto lg:w-[450px] mb-4 lg:mb-6"
+            }
+            onSubmit={handleSubmit(submit)}
+          >
             <TextField
               label={"کد ملی" + " :"}
               questionKey="6620"
@@ -102,7 +107,7 @@ export function SpecialistPrintPage({
             />
             <Button
               title={"جستجو"}
-              className="!gap-2 !shadow-formItem !bg-[#f7f7f7] !text-black !border-success hover:!bg-success hover:!text-white transition-all !w-[94px] md:h-[28px] xl:h-[34px]"
+              className="!gap-2 !shadow-sm !bg-[#f7f7f7] !text-black !border-success hover:!bg-success hover:!text-white transition-all !w-[94px] md:h-[28px] xl:h-[34px]"
               type="submit"
               icon={<MdOutlinePersonSearch className="text-sm lg:text-xl" />}
               loading={isSubmitting}

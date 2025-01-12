@@ -50,7 +50,7 @@ export const CheckBoxGroup = ({
       label={option.label}
       checked={selectedValues.includes(option.value)}
       onChange={() => handleCheckboxChange(option.value)}
-      className={classNames(styles.checkBox, checkBoxClassName)}
+      className={classNames(checkBoxClassName)}
       en={en}
     />
   );
@@ -71,10 +71,13 @@ export const CheckBoxGroup = ({
   return (
     <div
       className={classNames(
-        styles.container,
+        "w-full flex flex-col p-2 bg-formItem rounded relative",
         containerClassName,
         isError ? "field-error" : ""
       )}
+      style={{
+        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.15)",
+      }}
     >
       {label && (
         <Label
@@ -92,7 +95,11 @@ export const CheckBoxGroup = ({
         <Divider className={classNames(dividerClassName)} position={divider} />
       )}
       <div
-        className={classNames(optionsContainer, styles.options)}
+        className={classNames(
+          optionsContainer,
+          styles.options,
+          "flex w-full flex-wrap gap-1.5"
+        )}
         dir={en ? "ltr" : "rtl"}
       >
         {options.map(renderCheckBox)}

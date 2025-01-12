@@ -2,7 +2,6 @@
 import classNames from "classnames";
 import { Label } from "../Label";
 import { BiError } from "react-icons/bi";
-import styles from "./styles.module.css";
 import { Divider } from "../Divider";
 import NoteIcon from "../../assets/icons/note.svg";
 import { BsPencilSquare } from "react-icons/bs";
@@ -28,6 +27,7 @@ export const TextField = ({
   errorIcon,
   divider,
   dividerClassName,
+  inputClassName,
   en,
   labelMore,
   placeholder = "در اینجا وارد کنید ...",
@@ -48,7 +48,8 @@ export const TextField = ({
 
   const inputProps = {
     className: classNames(
-      styles.input,
+      inputClassName,
+      "w-full font-400 xs:text-3xs md:text-2xs lg:text-xs xl:text-sm text-black border-[0.5px]  rounded border-black placeholder:text-3xs md:placeholder:text-2xs lg:placeholder:text-xs bg-transparent py-1 px-1.5 hover:outline-none hover:bg-white hover:ring-0 hover:border-success focus:outline-none focus:bg-white focus:ring-0 focus:border-success",
       props.rows ? "!py-2 !px-2" : "",
       disabled && "cursor-not-allowed",
       inputValue ? "!bg-white" : ""
@@ -71,9 +72,12 @@ export const TextField = ({
     <div
       className={classNames(
         isError ? "field-error" : "",
-        styles.container,
+        "bg-formItem w-full flex flex-col relative p-2 rounded",
         containerClassName
       )}
+      style={{
+        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.15)",
+      }}
     >
       {label && (
         <Label
@@ -90,7 +94,12 @@ export const TextField = ({
       {divider && (
         <Divider className={classNames(dividerClassName)} position={divider} />
       )}
-      <div className={classNames(className, "group", styles.field)}>
+      <div
+        className={classNames(
+          className,
+          "group flex justify-center items-center relative overflow-hidden"
+        )}
+      >
         {props.rows > 1 ? (
           <textarea
             {...inputProps}
@@ -116,16 +125,24 @@ export const TextField = ({
         {!props.rows ? (
           <div
             className={classNames(
-              styles.icon,
+              "absolute top-1/2 left-1 lg:left-1.5 -translate-y-1/2",
               en ? "!left-auto !right-1" : "!left-1"
             )}
           >
-            {icon ? icon : <img src={NoteIcon} alt="" />}
+            {icon ? (
+              icon
+            ) : (
+              <img
+                src={NoteIcon}
+                className="h-[13px] w-[13px] lg:h-[19px] lg:w-[19px]"
+                alt=""
+              />
+            )}
           </div>
         ) : (
           <div
             className={classNames(
-              styles.icon,
+              "absolute top-1/2 left-1 lg:left-1.5 -translate-y-1/2",
               en ? "left-auto right-2" : "left-2"
             )}
             style={{

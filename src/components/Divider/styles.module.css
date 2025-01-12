@@ -1,29 +1,25 @@
-.divider {
-    @apply w-full rounded-md h-[1px] mt-1 mb-2;
-}
-
 .right {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(105, 105, 105, 1) 100%
-    );
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(105, 105, 105, 1) 100%
+  );
 }
 
 .center {
-    background: radial-gradient(
-        50% 50% at 50% 50%,
-        #696969 0%,
-        rgba(217, 217, 217, 0) 100%
-    );
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #696969 0%,
+    rgba(217, 217, 217, 0) 100%
+  );
 }
 
 .left {
-    background: rgba(0, 0, 0);
-    background: linear-gradient(
-        270deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(105, 105, 105, 1) 100%
-    );
+  background: rgba(0, 0, 0);
+  background: linear-gradient(
+    270deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(105, 105, 105, 1) 100%
+  );
 }

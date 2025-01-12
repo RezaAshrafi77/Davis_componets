@@ -91,8 +91,13 @@ export const Label = ({
         className={classNames(
           className,
           styles.label,
-          en ? styles.enLabel : styles.label,
-          showMore ? styles.labelMore : "relative",
+          "flex items-center font-700 text-black text-3xs md:text-2xs lg:text-xs xl:text-sm overflow-hidden",
+          en
+            ? styles.enLabel +
+                " " +
+                "relative flex items-center text-3xs text-black md:text-2xs lg:text-xs xl:text-sm"
+            : styles.label,
+          showMore ? "w-full z-[1000]" : "relative",
           "select-none"
         )}
         dir={en ? "ltr" : ""}
@@ -102,7 +107,13 @@ export const Label = ({
           <Fragment>
             <span
               ref={spanRef}
-              className={en ? styles.truncatedTextEn : styles.truncatedText}
+              className={
+                en
+                  ? styles.truncatedTextEn +
+                    " " +
+                    "text-3xs text-black md:text-2xs lg:text-xs xl:text-sm"
+                  : "font-700 text-black text-3xs md:text-2xs lg:text-xs xl:text-sm"
+              }
               style={{ whiteSpace: "nowrap", overflow: "hidden" }}
             >
               {truncatedText}
@@ -122,13 +133,25 @@ export const Label = ({
         ) : (
           label
         )}
-        {required && <span className={styles.required}>*</span>}
+        {required && (
+          <span
+            className={
+              styles.required +
+              " " +
+              (en
+                ? "ml-1 md:text-sm lg:text-lg !leading-none"
+                : "mr-1 md:text-sm lg:text-lg")
+            }
+          >
+            *
+          </span>
+        )}
         {userGuide && (
           <img
             src={GuideIcon}
             alt="راهنما"
             onClick={() => handleModalToggle("userGuide")}
-            className={`${styles.guideIcon}`}
+            className={`w-[20px] md:w-[30px] cursor-pointer`}
           />
         )}
         {archive && (
@@ -136,7 +159,7 @@ export const Label = ({
             src={ArchiveIcon}
             alt="آرشیو"
             onClick={() => handleModalToggle("archive")}
-            className={`${styles.archiveIcon}`}
+            className={`w-[15px] md:w-[17px] cursor-pointer`}
           />
         )}
 
@@ -147,7 +170,7 @@ export const Label = ({
             }
             alt="محتوای آموزشی"
             onClick={() => educationalContent.action()}
-            className={`${styles.eduIcon} ${educationalContent.className}`}
+            className={`${styles.eduIcon} absolute top-1/2 -translate-y-1/2 w-[15px] md:w-[17px] cursor-pointer ${educationalContent.className}`}
           />
         )}
 
@@ -162,8 +185,12 @@ export const Label = ({
         {openMoreBox ? (
           <div
             className={classNames(
-              styles.moreBox,
-              en ? styles.truncatedTextEn : styles.truncatedText
+              "animate-flipBottom border-x-[12px] border-y-4 border-opacity-40 backdrop-blur-md border-formItem2 rounded-md bg-white flex flex-col gap-0.5 absolute left-0 top-0 w-full min-h-full max-h-full overflow-y-auto xs:!leading-4 lg:!leading-5 lg:!text-[11px] xl:!text-sm text-justify p-1",
+              en
+                ? styles.truncatedTextEn +
+                    " " +
+                    "text-3xs text-black md:text-2xs lg:text-xs xl:text-sm"
+                : '"font-700 text-black text-3xs md:text-2xs lg:text-xs xl:text-sm"'
             )}
           >
             {label}
