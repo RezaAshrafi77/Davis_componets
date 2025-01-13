@@ -347,6 +347,7 @@ export const Header = ({
                       value={o.value}
                       checked={o.value == formData[1585472454126]}
                       onClick={() => handleOnChange(o.value, 1585472454126)}
+                      onChange={(e) => e}
                     />
                   ))}
                 </div>
