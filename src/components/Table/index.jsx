@@ -7,6 +7,7 @@ import { excelOptions, tableSizeList } from "./data";
 import { exportTableToExcel } from "../../utils/helpers";
 import { FiDownload } from "react-icons/fi";
 import { useState } from "react";
+import styles from "./styles.module.css";
 
 export const Table = ({
   className,
