@@ -32,7 +32,7 @@ export const Modal = ({ onClose, isOpen, children, containerClassName }) => {
       >
         <Button
           className={
-            "p-2 bg-transparent border-none font-bold text-2xl text-black shadow-none"
+            "!p-1 lg:!p-2 !bg-transparent border-none !font-700 !text-2xl !text-black !shadow-none"
           }
           title="&times;"
           onClick={handleClose}

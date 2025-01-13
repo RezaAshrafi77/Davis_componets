@@ -364,7 +364,7 @@ export const Header = ({
                     icon={
                       <GrRefresh
                         color="black"
-                        className="xs:text-xs md:text-sm lg:text-base"
+                        className="xs:text-xs md:text-sm lg:text-lg"
                       />
                     }
                     className={
