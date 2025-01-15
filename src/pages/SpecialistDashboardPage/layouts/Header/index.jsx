@@ -50,7 +50,7 @@ export const Header = ({
             register={register}
             placeholder={"در این قسمت وارد کنید"}
             label={"کد ملی :"}
-            icon={<img src={NationalCodeSVG} />}
+            icon={<img src={NationalCodeSVG} alt="کد ملی" />}
           />
           <div className="lg:hidden"></div>
           <div className="md:block col-span-full lg:hidden md:mt-2">

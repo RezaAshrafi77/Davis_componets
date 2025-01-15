@@ -140,7 +140,12 @@ export function SpecialistDashboardPage({
           ) : null}
         </Table>
       ) : (
-        <img src={emptySVG} alt="" className="h-2/3 m-auto" loading="lazy" />
+        <img
+          src={emptySVG}
+          alt="لیست خالی"
+          className="h-2/3 m-auto"
+          loading="lazy"
+        />
       )}
     </div>
   );

@@ -154,7 +154,7 @@ export const Select = ({
               <div className="absolute left-0 bottom-0 translate-y-full flex flex-col rounded-b w-full transition-all z-10">
                 <div className="bg-formItem2 p-1 rounded w-full">
                   <TextField
-                    icon={<img src={searchIcon} alt="جستجو" />}
+                    icon={<img src={searchIcon} alt="جستجو" loading="lazy" />}
                     placeholder="حداقل ۲ حرف از نام دارو را وارد کنید."
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)}

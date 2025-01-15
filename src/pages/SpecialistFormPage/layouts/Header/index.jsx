@@ -291,6 +291,7 @@ export const Header = ({
               {vip ? (
                 <img
                   src={VIPIcon}
+                  loading="lazy"
                   className="absolute left-2 top-0 md:left-4"
                 />
               ) : null}

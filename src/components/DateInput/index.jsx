@@ -28,6 +28,8 @@ export const DateInput = ({
     <img
       src={CalendarSVG}
       className="h-[13px] w-[13px] lg:h-[19px] lg:w-[19px]"
+      loading="lazy"
+      alt="تاریخ"
     />
   ),
   archive,
