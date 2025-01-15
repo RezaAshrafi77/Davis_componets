@@ -6,7 +6,6 @@ import styles from "./styles.module.css"; // Import your CSS module
 import GuideIcon from "../../assets/icons/guide.svg";
 import ArchiveIcon from "../../assets/icons/archive.svg";
 import DangerIcon from "../../assets/icons/danger.svg";
-import WarningIcon from "../../assets/icons/warning.svg";
 import { MdOutlineMoreHoriz } from "react-icons/md";
 import useDevice from "../../hooks/useDevice";
 import classNames from "classnames";
@@ -166,8 +165,11 @@ export const Label = ({
         {educationalContent?.show && (
           <img
             src={
-              educationalContent?.type == "danger" ? DangerIcon : WarningIcon
+              educationalContent?.type == "danger"
+                ? DangerIcon
+                : "https://salamatehr.ir/resource/files/1736921541621.png"
             }
+            loading="lazy"
             alt="محتوای آموزشی"
             onClick={() => educationalContent.action()}
             className={`${styles.eduIcon} absolute top-1/2 -translate-y-1/2 w-[15px] md:w-[17px] cursor-pointer ${educationalContent.className}`}
