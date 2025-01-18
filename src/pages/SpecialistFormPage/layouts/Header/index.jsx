@@ -311,6 +311,7 @@ export const Header = ({
                   name={item.qKey}
                   placeholder={item.placeholder}
                   label={item.label}
+                  showLockIcon={false}
                   icon={<item.icon size={14} color="green" />}
                   value={formData[item.qKey]}
                   onChange={(e) => handleOnChange(e.target.value, item.qKey)}

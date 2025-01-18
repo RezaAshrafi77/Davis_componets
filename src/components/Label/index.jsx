@@ -5,6 +5,7 @@ import { ArchiveTable } from "../../layouts/ArchiveTable";
 import styles from "./styles.module.css"; // Import your CSS module
 import GuideIcon from "../../assets/icons/guide.svg";
 import ArchiveIcon from "../../assets/icons/archive.svg";
+import LockIcon from "../../assets/icons/lock.svg";
 import DangerIcon from "../../assets/icons/danger.svg";
 import { MdOutlineMoreHoriz } from "react-icons/md";
 import useDevice from "../../hooks/useDevice";
@@ -20,6 +21,7 @@ export const Label = ({
   educationalContent,
   en,
   more,
+  disabled,
 }) => {
   const labelRef = useRef(null);
   const spanRef = useRef(null);
@@ -144,6 +146,9 @@ export const Label = ({
           >
             *
           </span>
+        )}
+        {disabled && (
+          <img src={LockIcon} alt="قفل" className={`w-[12px] md:w-[14px]`} />
         )}
         {userGuide && (
           <img
