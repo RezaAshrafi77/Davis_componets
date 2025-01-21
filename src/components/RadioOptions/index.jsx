@@ -24,15 +24,13 @@ export function RadioOptions({
   required = false,
   educationalContent = null,
   errors = {},
-  errorIcon = null,
-  errorMessage = "پر کردن این قسمت الزامیست.",
   archive = null,
   dividerClassName,
   en,
   disabled,
   labelMore,
 }) {
-  const isError = !!errors?.[questionKey];
+  const error = errors?.[questionKey]?.message;
   const renderOptions = () =>
     options.map((option) => (
       <Radio
@@ -43,7 +41,7 @@ export function RadioOptions({
         value={option.value}
         label={option.label}
         onClick={onClick}
-        {...register(questionKey, { required })}
+        {...register(questionKey)}
       />
     ));
 
@@ -59,7 +57,7 @@ export function RadioOptions({
         "bg-formItem w-full flex flex-col relative p-2 rounded",
         containerClassName,
         {
-          "field-error": isError,
+          "field-error": error,
         }
       )}
       style={{
@@ -91,10 +89,10 @@ export function RadioOptions({
       >
         {renderOptions()}
       </div>
-      {isError && (
+      {error && (
         <span className="error">
-          {errorIcon || <BiError className="text-xs lg:text-base" />}
-          {errorMessage}
+          {<BiError className="text-xs lg:text-base" />}
+          {error}
         </span>
       )}
     </div>

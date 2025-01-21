@@ -6,7 +6,7 @@ import { Divider } from "../Divider";
 import { TextField } from "../TextField";
 import { Controller } from "react-hook-form";
 import { IoChevronDownOutline } from "react-icons/io5";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import searchIcon from "../../assets/icons/search.svg";
 
 export const Select = ({
@@ -22,15 +22,12 @@ export const Select = ({
   educationalContent,
   questionKey,
   errors = {},
-  errorMessage = "پر کردن این قسمت الزامیست.",
   dividerClassName,
   archive,
-  errorIcon,
   onChange,
   value,
   labelClassName,
   en,
-  register,
   search,
   labelMore,
   disabled,
@@ -38,7 +35,7 @@ export const Select = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const isError = !!errors[questionKey] && !value;
+  const error = errors[questionKey]?.message;
   const hasController = !!Controller && !!control;
 
   const defaultOptions = [
@@ -87,14 +84,6 @@ export const Select = ({
     left: "label-left",
   };
 
-  useEffect(() => {
-    if (register && required) {
-      register(questionKey, {
-        required,
-      });
-    }
-  }, []);
-
   return (
     <Fragment>
       {isOpen ? (
@@ -108,7 +97,7 @@ export const Select = ({
           "bg-formItem w-full flex flex-col relative p-2 rounded",
           containerClassName,
           {
-            "field-error": isError,
+            "field-error": error,
             "z-[1000]": isOpen,
           }
         )}
@@ -194,17 +183,16 @@ export const Select = ({
           <Controller
             control={control}
             name={questionKey}
-            rules={{ required }}
             render={({ field }) => renderSelect({ field })}
           />
         ) : (
           renderSelect({ field: { value, onChange, ref: null } })
         )}
 
-        {isError ? (
+        {error ? (
           <span className="error">
-            {errorIcon || <BiError className="text-xs lg:text-base" />}
-            {errorMessage}
+            {<BiError className="text-xs lg:text-base" />}
+            {error}
           </span>
         ) : null}
       </div>

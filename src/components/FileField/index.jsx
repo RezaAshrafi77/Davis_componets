@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import classNames from "classnames";
 import { FaFileCircleXmark } from "react-icons/fa6";
 import { MdOutlineFileUpload } from "react-icons/md";
@@ -17,7 +17,6 @@ export const FileField = ({
   watch,
   label,
   required,
-  register,
   questionKey,
   errors,
   divider = "center",
@@ -35,15 +34,11 @@ export const FileField = ({
   labelMore,
   en,
 }) => {
+  const error = errors?.[questionKey]?.message;
+
   const [openModal, setOpenModal] = useState(false);
   const inputRef = useRef(null);
   const _value = watch ? watch(questionKey) : value;
-
-  useEffect(() => {
-    if (required && register) {
-      register(questionKey, { required });
-    }
-  }, []);
 
   const handleFileChange = (event) => {
     const file = event.target.files ? event.target.files[0] : null;
@@ -86,8 +81,6 @@ export const FileField = ({
     }
   };
 
-  const isError = !!errors?.[questionKey];
-
   const truncateText = (text, maxLength = 20) => {
     if (!text) return "";
     return text.length <= maxLength
@@ -121,7 +114,7 @@ export const FileField = ({
         "w-full flex flex-col p-2 bg-formItem rounded relative",
         containerClassName,
         {
-          "field-error": isError,
+          "field-error": error,
         }
       )}
       style={{
@@ -270,10 +263,10 @@ export const FileField = ({
         </div>
       )}
 
-      {isError && (
+      {error && (
         <span className="error">
           <BiError className="text-2xs lg:text-xs" />
-          {"پر کردن این قسمت الزامیست."}
+          {error}
         </span>
       )}
     </div>

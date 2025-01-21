@@ -116,7 +116,6 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
         label={props.label}
         questionKey={props.questionKey}
         options={props.options}
-        register={register}
         control={control}
         errors={errors}
         search={props.search}
@@ -146,7 +145,6 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
   if (props.component == "CheckBoxGroup") {
     return (
       <CheckBoxGroup
-        register={register}
         questionKey={props.questionKey}
         watch={watch}
         options={props.options}
@@ -223,7 +221,6 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
         watch={watch}
         setValue={setValue}
         errors={errors}
-        register={register}
         required={props.required}
         userGuide={props.userGuide}
         educationalContent={props.educationalContent}

@@ -6,7 +6,6 @@ import { CheckBox } from "../CheckBox";
 import { Divider } from "../Divider";
 import { Label } from "../Label";
 import styles from "./styles.module.css";
-import { useEffect } from "react";
 
 export const CheckBoxGroup = ({
   containerClassName,
@@ -22,18 +21,16 @@ export const CheckBoxGroup = ({
   questionKey,
   required = false,
   setValue,
-  errorMessage = "پر کردن این قسمت الزامیست.",
   watch,
-  errorIcon,
   archive,
   dividerClassName,
-  register,
   labelMore,
   disabled,
   en,
 }) => {
   // const [device] = useDevice()
-  const isError = !!errors?.[questionKey];
+  const error = errors?.[questionKey]?.message;
+
   const selectedValues = (watch?.(questionKey) || []).map((o) => String(o));
 
   const handleCheckboxChange = (value) => {
@@ -62,19 +59,12 @@ export const CheckBoxGroup = ({
     left: "label-left",
   };
 
-  useEffect(() => {
-    if (required) {
-      register(questionKey, {
-        required,
-      });
-    }
-  }, []);
   return (
     <div
       className={classNames(
         "w-full flex flex-col p-2 bg-formItem rounded relative",
         containerClassName,
-        isError ? "field-error" : ""
+        error ? "field-error" : ""
       )}
       style={{
         boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.15)",
@@ -106,10 +96,10 @@ export const CheckBoxGroup = ({
       >
         {options.map(renderCheckBox)}
       </div>
-      {isError && (
+      {error && (
         <span className="error">
-          {errorIcon || <BiError className="text-xs lg:text-base" />}
-          {errorMessage}
+          {<BiError className="text-xs lg:text-base" />}
+          {error}
         </span>
       )}
     </div>

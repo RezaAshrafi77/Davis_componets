@@ -18,10 +18,11 @@ export { CheckBoxGroup } from "./components/CheckBoxGroup/index.jsx";
 export { Select } from "./components/Select/index.jsx";
 export { FieldSet } from "./components/FieldSet/index.jsx";
 export { FileField } from "./components/FileField/index.jsx";
+export { ProgressChart } from "./components/Charts/Progress.jsx";
 // layouts
 export { ArchiveTable } from "./layouts/ArchiveTable/index.jsx";
 export { EmptyForm } from "./layouts/EmptyForm/index.jsx";
-export { FormFields } from "./layouts/FormFields";
+export { FormFields } from "./layouts/FormFields/index.jsx";
 export { Header as SpecialistFormPageHeader } from "./pages/SpecialistFormPage/layouts/Header/index.jsx";
 // page
 export { SpecialistDashboardPage } from "./pages/SpecialistDashboardPage/index.jsx";

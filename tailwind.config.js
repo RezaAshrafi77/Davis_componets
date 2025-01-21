@@ -13,7 +13,7 @@ export default {
       xs: "303px", // Extra Small devices
       md: "672px", // Medium devices
       lg: "952px", // Large devices
-      xl: "1368px", // XLarge
+      xl: "1160px", // XLarge
     },
     extend: {
       fontFamily: {

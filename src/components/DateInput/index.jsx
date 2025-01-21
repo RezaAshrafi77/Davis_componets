@@ -33,7 +33,6 @@ export const DateInput = ({
     />
   ),
   archive,
-  errorIcon,
   divider,
   dividerClassName,
   disabled,
@@ -46,15 +45,14 @@ export const DateInput = ({
     left: "label-left",
   };
 
-  const isError = !!errors[id];
-  const errorMessage = "پر کردن این قسمت الزامیست.";
+  const error = errors[id]?.message;
 
   return (
     <div
       className={classNames(
         "w-full flex flex-col p-2 bg-formItem rounded relative",
         containerClassName,
-        isError && "field-error"
+        error && "field-error"
       )}
       style={{
         boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.15)",
@@ -90,7 +88,6 @@ export const DateInput = ({
         <Controller
           control={control}
           name={id}
-          rules={{ required }}
           render={({ field: { onChange } }) => (
             <DatePicker
               inputClass={
@@ -129,10 +126,10 @@ export const DateInput = ({
         )}
       </div>
       {/* Error Message */}
-      {isError && (
+      {error && (
         <span className="error">
-          {errorIcon || <BiError className="text-xs lg:text-base" />}
-          {errorMessage}
+          {<BiError className="text-xs lg:text-base" />}
+          {error}
         </span>
       )}
     </div>

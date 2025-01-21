@@ -22,9 +22,7 @@ export const TextField = ({
   onChange: customOnChange,
   value: customValue,
   errors,
-  pattern,
   disabled = false,
-  errorIcon,
   divider,
   dividerClassName,
   inputClassName,
@@ -34,8 +32,7 @@ export const TextField = ({
   showLockIcon = true,
   ...props
 }) => {
-  const isError = errors ? !!errors[questionKey] : false;
-  const errorMessage = errors?.[questionKey]?.message;
+  const error = errors[questionKey]?.message;
 
   // Fallback to React Hook Form's `watch` and `register` if no `customValue` or `customOnChange` is provided
   const inputValue = customValue ?? watch?.(questionKey) ?? "";
@@ -72,7 +69,7 @@ export const TextField = ({
   return (
     <div
       className={classNames(
-        isError ? "field-error" : "",
+        error ? "field-error" : "",
         "bg-formItem w-full flex flex-col relative p-2 rounded",
         props.rows ? "gap-1" : "",
         containerClassName
@@ -106,24 +103,10 @@ export const TextField = ({
         {props.rows > 1 ? (
           <textarea
             {...inputProps}
-            {...(register
-              ? register(questionKey, {
-                  required: required ? "پر کردن این قسمت الزامیست." : false,
-                  pattern,
-                  valueAsNumber: props.type == "number",
-                })
-              : {})}
+            {...(register ? register(questionKey) : {})}
           />
         ) : (
-          <input
-            {...inputProps}
-            {...(register
-              ? register(questionKey, {
-                  required: required ? "پر کردن این قسمت الزامیست." : false,
-                  pattern,
-                })
-              : {})}
-          />
+          <input {...inputProps} {...(register ? register(questionKey) : {})} />
         )}
         {!props.rows ? (
           <div
@@ -159,10 +142,10 @@ export const TextField = ({
           </div>
         )}
       </div>
-      {isError && (
+      {error && (
         <span className="error">
-          {errorIcon ? errorIcon : <BiError className="text-xs lg:text-base" />}
-          {errorMessage}
+          {<BiError className="text-xs lg:text-base" />}
+          {error}
         </span>
       )}
     </div>
