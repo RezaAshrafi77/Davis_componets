@@ -51,7 +51,7 @@ export const Select = ({
       id={questionKey}
       className={classNames(
         inputClassName,
-        "text-3xs md:text-2xs lg:text-xs rounded border-[0.5px] border-solid border-black hover:border-success  bg-formItemInput font-400  py-1 lg:py-1.5 px-1 lg:px-1.5  !ring-0 hover:bg-white cursor-pointer outline-none"
+        "text-3xs md:text-2xs lg:text-xs rounded border-[0.5px] border-solid border-black hover:border-success  bg-transparent font-400  py-1 lg:py-0.5 px-1 lg:px-1.5  !ring-0 hover:bg-white cursor-pointer outline-none"
       )}
       onChange={(e) => {
         const selectedValue =
@@ -71,7 +71,7 @@ export const Select = ({
           key={option.value}
           value={option.value}
           className={classNames(
-            "text-2xs lg:text-xs p-2 bg-formItemInput rounded border-[0.5px] border-solid border-black",
+            "text-2xs lg:text-xs p-2 bg-transparent rounded border-[0.5px] border-solid border-black",
             optionClassName
           )}
         >

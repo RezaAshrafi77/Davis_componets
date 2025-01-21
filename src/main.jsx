@@ -18,10 +18,10 @@ export { CheckBoxGroup } from "./components/CheckBoxGroup/index.jsx";
 export { Select } from "./components/Select/index.jsx";
 export { FieldSet } from "./components/FieldSet/index.jsx";
 export { FileField } from "./components/FileField/index.jsx";
-export { ProgressChart } from "./components/charts/Progress.jsx";
 // layouts
 export { ArchiveTable } from "./layouts/ArchiveTable/index.jsx";
 export { EmptyForm } from "./layouts/EmptyForm/index.jsx";
+export { FormFields } from "./layouts/FormFields";
 export { Header as SpecialistFormPageHeader } from "./pages/SpecialistFormPage/layouts/Header/index.jsx";
 // page
 export { SpecialistDashboardPage } from "./pages/SpecialistDashboardPage/index.jsx";
@@ -33,6 +33,7 @@ export { Prescription } from "./sections/Prescription/index.jsx";
 // import "./index.css";
 // import { Page } from "./components/Page";
 // import { TextField } from "./components/TextField";
+// import { Select } from "./components/Select";
 // import { useForm } from "react-hook-form";
 
 // const MyFunction = () => {
@@ -48,7 +49,13 @@ export { Prescription } from "./sections/Prescription/index.jsx";
 
 //   return (
 //     <Page back={true}>
-//       <TextField label={"رضا"} divider={"center"} disabled />
+//       <TextField
+//         label={"رضا"}
+//         rows={4}
+//         value={"سلام  رضا"}
+//         divider={"center"}
+//       />
+//       <Select options={[]} />
 //     </Page>
 //   );
 // };

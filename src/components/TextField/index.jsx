@@ -57,7 +57,7 @@ export const TextField = ({
     ),
     dir: en ? "ltr" : "rtl",
     disabled,
-    value: inputValue,
+    value: props.rows ? inputValue.replace(/<br\s*\/?>/gi, "\n") : inputValue,
     onChange: inputOnChange,
     placeholder,
     ...props,

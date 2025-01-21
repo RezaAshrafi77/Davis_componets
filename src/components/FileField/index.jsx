@@ -27,7 +27,7 @@ export const FileField = ({
   archive,
   labelClassName,
   className,
-  baseURL,
+  baseURL = "https://salamatehr.ir/",
   userGuide,
   educationalContent,
   disabled,
