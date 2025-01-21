@@ -35,7 +35,7 @@ export const Select = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const error = errors[questionKey]?.message;
+  const error = errors?.[questionKey] ? errors[questionKey]?.message : null;
   const hasController = !!Controller && !!control;
 
   const defaultOptions = [

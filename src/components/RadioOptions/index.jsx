@@ -30,7 +30,7 @@ export function RadioOptions({
   disabled,
   labelMore,
 }) {
-  const error = errors?.[questionKey]?.message;
+  const error = errors?.[questionKey] ? errors?.[questionKey]?.message : null;
   const renderOptions = () =>
     options.map((option) => (
       <Radio

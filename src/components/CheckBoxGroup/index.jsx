@@ -29,7 +29,7 @@ export const CheckBoxGroup = ({
   en,
 }) => {
   // const [device] = useDevice()
-  const error = errors?.[questionKey]?.message;
+  const error = errors?.[questionKey] ? errors?.[questionKey]?.message : null;
 
   const selectedValues = (watch?.(questionKey) || []).map((o) => String(o));
 

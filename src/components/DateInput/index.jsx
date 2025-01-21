@@ -44,8 +44,7 @@ export const DateInput = ({
     right: "label-right",
     left: "label-left",
   };
-
-  const error = errors[id]?.message;
+  const error = errors?.[id] ? errors?.[id]?.message : null;
 
   return (
     <div

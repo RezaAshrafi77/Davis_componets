@@ -32,7 +32,7 @@ export const TextField = ({
   showLockIcon = true,
   ...props
 }) => {
-  const error = errors[questionKey]?.message;
+  const error = errors?.[questionKey] ? errors?.[questionKey]?.message : null;
 
   // Fallback to React Hook Form's `watch` and `register` if no `customValue` or `customOnChange` is provided
   const inputValue = customValue ?? watch?.(questionKey) ?? "";

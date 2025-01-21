@@ -34,7 +34,7 @@ export const FileField = ({
   labelMore,
   en,
 }) => {
-  const error = errors?.[questionKey]?.message;
+  const error = errors?.[questionKey] ? errors?.[questionKey]?.message : null;
 
   const [openModal, setOpenModal] = useState(false);
   const inputRef = useRef(null);
