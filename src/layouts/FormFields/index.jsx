@@ -188,6 +188,7 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
       <DateInput
         containerClassName={props.containerClassName + " " + "max-h-fit"}
         control={control}
+        watch={watch}
         id={props.id}
         errors={errors}
         label={props.label}
