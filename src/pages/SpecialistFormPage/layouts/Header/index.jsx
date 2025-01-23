@@ -145,7 +145,6 @@ export const Header = ({
     const options = {
       dataInfo: formData,
     };
-    options.dataInfo[4942] = null;
     if (options.dataInfo["6365"]) {
       options.dataInfo["1558737412305"] = options.dataInfo["6365"];
       options.jobId = JID.RFID;
@@ -191,7 +190,11 @@ export const Header = ({
   };
 
   const refreshActive =
-    (formData[6365] || formData[6620] || formData[1585472454126]) && user;
+    (formData[6365] ||
+      formData[6620] ||
+      formData[4942] ||
+      formData[1585472454126]) &&
+    user;
 
   const filterOptions = rows?.length
     ? [...new Set(rows?.map((row) => row[colFilter]))]
