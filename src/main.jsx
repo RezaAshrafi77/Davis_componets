@@ -33,8 +33,7 @@ export { Prescription } from "./sections/Prescription/index.jsx";
 // import ReactDOM from "react-dom/client";
 // import "./index.css";
 // import { Page } from "./components/Page";
-// import { TextField } from "./components/TextField";
-// import { Select } from "./components/Select";
+// import { Table } from "./components/Table";
 // import { useForm } from "react-hook-form";
 
 // const MyFunction = () => {
@@ -50,13 +49,16 @@ export { Prescription } from "./sections/Prescription/index.jsx";
 
 //   return (
 //     <Page back={true}>
-//       <TextField
-//         label={"رضا"}
-//         rows={4}
-//         value={"سلام  رضا"}
-//         divider={"center"}
+//       <Table
+//         columns={["fds", "sds", "dfsdf"]}
+//         rows={[
+//           ["reza", "reza", "reza"],
+//           ["reza", "reza", "reza"],
+//           ["reza", "reza", "reza"],
+//         ]}
+//         pagination
+//         page={1}
 //       />
-//       <Select options={[]} />
 //     </Page>
 //   );
 // };

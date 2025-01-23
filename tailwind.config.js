@@ -10,7 +10,7 @@ export default {
       IranSans: ["IranSans"],
     },
     screens: {
-      xs: "303px", // Extra Small devices
+      xs: "293px", // Extra Small devices
       md: "672px", // Medium devices
       lg: "952px", // Large devices
       xl: "1160px", // XLarge

@@ -94,7 +94,7 @@ export const Header = ({
   useEffect(() => {
     if (user) {
       setShowModal(false);
-      handleOnChange((user["4941"] || "") + " " + (user["4942"] || ""), "4942");
+      handleOnChange(user["4942"] || "", "4942");
     }
   }, [user]);
 
@@ -366,7 +366,7 @@ export const Header = ({
                     icon={
                       <GrRefresh
                         color="black"
-                        className="xs:text-xs md:text-sm lg:text-lg"
+                        className="xs:text-xs md:text-sm lg:text-xl"
                       />
                     }
                     className={

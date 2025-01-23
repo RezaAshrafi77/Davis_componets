@@ -4,7 +4,7 @@ import { IoPrintOutline } from "react-icons/io5";
 import { Button } from "../Button";
 import { Dropdown } from "../Dropdown";
 import { excelOptions, tableSizeList } from "./data";
-import { exportTableToExcel } from "../../utils/helpers";
+import { exportTableToExcel, printPartOfPage } from "../../utils/helpers";
 import { FiDownload } from "react-icons/fi";
 import { useState } from "react";
 import styles from "./styles.module.css";
@@ -118,7 +118,7 @@ export const Table = ({
               className={
                 "text-3xs md:text-2xs lg:text-xs border-none min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 text-center rounded shadow-sm hover:scale-110 transition-all bg-white"
               }
-              onClick={() => window.print()}
+              onClick={() => printPartOfPage("table" + tableId)}
               icon={
                 <IoPrintOutline className="text-xs md:text-base cursor-pointer lg:!text-xl" />
               }
@@ -152,7 +152,7 @@ export const Table = ({
             ) : null}
             <Button
               className={
-                "text-3xs md:text-2xs lg:text-xs border-none min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 text-center rounded shadow-sm hover:scale-110 transition-all bg-white"
+                "!text-3xs md:!text-2xs lg:!text-xs border-none min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 text-center rounded shadow-sm hover:scale-110 transition-all bg-white"
               }
               title={"ابتدا"}
               variant=""
@@ -161,7 +161,7 @@ export const Table = ({
             <div className="flex gap-1">
               <Button
                 className={
-                  "text-3xs md:text-2xs lg:text-xs border-none min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 text-center rounded shadow-sm hover:scale-110 transition-all bg-white"
+                  "!text-3xs md:!text-2xs lg:!text-xs border-none min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 text-center rounded shadow-sm hover:scale-110 transition-all bg-white"
                 }
                 disabled={page == 1}
                 variant={page == 1 ? "disabled" : ""}
@@ -170,14 +170,14 @@ export const Table = ({
               />
               <div
                 className={
-                  "text-3xs md:text-2xs lg:text-xs min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 flex justify-center items-center rounded bg-white text-black"
+                  "!text-3xs md:!text-2xs lg:!text-xs min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 flex justify-center items-center rounded bg-white text-black"
                 }
               >
                 {page}
               </div>
               <Button
                 className={
-                  "text-3xs md:text-2xs lg:text-xs border-none min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 text-center rounded shadow-sm hover:scale-110 transition-all bg-white"
+                  "!text-3xs md:!text-2xs lg:!text-xs border-none min-w-6 min-h-6 max-h-6 max-w-6 lg:min-w-8 lg:min-h-8 text-center rounded shadow-sm hover:scale-110 transition-all bg-white"
                 }
                 title={"بعدی"}
                 disabled={Math.floor(rows?.length / tableSize) == 0}

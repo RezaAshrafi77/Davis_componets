@@ -1,3 +1,5 @@
+import { style } from "./style";
+
 export const exportTableToExcel = (id) => {
   // Get the table HTML
   const table = document.getElementById(id);
@@ -30,4 +32,24 @@ export const exportTableToExcel = (id) => {
     // Triggering the function
     downloadLink.click();
   }
+};
+
+export const printPartOfPage = (id) => {
+  const content = document.getElementById(id);
+  const WinPrint = window.open(
+    "",
+    "",
+    "left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0"
+  );
+  const html = `<html>
+      <head>${style}</head>
+      <body dir="rtl">${content.outerHTML}</body>
+    </html>`;
+  WinPrint.document.write(html);
+  WinPrint.document.close();
+  WinPrint.focus();
+  WinPrint.addEventListener("load", () => {
+    WinPrint.print();
+    WinPrint.close();
+  });
 };
