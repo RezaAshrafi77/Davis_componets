@@ -17,10 +17,6 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
     formState: { errors },
   } = useFormContext();
 
-  useEffect(() => {
-    return () => setValue(props.questionKey, "");
-  }, [props.questionKey, setValue]);
-
   const commonProps = {
     containerClassName: `${props.containerClassName} max-h-fit`,
     label: props.label,
