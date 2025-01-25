@@ -90,7 +90,6 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
         value={props.value}
         onChange={props.onChange}
         en={props.en}
-        register={props.search ? register : null}
       />
     ),
     CheckBoxGroup: (
@@ -103,7 +102,6 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
         divider={props.divider || "center"}
         educationalContent={props.educationalContent}
         en={props.en}
-        register={register}
         labelMore={props.labelMore}
         checkBoxClassName={props.checkBoxClassName}
         optionsContainer={props.optionsContainer}
@@ -128,7 +126,6 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
         watch={watch}
         setValue={setValue}
         errors={errors}
-        register={register}
         labelClassName={props.labelClassName}
         accept={props.accept}
         divider={props.divider || "center"}
