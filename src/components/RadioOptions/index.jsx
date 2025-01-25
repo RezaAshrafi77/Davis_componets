@@ -41,7 +41,7 @@ export function RadioOptions({
         value={option.value}
         label={option.label}
         onClick={onClick}
-        {...register(questionKey)}
+        {...register(questionKey, { required })}
       />
     ));
 

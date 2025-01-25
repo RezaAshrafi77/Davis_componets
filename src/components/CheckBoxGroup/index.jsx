@@ -6,6 +6,7 @@ import { CheckBox } from "../CheckBox";
 import { Divider } from "../Divider";
 import { Label } from "../Label";
 import styles from "./styles.module.css";
+import { useEffect } from "react";
 
 export const CheckBoxGroup = ({
   containerClassName,
@@ -26,6 +27,7 @@ export const CheckBoxGroup = ({
   dividerClassName,
   labelMore,
   disabled,
+  register,
   en,
 }) => {
   // const [device] = useDevice()
@@ -58,6 +60,14 @@ export const CheckBoxGroup = ({
     right: "label-right",
     left: "label-left",
   };
+
+  useEffect(() => {
+    if (register && required) {
+      register(questionKey, {
+        required: true,
+      });
+    }
+  }, []);
 
   return (
     <div

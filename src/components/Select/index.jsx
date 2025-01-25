@@ -6,7 +6,7 @@ import { Divider } from "../Divider";
 import { TextField } from "../TextField";
 import { Controller } from "react-hook-form";
 import { IoChevronDownOutline } from "react-icons/io5";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import searchIcon from "../../assets/icons/search.svg";
 
 export const Select = ({
@@ -31,6 +31,7 @@ export const Select = ({
   search,
   labelMore,
   disabled,
+  register,
   ...props
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -83,6 +84,14 @@ export const Select = ({
     right: "label-right",
     left: "label-left",
   };
+
+  useEffect(() => {
+    if (register && required) {
+      register(questionKey, {
+        required: true,
+      });
+    }
+  }, []);
 
   return (
     <Fragment>
@@ -183,6 +192,9 @@ export const Select = ({
           <Controller
             control={control}
             name={questionKey}
+            rules={{
+              required,
+            }}
             render={({ field }) => renderSelect({ field })}
           />
         ) : (

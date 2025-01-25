@@ -103,10 +103,13 @@ export const TextField = ({
         {props.rows > 1 ? (
           <textarea
             {...inputProps}
-            {...(register ? register(questionKey) : {})}
+            {...(register ? register(questionKey, { required }) : {})}
           />
         ) : (
-          <input {...inputProps} {...(register ? register(questionKey) : {})} />
+          <input
+            {...inputProps}
+            {...(register ? register(questionKey, { required }) : {})}
+          />
         )}
         {!props.rows ? (
           <div
