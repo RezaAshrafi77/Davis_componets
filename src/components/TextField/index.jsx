@@ -16,7 +16,7 @@ export const TextField = ({
   archive,
   labelClassName,
   questionKey,
-  required,
+  validation,
   register,
   watch,
   onChange: customOnChange,
@@ -85,7 +85,7 @@ export const TextField = ({
           educationalContent={educationalContent}
           archive={archive ? { ...archive, questionKey } : false}
           label={label}
-          required={required}
+          required={validation.required}
           en={en}
           more={labelMore}
           disabled={disabled && showLockIcon}
@@ -103,12 +103,12 @@ export const TextField = ({
         {props.rows > 1 ? (
           <textarea
             {...inputProps}
-            {...(register ? register(questionKey, { required }) : {})}
+            {...(register ? register(questionKey, validation) : {})}
           />
         ) : (
           <input
             {...inputProps}
-            {...(register ? register(questionKey, { required }) : {})}
+            {...(register ? register(questionKey, validation) : {})}
           />
         )}
         {!props.rows ? (

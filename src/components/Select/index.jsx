@@ -16,7 +16,6 @@ export const Select = ({
   optionClassName,
   containerClassName,
   options = [],
-  required = false,
   divider,
   userGuide,
   educationalContent,
@@ -32,6 +31,7 @@ export const Select = ({
   labelMore,
   disabled,
   register,
+  validation,
   ...props
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -86,10 +86,8 @@ export const Select = ({
   };
 
   useEffect(() => {
-    if (register && required) {
-      register(questionKey, {
-        required: true,
-      });
+    if (register && validation) {
+      register(questionKey, validation);
     }
   }, []);
 
@@ -120,7 +118,7 @@ export const Select = ({
           educationalContent={educationalContent}
           archive={archive ? { ...archive, questionKey } : false}
           label={label}
-          required={required}
+          required={validation.required}
           en={en}
           more={labelMore}
           disabled={disabled}
@@ -192,9 +190,7 @@ export const Select = ({
           <Controller
             control={control}
             name={questionKey}
-            rules={{
-              required,
-            }}
+            rules={validation}
             render={({ field }) => renderSelect({ field })}
           />
         ) : (

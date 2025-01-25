@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { FaFileCircleXmark } from "react-icons/fa6";
 import { MdOutlineFileUpload } from "react-icons/md";
@@ -16,7 +16,7 @@ export const FileField = ({
   onChange,
   watch,
   label,
-  required,
+  validation,
   questionKey,
   errors,
   divider = "center",
@@ -32,6 +32,7 @@ export const FileField = ({
   disabled,
   accept,
   labelMore,
+  register,
   en,
 }) => {
   const error = errors?.[questionKey] ? errors?.[questionKey]?.message : null;
@@ -109,6 +110,12 @@ export const FileField = ({
     left: "label-left",
   };
 
+  useEffect(() => {
+    if (register && validation) {
+      register(questionKey, validation);
+    }
+  }, []);
+
   return (
     <div
       className={classNames(
@@ -148,7 +155,7 @@ export const FileField = ({
               : false
           }
           label={label}
-          required={required}
+          required={validation.required}
           disabled={disabled}
           en={en}
         />

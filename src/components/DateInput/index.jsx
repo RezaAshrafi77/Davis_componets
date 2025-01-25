@@ -16,7 +16,7 @@ export const DateInput = ({
   control,
   containerClassName,
   className,
-  required = false,
+  validation,
   errors = {},
   watch,
   labelClassName,
@@ -60,7 +60,7 @@ export const DateInput = ({
       {/* Label */}
       <Label
         label={label}
-        required={required}
+        required={validation.required}
         className={classNames(labelClassName, labelDirectionStyle[divider])}
         archive={archive ? { ...archive, questionKey: id } : false}
         disabled={disabled}
@@ -86,6 +86,7 @@ export const DateInput = ({
       >
         <Controller
           control={control}
+          rules={validation}
           name={id}
           render={({ field: { onChange } }) => (
             <DatePicker

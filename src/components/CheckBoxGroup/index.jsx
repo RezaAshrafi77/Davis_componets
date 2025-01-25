@@ -6,6 +6,7 @@ import { CheckBox } from "../CheckBox";
 import { Divider } from "../Divider";
 import { Label } from "../Label";
 import styles from "./styles.module.css";
+import { useEffect } from "react";
 
 export const CheckBoxGroup = ({
   containerClassName,
@@ -19,9 +20,10 @@ export const CheckBoxGroup = ({
   userGuide,
   errors,
   questionKey,
-  required = false,
+  validation,
   setValue,
   watch,
+  register,
   archive,
   dividerClassName,
   labelMore,
@@ -59,6 +61,12 @@ export const CheckBoxGroup = ({
     left: "label-left",
   };
 
+  useEffect(() => {
+    if (register && validation) {
+      register(questionKey, validation);
+    }
+  }, []);
+
   return (
     <div
       className={classNames(
@@ -77,7 +85,7 @@ export const CheckBoxGroup = ({
           educationalContent={educationalContent}
           archive={archive ? { ...archive, questionKey } : false}
           label={label}
-          required={required}
+          required={validation.required}
           en={en}
           more={labelMore}
           disabled={disabled}

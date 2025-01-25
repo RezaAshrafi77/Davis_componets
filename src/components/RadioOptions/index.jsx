@@ -6,6 +6,7 @@ import { Radio } from "../Radio/index";
 import styles from "./styles.module.css";
 // import useDevice from "../../hooks/useDevice"
 import { BiError } from "react-icons/bi";
+import { useEffect } from "react";
 
 export function RadioOptions({
   containerClassName = "",
@@ -21,7 +22,6 @@ export function RadioOptions({
   labelClassName = "",
   optionsContainer = "",
   radioClassName = "",
-  required = false,
   educationalContent = null,
   errors = {},
   archive = null,
@@ -29,6 +29,7 @@ export function RadioOptions({
   en,
   disabled,
   labelMore,
+  validation,
 }) {
   const error = errors?.[questionKey] ? errors?.[questionKey]?.message : null;
   const renderOptions = () =>
@@ -51,6 +52,12 @@ export function RadioOptions({
     left: "label-left",
   };
 
+  useEffect(() => {
+    if (register && validation) {
+      register(questionKey, validation);
+    }
+  }, []);
+
   return (
     <div
       className={classNames(
@@ -71,7 +78,7 @@ export function RadioOptions({
           educationalContent={educationalContent}
           archive={archive ? { ...archive, questionKey } : false}
           label={label}
-          required={required}
+          required={validation?.required}
           en={en}
           more={labelMore}
           disabled={disabled}

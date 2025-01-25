@@ -8,7 +8,13 @@ import { CheckBoxGroup } from "../../components/CheckBoxGroup";
 import { Select } from "../../components/Select";
 import { FileField } from "../../components/FileField";
 
-export const FormFields = ({ BC, useFormContext, request, ...props }) => {
+export const FormFields = ({
+  BC,
+  useFormContext,
+  unmount,
+  request,
+  ...props
+}) => {
   const {
     register,
     watch,
@@ -17,11 +23,16 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
     formState: { errors },
   } = useFormContext();
 
+  useEffect(() => {
+    return () => {
+      if (unmount) setValue(props.questionKey, null);
+    };
+  }, []);
+
   const commonProps = {
     containerClassName: `${props.containerClassName} max-h-fit`,
     label: props.label,
     questionKey: props.questionKey,
-    required: props.required,
     userGuide: props.userGuide,
     disabled: props.disabled,
     archive: props.archive
@@ -33,6 +44,7 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
           renderCell: props.renderCell,
         }
       : null,
+    en: props.en,
   };
 
   const componentMap = {
@@ -48,6 +60,7 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
         errors={errors}
         options={props.options}
         labelMore={props.labelMore}
+        validation={props.validation}
       />
     ),
     TextField: (
@@ -62,6 +75,7 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
         placeholder={props.placeholder}
         educationalContent={props.educationalContent}
         labelMore={props.labelMore}
+        validation={props.validation}
       />
     ),
     "progress-chart": (
@@ -71,6 +85,7 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
         value={watch(props.questionKey)}
         ranges={props.ranges}
         educationalContent={props.educationalContent}
+        required={props.validation}
       />
     ),
     Select: (
@@ -85,7 +100,8 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
         labelMore={props.labelMore}
         value={props.value}
         onChange={props.onChange}
-        en={props.en}
+        validation={props.validation}
+        register={register}
       />
     ),
     CheckBoxGroup: (
@@ -94,13 +110,14 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
         watch={watch}
         options={props.options}
         setValue={setValue}
+        register={register}
         errors={errors}
         divider={props.divider || "center"}
         educationalContent={props.educationalContent}
-        en={props.en}
         labelMore={props.labelMore}
         checkBoxClassName={props.checkBoxClassName}
         optionsContainer={props.optionsContainer}
+        validation={props.validation}
       />
     ),
     DateInput: (
@@ -108,10 +125,11 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
         {...commonProps}
         control={control}
         watch={watch}
+        errors={errors}
+        validation={props.validation}
         id={props.id}
         divider={props.divider || "center"}
         educationalContent={props.educationalContent}
-        en={props.en}
         labelMore={props.labelMore}
       />
     ),
@@ -125,9 +143,10 @@ export const FormFields = ({ BC, useFormContext, request, ...props }) => {
         labelClassName={props.labelClassName}
         accept={props.accept}
         divider={props.divider || "center"}
-        en={props.en}
         educationalContent={props.educationalContent}
         labelMore={props.labelMore}
+        validation={props.validation}
+        register={register}
       />
     ),
   };

@@ -33,32 +33,23 @@ export { Prescription } from "./sections/Prescription/index.jsx";
 // import ReactDOM from "react-dom/client";
 // import "./index.css";
 // import { Page } from "./components/Page";
-// import { Table } from "./components/Table";
-// import { useForm } from "react-hook-form";
+// import { FormProvider, useForm, useFormContext } from "react-hook-form";
+// import { FormFields } from "./layouts/FormFields";
 
 // const MyFunction = () => {
-//   const {
-//     register,
-//     watch,
-//     control,
-//     setValue,
-//     formState: { errors },
-//   } = useForm({
+//   const methods = useForm({
 //     mode: "all",
 //   });
 
 //   return (
 //     <Page back={true}>
-//       <Table
-//         columns={["fds", "sds", "dfsdf"]}
-//         rows={[
-//           ["reza", "reza", "reza"],
-//           ["reza", "reza", "reza"],
-//           ["reza", "reza", "reza"],
-//         ]}
-//         pagination
-//         page={1}
-//       />
+//       <FormProvider {...methods}>
+//         <FormFields
+//           component="DateInput"
+//           id="31232"
+//           useFormContext={useFormContext}
+//         />
+//       </FormProvider>
 //     </Page>
 //   );
 // };
