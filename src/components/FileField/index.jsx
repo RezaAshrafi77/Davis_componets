@@ -155,7 +155,7 @@ export const FileField = ({
               : false
           }
           label={label}
-          required={validation.required}
+          required={validation ? validation.required : null}
           disabled={disabled}
           en={en}
         />

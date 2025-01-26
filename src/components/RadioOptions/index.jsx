@@ -78,7 +78,7 @@ export function RadioOptions({
           educationalContent={educationalContent}
           archive={archive ? { ...archive, questionKey } : false}
           label={label}
-          required={validation?.required}
+          required={validation ? validation.required : null}
           en={en}
           more={labelMore}
           disabled={disabled}

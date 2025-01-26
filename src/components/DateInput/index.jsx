@@ -60,7 +60,7 @@ export const DateInput = ({
       {/* Label */}
       <Label
         label={label}
-        required={validation.required}
+        required={validation ? validation.required : null}
         className={classNames(labelClassName, labelDirectionStyle[divider])}
         archive={archive ? { ...archive, questionKey: id } : false}
         disabled={disabled}
