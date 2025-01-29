@@ -1,5 +1,5 @@
 .container {
-    @apply relative inline-flex justify-between items-center gap-3 lg:gap-6 bg-background rounded-[2px] lg:rounded px-[6px] py-1 border-[0.5px] border-solid border-black cursor-pointer opacity-90 hover:opacity-100;
+    @apply relative inline-flex justify-between items-center gap-3 lg:gap-6 bg-background hover:bg-white rounded-[2px] lg:rounded px-[6px] py-1 border-[0.5px] border-solid border-black cursor-pointer opacity-90 hover:opacity-100;
 }
 
 .enContainer .label {
@@ -29,7 +29,7 @@
 }
 
 .label {
-    @apply ml-2 select-none font-600 text-3xs md:text-2xs text-black lg:text-[11px] xl:text-xs;
+    @apply ml-2 select-none font-600 text-2xs text-black lg:text-[11px] xl:text-xs;
 }
 
 .firstLayer {

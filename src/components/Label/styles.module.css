@@ -1,32 +1,32 @@
 /* styles.module.css */
 
 .truncatedTextEn {
-  font-family: sans-serif;
-  font-weight: 700;
+    font-family: sans-serif;
+    font-weight: 700;
 }
 
 .required {
-  line-height: 0px !important;
-  color: #960018;
+    line-height: 0px !important;
+    color: #960018;
 }
 
 .enLabel {
-  font-family: sans-serif;
-  font-weight: 700;
+    font-family: sans-serif;
+    font-weight: 700;
 }
 
 .enLabel img {
-  margin-left: 4px;
+    margin-left: 4px;
 }
 
 .label img {
-  margin-right: 4px;
+    margin-right: 4px;
 }
 
 .label .eduIcon {
-  left: 4px;
+    left: 0px;
 }
 
 .enLabel .eduIcon {
-  right: 4px;
+    right: 4px;
 }
