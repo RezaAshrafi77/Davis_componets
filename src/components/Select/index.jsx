@@ -32,6 +32,7 @@ export const Select = ({
     disabled,
     register,
     validation,
+    placeholder,
     ...props
 }) => {
     const [isOpen, setIsOpen] = useState(false)
@@ -166,7 +167,7 @@ export const Select = ({
                                                 loading="lazy"
                                             />
                                         }
-                                        placeholder="حداقل ۲ حرف از نام دارو را وارد کنید."
+                                        placeholder={placeholder}
                                         value={searchValue}
                                         onChange={(e) =>
                                             setSearchValue(e.target.value)
