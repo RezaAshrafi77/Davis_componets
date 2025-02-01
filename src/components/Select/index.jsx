@@ -167,7 +167,10 @@ export const Select = ({
                                                 loading="lazy"
                                             />
                                         }
-                                        placeholder={placeholder}
+                                        placeholder={
+                                            placeholder ||
+                                            '"حداقل ۲ حرف از نام دارو را وارد کنید."'
+                                        }
                                         value={searchValue}
                                         onChange={(e) =>
                                             setSearchValue(e.target.value)
