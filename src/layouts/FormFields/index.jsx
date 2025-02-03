@@ -61,6 +61,18 @@ export const FormFields = ({
         options={props.options}
         labelMore={props.labelMore}
         validation={props.validation}
+        archive={
+          props.archive
+            ? {
+                userID: watch("6483"),
+                BC,
+                jobID: 164,
+                request,
+                renderCell: (val) =>
+                  props.options.find((o) => o.value == val)?.label,
+              }
+            : null
+        }
       />
     ),
     TextField: (
@@ -76,6 +88,17 @@ export const FormFields = ({
         educationalContent={props.educationalContent}
         labelMore={props.labelMore}
         validation={props.validation}
+        archive={
+          props.archive
+            ? {
+                userID: watch("6483"),
+                BC,
+                jobID: 164,
+                request,
+                renderCell: (val) => val,
+              }
+            : null
+        }
       />
     ),
     "progress-chart": (
@@ -86,6 +109,16 @@ export const FormFields = ({
         ranges={props.ranges}
         educationalContent={props.educationalContent}
         required={props.validation}
+        archive={
+          props.archive
+            ? {
+                userID: watch("6483"),
+                BC,
+                jobID: 164,
+                request,
+              }
+            : null
+        }
       />
     ),
     Select: (
@@ -102,6 +135,18 @@ export const FormFields = ({
         onChange={props.onChange}
         validation={props.validation}
         register={register}
+        archive={
+          props.archive
+            ? {
+                userID: watch("6483"),
+                BC,
+                jobID: 164,
+                request,
+                renderCell: (val) =>
+                  props.options.find((o) => o.value == val)?.label,
+              }
+            : null
+        }
       />
     ),
     CheckBoxGroup: (
@@ -118,6 +163,23 @@ export const FormFields = ({
         checkBoxClassName={props.checkBoxClassName}
         optionsContainer={props.optionsContainer}
         validation={props.validation}
+        archive={
+          props.archive
+            ? {
+                userID: watch("6483"),
+                BC,
+                jobID: 164,
+                request,
+                renderCell: (values) =>
+                  values
+                    .map(
+                      (value) =>
+                        props.options.find((o) => o.value == value)?.label
+                    )
+                    .join(" , "),
+              }
+            : null
+        }
       />
     ),
     DateInput: (
@@ -131,6 +193,17 @@ export const FormFields = ({
         divider={props.divider || "center"}
         educationalContent={props.educationalContent}
         labelMore={props.labelMore}
+        archive={
+          props.archive
+            ? {
+                userID: watch("6483"),
+                BC,
+                jobID: 164,
+                request,
+                renderCell: (val) => val,
+              }
+            : null
+        }
       />
     ),
     FileField: (
@@ -147,6 +220,16 @@ export const FormFields = ({
         labelMore={props.labelMore}
         validation={props.validation}
         register={register}
+        archive={
+          props.archive
+            ? {
+                userID: watch("6483"),
+                BC,
+                jobID: 164,
+                request,
+              }
+            : null
+        }
       />
     ),
   };
