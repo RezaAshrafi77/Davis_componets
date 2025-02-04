@@ -25,7 +25,7 @@ export function ArchiveTable({ options }) {
       dataInfo: {
         qbc: BC,
         oi: questionKey,
-        6483: userID || localStorage.getItem("userData")?.["6483"],
+        6483: userID,
         limit: tableSize,
         offset: 0,
       },
