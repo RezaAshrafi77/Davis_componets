@@ -43,7 +43,7 @@ export const ProjectName = ({ name, back, navigate }) => {
           {back && (
             <Button
               title="بازگشت"
-              className="!gap-0.5"
+              className="!gap-0.5 !px-0 !shadow-none"
               variant="text"
               icon={<FaAngleLeft />}
               onClick={() => {
