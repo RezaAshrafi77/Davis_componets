@@ -1,0 +1,19 @@
+.toolbar {
+  @apply bg-formItem2 m-0 rounded-t-md;
+
+  * {
+    @apply bg-formItem2 shadow-none cursor-pointer;
+    direction: ltr;
+  }
+}
+
+.wrapper {
+  box-shadow: none;
+}
+
+.editor {
+  @apply !border-4 !border-solid  !border-formItem2 !m-0 !px-4 hover:bg-white rounded-b-md;
+  * {
+    direction: rtl;
+  }
+}
