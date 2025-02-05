@@ -23,13 +23,13 @@ export const ProjectName = ({ name, back, navigate }) => {
                 className={classNames(styles.rightLine + " " + "h-0.5 w-4")}
               ></span>
               {name && (
-                <h1
+                <strong
                   className={
-                    "text-black font-700 text-xs md:text-sm lg:text-lg bg-white z-20 px-2"
+                    "text-black font-700 text-xs md:text-sm lg:text-base bg-white z-20 px-2"
                   }
                 >
                   {name}
-                </h1>
+                </strong>
               )}
             </Fragment>
           ) : null}
