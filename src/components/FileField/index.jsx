@@ -51,7 +51,7 @@ export const FileField = ({
   };
 
   const winOpen = (link) => {
-    const url = `${baseURL.substring(0, baseURL.length - 5)}${link}`;
+    const url = `${baseURL}/${link}`;
     window.open(url, "_blank");
   };
 
