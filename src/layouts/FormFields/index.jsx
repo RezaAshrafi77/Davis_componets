@@ -79,7 +79,7 @@ export const FormFields = ({
     TextEditor: (
       <TextEditor
         {...commonProps}
-        useFormContext={props.useFormContext}
+        useFormContext={useFormContext}
         validation={props.validation}
         divider={props.divider}
         labelMore={props.labelMore}
