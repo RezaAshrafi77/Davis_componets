@@ -7,6 +7,7 @@ import { TextField } from "../../components/TextField";
 import { CheckBoxGroup } from "../../components/CheckBoxGroup";
 import { Select } from "../../components/Select";
 import { FileField } from "../../components/FileField";
+import { TextEditor } from "../../components/TextEditor";
 
 export const FormFields = ({
   BC,
@@ -70,6 +71,25 @@ export const FormFields = ({
                 request,
                 renderCell: (val) =>
                   props.options.find((o) => o.value == val)?.label,
+              }
+            : null
+        }
+      />
+    ),
+    TextEditor: (
+      <TextEditor
+        {...commonProps}
+        useFormContext={props.useFormContext}
+        validation={props.validation}
+        divider={props.divider}
+        labelMore={props.labelMore}
+        archive={
+          props.archive
+            ? {
+                userID: watch("6483"),
+                BC,
+                jobID: 164,
+                request,
               }
             : null
         }
