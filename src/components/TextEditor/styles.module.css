@@ -12,7 +12,7 @@
 }
 
 .editor {
-  @apply h-fit min-h-14 !border-4 !border-solid  !border-formItem2 !m-0 !px-4 hover:bg-white rounded-b-md;
+  @apply h-fit min-h-14 !border-4 !border-solid  !border-formItem2 !bg-background !m-0 !px-4 hover:bg-white rounded-b-md;
   * {
     direction: rtl;
   }

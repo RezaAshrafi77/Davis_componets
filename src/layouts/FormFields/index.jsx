@@ -235,6 +235,7 @@ export const FormFields = ({
         errors={errors}
         labelClassName={props.labelClassName}
         accept={props.accept}
+        baseURL={props.baseURL}
         divider={props.divider || "center"}
         educationalContent={props.educationalContent}
         labelMore={props.labelMore}

@@ -25,6 +25,9 @@ export const TextEditor = ({
   labelMore,
   dividerClassName,
   containerClassName,
+  wrapperClassName,
+  editorClassName,
+  toolbarClassName,
 }) => {
   const {
     watch,
@@ -86,7 +89,7 @@ export const TextEditor = ({
   return (
     <div
       className={classNames(
-        "w-full flex flex-col relative",
+        "w-full flex flex-col relative bg-formItem p-2 rounded shadow-formItem",
         containerClassName,
         error ? "field-error" : ""
       )}
@@ -110,9 +113,11 @@ export const TextEditor = ({
       {/* Rich Text Editor */}
       <Editor
         editorState={editorState}
-        toolbarClassName={styles.toolbar}
-        wrapperClassName={styles.wrapper}
-        editorClassName={styles.editor}
+        toolbarClassName={styles.toolbar + " " + toolbarClassName}
+        wrapperClassName={styles.wrapper + " " + wrapperClassName}
+        editorClassName={
+          styles.editor + " " + editorClassName + " " + "prose min-w-full"
+        }
         onEditorStateChange={handleEditorChange} // Update form state
         readOnly={disabled}
       />

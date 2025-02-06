@@ -4,9 +4,8 @@ export default {
     "./index.html", // Include your main HTML file
     "./src/**/*.{js,jsx,ts,tsx}", // Include all JavaScript and JSX/TSX files
   ],
-  corePlugins: {
-    preflight: false,
-  },
+  // eslint-disable-next-line no-undef
+  plugins: [require("@tailwindcss/typography")],
   // Scan all component files for used classes
   theme: {
     fontFamily: {
@@ -76,6 +75,4 @@ export default {
       },
     },
   },
-
-  plugins: [],
 };
