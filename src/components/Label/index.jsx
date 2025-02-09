@@ -8,7 +8,6 @@ import ArchiveIcon from "../../assets/icons/archive.svg";
 import LockIcon from "../../assets/icons/lock.svg";
 import DangerIcon from "../../assets/icons/danger.svg";
 import { MdOutlineMoreHoriz } from "react-icons/md";
-import useDevice from "../../hooks/useDevice";
 import classNames from "classnames";
 import { MdChevronLeft } from "react-icons/md";
 
@@ -31,7 +30,6 @@ export const Label = ({
     archive: false,
   });
   const [openMoreBox, setOpenMoreBox] = useState(false);
-  const [device] = useDevice();
   const [showMore, setShowMore] = useState(
     window.innerWidth > 671 ? more : false
   );
@@ -42,47 +40,44 @@ export const Label = ({
     setOpenModal((prev) => ({ ...prev, [type]: !prev[type] }));
   };
 
-  useEffect(() => {
-    const measureWidth = () => {
-      if (labelRef.current && spanRef.current) {
-        const labelWidth = labelRef.current.offsetWidth;
-        const textWidth = spanRef.current.offsetWidth;
+  const measureWidth = () => {
+    const iconSizes =
+      (required ? -11 : 0) +
+      (disabled ? -21 : 0) +
+      (userGuide ? -32 : 0) +
+      (archive ? -24 : 0) +
+      (educationalContent?.show ? -19 : 0);
 
-        // Check if text exceeds available width
-        if (
-          textWidth + (device == "desktop" ? 100 : 40) >
-          labelWidth - (buttonWidth + gap)
-        ) {
-          let newText = label;
-          let words = newText.split(" ");
-          let truncated = "";
-          for (let word of words) {
-            spanRef.current.innerText = truncated + word + " ";
-            if (
-              spanRef.current.offsetWidth >
-              labelWidth - (buttonWidth + gap)
-            ) {
-              break;
-            }
-            truncated += word + " ";
+    if (labelRef.current && spanRef.current) {
+      const labelWidth = labelRef.current.offsetWidth + iconSizes - 34;
+      const textWidth = spanRef.current.offsetWidth;
+      console.log(labelWidth, textWidth);
+      // Check if text exceeds available width
+      if (textWidth > labelWidth) {
+        let newText = label;
+        let chars = newText.split("");
+        let truncated = "";
+        for (let char of chars) {
+          spanRef.current.innerText = truncated + char;
+          if (spanRef.current.offsetWidth > labelWidth) {
+            break;
           }
-
-          setTruncatedText(truncated.trim() + "");
-          setShowMore(true);
-        } else {
-          setTruncatedText(label);
-          setShowMore(false);
+          truncated += char;
         }
+        setTruncatedText(truncated.trim() + "");
+        setShowMore(true);
+      } else {
+        setTruncatedText(label);
+        setShowMore(false);
       }
-    };
-
-    if (window.innerWidth > 671) {
-      measureWidth();
-      window.addEventListener("resize", measureWidth);
-
-      return () => window.removeEventListener("resize", measureWidth);
     }
-  }, [label]);
+  };
+
+  useEffect(() => {
+    if (window.innerWidth > 671) {
+      setTimeout(() => measureWidth(), 1000);
+    }
+  }, []);
 
   return (
     <Fragment>
@@ -96,14 +91,14 @@ export const Label = ({
         className={classNames(
           className,
           styles.label,
-          educationalContent?.show ? "pl-[18px]" : "",
+          educationalContent?.show ? "pl-[20px]" : "",
           "flex items-center text-center font-700 text-black text-2xs lg:text-xs xl:text-sm overflow-hidden",
           en
             ? styles.enLabel +
                 " " +
                 "relative flex items-center text-black text-2xs lg:text-xs xl:text-sm"
             : styles.label,
-          showMore ? "w-full z-[1000]" : "relative",
+          showMore ? "w-full z-[1000] " : "relative",
           "select-none"
         )}
         dir={en ? "ltr" : ""}
@@ -128,7 +123,7 @@ export const Label = ({
               onClick={() => {
                 setOpenMoreBox(true);
               }}
-              className="text-lg lg:text-xl hover:cursor-pointer"
+              className="text-lg lg:text-xl hover:cursor-pointer ml-auto"
               style={{
                 width: `${buttonWidth}px`,
                 marginRight: `${gap}px`,
@@ -182,7 +177,11 @@ export const Label = ({
             loading="lazy"
             alt="محتوای آموزشی"
             onClick={() => educationalContent.action()}
-            className={`${styles.eduIcon} absolute top-1/2 -translate-y-1/2 w-[15px] md:w-[17px] cursor-pointer ${educationalContent.className}`}
+            className={`${
+              styles.eduIcon
+            } absolute  w-[15px] md:w-[17px] cursor-pointer ${
+              educationalContent.className
+            } ${showMore ? "!left-1" : "top-1/2 -translate-y-1/2"}`}
           />
         )}
 
