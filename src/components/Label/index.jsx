@@ -40,44 +40,41 @@ export const Label = ({
     setOpenModal((prev) => ({ ...prev, [type]: !prev[type] }));
   };
 
-  const measureWidth = () => {
-    const iconSizes =
-      (required ? -11 : 0) +
-      (disabled ? -21 : 0) +
-      (userGuide ? -32 : 0) +
-      (archive ? -24 : 0) +
-      (educationalContent?.show ? -19 : 0);
-
-    if (labelRef.current && spanRef.current) {
-      const labelWidth = labelRef.current.offsetWidth + iconSizes - 34;
-      const textWidth = spanRef.current.offsetWidth;
-      console.log(labelWidth, textWidth);
-      // Check if text exceeds available width
-      if (textWidth > labelWidth) {
-        let newText = label;
-        let chars = newText.split("");
-        let truncated = "";
-        for (let char of chars) {
-          spanRef.current.innerText = truncated + char;
-          if (spanRef.current.offsetWidth > labelWidth) {
-            break;
-          }
-          truncated += char;
-        }
-        setTruncatedText(truncated.trim() + "");
-        setShowMore(true);
-      } else {
-        setTruncatedText(label);
-        setShowMore(false);
-      }
-    }
-  };
-
   useEffect(() => {
+    const measureWidth = () => {
+      const iconSizes =
+        (required ? -11 : 0) +
+        (disabled ? -21 : 0) +
+        (userGuide ? -32 : 0) +
+        (archive ? -24 : 0) +
+        (educationalContent?.show ? -19 : 0);
+
+      if (labelRef.current && spanRef.current) {
+        const labelWidth = labelRef.current.offsetWidth + iconSizes - 34;
+        const textWidth = spanRef.current.offsetWidth;
+        if (textWidth > labelWidth) {
+          let newText = label;
+          let chars = newText.split("");
+          let truncated = "";
+          for (let char of chars) {
+            spanRef.current.innerText = truncated + char;
+            if (spanRef.current.offsetWidth > labelWidth) {
+              break;
+            }
+            truncated += char;
+          }
+          setTruncatedText(truncated.trim() + "");
+          setShowMore(true);
+        } else {
+          setTruncatedText(label);
+          setShowMore(false);
+        }
+      }
+    };
     if (window.innerWidth > 671) {
-      setTimeout(() => measureWidth(), 1000);
+      measureWidth();
     }
-  }, []);
+  }, [label]);
 
   return (
     <Fragment>

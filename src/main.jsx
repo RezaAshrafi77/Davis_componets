@@ -45,22 +45,25 @@ const MyFunction = () => {
   return (
     <Page back={true}>
       <FormProvider {...methods}>
-        <FormFields
-          component="TextField"
-          questionKey="31232"
-          label="با ا سللام واسرسی شمبیس ی"
-          useFormContext={useFormContext}
-          containerClassName="max-w-[250px]"
-          educationalContent={{
-            show: true,
-          }}
-          userGuide={<p>fsd</p>}
-          validation={{
-            required: true,
-          }}
-          disabled
-          labelMore={true}
-        />
+        <div className="grid grid-cols-3">
+          <FormFields
+            component="RadioOptions"
+            questionKey="31232"
+            label="آیا تاکنون پزشک به شما گفته است که مشکل قلبی دارید و تنها باید فعالیت های توصیه شده توسط پزشک را انجام دهید؟"
+            useFormContext={useFormContext}
+            options={[]}
+            divider="center"
+            //   educationalContent={{
+            //     show: true,
+            //   }}
+            //   userGuide={<p>fsd</p>}
+            //   validation={{
+            //     required: true,
+            //   }}
+            disabled
+            labelMore={true}
+          />
+        </div>
       </FormProvider>
     </Page>
   );
