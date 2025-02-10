@@ -40,9 +40,9 @@ export const Label = ({
 
     const measureWidth = () => {
         const iconSizes =
-            (required ? -11 : 0) +
+            (required ? -22 : 0) +
             (disabled ? -21 : 0) +
-            (userGuide ? -32 : 0) +
+            (userGuide ? -34 : 0) +
             (archive ? -24 : 0) +
             (educationalContent?.show ? -19 : 0)
 
@@ -70,8 +70,16 @@ export const Label = ({
     }
 
     useEffect(() => {
-        measureWidth()
+        if (label) {
+            measureWidth()
+        }
     }, [])
+
+    useEffect(() => {
+        if (label) {
+            measureWidth()
+        }
+    }, [label])
 
     return (
         <Fragment>
