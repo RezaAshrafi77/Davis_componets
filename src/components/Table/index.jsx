@@ -32,7 +32,6 @@ export const Table = ({
     const tableId = Math.floor(Math.random() * 10) + 1
 
     const handleDownload = () => {
-        console.log("hi")
         if (downloadMode == "csv") {
             return
         } else {
