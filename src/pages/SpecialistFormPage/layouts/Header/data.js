@@ -19,19 +19,19 @@ export const Form_Inputs = [
     label: `RF Id`,
     icon: BsQrCodeScan,
     placeholder: "در این قسمت وارد کنید",
-    qKey: 6365,
+    qKey: "6365",
   },
   {
     label: `نام خانوادگی`,
     icon: FaUser,
     placeholder: "",
-    qKey: 4942,
+    qKey: "4942",
   },
   {
     label: `کد ملی`,
     icon: HiMiniIdentification,
     placeholder: "در این قسمت وارد کنید",
-    qKey: 6620,
+    qKey: "6620",
   },
 ];
 
