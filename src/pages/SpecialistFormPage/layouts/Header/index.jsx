@@ -176,7 +176,7 @@ export const Header = ({
             6483: users[i]["6483"], // afzoodane id user user info
             tarikh_paziresh: users[i].date, // afzoodane tarikhe paziresh be user info
           });
-          handleOnChange(user["4942"] || "", "4942"); // set kardan input code meli dar header
+          handleOnChange(res.data["4942"] || "", "4942"); // set kardan input code meli dar header
           setShowModal(false);
         } else {
           toast.error("خطای دریافت اطلاعات" + "-" + res.error_code);
