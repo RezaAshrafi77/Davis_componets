@@ -171,12 +171,17 @@ export const Header = ({
     })
       .then((res) => {
         if (!res.error) {
+          const userInfo = res?.data;
           setUser({
-            ...res.data,
+            ...userInfo,
             6483: users[i]["6483"], // afzoodane id user user info
             tarikh_paziresh: users[i].date, // afzoodane tarikhe paziresh be user info
           });
-          handleOnChange(res.data["4942"] || "", "4942"); // set kardan input code meli dar header
+          if (userInfo) {
+            handleOnChange(userInfo?.["4942"] || "", "4942"); // set kardan input code meli dar header
+          } else {
+            handleOnChange("", "4942");
+          }
           setShowModal(false);
         } else {
           toast.error("خطای دریافت اطلاعات" + "-" + res.error_code);
