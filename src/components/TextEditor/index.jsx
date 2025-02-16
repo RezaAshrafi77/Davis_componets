@@ -1,14 +1,9 @@
 /* eslint-disable react/prop-types */
 import classNames from "classnames"
-import { Editor } from "react-draft-wysiwyg"
-import { EditorState, ContentState, convertFromRaw } from "draft-js"
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css"
 import { Divider } from "../Divider"
 import { Label } from "../Label"
 import { BiError } from "react-icons/bi"
-import { useState, useEffect } from "react"
-import htmlToDraft from "html-to-draftjs" //
-import { stateToHTML } from "draft-js-export-html"
+import { useState, useEffect, useRef } from "react"
 import styles from "./styles.module.css"
 
 export const TextEditor = ({
@@ -35,55 +30,81 @@ export const TextEditor = ({
         register,
         formState: { errors },
     } = useFormContext()
-    const [controlIntiChange, setControlInitChange] = useState(false)
-    const getEditorState = () => {
-        const value = watch(questionKey)
-        if (!value) return EditorState.createEmpty()
 
-        try {
-            if (typeof value === "string") {
-                const parsedValue = JSON.parse(value)
-                if (parsedValue.blocks) {
-                    return EditorState.createWithContent(
-                        convertFromRaw(parsedValue)
-                    )
-                }
-            }
-        } catch (error) {
-            console.warn("Text editor error")
-        }
-
-        // If JSON parsing fails, assume it's HTML
-        const blocksFromHTML = htmlToDraft(value)
-        if (blocksFromHTML) {
-            const contentState = ContentState.createFromBlockArray(
-                blocksFromHTML.contentBlocks,
-                blocksFromHTML.entityMap
-            )
-            return EditorState.createWithContent(contentState)
-        }
-
-        return EditorState.createEmpty()
-    }
-
-    const [editorState, setEditorState] = useState(() => getEditorState())
+    const [editorState, setEditorState] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
+    const EditorRef = useRef(null)
 
     useEffect(() => {
         register(questionKey, validation)
+
+        const loadEditorLibraries = async () => {
+            try {
+                const [
+                    { Editor },
+                    { EditorState, ContentState, convertFromRaw },
+                    htmlToDraftModule,
+                    { stateToHTML },
+                ] = await Promise.all([
+                    import("react-draft-wysiwyg"),
+                    import("draft-js"),
+                    import("html-to-draftjs"),
+                    import("draft-js-export-html"),
+                ])
+
+                // Assign the dynamically imported components/functions
+                EditorRef.current = Editor
+                const htmlToDraft = htmlToDraftModule.default
+
+                // Initialize editor state
+                const getEditorState = () => {
+                    const value = watch(questionKey)
+                    if (!value) return EditorState.createEmpty()
+
+                    try {
+                        if (typeof value === "string") {
+                            const parsedValue = JSON.parse(value)
+                            if (parsedValue.blocks) {
+                                return EditorState.createWithContent(
+                                    convertFromRaw(parsedValue)
+                                )
+                            }
+                        }
+                    } catch (error) {
+                        console.warn("Text editor error")
+                    }
+
+                    // If JSON parsing fails, assume it's HTML
+                    const blocksFromHTML = htmlToDraft(value)
+                    if (blocksFromHTML) {
+                        const contentState = ContentState.createFromBlockArray(
+                            blocksFromHTML.contentBlocks,
+                            blocksFromHTML.entityMap
+                        )
+                        return EditorState.createWithContent(contentState)
+                    }
+
+                    return EditorState.createEmpty()
+                }
+
+                setEditorState(getEditorState())
+                setIsLoading(false)
+
+                // Save stateToHTML for later use
+                window.stateToHTML = stateToHTML
+            } catch (error) {
+                console.error("Failed to load editor libraries:", error)
+            }
+        }
+
+        loadEditorLibraries()
     }, [])
 
     const handleEditorChange = (newState) => {
         setEditorState(newState)
-        const html = stateToHTML(newState.getCurrentContent())
+        const html = window.stateToHTML(newState.getCurrentContent())
         setValue(questionKey, html, { shouldValidate: true })
     }
-
-    useEffect(() => {
-        if (!controlIntiChange) {
-            getEditorState()
-            setControlInitChange(true)
-        }
-    }, [watch(questionKey)])
 
     const error = errors?.[questionKey] ? errors?.[questionKey]?.message : null
 
@@ -92,6 +113,12 @@ export const TextEditor = ({
         right: "label-right",
         left: "label-left",
     }
+
+    if (isLoading) {
+        return <div className="text-center py-4">Loading editor...</div>
+    }
+
+    const Editor = EditorRef.current
 
     return (
         <div
