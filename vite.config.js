@@ -39,6 +39,13 @@ export default defineConfig({
         "classnames",
         "jalali-moment",
         "react-icons",
+        "react-draft-wysiwyg",
+        "draft-js",
+        "html-to-draftjs",
+        "draft-js-export-html",
+        "react-multi-date-picker",
+        "react-date-object",
+        "@tailwindcss/typography",
       ],
       output: {
         globals: {
