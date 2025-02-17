@@ -211,12 +211,12 @@ export const FileField = ({
                 "z-10 w-full h-full absolute left-0 top-0 opacity-0"
               )}
               onChange={handleFileChange}
-              disabled={false}
+              disabled={disabled}
               accept={accept}
             />
             <Button
               variant="text"
-              onClick={_value ? deleteFile : null}
+              onClick={_value && !disabled ? deleteFile : null}
               icon={
                 _value ? (
                   <FaFileCircleXmark

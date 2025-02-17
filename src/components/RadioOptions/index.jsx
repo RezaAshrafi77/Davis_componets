@@ -40,6 +40,7 @@ export function RadioOptions({
         className={classNames(radioClassName)}
         checked={active === option.value}
         value={option.value}
+        disabled={disabled}
         label={option.label}
         onClick={onClick}
         {...register(questionKey)}

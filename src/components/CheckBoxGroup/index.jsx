@@ -51,6 +51,7 @@ export const CheckBoxGroup = ({
       checked={selectedValues.includes(option.value)}
       onChange={() => handleCheckboxChange(option.value)}
       className={classNames(checkBoxClassName)}
+      disabled={disabled}
       en={en}
     />
   );
