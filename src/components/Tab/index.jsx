@@ -94,7 +94,7 @@ const RenderList = ({
           "flex gap-1 h-full",
           en ? "flex-row-reverse" : ""
         )}
-        key={item}
+        key={item.title}
       >
         <div
           className={classNames(
@@ -138,7 +138,7 @@ const RenderList = ({
                       onClick={() => {
                         setActiveDropdown(null);
                         setSelectedTabs([...selectedTabs, subItem.title]);
-                        onChange(subItem.title);
+                        onChange(subItem);
                       }}
                       title={subItem.title}
                     />
@@ -158,7 +158,9 @@ const RenderList = ({
         </div>
         {item.tabs.some((sItem) => selectedTabs.includes(sItem.title)) ? (
           <RenderList
-            tabs={item.tabs}
+            tabs={item.tabs.filter(
+              (sItem) => selectedTabs[selectedTabs?.length - 1] == sItem.title
+            )}
             active={active}
             onChange={onChange}
             setSelectedTabs={setSelectedTabs}
@@ -174,7 +176,9 @@ const RenderList = ({
         className={classNames(
           "!select-none",
           deep > 0 ? "!py-1.5 !my-auto" : "!py-2",
-          active == item.title ? styles["tab-active"] : styles["tab-inactive"]
+          active?.title == item.title
+            ? styles["tab-active"]
+            : styles["tab-inactive"]
         )}
         onClick={() => {
           if (deep != 0) {
@@ -184,7 +188,7 @@ const RenderList = ({
           } else {
             setSelectedTabs([item.title]);
           }
-          onChange(item.title);
+          onChange(item);
         }}
         title={item.title}
       />
