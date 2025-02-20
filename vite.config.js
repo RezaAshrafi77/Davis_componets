@@ -37,8 +37,6 @@ export default defineConfig({
                     "classnames",
                     "jalali-moment",
                     "react-icons",
-                    "react-multi-date-picker",
-                    "react-date-object",
                     "@tailwindcss/typography",
                 ].includes(id), // Only externalize direct peerDependencies
         },
