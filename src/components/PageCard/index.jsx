@@ -1,30 +1,30 @@
 export const PageCard = ({ page, className, navigate, ...props }) => {
     return (
         <div
-            className={`${"bg-formItem aspect-square flex cursor-pointer flex-col items-center justify-center gap-2 px-4 py-3 transition-transform hover:scale-105 md:gap-3 max-h-fit"} ${className}`}
+            className={`${"bg-background flex cursor-pointer hover:scale-105 transition-all flex-col items-center justify-center rounded-md border-2 border-formItem2 border-solid w-full"} ${className}`}
             onClick={() => navigate(page.link)}
             style={{
-                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.15)",
+                boxShadow: "0px 2px 2px 0px rgba(0, 0, 0, 0.20)",
             }}
             {...props}
         >
             {page.image && (
                 <img
                     src={page.image}
-                    className={
-                        "h-12 w-12 rounded-md object-cover transition-transform md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-24 xl:w-24 hover:scale-110"
-                    }
+                    className={"w-full"}
                     alt={page.title || "Page"}
                     loading="lazy"
                 />
             )}
-            <strong
-                className={
-                    "text-center font-600 text-gray-800  text-2xs lg:text-xs xl:text-sm"
-                }
-            >
-                {page.title || "Untitled Page"}
-            </strong>
+            <div className="w-full flex justify-center items-center min-h-[60px] px-1">
+                <strong
+                    className={
+                        "text-center font-600  text-2xs lg:text-xs xl:text-sm leading-5 xl:leading-6"
+                    }
+                >
+                    {page.title || "Untitled Page"}
+                </strong>
+            </div>
         </div>
     )
 }

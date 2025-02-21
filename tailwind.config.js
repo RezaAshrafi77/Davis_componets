@@ -5,7 +5,7 @@ export default {
         "./src/**/*.{js,jsx,ts,tsx}", // Include all JavaScript and JSX/TSX files
     ],
     // eslint-disable-next-line no-undef
-    plugins: [],
+    plugins: [require("@tailwindcss/typography")],
     // Scan all component files for used classes
     theme: {
         fontFamily: {
@@ -68,7 +68,7 @@ export default {
                 },
             },
             animation: {
-                flipLeft: "flipLeft 0.3s ",
+                flipLeft: "flipLeft 0.3s",
                 flipBottom: "flipBottom 0.3s",
                 flipTop: "flipTop 0.3s",
                 flipRight: "flipRight 0.3s",

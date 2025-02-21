@@ -5,6 +5,8 @@ import { Label } from "../Label"
 import { BiError } from "react-icons/bi"
 import { useState, useEffect, useRef } from "react"
 import styles from "./styles.module.css"
+import { HiOutlinePrinter } from "react-icons/hi"
+import { printThis } from "../../utils/printThis"
 
 export const TextEditor = ({
     questionKey,
@@ -24,6 +26,36 @@ export const TextEditor = ({
     editorClassName,
     toolbarClassName,
 }) => {
+    const toolbarColors = [
+        "rgb(97,189,109)",
+        "rgb(26,188,156)",
+        "rgb(84,172,210)",
+        "rgb(44,130,201)",
+        "rgb(147,101,184)",
+        "rgb(71,85,119)",
+        "rgb(204,204,204)",
+        "rgb(65,168,95)",
+        "rgb(0,168,133)",
+        "rgb(61,142,185)",
+        "rgb(41,105,176)",
+        "rgb(85,57,130)",
+        "rgb(40,50,78)",
+        "rgb(0,0,0)",
+        "rgb(247,218,100)",
+        "rgb(251,160,38)",
+        "rgb(235,107,86)",
+        "rgb(226,80,65)",
+        "rgb(163,143,132)",
+        "rgb(239,239,239)",
+        "rgb(255,255,255)",
+        "rgb(250,197,28)",
+        "rgb(243,121,52)",
+        "rgb(209,72,65)",
+        "rgb(184,49,47)",
+        "rgb(124,112,107)",
+        "rgb(209,213,216)",
+    ]
+
     const {
         watch,
         setValue,
@@ -42,7 +74,7 @@ export const TextEditor = ({
             try {
                 const [
                     { Editor },
-                    { EditorState, ContentState, convertFromRaw },
+                    { EditorState, convertToRaw, ContentState, convertFromRaw },
                     htmlToDraftModule,
                     { stateToHTML },
                 ] = await Promise.all([
@@ -92,6 +124,7 @@ export const TextEditor = ({
 
                 // Save stateToHTML for later use
                 window.stateToHTML = stateToHTML
+                window.convertToRaw = convertToRaw
             } catch (error) {
                 console.error("Failed to load editor libraries:", error)
             }
@@ -102,9 +135,51 @@ export const TextEditor = ({
 
     const handleEditorChange = (newState) => {
         setEditorState(newState)
-        const html = window.stateToHTML(newState.getCurrentContent())
+        const contentState = newState.getCurrentContent()
+
+        // Convert editor state to HTML while preserving inline styles
+        const html = window.stateToHTML(contentState, {
+            inlineStyleFn: (styles) => {
+                const colorStyle = styles.find((style) =>
+                    style.startsWith("color-rgb")
+                )
+                const fontSizeStyle = styles.find((style) =>
+                    style.startsWith("fontsize-")
+                )
+
+                const styleObject = {}
+
+                if (colorStyle) {
+                    styleObject.color = colorStyle.replace("color-", "")
+                }
+
+                if (fontSizeStyle) {
+                    styleObject.fontSize =
+                        fontSizeStyle.replace("fontsize-", "") + "px"
+                }
+
+                return Object.keys(styleObject).length
+                    ? { style: styleObject }
+                    : null
+            },
+            blockStyleFn: (block) => {
+                const alignment = block.getData()?.get("text-align")
+                if (alignment) {
+                    return { style: { textAlign: alignment } }
+                }
+            },
+        })
+
         setValue(questionKey, html, { shouldValidate: true })
     }
+
+    // Update your style map to match exactly what's in the editor
+    const styleMap = toolbarColors.reduce((styles, color) => {
+        styles[`COLOR_${color}`] = {
+            color: color.startsWith("#") ? color : `rgb(${color})`,
+        }
+        return styles
+    }, {})
 
     const error = errors?.[questionKey] ? errors?.[questionKey]?.message : null
 
@@ -120,13 +195,30 @@ export const TextEditor = ({
 
     const Editor = EditorRef.current
 
+    const Print = () => {
+        return (
+            <div
+                className="rdw-link-wrapper"
+                aria-label="rdw-link-control"
+                onClick={() => printThis("", watch(questionKey))}
+            >
+                <div className="rdw-option-wrapper" title="print">
+                    <HiOutlinePrinter className="xs:text-sm lg:text-xl" />
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div
             className={classNames(
-                "w-full flex flex-col relative bg-formItem p-2 rounded shadow-formItem",
+                "w-full flex flex-col relative bg-formItem p-2 rounded",
                 containerClassName,
                 error ? "field-error" : ""
             )}
+            style={{
+                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.15)",
+            }}
         >
             {label && (
                 <Label
@@ -152,6 +244,26 @@ export const TextEditor = ({
 
             {/* Rich Text Editor */}
             <Editor
+                toolbar={{
+                    options: [
+                        "inline",
+                        "blockType",
+                        "fontSize",
+                        "list",
+                        "textAlign",
+                        "colorPicker",
+                        "link",
+                        // "embedded",
+                        "emoji",
+                        "image",
+                        "remove",
+                        "history",
+                    ],
+                    textAlign: {
+                        inDropdown: false,
+                        options: ["left", "center", "right", "justify"],
+                    },
+                }}
                 editorState={editorState}
                 toolbarClassName={styles.toolbar + " " + toolbarClassName}
                 wrapperClassName={styles.wrapper + " " + wrapperClassName}
@@ -164,6 +276,8 @@ export const TextEditor = ({
                 }
                 onEditorStateChange={handleEditorChange} // Update form state
                 readOnly={disabled}
+                toolbarCustomButtons={[<Print />]}
+                customStyleMap={styleMap}
             />
             {error && (
                 <span className="error">

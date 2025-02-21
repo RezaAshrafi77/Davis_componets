@@ -1,19 +1,19 @@
 .toolbar {
-  @apply bg-formItem2 m-0 rounded-t-md;
+    @apply bg-formItem m-0 rounded-t-md border-none;
 
-  * {
-    @apply bg-formItem2 shadow-none cursor-pointer;
-    direction: ltr;
-  }
+    * {
+        @apply cursor-pointer;
+        direction: ltr;
+    }
 }
 
 .wrapper {
-  box-shadow: none;
+    box-shadow: none;
 }
 
 .editor {
-  @apply h-fit min-h-14 !border-4 !border-solid  !border-formItem2 !bg-background !m-0 !px-4 hover:bg-white rounded-b-md;
-  * {
-    direction: rtl;
-  }
+    @apply h-fit min-h-32 border border-formItem2 !bg-white !m-0 !px-4 hover:bg-white rounded-b-md;
+    * {
+        direction: rtl;
+    }
 }
