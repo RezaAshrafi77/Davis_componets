@@ -37,7 +37,7 @@ export function SpecialistDashboardPage({
           row["4946"],
           moment(row["date_paziresh"])
             .locale("fa")
-            .format("HH:MM - YYYY/MM/DD"),
+            .format("HH:mm - YYYY/MM/DD"),
           row["vazeiat"],
           row["doctor_fn"],
         ])
@@ -49,7 +49,7 @@ export function SpecialistDashboardPage({
     row["fn"],
     row["6620"],
     row["4946"],
-    moment(row["date_paziresh"]).locale("fa").format("HH:MM - YYYY/MM/DD"),
+    moment(row["date_paziresh"]).locale("fa").format("HH:mm - YYYY/MM/DD"),
     row["vazeiat"],
     row["doctor_fn"],
   ]);

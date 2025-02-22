@@ -26,6 +26,7 @@ export function Prescription({
     10520: null,
     1730098894463: null,
     1730098956926: null,
+    otag: new Date().getTime(),
   });
   const [submitted, setSubmitted] = useState(false);
 
