@@ -14,8 +14,13 @@
 
 .innertab {
   @apply md:flex-1 !border-none rounded-sm min-w-[110px] md:min-w-[20vw] lg:min-w-[15vw] xl:!min-w-[12vw] text-black lg:shadow-formItem px-1 !py-1 lg:!py-2 flex items-center gap-2 cursor-pointer !text-2xs lg:!text-sm font-600 w-full text-center;
+  background: linear-gradient(180deg, #cdcdcd 0%, #eafdff 100%);
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25) inset;
-  background: linear-gradient(180deg, #cdcdcd 30%, #eafdff 100%);
+}
+
+.innertab:hover {
+  background: linear-gradient(180deg, #fff 0%, #e0fcff 100%);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 .tab-deactive {
@@ -30,6 +35,10 @@
   @apply border-none !text-black transition-all !min-w-[28vw] md:!min-w-[20vw] lg:!min-w-[15vw] xl:!min-w-[12vw];
   background: linear-gradient(180deg, #fff 0%, #e0fcff 100%);
 }
+.tab-inactive:hover {
+  background: linear-gradient(180deg, #fff 0%, #c1ffe3 100%);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25) inset;
+}
 
 .tab-active {
   @apply border-none !text-white transition-all !min-w-[28vw] md:!min-w-[20vw] lg:!min-w-[15vw] xl:!min-w-[12vw] !bg-success;
@@ -39,14 +48,22 @@
   @apply border-none !text-white transition-all !min-w-[28vw] md:!min-w-[20vw] lg:!min-w-[15vw] xl:!min-w-[12vw] !h-[27px] !bg-success;
 }
 
-.dropdown-inactive {
+.dropdown {
   @apply border-none !text-black transition-all !min-w-[28vw] md:!min-w-[20vw] lg:!min-w-[15vw] xl:!min-w-[12vw];
+}
+
+.dropdown-gradient {
   background: linear-gradient(180deg, #fff 0%, #c1ffe3 100%);
 }
 
-.dropdown-active {
-  @apply border-none !text-black transition-all !min-w-[28vw] md:!min-w-[20vw] lg:!min-w-[15vw] xl:!min-w-[12vw];
+.dropdown-default {
+  background: linear-gradient(180deg, #fff 0%, #c1ffe3 100%);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.dropdown-default:hover {
   background: linear-gradient(180deg, #fff 0%, #e0fcff 100%);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 .arrow {

@@ -98,20 +98,28 @@ const RenderList = ({
       >
         <div
           className={classNames(
-            item.tabs.some((sItem) => selectedTabs.includes(sItem.title))
-              ? styles["dropdown-active"]
-              : styles["dropdown-inactive"],
-            "flex justify-between items-center px-2  rounded cursor-pointer",
+            styles.dropdown,
+            activeDropdown == item.title
+              ? "!bg-success"
+              : item.tabs.some((sItem) => selectedTabs.includes(sItem.title))
+              ? styles["dropdown-gradient"]
+              : styles["dropdown-default"],
+            "flex justify-between items-center px-2 rounded cursor-pointer",
             en ? "flex-row-reverse" : "flex-row",
-            deep > 0 ? "py-1.5 my-auto" : "py-2"
+            deep > 0 ? "!py-1 !my-auto" : "py-2"
           )}
           onClick={(e) => handleDropdownClick(e, item)}
         >
-          <span className="text-2xs lg:text-xs xl:text-sm font-600 select-none">
+          <span
+            className={classNames(
+              activeDropdown == item.title ? "!text-white" : "",
+              "text-2xs lg:text-xs xl:text-sm font-600 select-none"
+            )}
+          >
             {item.title}
           </span>
           <GoChevronDown
-            color="black"
+            color={activeDropdown == item.title ? "white" : "black"}
             className={classNames(
               "transition-transform duration-300",
               activeDropdown == item.title ? "rotate-180" : "rotate-0"
@@ -137,7 +145,13 @@ const RenderList = ({
                       )}
                       onClick={() => {
                         setActiveDropdown(null);
-                        setSelectedTabs([...selectedTabs, subItem.title]);
+                        if (deep != 0) {
+                          const sTabs = selectedTabs;
+                          selectedTabs[deep] = subItem.title;
+                          setSelectedTabs(sTabs);
+                        } else {
+                          setSelectedTabs([subItem.title]);
+                        }
                         onChange(subItem);
                       }}
                       title={subItem.title}
@@ -158,9 +172,9 @@ const RenderList = ({
         </div>
         {item.tabs.some((sItem) => selectedTabs.includes(sItem.title)) ? (
           <RenderList
-            tabs={item.tabs.filter(
-              (sItem) => selectedTabs[selectedTabs?.length - 1] == sItem.title
-            )}
+            tabs={[
+              item.tabs.find((sItem) => selectedTabs.includes(sItem.title)),
+            ]}
             active={active}
             onChange={onChange}
             setSelectedTabs={setSelectedTabs}
@@ -175,7 +189,7 @@ const RenderList = ({
         key={item.title}
         className={classNames(
           "!select-none",
-          deep > 0 ? "!py-1.5 !my-auto" : "!py-2",
+          deep > 0 ? "!my-auto" : "!py-2",
           active?.title == item.title
             ? styles["tab-active"]
             : styles["tab-inactive"]
@@ -183,7 +197,7 @@ const RenderList = ({
         onClick={() => {
           if (deep != 0) {
             const sTabs = selectedTabs;
-            selectedTabs[deep] = item.title;
+            selectedTabs[deep - 1] = item.title;
             setSelectedTabs(sTabs);
           } else {
             setSelectedTabs([item.title]);
