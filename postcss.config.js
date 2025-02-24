@@ -1,6 +1,6 @@
 export default {
   plugins: {
-    tailwindcss: {},
+    // tailwindcss: {},
     autoprefixer: {},
     cssnano: { preset: "default" },
     "postcss-url": {
