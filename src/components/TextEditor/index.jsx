@@ -13,6 +13,7 @@ import {
 import styles from "./styles.module.css";
 import { HiOutlinePrinter } from "react-icons/hi";
 import { printThis } from "../../utils/printThis";
+import { EditorState } from "draft-js";
 
 export const TextEditor = forwardRef(
   (
@@ -102,6 +103,11 @@ export const TextEditor = forwardRef(
       setValue(questionKey, html, { shouldValidate: true });
     };
 
+    const clear = () => {
+      setEditorState(EditorState.createEmpty());
+      setValue(questionKey, "", { shouldValidate: true });
+    };
+
     useEffect(() => {
       register(questionKey, validation);
 
@@ -179,6 +185,7 @@ export const TextEditor = forwardRef(
     // Now move useImperativeHandle BELOW handleAppendText
     useImperativeHandle(ref, () => ({
       appendText: handleAppendText,
+      clear: clear,
     }));
 
     const handleEditorChange = (newState) => {

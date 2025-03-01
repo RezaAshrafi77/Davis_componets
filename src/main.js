@@ -56,6 +56,12 @@ export { Prescription } from "./sections/Prescription/index.jsx";
 //     }
 //   };
 
+//   useEffect(() => {
+//     setTimeout(() => {
+//       editorRef.current.clear();
+//     }, 5000);
+//   }, []);
+
 //   return (
 //     <Page back={true}>
 //       <FormProvider {...methods}>
