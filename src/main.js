@@ -35,75 +35,37 @@ export { Prescription } from "./sections/Prescription/index.jsx";
 // import ReactDOM from "react-dom/client";
 // import "./index.css";
 // import { Page } from "./components/Page/index.jsx";
+// import { Button } from "./components/Button/index.jsx";
+// import { TextEditor } from "./components/TextEditor/index.jsx";
 // import { FormFields } from "./layouts/FormFields/index.jsx";
 // import { Tab } from "./components/Tab/index.jsx";
 // import { FormProvider, useForm, useFormContext } from "react-hook-form";
-// import { useRef, useState } from "react";
+// import { useEffect, useRef, useState } from "react";
 
 // const MyFunction = () => {
+//   const editorRef = useRef(null);
+
 //   const methods = useForm({
 //     mode: "all",
 //   });
 //   const [tab, setActiveTab] = useState({});
 //   const tabRef = useRef(null);
+//   const handleAppendFromParent = () => {
+//     if (editorRef.current) {
+//       editorRef.current.appendText("ّبا سلام واحترام" + "\n"); // Calls the function inside the child component
+//     }
+//   };
+
 //   return (
 //     <Page back={true}>
-//       <Tab
-//         active={tab}
-//         onChange={setActiveTab}
-//         tabs={[
-//           {
-//             title: "خود اظهاری",
-//             tabs: [
-//               {
-//                 title: "تحرک بدنی",
-//               },
-//               {
-//                 title: "سوابق پزشکی و دارویی",
-//               },
-//             ],
-//           },
-//           {
-//             title: "اقدامات تصویربرداری",
-//             tabs: [
-//               {
-//                 title: "x-ray",
-//               },
-//               {
-//                 title: "دانسیتومتری",
-//               },
-//               {
-//                 title: "سونوگرافی",
-//                 tabs: [
-//                   {
-//                     title: "شکم",
-//                   },
-//                   {
-//                     title: "لگن",
-//                   },
-//                 ],
-//               },
-//             ],
-//           },
-//           {
-//             title: "معاینات بالینی",
-//           },
-//           {
-//             title: "آزمایشات",
-//           },
-//           {
-//             title: "اسپیرومتری",
-//           },
-//           {
-//             title: "ساختار قامتی",
-//           },
-
-//           {
-//             title: "اطلاعات ویزیت",
-//             submit: true,
-//           },
-//         ]}
-//       />
+//       <FormProvider {...methods}>
+//         <TextEditor
+//           ref={editorRef}
+//           useFormContext={useFormContext}
+//           questionKey="123"
+//           label="سوال"
+//         />
+//       </FormProvider>
 //     </Page>
 //   );
 // };
