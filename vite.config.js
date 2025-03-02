@@ -1,48 +1,48 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
-import autoprefixer from "autoprefixer";
-// import tailwindcss from "tailwindcss";
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import path from "path"
+import autoprefixer from "autoprefixer"
+// import tailwindcss from "tailwindcss"
 
 export default defineConfig({
-  plugins: [react()],
-  define: {
-    global: "window", // Fix for draft-js compatibility
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: "modern-compiler",
-      },
+    plugins: [react()],
+    define: {
+        global: "window", // Fix for draft-js compatibility
     },
-    postcss: {
-      plugins: [
-        // tailwindcss(),
-        autoprefixer(),
-      ],
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: "modern-compiler",
+            },
+        },
+        postcss: {
+            plugins: [
+                // tailwindcss(),
+                autoprefixer(),
+            ],
+        },
     },
-  },
-  build: {
-    lib: {
-      entry: path.resolve(__dirname, "./src/main.js"),
-      name: "ReactElementsDavis",
-      formats: ["es", "cjs"],
-      fileName: (format) => `main.${format}.js`,
+    build: {
+        lib: {
+            entry: path.resolve(__dirname, "./src/main.js"),
+            name: "ReactElementsDavis",
+            formats: ["es", "cjs"],
+            fileName: (format) => `main.${format}.js`,
+        },
+        target: "esnext", // Optimize for modern JavaScript
+        minify: "esbuild",
+        cssCodeSplit: true, // Ensures CSS is bundled properly
+        rollupOptions: {
+            external: (id) =>
+                [
+                    "react",
+                    "react-dom",
+                    "react-hook-form",
+                    "classnames",
+                    "jalali-moment",
+                    "react-icons",
+                    "@tailwindcss/typography",
+                ].includes(id), // Only externalize direct peerDependencies
+        },
     },
-    target: "esnext", // Optimize for modern JavaScript
-    minify: "esbuild",
-    cssCodeSplit: true, // Ensures CSS is bundled properly
-    rollupOptions: {
-      external: (id) =>
-        [
-          "react",
-          "react-dom",
-          "react-hook-form",
-          "classnames",
-          "jalali-moment",
-          "react-icons",
-          "@tailwindcss/typography",
-        ].includes(id), // Only externalize direct peerDependencies
-    },
-  },
-});
+})
